@@ -1,0 +1,117 @@
+[
+    {
+        "id": "req_001",
+        "description": "Fuel cells must operate safely between -40\u00b0C and +85\u00b0C.",
+        "related_docs": [
+            "doc_1"
+        ],
+        "relevant_section": "Doc 1, Sec 3.1.2",
+        "related_entities": [
+            "Hydrogen Fuel Cell",
+            "Temperature Range"
+        ],
+        "status": "Pending",
+        "notes": "",
+        "dependencies": [],
+        "associated_discrepancy": true
+    },
+    {
+        "id": "req_002",
+        "description": "Pressure relief valve per FAR Part 25.903(b).",
+        "related_docs": [
+            "doc_1",
+            "doc_2"
+        ],
+        "relevant_section": "Doc 1, Sec 3.1.2; Doc 2, Para 2",
+        "related_entities": [
+            "Pressure Relief Valve",
+            "FAR Part 25.903(b)"
+        ],
+        "status": "In Progress",
+        "notes": "Eng review needed.",
+        "dependencies": [
+            "req_001"
+        ],
+        "associated_discrepancy": true
+    },
+    {
+        "id": "req_003",
+        "description": "PEM fuel cell max temp 80\u00b0C.",
+        "related_docs": [
+            "doc_2"
+        ],
+        "relevant_section": "Doc 2, Para 1",
+        "related_entities": [
+            "PEM Fuel Cell System",
+            "Temperature Limit"
+        ],
+        "status": "Pending",
+        "notes": "",
+        "dependencies": [],
+        "associated_discrepancy": false
+    },
+    {
+        "id": "req_004",
+        "description": "Materials must meet fire resistance (ASTM E1354).",
+        "related_docs": [
+            "doc_3"
+        ],
+        "relevant_section": "Doc 3, Para 1",
+        "related_entities": [
+            "Materials",
+            "ASTM E1354"
+        ],
+        "status": "Completed",
+        "notes": "Report filed.",
+        "dependencies": [],
+        "associated_discrepancy": false
+    },
+    {
+        "id": "req_005",
+        "description": "Fuel tank flammability assessment must be performed.",
+        "related_docs": [
+            "doc_4"
+        ],
+        "relevant_section": "Doc 4, Sec 2.1",
+        "related_entities": [
+            "Fuel Tank",
+            "Flammability"
+        ],
+        "status": "Pending",
+        "notes": "",
+        "dependencies": [],
+        "associated_discrepancy": false
+    },
+    {
+        "id": "req_006",
+        "description": "Safety Management System must integrate fuel cell operations.",
+        "related_docs": [
+            "doc_5"
+        ],
+        "relevant_section": "Doc 5, Ch 3",
+        "related_entities": [
+            "Safety Management System",
+            "Fuel Cell Safety"
+        ],
+        "status": "In Progress",
+        "notes": "SOPs being drafted.",
+        "dependencies": [],
+        "associated_discrepancy": false
+    },
+    {
+        "id": "req_007",
+        "description": "Lightweight containment system evaluation is necessary for aircraft safety.",
+        "related_docs": [
+            "doc_7"
+        ],
+        "relevant_section": "Doc 7, Sec 1",
+        "related_entities": [
+            "Lightweight Systems",
+            "Aircraft Safety"
+        ],
+        "status": "Pending",
+        "notes": "",
+        "dependencies": [],
+        "associated_discrepancy": false
+    }
+]

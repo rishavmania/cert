@@ -1,0 +1,5758 @@
+DOT/FAA/TR-20/9 
+
+Federal Aviation Administration 
+William J. Hughes Technical Center 
+Aviation Research Division 
+Atlantic City International Airport 
+New Jersey 08405 
+
+Aircraft Fuel Cell and Safety 
+Management System 
+
+January 2020 
+
+Final Report 
+
+This document is available to the U.S. public 
+through the National Technical Information 
+Services (NTIS), Springfield, Virginia 22161. 
+
+This document is also available from the 
+Federal Aviation Administration William J. Hughes 
+Technical Center at actlibrary.tc.faa.gov. 
+
+U.S. Department of Transportation 
+Federal Aviation Administration 
+
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+NOTICE 
+
+This  document  is  disseminated  under  the  sponsorship  of  the  U.S. 
+Department of Transportation in the interest of information exchange. The 
+U.S. Government assumes no liability for the contents or use thereof. The 
+U.S.  Government  does  not  endorse  products  or  manufacturers.  Trade  or 
+manufacturers’ names appear herein solely because they are considered 
+essential to the objective of this report. The findings and conclusions in this 
+report are those of the author(s) and do not necessarily represent the views 
+of  the  funding  agency.  This  document  does  not  constitute  FAA  policy. 
+Consult 
+the  Technical 
+Documentation page as to its use. 
+
+the  FAA  sponsoring  organization 
+
+listed  on 
+
+This  report  is  available  at  the  Federal  Aviation  Administration  William  J. 
+Hughes  Technical  Center’s  Full-Text  Technical  Reports  page:  
+actlibrary.tc.faa.gov in Adobe Acrobat portable document format (PDF). 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2. Government Accession No. 
+
+Technical Report Documentation Page 
+3. Recipient's Catalog No. 
+
+1. Report No. 
+
+DOT/FAA/TR-20/9 
+4. Title and Subtitle 
+
+AIRCRAFT FUEL CELL AND SAFETY MANAGEMENT SYSTEM 
+
+7. Author(s) 
+
+Charles Lo 
+
+9. Performing Organization Name and Address 
+
+Honeywell International Inc. 
+111 S 34th Street 
+Phoenix, AZ 85034 
+
+12. Sponsoring Agency Name and Address 
+
+FAA William J. Hughes Technical Center  
+Atlantic City International Airport 
+Atlantic City, NJ 08405 
+
+15. Supplementary Notes 
+
+5. Report Date 
+
+January 2020 
+6. Performing Organization Code 
+
+8. Performing Organization Report No. 
+
+21-16632 
+10. Work Unit No. (TRAIS) 
+
+11. Contract or Grant No. 
+
+DTFACT-16-C-00037 
+13. Type of Report and Period Covered 
+
+Final Report 
+14. Sponsoring Agency Code 
+
+ANM-111 
+
+The Federal Aviation Administration William J. Hughes Technical Center Aviation Research Division COR was Michael Walz. 
+16. Abstract 
+
+The  safe  implementation  of  three  fuel  cell  power  system  (FCPS)  technologies  to  provide  auxiliary  power  for  commercial  air 
+transport aircraft was evaluated. The first implementation is polymer electrolyte membrane FCPS for narrow-body, short to mid-
+range  aircraft,  using  pressurized  hydrogen  gas  as  fuel.  The  second  implementation  uses  regenerative  fuel  cell  power  system 
+(RFCPS)  for  the  same  type  of  aircraft.  The  third  implementation  uses  solid  oxide  (SO)  FCPS  for  wide-body,  long-range, 
+intercontinental aircraft, converting liquid jet engine fuel through onboard fuel reformer. During the research, assumptions were 
+made for these implementations to be practical and probable. The high-level notional concept design of each implementation is 
+intended to expose new safety hazards associated with these new technologies. 
+
+17. Key Words 
+
+18. Distribution Statement 
+
+Fuel  Cell,  polymer  electrolyte  membrane,  solid  oxide  fuel  cell, 
+regenerative fuel cell 
+
+This  document  is  available  to  the  U.S.  public  through  the 
+National  Technical  Information  Service  (NTIS),  Springfield, 
+Virginia 22161. This document is also available from the Federal 
+Aviation Administration William J. Hughes Technical Center at 
+actlibrary.tc.faa.gov. 
+
+19. Security Classif. (of this report) 
+
+20. Security Classif. (of this page) 
+
+21. No. of Pages 
+
+22. Price 
+
+     Unclassified  
+
+     Unclassified 
+
+92 
+
+FORM DOT F 1700.7  (8-72)                                Reproduction of completed page authorized
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ACKNOWLEDGEMENTS 
+
+We would like to thank  Mike Walz, the Contracting Officer's Technical  Representative for the 
+project, for his guidance and advice. 
+
+The author also would like to acknowledge and thank the contributions from the Honeywell staff 
+who  supported  the  work  under  this  program:  in  particular,  Wayne  Pearson,  for  his  technical 
+guidance and candid feedback on electric power system; Dacong Weng, for his technical advice 
+on fuel cell technologies; Harmohan Singh, for his technical advice on battery technology; Steve 
+Rundus, for his technical advice on auxiliary power unit certification; and Michael Easley, for his 
+guidance and support on program management. 
+
+iii 
+
+ 
+ 
+TABLE OF CONTENTS 
+
+EXECUTIVE SUMMARY 
+
+1. INTRODUCTION 
+
+1.1 Goals and Objectives 
+
+1.2 General Approach 
+
+1.2.1 Create RTSG Framework 
+
+1.2.2 Assess Plausible FCPS Implementation Architecture 
+
+1.2.3 Assumptions 
+
+1.3 Near-Term Implementation Analysis 
+
+1.4 Create Notional Concept Design for Each FCPS Technology Implementation 
+
+1.5 Methodologies 
+
+2. NEAR-TERM IMPLEMENTATION ANALYSIS 
+
+2.1 Background 
+
+2.2 Approach 
+
+2.2.1 Assumptions 
+
+2.2.2 Assessment 
+
+2.3 Potential Implementations 
+
+2.3.1 Polymer Electrolyte Membrane Fuel Cell Power System 
+
+2.3.2 Regenerative Fuel Cell Power System (RFCPS) 
+
+2.3.3 Solid Oxide Fuel Cell Power System (SOFCPS) 
+
+2.4 Conclusions 
+
+3. NOTIONAL CONCEPT DESIGN – PEMFCPS 
+
+3.1 Product Description 
+
+3.1.1 Secondary Functions 
+
+iv 
+
+XIV 
+
+1 
+
+1 
+
+1 
+
+1 
+
+2 
+
+3 
+
+3 
+
+3 
+
+4 
+
+4 
+
+4 
+
+5 
+
+5 
+
+6 
+
+6 
+
+6 
+
+12 
+
+19 
+
+22 
+
+22 
+
+22 
+
+24 
+
+ 
+ 
+3.2 Requirements 
+
+3.2.1 Performance 
+
+3.2.2 Installation 
+
+3.2.3 Operation 
+
+3.2.4 Maintenance 
+
+3.2.5 Reliability 
+
+3.2.6 Safety 
+
+3.3 Notional Design 
+
+3.3.1 System Description (Schematics) 
+
+3.3.2 System Layouts 
+
+3.3.3 Subsystems 
+
+3.4 Maintenance and Reliability 
+
+3.5 Conclusion 
+
+4. NOTIONAL CONCEPT DESIGN – RFCPS 
+
+4.1 Product Description 
+
+4.2 Requirements 
+
+4.2.1 Performance 
+
+4.2.2 Installation 
+
+4.2.3 Operation 
+
+4.2.4 Maintenance 
+
+4.2.5 Reliability 
+
+4.2.6 Safety 
+
+4.3 Notional Design 
+
+4.3.1 System Description 
+
+4.3.2 System Configuration 
+
+v 
+
+25 
+
+26 
+
+26 
+
+26 
+
+27 
+
+27 
+
+27 
+
+30 
+
+30 
+
+31 
+
+34 
+
+41 
+
+41 
+
+41 
+
+41 
+
+43 
+
+43 
+
+43 
+
+44 
+
+44 
+
+44 
+
+45 
+
+47 
+
+47 
+
+48 
+
+ 
+4.3.3 RFCPS Subsystem Descriptions 
+
+4.4 Maintenance and Reliability 
+
+4.5 Conclusion 
+
+5. NOTIONAL CONCEPT DESIGN – SOFCPS 
+
+5.1 Product Description 
+
+5.1.1 Functions 
+
+5.2 Requirements 
+
+5.2.1 Performance 
+
+5.2.2 Installation 
+
+5.2.3 Operation 
+
+5.2.4 Maintenance 
+
+5.2.5 Stack reliability 
+
+5.2.6 Safety 
+
+5.3 Notional Design 
+
+5.3.1 System Description 
+
+5.3.2 System Configurations 
+
+5.3.3 Subsystem Notional Designs 
+
+5.4 Maintenance and Reliability 
+
+5.5 Conclusion 
+
+6. NEW SAFETY HAZARDS ASSESSMENT 
+
+6.1 Batteries 
+
+6.2 GT 73 
+
+6.3 PEMFCPS 
+
+6.4 RFCPS 
+
+6.5 Hybridized SOFCPS 
+
+vi 
+
+49 
+
+55 
+
+55 
+
+56 
+
+56 
+
+57 
+
+58 
+
+58 
+
+58 
+
+59 
+
+59 
+
+59 
+
+59 
+
+62 
+
+62 
+
+65 
+
+68 
+
+70 
+
+71 
+
+72 
+
+72 
+
+73 
+
+73 
+
+73 
+
+ 
+6.5.1 Hazard from Each Circuit 
+
+6.5.2 Hardware Hazards 
+
+6.6 Designated Fire Zone 
+
+6.7 Fuel Tank (Water) Contamination 
+
+6.8 Prevention 
+
+7. CONCLUSION AND RECOMMENDATION 
+
+7.1 Conclusion 
+
+7.2 Recommendation 
+
+73 
+
+74 
+
+74 
+
+74 
+
+74 
+
+75 
+
+75 
+
+76 
+
+vii 
+
+ 
+ 
+ 
+LIST OF FIGURES 
+
+Figure 1. Potential layout for PEMFCPS in commercial twin-engine narrow-body air 
+
+transport 
+
+Figure 2. PEMFCS concept schematic with stored pure hydrogen 
+
+Figure 3. Unitized stack concept example 
+
+Figure 4. Potential layout for RFCPS in commercial twin-engine, narrow-body air 
+
+transport 
+
+Figure 5. RFCS concept schematic 
+
+Figure 6. Preliminary integrated and hybridized SOFCPS for wide-body aircraft 
+
+Figure 7. Typical PEMFCPS schematic diagram 
+
+Figure 8. PEMFCPS configuration #1 
+
+Figure 9. Digital model rendering of the PEMFCPS configuration #1 
+
+Figure 10. Digital model rendering of the PEMFCPS configuration #2 
+
+Figure 11. Example of the strap-mount vessel of Saturn V engine 
+
+Figure 12. Simplified electrical system diagram - Current 
+
+Figure 13. Simplified electrical system diagram - PEMFCPS 
+
+Figure 14. DRFCPS schematic diagram 
+
+Figure 15. Digital model rendering of the DRFCPS 
+
+Figure 16. Digital model rendering of the DRFCPS installation example 
+
+Figure 17. Simplified electrical system diagram - Current 
+
+Figure 18. Simplified electrical system diagram - PEMFUPS 
+
+Figure 19. Hybridized solid oxide fuel cell power system schematic diagram 
+
+Figure 20. SOFCPS schematic diagram 
+
+Figure 21. SOFCPS configuration option #1 
+
+Figure 22. SOFCPS configuration option #2 
+
+viii 
+
+9 
+
+9 
+
+14 
+
+15 
+
+15 
+
+21 
+
+31 
+
+32 
+
+32 
+
+34 
+
+35 
+
+38 
+
+40 
+
+48 
+
+49 
+
+49 
+
+53 
+
+54 
+
+57 
+
+65 
+
+66 
+
+67 
+
+ 
+ 
+Figure 23. SOFCPS configuration option #3 
+
+Figure 24. Top-level electrical system architecture – Hybrid SOFCPS 
+
+67 
+
+69 
+
+ix 
+
+ 
+LIST OF TABLES 
+
+Table 1. Aircraft secondary power demand at various phases of operation 
+
+Table 2. Hydrogen fuel required 
+
+Table 3. System weight comparison 
+
+Table 4. Comparison of overall fuel-burn differences between GT APU and FCPS-
+
+equipped aircraft 
+
+Table 5. Aircraft secondary power demand at various phases of operation 
+
+Table 6. Hydrogen fuel required 
+
+Table 7. Rough net weight 
+
+Table 8. Net aviation fuel 
+
+Table 9. PEMFCPS functions summary 
+
+Table 10. Additional weight for extended function PEMFCPS 
+
+Table 11. Top-level performance requirements for notional design 
+
+Table 12. Installation requirements 
+
+Table 13. Operational requirements 
+
+Table 14. Maintenance interval requirements 
+
+Table 15. Reliability requirements 
+
+Table 16. Safety requirements 
+
+Table 16. Safety requirements (continued) 
+
+Table 16. Safety requirements (continued) 
+
+Table 17. RFCPS functions summary 
+
+Table 18. Top-level performance requirement for notional design RFCPS 
+
+Table 19. Installation requirements for RFCPS 
+
+Table 20. Operational requirements RFCPS 
+
+Table 21. Maintenance requirements RFCPS 
+
+x 
+
+9 
+
+10 
+
+10 
+
+11 
+
+16 
+
+16 
+
+17 
+
+17 
+
+23 
+
+24 
+
+26 
+
+26 
+
+26 
+
+27 
+
+27 
+
+28 
+
+29 
+
+30 
+
+42 
+
+43 
+
+43 
+
+44 
+
+44 
+
+ 
+ 
+Table 22. Reliability requirements RFCPS 
+
+Table 23. Safety requirements RFCPS 
+
+Table 23. Safety requirements RFCPS (continued) 
+
+Table 23. Safety requirements RFCPS 
+
+Table 24. Top-level performance requirement for notional design of SOFCPS 
+
+Table 25. Installation requirements for SOFCPS 
+
+Table 26. Operational requirements for SOFCPS 
+
+Table 27. Maintenance requirements for SOFCPS 
+
+Table 28. Reliability requirements for SOFCPS 
+
+Table 29. Safety requirements for SOFCPS 
+
+Table 29. Safety requirements for SOFCPS (continued) 
+
+Table 29. Safety requirements for SOFCPS (continued) 
+
+44 
+
+45 
+
+46 
+
+47 
+
+58 
+
+58 
+
+59 
+
+59 
+
+59 
+
+60 
+
+61 
+
+62 
+
+xi 
+
+ 
+ 
+AC 
+APS 
+APU 
+BOP 
+CB 
+CC 
+CG 
+COP 
+CSR 
+DC 
+DFZ 
+DOE 
+DRFCPS 
+ECS 
+ESD 
+ETOPS 
+FAST 
+FC 
+FCPS 
+FCAPS 
+FID 
+FSS 
+FTIS 
+GT 
+HVDC 
+HEX 
+LE 
+LHV 
+ME 
+MES 
+MG 
+NCD 
+NFT 
+NTIA 
+ODA 
+PEM 
+PEMFCPS 
+PGU 
+PRD 
+PT 
+RAT 
+RFC 
+RFCPS 
+SCU 
+SG 
+
+LIST OF ACRONYMS 
+
+Alternating Current 
+Auxiliary power system 
+Auxiliary power unit 
+Balance of plant 
+Catalytic Burner 
+Cathode Compressor 
+Center of gravity 
+Coefficient of performance 
+Catalytic steam reformer 
+Direct current 
+Designated fire zone 
+Department of Energy 
+Discrete regenerative fuel cell power system 
+Environment Control System 
+Energy storage device 
+Extended twin engine aircraft operations 
+Fast accurate simulation turbine 
+Fuel Cell 
+Fuel Cell Power System 
+Fuel Cell Auxiliary Power System 
+Flight Idle Descent 
+Fuel storage system 
+Fuel Tank Inerting System 
+Gas turbine 
+High voltage direct current 
+Heat exchanger 
+Leading edge 
+Lower heating value 
+Main Engine 
+Main Engine Start 
+Electric Generator 
+Notional concept design 
+Non-flow-through 
+Near-Term Implementation Analysis 
+Oxygen-depleted air 
+Polymer electrolyte membrane 
+Polymer Electrolyte Membrane Fuel Cell Power System 
+Power generation unit 
+Pressure relief device 
+Power turbine 
+Ram air turbine 
+Regenerative fuel cell 
+Regenerative Fuel Cell Power System 
+Start Converter Unit 
+Steam Generator 
+
+xii 
+
+ 
+S/G 
+SHO 
+SL 
+SO 
+SOA 
+SOFC 
+SOFCPS 
+SPU 
+SR 
+SSPC 
+ST 
+SWaP 
+TMS 
+TRU 
+TSO 
+URFC 
+URFCPS 
+VCC 
+VCS 
+WIPS 
+
+Starter/Generator 
+Steam Heated Oven 
+Sea Level 
+Solid Oxide 
+State of The Art 
+Solid oxide fuel cell 
+Solid Oxide Fuel Cell Power System 
+Start Power Unit 
+Steam Reformer 
+Solid-State Power Controller 
+Steam Turbine 
+Size, Weight, and Power 
+Thermal Management System 
+Transformer-Rectifier Unit 
+Technical Standard Order 
+Unitized Regenerative Fuel Cell 
+Unitized Regenerative Fuel Cell Power System 
+Vapor cycle compressors 
+Vapor cycle system 
+Wing-icing protection system 
+
+xiii 
+
+ 
+ 
+ 
+ 
+EXECUTIVE SUMMARY 
+
+Honeywell  has  been  funded  by  the  Federal  Aviation  Administration  (FAA)  to  study  the  safe 
+implementation of aircraft fuel cell (FC) auxiliary power unit (APU) on commercial air transport 
+aircraft and develop a Recommended Technical Standard Guideline (RTSG) to address aircraft 
+safety hazards associated with such implementations. 
+
+In  this  effort,  the  installation  and  operational  concepts  were  developed  for  three  diverse  FC 
+technologies on notional commercial air transport platforms. The systems studied were: 
+
+• 
+• 
+• 
+
+Polymer electrolyte membrane systems  
+Regenerative fuel cells 
+Solid oxide fuel cell 
+
+In  each  case,  a  technically  plausible  FC  application  was  conceived,  which,  at  least  minimally, 
+assumed the role of a conventional jet fuel-powered gas turbine auxiliary power unit. Plausibility 
+meant  that  the  FC  system  installation  was  comparable  in  weight  and  accommodated  the 
+critical/emergency functionality of the APU role. Weight parity was achieved on a system level 
+with conventional systems through a higher integration with the aircraft non-APU systems. Many 
+non-critical  APU functions and services were compromised or deleted. The hazards of service, 
+maintenance,  and  operation  were  assessed  for  each  system  in  the  context  of  these  notional 
+installations. The RTSG includes these hazards and is separately published and appended to this 
+report. Due to time and scope constraints, note that none of these FC systems/installation concepts 
+were optimized. 
+
+The study provides the following conclusions: 
+
+• 
+
+• 
+
+• 
+
+The implementation of any of the FC technologies in the role of an APU is  impractical 
+without making significant changes in the aircraft energy architecture to offset the lower 
+power density of the fuel cell auxiliary power system (FCAPS) and the lack of pneumatic 
+bleed capability in  the FCAPS. A  more electric  architecture  (MEA) will be optimal for 
+FCAPS applications.  
+PEM  fuel  cell  power  systems  will  require  a  significant  change  in  airport  energy 
+infrastructure,  with  the  requirement  for  high-pressure,  gaseous  hydrogen  refueling 
+services. 
+Solid  oxide  fuel  cell  power  systems  will  require  sulfur-free  or  ultra-low  sulfur  content, 
+aviation-fuel refueling services. 
+
+Based on the findings, the RTSG incorporates the following elements: 
+
+•  High-pressure hydrogen gas storage, regulation, and control 
+•  High-pressure hydrogen storage vessel mounting vulnerability 
+•  Hydrogen transmission through/near flammable and combustible materials 
+•  Active combustible gas monitoring and ventilation 
+•  Flammable materials in oxygen-rich environment 
+•  FC reactant mixture in oxygen-enriched environment 
+•  FC reactant system cleanliness 
+
+xiv 
+
+ 
+•  Two-phase fuel handling in fuel reformer 
+•  Steam system integrity and safety 
+•  Draining, ventilating, and energy channeling 
+
+The RTSG reflects these findings in the minimum performance standard. 
+
+xv 
+
+ 
+ 
+1.  INTRODUCTION 
+
+The aviation industry has been studying, performing tests and developing prototypes to support 
+several applications of solid oxide fuel cell (SOFC), polymer electrolyte membrane (PEMFC) and 
+regenerative fuel cells (RFC) on airplanes. Honeywell performed the Aircraft Fuel Cell and Safety 
+Management System study funded by the Federal Aviation Administration (FAA) under contract 
+DTFACT-16-C-00037. To conduct this study, Honeywell leveraged its significant experience in 
+the  research,  development,  and  production  of  military,  commercial,  and  general  aviation 
+pneumatic,  electrical,  and  mechanical  systems,  including  APUs  in  the  aviation  industry.  The 
+findings in this report do not represent Honeywell’s position on aircraft fuel cell power system as 
+APU. 
+
+1.1  GOALS AND OBJECTIVES 
+
+The purpose of this program is to study and develop FC technology for safe and certifiable aircraft 
+installations. This research also develops data and recommendations for FAA and global partners 
+to support appropriate standards, regulations, and means of demonstrating safe compliance. 
+
+This effort develops installation and operational  concepts for three diverse  FC technologies for 
+notional commercial air transport platforms.  
+
+• 
+
+• 
+
+• 
+
+Polymer electrolyte membrane (PEM) systems — Draw oxygenated air from the ambient 
+or pressurized cabin environments, using stored/replenished pressurized gaseous hydrogen. 
+Regenerative FCs — Contain high-pressure hydrogen gas and high-pressure oxygen gas in 
+a  hermetic  system.  In  a  closed  system,  they  generate  electrical  power  by  reacting  the 
+captive  hydrogen  and  oxygen  in  a  PEM  stack,  producing  captive  water;  and  then 
+hydrolyzing  the  water  in  a  reverse  reaction  back  into  hydrogen  and  oxygen  gas  on  the 
+ground between flights, or in flight using excess electrical energy on the aircraft. 
+SOFC — Uses recovered water onboard to reform ultra-low sulfur jet fuel from the fuel 
+tanks  on  board  the  aircraft  into  hydrogen,  and  carbon  monoxide,  and  then  reacts  the 
+hydrogen with ambient or cabin air oxygen in a high-temperature ceramic fuel cell stack 
+to produce electric power for the aircraft.  
+
+The specific objective of this work is to develop a Recommended Technical Standard Guidelines 
+(RTSG)  document  that  serves  to  complement  the  FAA  energy  storage  device  (ESD)  aviation 
+rulemaking committee objective, in  support of  regulatory agency  certification requirements  for 
+fuel cell power systems (FCPS) installed on commercial aircraft for auxiliary power.  
+
+1.2  GENERAL APPROACH 
+
+1.2.1  Create RTSG Framework 
+
+The initial step is to create a framework for the RTSG, based on Technical Standard Order (TSO) 
+C77b, for certifying APUs  on commercial air transport aircraft. The findings of  safety  impacts 
+related to the design, installation, operation, and maintenance of the FCPS implementation were 
+captured from the notional concept design (NCD) and consolidated and documented during the 
+course of this effort, which is the deliverable at the conclusion of this study. 
+
+1 
+
+ 
+1.2.2  Assess Plausible FCPS Implementation Architecture 
+
+This study focuses on three representative FC system architectures featuring various technologies: 
+
+• 
+• 
+• 
+
+PEM fuel cell power system (PEMFCPS) using pressurized hydrogen gas stored on board 
+Regenerative FC closed system 
+Solid oxide fuel cell power system (SOFCPS) using hydrogen and carbon monoxide- 
+enriched gas from onboard jet fuel reformation technology 
+
+The technology for the PEM fuel cells is mature in the automotive industry. While several major 
+automobile  manufacturers  have  developed  hydrogen-fueled  vehicles  with  PEM/electric  drive, 
+production has been limited. Most operate in the western states, where hydrogen refueling stations 
+have been built and located in major metropolitan areas. This same technology has been suggested 
+for application on commercial aircraft. GM recently partnered with Liebherr-Aerospace to develop 
+hydrogen-fueled  FCs  for  aircraft  auxiliary-power  applications,  providing  power  for  aircraft 
+lighting,  air-conditioning,  backup  systems,  and  other  auxiliary  functions.  (Wayland,  Michael, 
+“How  aerospace  could  be  a  key  to  GM’s  future  in  fuel  cells,”  Automotive  News/Crain 
+Communications, 
+June  18,  2018,  https://www.autonews.com/article/20180618/OEM06/ 
+180619766/how-aerospace-could-be-a-key-to-gm-s-future-in-fuel-cells.) 
+
+Regenerative  FCs  are  essentially  a  bi-directional  fuel  cell  that  operates  in  a  closed  system.  It 
+catalyzes gaseous hydrogen and oxygen, both captive in the system, into water, simultaneously 
+producing electric power. It recharges when external electrical power is applied to the fuel cell, 
+hydrolyzing the captive water back into gaseous hydrogen and oxygen. NASA initially developed 
+this  system  for  low-orbit  satellites,  and  later,  a  unitized  regenerative  PEM  fuel  cell  for  high-
+altitude, solar-powered research aircraft (Helios), though it was not used. A regenerative system 
+that  uses  excess  electrical  power  from  Main  Engine  (ME)  generators  (or  ground  power)  to 
+electrolyze water into hydrogen and oxygen has been suggested for application on commercial air 
+transport aircraft to assist in the auxiliary-power generation. 
+
+1.2.2.1  SOFCPS with Hydrogen Enriched Gas from Onboard Jet Fuel Reformation 
+
+SOFCPS technology  was developed in  the  late 1990s and early 2000s with  significant  funding 
+through  the  Department  of  Energy  (DOE)  for  use  in  various  stationary  and  automotive 
+applications. Ceres Power, Bloom Energy, and others have been developing products in this area 
+for  stationary  and  marine  applications.  As  applied  to  aerospace  for  auxiliary  power,  this 
+technology/architecture would use an onboard jet fuel reformation system to process jet fuel into 
+hydrogen-enriched gas for the fuel cell. Waste heat from the process is also available for aircraft 
+use,  such  as  cargo  compartment  or  battery  heating.  Because  these  systems  require  elevated 
+temperatures for optimal operation, and because system startup takes a comparatively long time, 
+frequent starts may be impractical, as is characteristic of current aircraft power demand profiles. 
+An optimal SOFCPS requires continuous operation. 
+
+The  operation  of  a  full-time  APU  alleviates  the  relatively  long  start-up  time  and  transfers 
+secondary power demand from the MEs at an equivalent or higher efficiency, enabling the use of 
+advanced high-performance engine configurations. 
+
+2 
+
+ 
+1.2.3  Assumptions 
+
+The traditional gas turbine (GT) APU assumes the role of extending all functions of the ME besides 
+the propulsive power, when the MEs are off or compromised. This includes providing full electric- 
+power capability and compressed air “bleed” for pneumatic power. The GT APU is a miniaturized 
+internal combustion engine that shares the same power generation principle and construction, uses 
+the same fuel, and services the same power system architecture as the MEs. The mimicking and 
+sharing between the APU and ME allow for a most compact and elegant APU package. The current 
+state-of-the-art (SOA) GT APU provides integrated shaft to power the load compressor, and geared 
+drive to power electric generator(s), at an impressive specific power in excess of 3 kW/kg, while 
+the DOE’s ultimate goal for integrated transportation fuel cell power systems of 0.65kW/kg. 
+
+Direct  drop-in  GT  APU  replacement  with  FCPS  is  not  feasible.  To  accept  FCPS  as  a  viable 
+replacement,  modifications  have  to  occur  from  aircraft  systems  level  up  to  fleet  concept  of 
+operation. Therefore, the following reasonable technologically grounded assumptions are made: 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+These  FC  technologies  are  at  various  states  of  maturity.  Reasonable  and  optimistic 
+assumptions  are  based  on  the  advancement  of  these  FC  technologies  for  aircraft 
+implementation. 
+To be feasible, the FCPS implementation requires significant modifications to the aircraft 
+power system architecture. The modifications range from a refresh of the existing platform 
+to a clean-sheet design of a brand-new aircraft. 
+Different  infrastructures  are  needed  for  different  FCPS  technology,  from  gate  power  to 
+hydrogen refilling, to pre-treatment of liquid aviation fuel. 
+Each FCPS favors its own and different concept of operation, from minimal use to all-time 
+operation. 
+The  operational  characteristics  of  each  FCPS  need  to  match  the  characteristics  of  the 
+market segments and platforms.  
+
+1.3  NEAR-TERM IMPLEMENTATION ANALYSIS 
+
+Before  developing  the  notional  concept  design  for  each  FCPS  technology,  a  high-level, 
+preliminary  design  exercise  was  performed  to  help  narrow  down  the  possibilities  and  to  avoid 
+creating a more detailed concept design and safety assessment around an FCPS implementation 
+that was not credible. This effort considered each system’s high-level attributes and attempted to 
+match them up with aircraft power system architectures, identifying potential synergies, and gaps, 
+and generating a preliminary weight and fuel consumption assessments. 
+
+1.4  CREATE  NOTIONAL  CONCEPT  DESIGN  FOR  EACH  FCPS  TECHNOLOGY 
+IMPLEMENTATION 
+
+The  notional  concept  design  (NCD)  of  each  FCPS  is  created  to  expose  new  safety  hazards 
+introduced  by  the  new  technologies.  The  NCD  approach  is  qualitative  design  supported  by 
+quantitative requirements, which also considered multiple design options. 
+
+The output of the NCD is neither a specific system design nor a suggestive trade study.  
+
+3 
+
+ 
+1.5  METHODOLOGIES 
+
+The nature of this study is geared toward the future.  It is high-level speculative work aimed to 
+expose potential new safety hazards associated with the most unlikely implementation examples. 
+Industry  norm  or  projected  values  from  “Fuel  Cell  Technologies  Office  Multi  Year  Research 
+Development Demonstration Plan” are used where appropriate. 
+
+A  multitude  of  engineering  modeling  tools  was  used  to  support  the  definition  of  FCPS 
+implementation requirement, including these physics-based models: 
+
+•  RDS — Off-the-shelf aircraft performance model for engine thrust requirement  
+•  FAST — In-house proprietary engine performance model for engine fuel burn requirement 
+•  Excel — Various customized spreadsheet models for FCPS performance and iteration 
+
+between aircraft and engine model input/outputs 
+
+When  information  was  not  readily  available,  qualitative  analogous  technique  and  engineering 
+judgment were used. 
+
+2.  NEAR-TERM IMPLEMENTATION ANALYSIS 
+
+2.1  BACKGROUND 
+
+The  modern  Air  Transport  APU  assumes  the  role  of  extending  all  ME  non-propulsive 
+functionalities, when the MEs are off or compromised. The typical APU today is a relatively small 
+gas turbine that shares the same power generation principle and construction, uses the same fuel, 
+and services the same power system architecture as the ME. These similarities between the APU 
+and ME allow for a most compact and elegant APU package. The current state-of-the-art (SOA) 
+GT APU provides an integrated shaft to drive the load compressor for pneumatic power, and a 
+reduction gearbox to drive electric generator(s) and other accessories, at a specific power in excess 
+of 3 kW/kg. Except for extended twin-engine aircraft operations (ETOPS), the GT APU operates 
+mostly on the ground. The fuel consumed before the flight reduces the aircraft weight, and the fuel 
+consumed after the flight comes from the required flight reserve.  Therefore, there is no weight 
+penalty for fuel consumed by the APU. 
+
+By comparison, DOE’s “Integrated Transportation Fuel Cell Power Systems Operating on Direct 
+Hydrogen” ultimately targets on specific power to 0.65kW/kg, not including hydrogen storage, 
+power electronics, and electric drive, according to the Fuel Cell Technologies Office Multi-Year 
+Research  Development  Demonstration  Plan.  The  ultimate  target  specific  power  for  “Fuel  Cell 
+Auxiliary Power Units” is an order of magnitude lower at 0.045 kW/kg albeit at  a much lower 
+power range of 1 to 10 kWe. As a result, for the same power requirement, the fuel cell systems 
+weigh significantly more than a GT system.  
+
+As hydrogen for a PEMFCPS or RFCPS is required exclusively for the FC operation, dedicated 
+onboard storage is needed. The gravimetric efficiency of hydrogen fuel storage is near 7%, so the 
+heavy tanks used for fuel storage are always required.  
+
+4 
+
+ 
+2.2  APPROACH 
+
+2.2.1  Assumptions 
+
+The current reality is that none of the fuel cell power systems evaluated in this study can provide 
+the same aircraft auxiliary functionality as the conventional gas turbine powered APU does within 
+the  constraints  of  the  prevailing  pneumatic  mechanical-system  aircraft  architecture  and 
+transportation system energy infrastructure. However, to make a meaningful safety assessment, 
+the FCPS design and configuration must be reasonably capable of delivering the minimum basic 
+services required of the future aircraft. At the same time, it must provide these services within, or 
+be reasonably comparable, to the weight and volume constraints of current aircraft systems. This 
+means that for each FCPS evaluated, optimistic assumptions are made that might enable this new 
+technology, even to the point of adding functionality with a corresponding benefit unique to the 
+FCPS, that may not currently exist on commercial air transport aircraft.  
+
+The FCPS implementations are assessed based on 2020 target performance factors published by 
+the  DOE  Fuel  Cell  Technologies  Office  Multi-Year  Research,  Development,  and 
+Demonstration Plan. (US Department of Energy/Office of Energy Efficiency and Renewable 
+Energy, April 2013, DOE Fuel Cell Technologies Office Multi-Year Research, Development, 
+and  Demonstration  Plan, 
+https://www.energy.gov/eere/fuelcells/downloads/fuel-cell- 
+technologies-office-multi-year-research-development-and-22) . 
+
+Future  aircraft  system  architectures  are  based  on  various  industry  published  reports  and  prior 
+Honeywell internal studies. This analysis uses values and factors from these studies for electrical 
+power demand, system weight impact, and an overall fuel burn assessment. 
+
+These assumptions apply to the following areas: 
+
+Market Segment: Each FCPS technology may have unique characteristics that are better suited 
+to  a  specific  air  transport  market  segment.  Each  assessment  identifies  these  market  segments, 
+including aircraft platform class, relevant flight routing, and operating procedures. 
+
+Infrastructure:  Required  airport  infrastructure  will  be  available,  including  gate  power  and 
+services, high-pressure hydrogen gas refueling services, and/or the availability of sulfur-free jet 
+fuel. 
+
+Concept  of  Operation:  The  concept  of  operation  of  the  aircraft  with  a  FCPS  is  changed  to 
+accommodate  the  specific  characteristics  and  operational  requirements  of  the  FCPS.  While  the 
+aircraft’s functional requirements are still met, depending on the system being evaluated, ground 
+operations  may  require  increased  dependency  on  terminal  services,  and/or  additional  synergies 
+between the FCPS and adjacent aircraft systems and services assumed to meet these requirements. 
+ETOPS is also a consideration in some FCPS implementations. 
+
+Aircraft Power System: New system architectures, and smart load management will be key to a 
+successful FCPS implementation. Since the FCPS produces direct current (DC) electrical power, 
+architectures will be assumed, which are biased towards using electrical power for services that 
+previously used pneumatic power, such as the ME starting function and the cabin environmental 
+(temperature) control.  
+
+5 
+
+ 
+ 
+2.2.2  Assessment 
+
+The approach to define characteristics necessary for implementation are: (1) practical power draw 
+from the aircraft for feasible sizing; (2) system weight; and (3) potential fuel-burn savings, if any. 
+The shape and volume of the system will be highly dependent on the level of system integration 
+and will be addressed later in each individual FCPS assessment. 
+
+Conventional APUs are sized for the maximum power within the operating envelope. This peak 
+load  may  only  occur  for  short  periods  of  demand,  such  as  during  main  engine  start  (MES)  or 
+emergency electric power at  altitude. Because  all FCPSes have  a relatively low specific power 
+compared  to  a  GT  APU,  an  alternative  approach  will  be  used,  which  assumes  that  a  more 
+sophisticated power management system utilizes the FCPS over a level power demand profile and 
+uses the ESDs such as batteries to supplement the peak power demand and assist transient states. 
+The average power demand will be used for the FCPS size calculation. 
+
+To determine plausibility, a base, or critical level of functionality must be met, along with weight 
+parity.  A  rough  concept  for  the  system  footprint  also  will  be  created.  The  weight  differential 
+between a GT APU and a FCPS will be projected using published APU data and DOE factors. 
+This  weight  comparison  considers  a  conventional  GT  APU  on  an  aircraft  with  a  conventional 
+pneumatic bleed architecture and compares it with  a more electric aircraft (MEA) architecture. 
+Weight  differentials  of  affected  systems  will  be  assessed  based  on  values  from  industry 
+publications and proprietary Honeywell internal studies. Various aircraft and engine performance 
+models are used to project fuel burn. 
+
+2.3  POTENTIAL IMPLEMENTATIONS 
+
+Current  aircraft  GT  APUs  have  very  high  gravitational  specific  power  and  volumetric  power 
+density. As noted earlier, FCPS APU cannot compete in a like-for-like  aircraft implementation 
+based on size, weight, and power (SWaP), and fuel burn. 
+
+Many other factors weigh into decisions to adopt FC technology for GT APU replacement that are 
+beyond the scope of this analysis, such as emissions, noise, regulations and mandate, costs, start-
+up time, reliability, life, etc. 
+
+Weight  is  a  primary  factor  for  system  implementation  possibilities,  with  respect  to  assessment 
+uncertainty. No hard pass/fail criteria are used to determine the likelihood of FCPS technology 
+implementation. Rather, the best effort projection of FCPS and associated aircraft changes are used 
+for assessing the most likely implementation for certification safety issues and concerns. 
+
+2.3.1  Polymer Electrolyte Membrane Fuel Cell Power System 
+
+The key factors of successfully implementing a PEMFCPS are to minimize its size and weight. 
+The  key  parameters  affecting  size  and  weight  are  the  power  (FC  stack  size)  and  energy  (fuel 
+quantity/storage size). High-power demand functions need to be satisfied by other means (such as 
+ME generators or ground power) and hydrogen fuel use needs to be minimized by using this system 
+only in necessary instances or if it enables higher benefit from other systems. 
+
+6 
+
+ 
+2.3.1.1  Target Market Segment 
+
+The  obvious  target  market  segment  for  PEMFCPS  is  commercial  air  transport,  narrow-body 
+aircraft,  of  Boeing  737  and  Airbus  A320  class,  operating  domestically  for  short  to  mid-range 
+flights, without ETOPS certification. Advancement of PEMFCPS technology for the automotive 
+industry makes it the most mature FCPS with power ranges potentially suitable for this aircraft 
+application/implementation.  The  large  production  quantities  of  this  aircraft  class  make  it  an 
+attractive market sector encouraging manufacturer investment. 
+
+In  this  initial  assessment,  ETOPS  certification  would  significantly  increase  the  size  of  the 
+PEMFCPS, potentially making it infeasible. However, there are sufficient domestic routes that do 
+not require ETOPS certification to potentially justify the PEMFCPS. 
+
+These  aircrafts  assume  the  following:  be  equipped  with  internal  hydrogen  storage  to  support 
+PEMFCPS operation; the air for the PEMFCPS will be fed from the cabin air outflow valve; the 
+aircraft to employ a more electric power architecture, with an electric starter-generator mounted 
+on  each  engine;  the  main  engines  to  provide  bleed  air  for  cabin  pressurization;  and  the  cabin 
+environmental  control  system  to  use  an  electric-driven  vapor  cycle  system  to  manage  the 
+temperature of the bleed air pressuring the cabin. 
+
+2.3.1.2  Concept of Operations 
+
+United Airlines announced back in March of 2015 that it was going to change its procedures on 
+APU operation, and cease starting the APU after landing. (Sumers, Brian, March 16, 2015, “United 
+to change APU procedures after successful Denver test,” https://atwonline.com/avionics/united-
+change-apu-procedures-after-successful-denver-test.) More recently, United also announced that 
+it would use terminal services whenever available and further limit/reduce the usage of aircraft 
+APUs. These moves by United suggest a concept of operations (CONOPS) where APU services 
+are only routinely used for ME starting. Extending this CONOPS to the future state, a PEMFCPS 
+similarly might also be used only on the ground for ME start, during the transition between gate 
+(ground) power and ME power (a necessity).  
+
+In addition, it is anticipated that these future aircrafts with MEs that use an advanced high-pressure 
+ratio engine core may need the PEMCPS to provide electrical power during descent, so that the 
+MEs can be pulled back to flight idle. This ability enables ME operability improvement and related 
+fuel-burn reduction. Here is a summary of the preliminary CONOPS: 
+
+1. 
+2. 
+3. 
+
+4. 
+5. 
+6. 
+7. 
+
+The aircraft is connected to ground power and conditioned air at the gate. 
+The hydrogen tank is topped off at the gate at each airport. 
+The aircraft switches to PEM FC APU power from ground power when ready to depart the 
+gate. 
+The PEM FC APU power starts the first ME. 
+The first ME starts the second ME. 
+The PEM FC APU shuts down after both engines are operating. 
+The MEs power the aircraft through taxi, takeoff, climb, and cruise phases of the flight as 
+currently operated today. 
+
+7 
+
+ 
+8. 
+
+9. 
+
+The PEM FC APU starts at the top of descent and provides all electric power during the 
+descent phase of the flight. 
+During approach, the main engines resume supply of power, and the PEM FC APU shuts 
+off. 
+
+2.3.1.3  Assumptions 
+
+1. 
+
+2. 
+3. 
+
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+
+10. 
+
+All airports have gate ground power and conditioned air connections, which operators will 
+use. 
+Hydrogen refueling infrastructure is mature, reaching all commercial airports. 
+The  aircraft  Environment  Control  System  (ECS)  operates  at  a  higher  coefficient  of 
+performance (COP) that is a multiple of COP of the current pneumatic system. 
+MES by electric starter motor, or starter/generator (S/G). 
+Load-shedding employed during MES, some failure modes, and emergencies. 
+The ME control allows lower idle speed and fuel flow to save fuel. 
+The cabin is pressurized by engine bleed air. 
+In case of a non-operational PEMFCPS in flight, the aircraft reverts to ME power. 
+Electrical load on ground is 120 kW for sea level (SL), hot-day (design case) condition. 
+Duration is 15 minutes. 
+PEMFCPS  effective  lower  heating  value  (LHV)  efficiency  is  45  percent  (69  percent  of 
+peak efficiency). 
+
+11.  MES requires 75 kW (hot day), 85 kW (cold day). Duration is 2 minutes. 
+12. 
+13. 
+14. 
+15. 
+16. 
+17. 
+18. 
+19.  ME fuel burn saving during descent is 50 percent of baseline. 
+
+Starting current is augmented by two onboard 40AH Li-Ion batteries. 
+Vapor cycle system (VCS) will be idling (compressors off) during MES. 
+Electric load in Flight Idle Descent (FID) is 86 kW. Duration is 30 minutes. 
+Electric load in emergency mode is 40 kW. Duration is 60 minutes. 
+Hydrogen fuel to storage system weight ratio is 5.5 percent. 
+FC APU specific power without fuel tank is 0.65 kW/kg. 
+1,500 NM flight fuel burn weight penalty is 14.5 percent of added weight. 
+
+2.3.1.4  Potential System Description 
+
+The PEMFCPS was initially envisioned with dual-stack arrangement, co-located or integrated with 
+the ECS for close coupling of the electric power and purge air from ECS. The FCPS cathode is fed 
+by boosted cabin air; the stack is water cooled, and the final heat sink is ambient (ram) air.  
+
+8 
+
+ 
+Figure 1. Potential layout of PEMFCPS in commercial twin-engine narrow-body air 
+transport 
+
+Figure 2. PEMFCS concept schematic with stored pure hydrogen 
+
+Table 1 lists power demands during flight segments when the PEMFCPS is providing power, a 
+best-effort  estimate.  These  power  demands  are  used  as  average  values  for  the  purpose  of 
+PEMFCPS system-sizing and hydrogen-fuel quantity calculations only. 
+
+Table 1. Aircraft secondary power demand at various phases of operation 
+
+Power Demand, kW 
+
+ECS Total (compressors, blowers, fans) 
+Fuel Pumps 
+Hydraulic Pumps 
+
+Ground 
+69 
+12 
+16 
+
+MES 
+18 
+12 
+0 
+
+Descent 
+39 
+12 
+8 
+
+9 
+
+ 
+ 
+ 
+Power Demand, kW 
+
+Galley 
+Lighting 
+Anti-Icing 
+Main Engine Start 
+Total 
+
+Ground 
+9 
+6 
+0 
+0 
+112 
+
+MES 
+9 
+6 
+0 
+75 
+120 
+
+Descent 
+11 
+6 
+10 
+0 
+86 
+
+Duration, min. 
+
+15 
+
+2 
+
+30 
+
+2.3.1.4.1  Hydrogen Fuel  
+
+The required hydrogen fuel, and the fuel storage size, is calculated based on the assumed load, 
+operating time, and DOE target FC efficiencies and weight factors (see Table 2). 
+
+Table 2. Hydrogen fuel required  
+
+Energy demand, kWh 
+Hydrogen fuel required, kg 
+Total hydrogen fuel required per flight, kg 
+
+Ground & MES 
+32 
+2.4 
+
+Descent 
+43 
+3.2 
+
+5.6 
+
+The total hydrogen required per flight is 5.6 kg, without margin and reserve for runway delay use, 
+because the MEs could provide power during flight descent if necessary. 
+
+2.3.1.4.2  Weight 
+
+The overall weight estimates are based on data derived from the public domain (GT APU, FCPS, 
+hydrogen fuel system, etc.), prior Honeywell proprietary internal studies (MES and ECS, weight 
+fuel-burn penalty, etc.), and Honeywell proprietary engine models (FID fuel saving potential) (see 
+Table 3). In this assessment, the PEMFCPS in a more electric architecture (MEA) with electric 
+MES and electric-driven VCS/ECS is compared with a conventional GT powered system using 
+pneumatic AC/ECS and MES. In the table below, the FCPS benefits from being sized to an average 
+power requirement, which is much smaller than the conventional GT APU, and from the much 
+smaller  ducting  required  to  feed  and  exhaust  the  PEMFCPS.  The  value  reflected  in  Aircraft 
+Systems reflects the adjusted results of a previously unpublished Honeywell study, which traded 
+the benefits of a MEA vs pneumatic bleed aircraft architecture. These adjustments accounted for 
+PEMFCPS-specific requirements that were not in the original study. 
+
+ Table 3. System weight comparison 
+
+Additions, kg 
+
+Reductions, kg 
+
+FCPS 
+Fuel & Storage System 
+Aircraft Systems 
+
+185 
+100 
+
+APU 
+Descent Fuel Burn Saving 
+
+192 
+65 
+40 
+
+10 
+
+ 
+ 
+ 
+ 
+ 
+Additions, kg 
+
+Reductions, kg 
+
+Fuel Burn Weight Penalty 
+Sum 
+Net Weight Increase 
+
+285 
+
+Sum 
+
+-13 
+
+1 
+298 
+
+Note that the PEMFCPS can provide emergency power but did not take weight credit of the ram 
+air turbine (RAT) because some narrow-body air transport aircrafts, such as Boeing 737, are not 
+equipped with one. 
+
+2.3.1.4.3  Fuel Burn 
+
+The impact of the PEMFCPS on jet fuel burn or aircraft fuel consumption was assessed, together 
+with the PEMFCPS dedicated hydrogen fuel requirement. As noted in Table 3, the lower weight 
+of the PEMFCPS resulted in a net decrease in jet fuel burned during flight.  
+
+MEs are very efficient in providing electric (shaft) power during climb, and particularly cruise, 
+due to its high derivative efficiency adjacent its power setting. But when idling, the electric (shaft) 
+power demands a speed higher than necessary due to operability consideration, thereby producing 
+excess thrust, and corresponding high fuel burn. Thus, when the APU or PEMCPS can provide 
+this electric power, the MEs can pull back to idle during descent, resulting in fuel savings. 
+
+Table 4 compares the overall fuel burn difference between GT APU and FCPS-equipped aircraft 
+for reference only. 
+
+Table 4. Comparison of overall fuel-burn differences between GT APU and FCPS-
+equipped aircraft 
+
+Fuel Type 
+
+APU Fuel Burn Saving 
+ME Descent Saving 
+Weight Penalty 
+Overall Fuel Burn Delta 
+
+Aviation Fuel, kg 
+-37 
+-65 
+-1 
+-103 
+
+Compressed Hydrogen, kg 
+2.4 
+3.2 
+
+5.6 
+
+2.3.1.5  Preliminary Assessment 
+
+The  preliminary  conclusion  is  that  the  PEMFCPS  could  be  a  technically  plausible  solution  for 
+secondary or auxiliary power in the midsize narrow-body commercial air transport segment. In 
+this assessment, the system appears to have comparable weight as conventional systems. It brings 
+the additional benefit of producing none of the exhaust emissions, including CO, CO2, NOx or 
+non-volatile particulates of either environmental or health concerns. This system also is inherently 
+quiet, to the benefit of passengers, ramp workers, and airport neighborhoods. The system weight 
+will certainly change and likely to increase as development progresses. However, it is not expected 
+to increase beyond the plausible limit. 
+
+11 
+
+ 
+ 
+ 
+ 
+This finding, of course, is contingent on several basic assumptions, which may or may not come 
+to pass. Key among these assumptions are: 
+
+• 
+• 
+
+• 
+
+• 
+
+The implementation of an MEA in future aircraft. 
+The  implementation  of  a  hydrogen  infrastructure  at  airports  to  support  refueling  of  the 
+aircraft secondary/auxiliary power systems. 
+The  willingness  of  air  carriers  to  forgo  terminal  independence,  to  require  that  airport 
+terminals  provide  both  cabin  air  ventilation  and  temperature  control,  as  well  as  electric 
+power. Given that these aircraft will have an efficient ECS, electric power for the VCS/ECS 
+could be a substitute for conditioned air from the terminal. 
+These aircraft are not required to operate with ETOPS. 
+
+Extended  operation  of  the  PEMFCPS  will  affect  the  on-board  hydrogen  fuel  system  size  and 
+weight. The system used in this plausibility assessment operates only for 47 minutes per flight. 
+System/value trades could dedicate more storage weight for additional PEMFCPS operating time, 
+enabling ETOPS or time-limited terminal independence. Technology improvements in hydrogen 
+storage gravitational efficiency would benefit the system with longer durations.  
+
+2.3.2  Regenerative Fuel Cell Power System (RFCPS) 
+
+Regenerative fuel cells are a relatively recent technology. In concept, they are a reversible fuel 
+cell,  with  integrated  gaseous  reactants.  Functionally,  they  use  external  electrical  power  to 
+internally electrolyze pure water (H2O) into separate internal reservoirs of gaseous hydrogen and 
+oxygen gas and are then capable of providing electrical power by catalyzing the H2 and O2 back 
+to water. The size of the PEM stack defines/limits the  voltage of the unit. The flow rate of the 
+reactants  defines  the  current.  The  capacity  of  the  integrated  gaseous  reactants  defines  the  total 
+energy  storage  capacity.  While  the  concept  of  a  reversible  fuel  cell  goes  back  to  the  1960s, 
+significant  development  occurred  in  the  1990s  and  early  2000s.  NASA  prototyped  the 
+development  of  a  fuel  cell,  integrating  a  PEM  stack,  electrolyzer,  balance  of  plant,  and  high-
+pressure storage for reactants with the vision of using the device on a high-altitude, solar-powered 
+research aircraft (Helios). Various government funded and commercial development efforts have 
+further refined the technology, making it more compact and affordable. There appears to be active 
+efforts to  market  this technology  for stationary, temporary energy storage, as well as for space 
+applications. 
+
+The  attraction  of  the  RFCPS  for  air  transport  aviation  is  that  it  does  not  require  any  hydrogen 
+infrastructure. Unlike the PEMFCPS, there is no need to refuel this system unless a maintenance 
+action.  
+
+2.3.2.1  Target Market Segment 
+
+Like  the  PEMFCPS,  the  RFCPS  may  be  best  suited  for  commercial  air  transport  narrow-body 
+aircraft, of the Boeing 737 and Airbus A320 class, operating domestically for short to mid-range 
+flights, without ETOPS certification. While this technology is less developed than the PEMFCPS, 
+there  is  no  infrastructure  change  that  is  required  for  its  implementation.  The  large  production 
+quantities  of  this  aircraft  class  make  it  an  attractive  market  sector,  encouraging  manufacturer 
+investment. 
+
+12 
+
+ 
+In  this  initial  assessment,  ETOPS  certification  would  significantly  increase  the  system  size, 
+potentially making it infeasible. However, there are sufficient domestic routes that do not require 
+ETOPS certification to potentially justify the RFCPS. 
+
+It is assumed that these aircrafts employ a more electric power architecture, with an electric-starter 
+generator mounted on each engine, with MEs that provide bleed air for cabin pressurization, and 
+a cabin environmental control system that uses an electric driven, vapor-cycle system to manage 
+the temperature of the bleed air pressuring the cabin. 
+
+2.3.2.2  Concept of Operation 
+
+Because the RFCPS can provide continuous power for a duration limited by its reactant capacity, 
+like the PEMFCPS, a similar concept of operation will be followed. The difference for the RFCPS 
+is that during the period following RFCPS operation, when not providing power, the RFCPS is in 
+regenerative  mode  converting  water  back  into  high  pressure  hydrogen  and  oxygen  gases  using 
+electric power from the MEs. For the RFCPS, the concept of operation is : 
+
+1. 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+
+8. 
+
+9. 
+
+The aircraft  connects to ground power and conditioned air at the gate.  
+The onboard electrolyzer replenishes the hydrogen and oxygen tank, using gate power.  
+The aircraft switches to RFCPS power from ground power when ready to depart the gate. 
+The RFCPS power starts the first ME. 
+The first ME starts the second ME. 
+The RFCPS switches to regenerative mode after both engines are operating. 
+The MEs power the aircraft and the RFCPS electrolyzer through taxi, takeoff, climb, and 
+cruise phases of the flight as currently operated today. 
+The RFPS switches to power-generation mode at the top of descent and provides all electric 
+power during the descent phase of the flight. 
+During  approach,  the  MEs  resume  supply  of  electric  power,  and  the  RFCPS  will  be 
+switches to regenerative mode. 
+
+2.3.2.3  Assumptions 
+
+1. 
+2. 
+
+3. 
+4. 
+
+5. 
+6. 
+7. 
+8. 
+9. 
+
+10. 
+
+11. 
+
+No hydrogen refueling infrastructure at airports. 
+All airports have gate ground power and conditioned air connections, which operators will 
+use. 
+The aircraft electric load profile allows the ME generators to recharge the RFCPS. 
+The  aircraft  ECS  operates  at  a  higher  COP  that  is  a  multiple  of  COP  of  the  current 
+pneumatic system. 
+MES by electric starter motor, or (S/G). 
+Load-shedding is employed during MES, some failure modes, and emergencies. 
+The ME control allows lower idle speed and fuel flow to save fuel. 
+During FID, the cabin is pressurized by engine bleed air. 
+In case of a non-operational RFCPS in flight, the aircraft reverts to ME for electric power 
+during FID.  
+Electric load on ground is 120 kW for SL, hot-day (design case) condition. Duration is 15 
+minutes. 
+RFCPS effective LHV efficiency is 56 percent. 
+
+13 
+
+ 
+12.  MES requires 75 kW (hot day), 85 kW (cold day). Duration is 2 minutes. 
+13. 
+14. 
+15. 
+16. 
+17. 
+18. 
+19. 
+20.  ME fuel-burn saving during descent is 50 percent of baseline. 
+
+Starting current is augmented by the one onboard 40AH Li-Ion battery. 
+VCS momentarily idles (compressors off) during MES. 
+Electric load in flight idle is 86 kW. Duration is 30 minutes. 
+Electric load in emergency mode is 40 kW. Duration is 60 minutes. 
+Hydrogen fuel to reactants storage system weight ratio is 2.7 percent. 
+FC APU specific power without fuel tank is 0.8 kW/kg. 
+1,500 NM flight fuel burn weight penalty is 14.5 percent of added weight. 
+
+2.3.2.4  Potential RFCPS System Description 
+
+The RFCPS can be discrete (separate stacks for water electrolyzer and FC) or unitized (common 
+stack).  
+
+The unitized stack is attractive due to its simplicity. Figure 3 shows a basic concept for the unitized 
+regenerative fuel cell power system (URFCPS). It features a single unitized stack that performs 
+both  electrolysis  and  power-generation  process.  In  its  simplest  form,  no  operational  pressure 
+regulation  or  flow  control  is  necessary.  However,  URFCPS  technology  is  still  in  early 
+development, and may see significant changes as performance, durability, cost, and safety issues 
+are identified and resolved ahead of successful commercialization.  
+
+Currently, the URFCPS lacks the flexibility to tailor the electrolyzer and FC stack functions to the 
+system duty cycle. Because the FC and electrolyzer operate under different conditions, substantial 
+compromises must be made in the design of URFCPS, which may make it less competitive than 
+other options. Most importantly, the potential hazard of inability to isolate reactants from failure 
+mode such as  autoignition in  the stack will result in catastrophic consequence due to  the high-
+pressure, high-energy reactants stored in close proximity. The overall assessment makes URFCPS 
+for commercial aircraft implementation implausible, and, therefore, no further action is considered. 
+
+Figure 3. Unitized stack concept example 
+
+14 
+
+ 
+ 
+Depending on the electrolysis pressure, as its power density is higher than that of the PEMFCPS, 
+the system may consist of multiple smaller units. Since the RFCPS does not rely on air for oxygen 
+source, it opens many more installation options. And because it’s a closed system, maintenance is 
+minimized. A distributed power network could be realized with this technology. 
+
+Figure 4. Potential layout for RFCPS in commercial twin-engine, narrow-body air 
+transport 
+
+Figure 5. RFCS concept schematic 
+
+2.3.2.4.1  Power Demand 
+
+Table 5 defines the power demand for the FCPS. 
+
+15 
+
+ 
+ 
+ 
+Table 5. Aircraft secondary power demand at various phases of operation 
+
+Power Demand, kW 
+
+ECS Total (compressors, blowers, fans) 
+Fuel Pumps 
+Hydraulic Pumps 
+Galley 
+Lighting 
+Anti-Icing 
+Main Engine Start 
+Total 
+
+Ground 
+69 
+12 
+16 
+9 
+6 
+0 
+0 
+112 
+
+MES 
+18 
+12 
+0 
+9 
+6 
+0 
+75 
+120 
+
+Descent 
+39 
+12 
+8 
+11 
+6 
+10 
+0 
+86 
+
+Duration, min. 
+
+2.3.2.4.2  Fuel 
+
+15 
+
+2 
+
+30 
+
+Because the gaseous hydrogen fuel storage system (FSS) consumes the most energy of the three 
+operating conditions (listed in Table 5), it is sized for the FID energy requirement, and because 
+any fuel consumed during MES or ground operation prior to takeoff can be regenerated by MEs 
+during the subsequent flight. MEs can generate fuel required for ground and MES during taxi or 
+at the terminal from ground power. This allows the size of the RFCPS fuel system to be reduced 
+from the 5.6 kg required for the PEMFCPS to 2.3 kg. Since a stoichiometric amount of oxygen is 
+also required, an additional 18.4 kg of oxygen is necessary. 
+
+Table 6. Hydrogen fuel required 
+
+Energy Demand, kWh 
+Hydrogen Fuel Required, kg 
+
+Descent 
+43 
+2.3 
+
+2.3.2.4.3  Weight 
+
+The overall weight estimates are based on data derived from the public domain (GT APU, FCPS, 
+hydrogen fuel system, etc.), prior Honeywell proprietary internal studies (MES and ECS, weight 
+fuel-burn penalty, etc.), and Honeywell proprietary engine models (FID fuel-saving potential). The 
+value  reflected  in  Aircraft  Systems  reflects  the  adjusted  results  of  a  previous  unpublished 
+Honeywell study, which traded the benefits of a MEA vs pneumatic bleed aircraft architecture. In 
+this assessment, the RFCPS in a MEA with electric main engine start and electric driven VCS/ECS 
+is compared with a conventional GT-powered system using pneumatic AC/ECS and MES.  
+
+The maturity of mobile regenerative FC technology lags that of the automotive PEMFCPS. As no 
+credible data exists for quantitative implementation assessment, an analogous analysis technique 
+is  therefore  used  for  qualitative  assessment.  As  with  the  PEMFCPS,  the  RFCPS  benefits  from 
+being sized to an average power requirement, which is much smaller than the conventional GT 
+
+16 
+
+ 
+ 
+ 
+APU.  The  weight  of  the  system  is  estimated  to  be  slightly  lighter  than  that  of  the  PEMFCPS 
+because: 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+The energy required is less than 50 percent of a PEMFCPS implementation; therefore, the 
+hydrogen fuel system weighs less. 
+Oxygen and its storage is required, which weighs less than that of the hydrogen for half the 
+volume required. 
+The stacks construction is non-flow-through (NFT) design, therefore, smaller in size for 
+the same power. 
+The stack can be of smaller size due to ~10X higher reactant partial pressure resulting in 
+higher current density. 
+Since  the  system  does  not  require  air  blowers/compressors,  the  balance  of  plant  should 
+consume less power and weigh less. 
+Only one battery is required to supplement the transient-power capability on the RFCPS 
+because  its  transient  response  is  faster  than  the  air  breathing  PEMFCPS.  The 
+conventional/baseline system has two batteries.  
+
+Table 7 lists the weight-assessment result. 
+
+Table 7. Rough net weight 
+
+Addition, kg 
+
+Credit, kg 
+
+FCPS 
+Reactants & regenerative system 
+Fuel burn weight & shaft penalty 
+
+Sum 
+Net  
+
+2.3.2.4.4  Fuel Burn 
+
+264 
+78 
+27 
+
+369 
+
+APU 
+Descent fuel burn saving 
+Aircraft Systems 
+Battery 
+Sum 
+
+24 
+
+192 
+65 
+65 
+23 
+345 
+
+Even  though  the  RFCPS  provides  functionality  identical  to  the  PEMFCPS  and  weighs  slightly 
+more than the PEMFCPS, a typical flight burns somewhat more fuel than the PEMFCPS. Since 
+the  RFCPS  is  charged  by  energy  from  the  MEs,  the  ME  fuel  burn  will  be  higher  than  the 
+PEMFCPS. The calculation is based on the following: 
+
+• 
+• 
+
+• 
+
+Same fuel saving during descent as PEMFCPS 
+Additional fuel burn during the RFCPS regeneration period by the MEs to electrolyze the 
+liquid water into gaseous hydrogen and oxygen 
+Slightly less weight penalty 
+
+Table 8. Net aviation fuel 
+
+Fuel Type 
+
+APU fuel burn saving 
+
+Aviation Fuel, kg 
+-37 
+
+17 
+
+ 
+ 
+ 
+Fuel Type 
+Main engine descent saving 
+Weight & shaft penalty 
+Overall fuel burn delta 
+
+Aviation Fuel, kg 
+-65 
+27 
+-75 
+
+2.3.2.5  Preliminary Assessment 
+
+Both PEMFCPS and RFCPS system weights are within estimation uncertainty, as are potential 
+aviation fuel savings. 
+
+The  preliminary  conclusion  is  that  the  RFCPS  could  be  a  technically  plausible  solution  for 
+secondary or auxiliary power in the midsize narrow-body commercial air transport segment. In 
+this assessment, the system appears to have comparable weight as conventional systems. Because 
+it requires main engine operation to regenerate H2 and O2 in flight, it cannot claim to completely 
+eliminate system exhaust emissions. However, since these occur in flight, the impact on ground-
+level pollution is still minimized. This system is inherently quiet, to the benefit of passengers, ramp 
+workers,  and  airport  neighborhoods.  The  system  weight  will  certainly  change  and  will  likely 
+increase as development progresses; however, it is not expected to increase beyond the plausible 
+limit. 
+
+This finding is, of course, contingent on several basic assumptions, which may or may not come 
+to pass. Key among these assumptions are: 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+The implementation of an MEA in future aircraft. As such, the fuel cell system is required 
+only  to  produce  DC  electrical  power  at  a  specific  voltage,  which  is  subsequently 
+conditioned/controlled as  needed by the system. Likewise, electrical  power required for 
+balance of plant (BOP) functions, including sensors, fans, pumps, actuators, are provided 
+from either an internal source or the aircraft power buses.  
+Onboard battery power is used to supplement or absorb RFCPS power during transients. 
+For this application only, a single 48v XX Amp Hr battery is assumed. 
+The  implementation  of  a  hydrogen  infrastructure  at  airports  to  support  refueling  of  the 
+aircraft secondary/auxiliary power systems. 
+The  willingness  of  air  carriers  to  forgo  terminal  independence,  to  require  that  airport 
+terminals  provide  both  cabin  air  ventilation  and  temperature  control,  as  well  as  electric 
+power. Given that these aircraft will have an efficient ECS, electric power for the VCS/ECS 
+could be a substitute for conditioned air from the terminal. 
+These aircrafts are not required to operate with ETOPS. 
+
+Extended operation of the RFCPS will affect the size and weight of the onboard hydrogen fuel 
+system. The system used in this plausibility assessment operates only for 47 minutes per flight. 
+System/value trades  could dedicate more storage weight, for additional RFCPS operating time, 
+enabling ETOPS or time-limited terminal independence. Technology improvements in hydrogen 
+storage, gravitational efficiency would benefit the system with longer durations.  
+
+18 
+
+ 
+2.3.3  Solid Oxide Fuel Cell Power System (SOFCPS) 
+
+Solid oxide fuel cells have been in development in one form or another since the 1950s. They were 
+initially developed as stationary power sources, often as part of a bottoming cycle, or cogeneration 
+application. Characteristic of SOFCPS, the stack operates at elevated temperatures, >800C. As a 
+result, it has the capability to reform conventional logistics fuels, and does not use precious metals 
+for catalysis. Also, characteristic of these systems, they use high-temperature materials and have 
+poor cyclic life and poor transient operational characteristics. The SOFCPS is also more tolerant 
+to  sulfides  in  the  fuel  than  a  low  temperature  PEMFCPS,  though  sulfides  do  contribute  to  a 
+performance reduction.  
+
+The ideal  implementation  in  commercial  transport aircraft  is  a power system  that continuously 
+stays  on,  except  for  scheduled  maintenance.  For  the  same  reason,  the  SOFCPS  is 
+ineffective/inefficient  in  dealing  with  transient  states;  and  is  better  suited  for  providing  base 
+loading. The SOFCPS provides power throughout the flight profile, so the ME can be relieved of 
+all parasitic power extraction and be more efficient in providing propulsive power. 
+
+To  improve  the  overall  system  performance  and  weight,  the  SOFCPS  provides  additional 
+functions, such as heat for galley services, oxygen-depleted air (ODA) for fuel tank inerting, and 
+recovered water to support the various aircraft hotel services. 
+
+2.3.3.1  Target Market Segment 
+
+Future A SOFCPS is most likely to be used in a wide-body aircraft designed for intercontinental 
+flights (similar to the Boeing 777/787 and Airbus A350), with a typical range between 3,000 – 
+9,000 nautical miles. As high-utilization aircraft can operate for more than 20 hours per day, the 
+SOFCPS can operate continuously without shutdown, except for scheduled maintenance. 
+
+2.3.3.2  Concept of Operation 
+
+The  SOFCPS  provides  all-time  power  supply,  even  when  parked.  System  shutdown  is  for 
+maintenance only. 
+
+Functions:  
+
+• 
+• 
+• 
+• 
+• 
+
+Provides all electric power for aircraft operation, including emergency power 
+Provides thermal power for galley operation and wing anti-ice 
+Water for cabin lavatory use 
+ODA for fuel tank inerting and cargo-hold fire suppression. 
+Emergency oxygen  
+
+2.3.3.3  Assumptions 
+
+• 
+• 
+• 
+
+Clean-sheet design for wide-body air transport platform. 
+Sulfur-free or ultra-low sulfur (< 1 ppm) jet fuel is available at all airports. 
+The  aircraft  ECS  operates  at  a  higher  COP  that  is  a  multiple  of  COP  of  the  current 
+pneumatic system. 
+
+19 
+
+ 
+• 
+
+• 
+• 
+• 
+
+• 
+• 
+• 
+• 
+• 
+
+Hybrid power system – SOFCPS to provide base-load power and RFCPS to smooth the 
+load profile. 
+The ME provides propulsive power only. 
+The SOFCPS provides all non-propulsive power. 
+Cabin  is  pressurized  using  power  recovered  from  cabin  outflow  air,  boosted  by  engine 
+bleed air. 
+Cabin is pressurized by ME bleed during FID. 
+Solid oxide fuel cell (SOFC) stack cooling air is used for wing icing protection. 
+Use published Boeing 787 data as baseline for comparison. 
+Electric power base demand is 520. 
+Electric Power System peak demand – 520 kVA (explained in next section) 
+
+– 
+– 
+– 
+
+SOFC stack (64 percent) 
+SOFC turbo generator (13 percent) 
+Regenerative fuel cell (RFC) stack (23 percent) 
+
+• 
+
+SOFC stack efficiency is 40 percent. 
+
+– 
+
+SOFCPS specific power (0.045 kW/kg) 
+
+• 
+• 
+
+5,400 NM flight fuel burn weight penalty is 50 percent of added weight. 
+Main propulsive engine fuel burn improvement is 5 percent 
+
+2.3.3.4  Potential System Description 
+
+The schematic in Figure 6 describes the system concept for application of the SOFCPS to a large, 
+wide-body commercial air transport. A fraction of the cabin outflow air is compressed with the 
+cathode compressor (CC) and flows into the SOFC cathode. Liquid fuel from either a dedicated 
+fuel tank or from the aircraft fuel tank with ultra-low or de-sulfurized fuel is pumped into a steam 
+reformer, where it is converted into a gaseous mixture of CO, CO2, H2, and H2O, and fed into the 
+SOFC anode at high temperature. The pressure on both cathode and anode streams are similar. The 
+catalytic reaction within the stack reacts the H2 in the anode gas stream with O2 in the cathode gas 
+stream to generate DC electric power which is conditioned and fed into the DC electrical power 
+bus. The anode and cathode discharge gas streams are mixed and sent through a catalytic burner 
+that  augments  the  steam  reformer,  and  further  depletes  the  residual  oxygen  from  the  cathode 
+reaction, reacting it to consume the CO and residual H2 from the anode stream. This high-pressure 
+effluent is then expanded through a power turbine (PT) that drives the CC. The expanded gas is 
+cooled through a steam generator (SG), pre-cooler, economizer, and condenser to distill out water 
+for cabin use and ODA for fire suppression and fuel tank inerting. Excess power from the cathode 
+turbo-compressor (CC+PT) can be extracted through a generator and fed back into the electrical 
+power bus. 
+
+As  noted,  the  SOFC  is  intended  to  provide  only  base  power  since  it  does  not  tolerate  thermal 
+cycling, so a discrete regenerative PEM fuel cell is used to provide or absorb power during load 
+transients.  
+
+20 
+
+ 
+Figure 6. Preliminary integrated and hybridized SOFCPS for wide-body aircraft 
+
+2.3.3.4.1  Power Demand 
+
+Power demand is based on scaling from the Boeing 787 to a new system architecture. The Boeing 
+787 can provide 1 MW of electrical power, which covers peak demand and failure cases. If the 
+SOFCPS is to provide like-for-like replacement of 1 MW power generation, the system weight 
+would weight 22 metric ton. This is extremely impractical and unlikely to be implemented. 
+
+Based  on  the  assumptions,  at  43,000-feet  cruise  altitude,  the  cabin  air  compressor  consumes 
+approximately  320  kW,  to  maintain  enough  fresh  air  flow  to  support  440  passengers  (787-10 
+maximum  seating).  Wing  anti-icing  consumes  up  to  160  kW  of  electric  power.  Based  on  the 
+assumptions, the total of 480 kW can be excluded from the SOFCPS demand. 
+
+The  remaining  peak  electric  power  demand  from  SOFCPS  is  520  kW.  The  hybridized  RFCPS 
+covers the 120 kW, and the integrated GT covers the 65 kW. The actual size of the SOFC is 335 
+kW. 
+
+The SOFCPS also provides up to 250 kW of continuous thermal power for wing-icing protection. 
+
+2.3.3.4.2  Fuel 
+
+One unique aspect of the SOFCPS is that it reforms hydro-carbon fuel to create its own hydrogen-
+enriched  fuel.  This  hydro-carbon  fuel  can  be  shared  with  the  ME.  However,  common  jet  fuel 
+contains sulfur, which is a poison to the FC and must be removed. Fuel desulfurization equipment 
+is heavy and hazardous; therefore, it’s assumed the aircraft will have a dedicated fuel tank to accept 
+sulfur-free fuel, either processed on ground at the airport, or specialty fuel such as bio-fuel. The 
+sulfur-free fuel can be used by the GT engine, so it can count as reserve fuel, without adding weight 
+to the aircraft fuel system. 
+
+21 
+
+ 
+  
+ 
+2.3.3.4.3  Weight 
+
+As apparent in system description 2.3.3.4  , the SOFCPS requires extensive integration with the 
+aircraft to minimize the weight impact and maximize the overall system efficiency.  
+
+In this case, the 335-kW-rated SOFCPS will weigh over 7,000 kg. Roughly half the weight can be 
+credited from equipment it replaces, water it recovers, or fuel-burn saving from improved MEs. 
+There may be other areas within the aircraft structure that can be improved, but the gains from 
+wholesale change are difficult to speculate, and the system size and weight are too complex to 
+assess under this  study. There may be areas  to  uncover in  the NCD that can further justify the 
+adaptation of SOFCPS. 
+
+2.3.3.5  Preliminary Assessment 
+
+Unlike the other fuel cell systems evaluated, the SOFCPS (as described in the integration example 
+above) can operate from logistics-type fuels, though a sulfur-free, or extremely low sulfur content 
+will be required. It also augments, or replaces existing aircraft systems for:  
+
+• 
+• 
+• 
+• 
+• 
+
+Provides all electric power for aircraft operation, including emergency power 
+Provides thermal power for galley operation and wing anti-ice 
+Water for cabin lavatory use 
+ODA for fuel tank inerting and cargo-hold fire suppression. 
+Emergency oxygen  
+
+On the negative side, the system is very heavy. In this preliminary assessment, less than half of the 
+7000  kg  SOFC  system  weight  was  offset  by  synergy  and  fuel-weight  savings.  The  NCD  may 
+further  improve  and  optimize  in  the  areas  below  to  make  the  architecture  plausible  for 
+implementation and expose inherent safety hazards. 
+
+2.4  CONCLUSIONS 
+
+This analysis concludes that the implementation of PEMFCPS, RFCPS, and SOFCPS is plausible. 
+The  next  three  sections  discuss  the  NCD  of  each  technology.  The  goal  is  not  about  whether  a 
+certain FCPS will be implemented, but to explore and expose potential safety hazards associated 
+with these new technologies for aircraft application. 
+
+3.  NOTIONAL CONCEPT DESIGN – PEMFCPS 
+
+3.1  PRODUCT DESCRIPTION 
+
+With the objective of identifying potential hazards and safety-related concerns, the NCD builds 
+upon the initial plausibility assessment by establishing, in as much detail as possible, the functions 
+of the candidate fuel system within the aircraft; identifying the components of the system, their 
+location  within  the  aircraft;  identifying  installation  interfaces;  and  the  potential  safety  issues 
+around system service, including refueling and maintainability.  
+
+Having established plausibility for the PEMFCPS, this target market segment is for service in a 
+commercial narrow-body air transport aircraft with less than 180 passengers, with short to mid-
+
+22 
+
+ 
+range capability, servicing US domestic routing. The typical aircraft would need the PEMFCPS to 
+provide: 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+Electric power—both 28 VDC and ±135 VDC—for basic and necessary functions during 
+periods when no other means of power storage devices can reasonably achieve the similar 
+result. The ±135 VDC powers high-electrical, power demand systems such as vapor-cycle 
+compressors (VCCs) motor and ME starter motor. 
+Electric  power  to  start  an  ME  on  ground.  PEMFCPS  provides  such  power  while 
+maintaining functionalities of the aircraft flight deck, internal lighting, and communication. 
+In-flight emergency electrical power in the event of an engine or engine-mounted generator 
+failure;  providing  50  percent  of  emergency  power  in  flight  within  5  seconds  and  full 
+emergency power in 30 seconds, in order to maintain control of the aircraft in functions 
+such as flight deck, communication, and flight control, to safely land the aircraft. 
+Electric power to meet aircraft electric-power demand during the flight’s descent phase so 
+the  MEs  can  be  set  to  lower  throttle  position  to  save  a  considerable  amount  of  liquid 
+aviation fuel. 
+Standby  power  mode  to  produce  minimum  power  (at  highest  efficiency)  to  support 
+functions  while  the  aircraft  is  unattended,  e.g.,  functions  such  as  keeping  temperature-
+sensitive equipment in desired condition. 
+
+The PEMFCPS consumes compressed hydrogen gas, which is stored on board the aircraft, and 
+will be replenished before each flight. The fuel truck services the hydrogen fuel tank, like the way 
+that  the  liquid  fuel  truck  services  the  jet  fuel  tank.  The  PEMFCPS  cathode  is  supplied  with 
+pressure-boosted  air from  the cabin,  and  the exhaust  is  discharged overboard. A  liquid-cooling 
+circuit is used to transfer PEMFCPS waste energy to ambient air as heat sink. The PEMFCPS may 
+include Li-ion main aircraft batteries for optimized performance. 
+
+Table 9 summarizes PEMFCPS functions during different phases of the operation. 
+
+Table 9. PEMFCPS functions summary 
+
+Operational Functions 
+
+Services 
+
+Parked  Gate→MES  MES 
+
+FID  Emergency 
+
+PEMFCPS Controls & Monitor 
+
+Y 
+
+Cockpit Avionics 
+
+Communication 
+
+Interior Lighting 
+
+Cabin Air Conditioning 
+
+Flight Control 
+
+Main Engine Start 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+23 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.1.1  Secondary Functions 
+
+There are secondary functions that the PEMFCPS can potentially provide, usually at the expense 
+of  size,  weight,  and  complexity.  The  implementation  of  these  functions  will  be  case-by-case 
+detailed design options, which is not in the scope of this research. While these functions were not 
+included  in  the  top-level  assessment  discussed  in  the  previous  sections,  they  could  be  justified 
+given the following discussion.  
+
+Fuel Tank Inerting 
+
+The waste products from PEMFCPS operation is steam-saturated ODA. Based on general design 
+practice, the dry ODA contains in the range of 9–13 percent of oxygen. Though the oxygen content 
+is within the right range for fuel tank inerting, there are two barriers: 
+
+• 
+
+• 
+
+Fuel tank inerting requires a supply of ODA to replace the volume of the consumed fuel 
+during the entire duration of the flight. However, the concept of operation for PEMFCPS 
+implementation  in  narrow-body,  air  transport  aircraft  limits  the  inflight  operation  to 
+emergency operation and during aircraft descent.  
+The cathode outflow ODA is over-saturated with water from FC reaction. This water must 
+be removed from the ODA, otherwise the condensed water will cause serious damage to 
+the aircraft fuel system.  
+
+Operating the PEMFCPS in fractional power during flight to produce the correct amount of ODA 
+for fuel tank inerting is plausible but may not have an obvious benefit. The part power efficiency 
+would be noticeably higher, and the ME fuel burn would benefit by not providing bleed air for the 
+fuel tank inerting system (FTIS) and lessened load on electric generators.  
+
+Simple calculation suggests that to continuously provide adequate fuel tank inerting ODA to the 
+tank, the PEMFCPS must operate at approximately 40 kW, or 35 percent of full electric power 
+during  the  entire  flight.  At  an  efficiency  of  60  percent,  the  hydrogen  burn  rate  will  be 
+approximately  2.0  kg/hour,  and  for  a  five-hour  flight,  9.8  kg  of  hydrogen  fuel  is  consumed, 
+resulting in 178 kg increase in FSS. Add the weight of water-removal equipment (assuming 20 
+kg), subtract 44 kg for the SOA FTIS and 84 kg water that is no longer needed on board, the net is 
+13 kg weight gain.  
+
+Combined  with  the  recovery  of  water  removed  from  the  ODA  for  lavatory  use,  the  additional 
+weight is in the estimation uncertainty range. The additional volume of 171 liter is significant but 
+may be tolerable. One side benefit of this configuration is that there is sufficient hydrogen fuel on 
+board for ETOPS certification. Table 10 shows the weight comparison. 
+
+Table 10. Additional weight for extended function PEMFCPS 
+
+Weight Addition, kg 
+Hydrogen Fuel Storage System 
+Water Condensing System 
+
+Weight Subtraction, kg 
+
+178 
+20 
+
+Potable Water Recovered 
+SOA Fuel Tank Inerting System 
+ME Fuel Burn Reduction 
+
+84 
+44 
+57 
+
+24 
+
+ 
+ 
+ 
+Weight Addition, kg 
+
+Weight Subtraction, kg 
+
+Sum 
+Net Increase, kg 
+
+198 
+
+185 
+
+13 
+
+3.1.1.1  Potable Water Recovery 
+
+The ODA contains water as a byproduct, which may be recovered to reduce the amount of water 
+the aircraft has to carry at takeoff. A trade must be made between the weight of water recovery 
+equipment and water recovered. However, if the configuration is set to provide fuel tank inerting, 
+then water recovery is part of the system 
+
+Based on the Near-Term Implementation Analysis (NTIA) and assumptions, only about 3 kg of 
+hydrogen  is  used  during  routine  flights,  if  90  percent  of  the  water  byproduct  is  recovered,  it 
+amounts  to  24  kg  of  water.  It  may  sound  plausible  for  a  positive  trade  against  water  recovery 
+equipment. However, the PEMFCPS only begins to produce water at the end of the cruise, when 
+water usage from that point on is minimal. 
+
+3.1.1.2  Cargo Hold Fire Suppression 
+
+Like fuel tank inerting, ODA can also be used to suppress cargo-hold fire to save the weight of 
+halon bottles. An experiment done at Federal Aviation Administration’s (FAA) Technology Center 
+Laboratory has demonstrated that the ODA alone is inadequate to distinguish fire in cargo hold 
+but maintains suppression after the fire was distinguished by halon. Also, same shortcoming as 
+fuel  tank  inerting  function,  there  is  no  reliable  and  sufficient  source  of  ODA  to  perform  this 
+function when needed in a timely fashion. 
+
+3.1.1.3  Waste Heat Reuse 
+
+Although the FC stack generates slightly more waste heat as its output electrical power (40 percent 
+average  system  efficiency  assumed),  due  to  its  relatively  low  temperature,  very  little  heating 
+application can benefit from it. 
+
+The nearest consumer of this low-quality waste heat would be the aft galley for pre-heating food 
+and  beverages.  Based  on  the  NTIA  rationale  and  assumptions,  the  single-aisle  aircraft  usually 
+doesn’t provide heated meals, and the wasted heat is not quite hot enough for heated beverages 
+such as coffee. The assumption is these services are unlikely to be provided when the plane starts 
+to descend, the only time the system is on during the flight. 
+
+Even  if  the  design  intended  to  use  PEMFCPS  during  flight,  the  ambient  temperature  at  cruise 
+altitude  is  extremely  cold;  the  heat  load  from  solar,  in-flight  entertainment,  and  passenger’s 
+metabolism can offset the heat loss through the skin of the aircraft. For most of the time, the ECS 
+is in cooling mode. On rare occasions such as an empty cabin with no warm body, the heating is 
+needed, which will be easily satisfied through the heat of compression by cabin pressurization. 
+
+3.2  REQUIREMENTS  
+
+The requirements will be based on the assumptions listed in the NTIA. 
+
+25 
+
+ 
+ 
+3.2.1  Performance 
+
+The top-level performance requirement for notional design is derived from NTIA, which includes 
+high-level  trade  against  modern  GT  APU  in  terms  of  hardware  and  ME  fuel-burn  credits  and 
+penalties. 
+
+Table 11. Top-level performance requirements for notional design 
+
+Electric Power, Rated 
+LHV Efficiency at Rated Power 
+LHV Efficiency at 25% Power 
+
+Electric Voltage 
+
+Cold Start Time at -22°F 
+Hydrogen Fuel System Weight 
+
+120 kW 
+45% 
+65% 
+28 VDC 
+±135 VDC 
+30 seconds 
+100 kg 
+
+3.2.2  Installation 
+
+3.2.3  Operation 
+
+Operating Envelope 
+
+Attitude 
+
+Emergency Landing 
+
+Gust Load 
+
+Table 12. Installation requirements 
+
+Attitude 
+
+X = Roll 
+X = ± 15° 
+Y = ± 15° 
+Y = Pitch 
+Z = ± 180°  Z = Yaw 
+
+Table 13. Operational requirements 
+
+Ground operation 
+Loss of cabin pressure, de-rated 
+
+  X = Roll 
+Y = Pitch 
+Forward 
+Aft 
+Side 
+Down 
+Up 
+Vector Sum 
+Down 
+Up 
+
+Sea level to 14,000 ft 
+Sea level to 50,000 ft 
+X = ± 20° 
+Y = ± 40° 
+9G 
+1.5G 
+3G 
+6G 
+3G 
+9.86G 
+9.86G 
+7.89G 
+
+26 
+
+ 
+ 
+ 
+ 
+Ambient Temperature 
+
+-67° - 185° 
+
+3.2.4  Maintenance 
+
+Table 14. Maintenance interval requirements 
+
+Maintenance Interval 
+
+1,200 hrs minimum 
+
+Table 15. Reliability requirements 
+
+Startup/Shutdown Durability  5,000 cycles 
+5,000 hours 
+Life (Degradation<10%) 
+
+3.2.5  Reliability 
+
+3.2.6  Safety 
+
+27 
+
+ 
+ 
+ 
+ 
+Requirement 
+
+Operating 
+
+Non-
+Operating 
+
+Table 16. Safety requirements 
+
+RTCA/ 
+DO-160G 
+Section 4 
+Section 4 
+
+Category D2 (-55° C) 
+Category D2 (+70° C) 
+
+Section 4 
+
+Category D2 (+70° C) 
+
+Section 4 
+
+Category D2 (-55° C) 
+
+Section 4 
+
+Category D2 (+85° C) 
+
+Condition 
+
+Operating  Low  Temp 
+Operating High Temp 
+Short  Time  Operating 
+High  Temp 
+Ground  Survival  Low 
+Temp 
+Ground  Survival  High 
+Temp 
+Altitude 
+
+Section 4 
+
+Temperature Variation  Section 5 
+
+Humidity 
+
+Section 6 
+
+Operational Shock 
+
+Section 7 
+
+Crash Shock 
+
+Section 7 
+
+Category D2 (50,000 ft.) 
+Category B Operating: -55 to 70° C 
+Ramp: (5° C minimum/min.) 
+Category B (minimum 95% relative 
+humidity at +65° C) 
+Category B sawtooth pulse, with an 
+acceleration peak value of 6 G’s for 
+11 ms 
+
+Category B PROC 1 same as 
+operational shock except 20 G’s 
+
+Crash Safety Sustained 
+Acceleration 
+
+Section 7 
+
+Category B PROC 2 non-operating – 
+9.0g along any axis 
+
+Vibration 
+
+Section 8 
+
+Explosion 
+
+Section 9 
+
+Waterproofness 
+
+Section 10 
+
+Sand and Dust 
+
+Section 12 
+
+Fungus Resistance 
+
+Section 13 
+
+Salt Spray 
+
+Section 14 
+
+Category S Test Curve C, Standard 
+Vibration, 1 hr/axis 
+
+Category A or B* Site altitude, 70C 
+fuel type recorded in test report 
+
+Category Y or W* Drip proof test, 
+280 1/M** 2/h for 15 minutes 
+operating 
+Category D Sand and dust jet along 
+each direction of each major 
+orthogonal axis at 25C and 55C non-
+operating 
+
+Category F Cultures of 5 Fungi, 28 
+days incubation 
+
+Category S 5% salt solution spray at 
+35C for 48 hrs non-operating 
+
+28 
+
+X 
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table 16. Safety requirements (continued) 
+
+Condition 
+
+RTCA/ 
+DO-160G 
+
+Requirement 
+
+Operating 
+
+Non-
+Operating 
+
+Magnetic Effect 
+
+Section 15 
+
+Power Input 
+
+Section 16 
+
+Magnetic field of 14.4 A/m for 
+specified deflection, distance is 
+determined by test 
+Category A normal and abnormal 
+operating voltage, interrupt, normal 
+and abnormal surge, undervoltage 
+
+Voltage Spike 
+
+Section 17  Category A 600V, 10 
+
+sec transient 
+
+Audio Frequency 
+Conducted 
+Susceptibility, Power 
+input leads 
+
+Induced Signal 
+Susceptibility 
+
+Radio Frequency 
+Susceptibility 
+Conducted 
+
+Section 18 
+
+Category R or Z* Sine wave audio 
+frequency superimposed on power 
+lead 
+
+Section 19 
+
+Category Z Magnetic and electric 
+fields and spikes induced into 
+equipment and cables 
+
+Section 20 
+
+Category Y* Cable injection to 
+10kHz to 400MHz 
+
+Radio Frequency 
+Susceptibility, Radiated 
+
+Section 20 
+
+Category Y* Radiated field to 
+18GHz Freq. 
+                             Avg (V/M)       
+Peak (V/M) 
+10kHz to 1 GHz   200                 N/A  
+1 to 2 GHz            200                 
+1700 
+2 to 4 GHz            200                 
+3000 
+4 to 6 GHz            200                 
+2300 
+6 to 8 GHz            200                   
+530 
+8 to 12 GHz          200                 
+1400 
+12 to 18 GHz        200                   
+850 
+
+Emission of Radio 
+Frequency Energy 
+
+Section 21 
+
+Category M* Radiated and 
+conducted 
+
+29 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table 16. Safety requirements (continued) 
+
+Condition 
+
+RTCA/ 
+DO-160G 
+
+Requirement 
+
+Operating 
+
+Non-
+Operating 
+
+Lightning Induced 
+Transient Susceptibility 
+
+Section 22 
+
+Category A 4XX Pin Injection: ECU 
+only 
+Multiple stroke: Waveform 1 
+(750V/1500A peak) and 3 
+(1500V/300A peak). Tests per 
+AC20-136 
+Multiple burst: Waveform 3 
+(damped sinusoid) at 1 MHz, 
+300V/60A peak. 
+Tests per AC20-136 
+
+X 
+
+X 
+
+Lightning Direct 
+Effects 
+
+Section 23 
+
+The ECU is category X and no tests 
+were required 
+
+Electrostatic Discharge 
+
+Section 25 
+
+Category A 10 discharges, each 
+polarity 
+
+X 
+
+X 
+
+3.3  NOTIONAL DESIGN 
+
+The notional design of the PEMFCPS is intended to be generic. The goal is to explore and expose 
+new safety hazards introduced by the introduction of new technologies. 
+
+The  design  of  any  system  is  an  iterative  process.  This  notional  design  presents  the  final 
+representation because of these iterations. Efforts has been made to capture some of the rationale 
+during the design process. 
+
+3.3.1  System Description (Schematics) 
+
+The core of the PEMFCPS is well defined in automotive industry implementations and is directly 
+applicable for aircraft. The schematic diagram in Figure 7 illustrates the basic design of the system. 
+Most of the functions such as flow control, reactants hydration, etc. are somewhat proprietary to 
+individual manufacturers, and are considered internal to the unit, therefore, not discussed in this 
+report. 
+
+30 
+
+ 
+ 
+ 
+Figure 7. Typical PEMFCPS schematic diagram 
+
+3.3.2  System Layouts 
+
+For aircraft implementation, the PEMFCPS can be configured in many ways to better integrate 
+into other existing aircraft systems. Two system configurations with high implementation potential 
+were examined. 
+
+3.3.2.1  System Configuration #1 
+
+The rationale for this configuration is to have two half-sized (60kW) subsystems for redundancy, 
+co-located with ECS pack to take advantage of synergy in thermal  handling characteristics and 
+potential sharing of common equipment among the two. The other consideration is to separate the 
+power generation unit (PGU) [stack and BOP] from the energy source (hydrogen storage system) 
+for isolation by space, in case of failure. Figure 8 illustrates the high-level system layout. 
+
+31 
+
+Fuel TankBlowerAnode 70 - 85 CPressure SensorFuel & Anode LoopAir & Cathode LoopWater & Coolant  LoopWater TankPressure RegulatorPurge Heat ExchangerBurnerCathode 70 -85 CAir from CabinJet Fuel For CoolingJet Fuel For CoolingPTPTHumidifier (optional)PTPPTTPPCondenserTemperature SensorManual ValvePressure Relief Valve Solenoid ValveWater TrapHydrogen VentExhaust 
+ 
+Figure 8. PEMFCPS configuration #1 
+
+A  digital  model  of  a  generic  aircraft  was  created  to  illustrate  the  configuration  and  potential 
+interactions between systems (Figure 9). 
+
+Figure 9. Digital model rendering of the PEMFCPS configuration #1 
+
+32 
+
+Pressurized ZoneH2 TankFCLFCRHX-LHX-RCoolantReservoirCoolantPump-LCoolantPump-RECS Pack - LECS Pack - RPurge ODAPurge ODA 
+ 
+ 
+The potential benefit of co-locating the PEMFCPS and ECS are: 
+
+1. 
+2. 
+
+3. 
+
+Cathode air can be taken from cabin at recirculating duct. 
+Cooling air can use the same ambient cooling air system, including the cooling fan (ground 
+operation), ram air (flight) inlet and exhaust plenum and ducting. 
+Large electric power users such as VCCs and ME S/G are short coupled or even through 
+private bus for less weight on cable and electric power control and distribution. 
+
+The FSS will be located inside the tail cone where the traditional GT APU is usually located. There 
+are  many  irregularly  shaped  spaces  behind  the  pressure  bulkhead,  where  a  large  size  spherical 
+pressure vessel may be situated. 
+
+Other  perceived  benefits  also  include  no  designated  fire  zone  (DFZ)  due  to  its  relatively  low 
+operating temperature and maintains aircraft center of gravity (CG). 
+
+The downside of this layout is that the long, pressurized hydrogen fuel transmission line between 
+the FSS and PGU, most likely must go in and out of the pressure vessel in the cargo hold area. 
+Double containment of the fuel transmission line and active purge within the second containment 
+is needed. 
+
+3.3.2.2  System Configuration #2 
+
+The rationale for this system layout is to eliminate the hazard of bringing pressurized hydrogen 
+gas through pressurized zone and the close proximity to the liquid jet fuel tanks. 
+
+The  entire  PEMFCPS  will  be  located  inside  the  unpressurized  tail  cone  behind  the  pressure 
+bulkhead.  Since  this  arrangement  is  in  an  unpressurized  enclosure  and  does  not  require  long, 
+pressurized  hydrogen  fuel  transmission  run,  the  double  containment  and  active  purge  air  are 
+unnecessary. However, passive ventilation must be provided for the PEMFCPS compartment by 
+at  least  two ventilation  openings, preferably  with bottom  intake and  top-vent  exhaust,  to  avoid 
+flammable  gas  from  accumulating  during  the  period  when  the  system  is  off.  Provision  for 
+introducing ram air to purge out the compartment when the aircraft is in motion is also required. 
+
+The main drawback of this layout is that the total weight of the system (including dedicated cooling 
+fans, plenums, and doors) is located at the extreme aft of the aircraft and may impact the CG of 
+the aircraft unless it is designed into the aircraft structure. 
+
+The generic aircraft digital model shown in Figure 10 illustrates the configuration and potential 
+impact to the aircraft weight balance. 
+
+33 
+
+ 
+Figure 10. Digital model rendering of the PEMFCPS configuration #2 
+
+3.3.3  Subsystems 
+
+This section provides a verbal description of the subsystems. 
+
+3.3.3.1  Stack 
+
+Use of cabin air as cathode reactant can improve performance during flight and keep stack from 
+icing.  Electric  strip  heater  and  thermal  insulation  shall  be  applied  to  the  stack  to  keep  it  from 
+freezing and cause damage to the membrane. 
+
+To keep the stack from icing, a combination of the following steps may be taken: 
+
+•  Keep a minimum stream of cabin air flowing around the stack, or 
+•  Wrap the stack with electric strip heater and thermal insulation, or 
+•  Set to standby mode to have a minimum flow of reactants to keep system above freezing while 
+
+providing power for control and monitoring system. 
+
+All safety features from automotive fuel cell implementation may be applied. 
+
+3.3.3.2  Fuel System 
+
+3.3.3.2.1  Pressure Vessel 
+
+The  high-pressure  hydrogen  will  be  stored  in  a  700  bar,  Type  IV  pressure  vessel.  Spherical  is 
+preferred over cylindrical for better fuel weight fraction performance, due to more accommodating 
+space available inside the aircraft tail cone. 
+
+34 
+
+ 
+ 
+The pressure vessel shall be strap-mounted to avoid any concentrated stress-loading, which may 
+compromise the integrity of the pressure vessel. Figure 11 shows an example of the strap-mount 
+vessel of Saturn V engine. 
+
+Figure 11. Example of the strap-mount vessel of Saturn V engine 
+
+Hydrogen gas leakage may pose an explosion hazard due to the enclosed nature of aircraft fuselage. 
+Gas accumulation inside the compartment shall be avoided by passive ram air purge and natural 
+draft design. 
+
+3.3.3.2.2  Pressure Relief Devices 
+
+The fuel tank will be protected by multiple pressure-relief devices (PRDs) for various conditions: 
+
+• 
+• 
+• 
+
+Rupture disc for overfilling, overheating-caused gas expansion 
+Fusible plugs placed strategically to protect from localized high temperature 
+Safety relief valve at each pressure segment of the fuel system  
+
+All gas relief shall be connected into a protective passage and vent to ambient away from potential 
+ignition source. 
+
+3.3.3.2.3  Pressure Regulating Valves 
+
+The hydrogen gas pressure must be reduced to a safe value for handling before the flow can be 
+modulated  for  load  control.  There  shall  be  in-tank  pressure-reducing  valve,  and  back-pressure 
+regulating  valve  to  safeguard  the  low-pressure  fuel  lines  due  to  potential  pressure  built  up  by 
+allowable leakage through the rate of the pressure reducing valve. 
+
+35 
+
+ 
+ 
+3.3.3.2.4  Fuel Transmission 
+
+The high-pressure hydrogen gas shall be reduced from its storage pressure of up to 10,000 psig to 
+medium  pressure  (100 –  150 psig) for transmission once it leaves  the storage system. Cascade 
+pressure-reducing  arrangement  shall  be  considered  when  appropriate.  The  pressure  of  the 
+hydrogen gas is further reduced to stack pressure (15 – 60 psig) for consumption. 
+
+Efforts shall be made to minimize gas line connection fittings to minimize leakage. 
+
+The transmission line shall be doubly contained when trespassing closed or pressurized spaces to 
+avoid accumulation of hydrogen gas. The secondary containment volume shall be purged by air or 
+inert gas actively or passively always. 
+
+Hydrogen gas monitoring devices shall be employed to monitor the secondary volume in case of 
+insufficient purge flow. 
+
+3.3.3.2.5  Fuel System Purge Control 
+
+Purge of the anode is often necessary to rid of impurities during hydrogen gas production to clear 
+out gas impurities. This purge of concentrated hydrogen gas with impurities happens inside the 
+pressurized vessels and shall be led to ambient safely. 
+
+The purge of the space between the fuel line and its secondary containment, i.e., double-walled 
+pipe/tube shall be continuous either by natural draft, or actively purged by other gases such as air 
+or inert gas to maintain a combustible gas outside the explosion limits. When active purge system 
+is employed, the combustible gas concentration shall be monitored when the active purging is off. 
+
+3.3.3.2.6  Leak Detection 
+
+Since the current SOA hydrogen gas detector is relatively slow to react in time to prevent sudden 
+release of hydrogen-caused fire or explosion, and the installed location may not always have the 
+worst  gas  mixture  condition,  computational  fluid  dynamics  analysis  must  be  performed  to 
+determine optimal sensor location. 
+
+3.3.3.3  Power Generation System 
+
+The  power  generation  system  consists  of  FC  stack  and  its  immediate  surrounding  devices  to 
+maintain its healthy and productive condition. 
+
+3.3.3.3.1  Air Management System 
+
+The air management subsystem focuses mainly on the management of cathode air to condition it 
+to the optimal condition in temperature, pressure, humidity, cleanliness, and mass rate of flow. 
+
+Components  include  turbomachinery  for  pressure  manipulation,  heat  exchangers  (HEXs)  for 
+temperature control, filter for cleanliness, and valves and fitting. 
+
+36 
+
+ 
+3.3.3.3.2  Air Distribution and Control 
+
+Cathode air is taken from the pressurized cabin, which maintains tight range of conditions for FCs 
+stability in performance and life. 
+
+The air can be branched from  the main ECS recirculating  duct  for system  configuration #1, or 
+through  the  rear-pressure  bulkhead  for  system  configuration  #2.  An  in-line  air  filter  should  be 
+placed before the air enters the PEMFCPS. 
+
+The aircraft PEMFCPS can take advantage of the pressure difference between  cabin  and high-
+altitude ambient to recover energy to augment compressor drive. Although this feature may not be 
+implemented in  automotive applications, it is  common for aircraft air management system.  No 
+new safety hazard is expected.  
+
+3.3.3.3.3  Turbomachinery 
+
+The  turbomachine  comprises  three  major  components—inlet  air  fan/booster/compressor, 
+motor/generator,  and  a  turbine—that  are  connected  through  a  common  shaft.  This  is  the  only 
+device in the PEMFCPS implementation that involves kinetic energy from rotating components 
+with a very high rate of speed. The size and energy contained is much smaller when compared 
+with the APU or ECS of the existing aircraft. 
+
+3.3.3.3.4  Compartment Area Purging and Ventilation 
+
+In  either  layout  arrangement,  the  FCPS  resides  in  an  unpressurized  compartment.  This 
+compartment shall be constantly purged by ambient air and vents overboard while in operation. 
+
+There  shall  be  either  active  ventilation  fan  (system  configuration  #1)  or  passive  natural  draft 
+ventilation with vent doors below and above the tail cone (system configuration #2) to ascertain 
+there is no hydrogen gas accumulation especially during the time when the system is off. 
+
+3.3.3.4  Thermal Management System (TMS) 
+
+The PEMFCPS operates at an efficiency range of 45 percent - 55 percent, which means the heat is 
+generated by the stack at a rate that is slightly greater than the electrical power output. This heat 
+must be removed, and temperature maintained for continuous safe operation of the system. 
+
+3.3.3.4.1  Liquid Cooling Loop 
+
+To achieve higher-power density of FCPS at or above this power level, liquid cooling is necessary 
+to remove the amount of waste heat from such a compact package. The liquid cooling is preferably 
+a closed loop with anti-freezing property due to the very low heat sink temperature at altitude. This 
+system is rather common for aviation application and poses minimal safety hazard. 
+
+3.3.3.4.2  Heat Sink 
+
+Cathode  air  provides  some  level  of  cooling  for  the  FC  stack;  the  majority  of  the  waste  heat  is 
+removed by ambient air. 
+
+37 
+
+ 
+3.3.3.5  Electric Power System 
+
+The electrical system shown in the simplified diagram in Figure 12 was set as a baseline typical of 
+a twin-engine, single-aisle commercial air transport aircraft. The primary power generation is from 
+115/200VAC, 3-phase, 4-wire generators on the MEs, and a 115/200VAC S/G on the turbine APU, 
+or 115/200VAC ground power. Emergency power is provided by a 115/200VAC RAT generator, 
+and by a 28VDC battery. 28VDC power is derived from the 115/200VAC buses via transformer-
+rectifier units (TRUs). The MEs start pneumatically, with bleed air from the APU being supplied 
+to air turbine starters. The APU start electrically from either 115/200VAC or the 28VDC battery. 
+The start power unit (SPU) either rectifies 115/200VAC to ~270VDC or boosts the battery voltage 
+to  ~270VDC.  The  start  converter  unit  (SCU)  converts  this  270VDC  into  variable  amplitude, 
+variable frequency alternating current (AC) to drive the S/G. 
+
+Figure 12. Simplified electrical system diagram - Current 
+
+When  an  FCPS  replaces  the  turbine  APU,  several  changes  are  needed.  While  the  simplified 
+architecture shown in Figure 13 incorporates the FCPS, it attempts to minimize electrical system 
+changes and consequent power user equipment changes. Since an FCPS supplies DC output, an 
+inverter is required to generate 115/200VAC. Additionally, because the auxiliary power system 
+(APS) no longer has a source of compressed (bleed) air, the MEs must be started electrically via 
+an SCU and S/G. The other function of an APS is to provide power to the aircraft ECS for air 
+conditioning on ground. A turbine APU would typically provide compressed air to an air-cycle 
+ECS,  this  same  ECS  being  fed  by  ME  bleed  air  in  flight.  The  FCPS  requires  that  the  ECS  be 
+
+38 
+
+L-AC GeneratorTo CRNCB1L 115 Vac Bus28 VdcL-TRUR-AC GeneratorR 115 Vac BusBackup Bus28 VdcC1-TRU28 VdcC2-TRU28 VdcR-TRUAPU S/GRATL 28 Vdc BusR 28 Vdc BusCapt. Inst. BusF/O Inst. BusHot BBTo CRNHot BBSCUSPUBCBCTo CRNExt. Power 
+ 
+electrically powered, which is a significant change to the aircraft systems. This power would be 
+provided from the +/-135VDC bus in volts alternating current. 
+
+This  increased  use  of  electrical  power,  and,  in  particular,  higher-voltage  DC  drives  additional 
+considerations and technology needs, as discussed below. 
+
+3.3.3.5.1  High Voltage DC Switching and Protection 
+
+High-voltage  DC  primary  power  distribution  contactors  are  heavier  and  more  expensive  than 
+traditional AC contactors to withstand switch contact arcing. Ideally, they need to be high-power, 
+solid-state, power controller (SSPC) modules to provide fast switching since the pass-through fault 
+energy before an electromechanical contactor opens (typically a 20-30mS period) and can cause 
+significant  arcing.  This  effect  is  much  less  pronounced  in  AC  systems  since  the  arc  self-
+extinguishes during zero-crossing. Such high-power SSPCs are not commercially available. As in 
+current  SSPC-based  secondary  distribution  systems,  fail-short  protection  must  be  included  and 
+must prevent the charging of load capacitance by leakage current, which is particularly important 
+for personnel safety in these high-voltage systems. SSPCs must be lightning-immune and need to 
+be able to withstand or control load-capacitive, inrush currents. 
+
+Arc fault detection/protection is an important feature in high-voltage DC systems. It must be able 
+to detect different arc types and minimize false trips due to transients and normal loads. Protection-
+level  coordination  is  required  to  ensure  that  only  the  furthest  downstream  protection  device  is 
+activated. 
+
+Corona/partial discharge is an important consideration in high-voltage systems. The choice of +/-
+135VDC (or even +/-270VDC) allows standard insulation systems and design practices to be used. 
+
+39 
+
+ 
+Figure 13. Simplified electrical system diagram - PEMFCPS 
+
+3.3.3.5.2  Power Quality Including Transient Response 
+
+While 270VDC systems have been used for several years in some military fighter jet applications, 
+use of high-voltage DC in commercial air transport has been limited, and where used, it typically 
+has been locally distributed and used for a few specific loads. 
+
+Power  quality,  including  transient  response,  is  an  important  consideration.  To  avoid  excessive 
+voltage excursions, the transient response of an FCPS needs to be carefully considered. This may 
+necessitate including energy storage (batteries) as part of the FCPS. The FCPS output may need 
+to be fed to the bus via a DC-DC converter to enable sufficient voltage control and energy storage 
+power management. This DC-DC converter could also provide power control/current limiting (by 
+reducing the supplied steady-state voltage), but this is not effective with constant power loads. 
+
+Preventing FCPS overload requires load limiting (load-shedding). It also is recommended that the 
+distribution  system  provides  for  the  staging  load-on  transient  (applying  different  loads  in 
+sequence)  so  that  the  FCPS  has  time  to  respond  and  provide  the  required  power  without 
+permanently damaging the system components and degrading performance. 
+
+While load-off transient cannot be controlled in all circumstances, an FCPS typically responds and 
+operates safely in open-circuit condition. 
+
+40 
+
+Left-Starter/GeneratorTo CRNMainBat.L 115 Vac Bus28 VdcL-TRURight-Starter/GeneratorR 115 Vac BusBackup Bus28 VdcC1-TRU28 VdcC2-TRU28 VdcR-TRUL 28 Vdc BusR 28 Vdc BusInstrument BusInstrument BusHot BBBCExternal Power±135 Vdc Bus115 VacStaticInverterSCU135 VdcATRU135 VdcATRUFCPS 
+ 
+3.4  MAINTENANCE AND RELIABILITY 
+
+Since the PEMFCPS employs a very clean process, the anticipated maintenance activities will be 
+limited to replacement of air filter, coolant filter, and water-accumulation traps. 
+
+The individual or groups of stack cells performance shall be constantly  monitored, trended for 
+health management. The ability to isolate collapsed cells to maintain integrity of the system is also 
+important. 
+
+The  implementation  approach  of  the  PEMFCPS  will  likely  be  modular  so  most,  if  not  all, 
+subsystems may be line replacement units. 
+
+3.5  CONCLUSION 
+
+Most systems required for PEMFCPS use currently operative technologies, for which the hazards 
+have  been  understood  and  addressed.  However,  some,  such  as  the  high-voltage  direct  current 
+(HVDC) system, have been well developed in military systems, and have been adapted and studied 
+in MEA applications. 
+
+New  safety  hazards  introduced  by  PEMFCPS  technology  revolve  mainly  around  high-pressure 
+gas, combustible gases, where ventilation is essential to avoid accumulation. DFZ is not necessary 
+because the PEMFCPS does not involve liquid fuel and is operating in low temperature, like power 
+batteries. 
+
+PEMFCPS performance may be hindered by icing due to an abundance of moisture in the system 
+and a wide range of ambient-temperature swing between ground and high altitude. If offered, a 
+fuel  tank  inerting  option  may  introduce  moisture  into  aviation  fuel  tanks,  causing  corrosion  to 
+structure and potential ice crystal blocking fuel control system. Overall,  while many additional 
+functions considered to boost the PEMFCPS implementation justification are well intended, due 
+to  the  limitation  on  hydrogen  fuel  quantity  (volume  and  weight)  and  nature  of  timing,  only 
+electrical power generation may be implemented with a potential positive trade outcome. 
+
+4.  NOTIONAL CONCEPT DESIGN – RFCPS 
+
+4.1  PRODUCT DESCRIPTION 
+
+As previously noted, the initial target market for the RFCPS is the narrow body with less than 180 
+passengers, short to mid-range aircraft, servicing US domestic air transport segment. The main 
+function of RFCPS is to provide electric power. Contrary to the current trend of aircraft secondary 
+(non-propulsive) power  evolution,  the implementation  of RFCPS encourages  minimized power 
+demand when in power-generation mode and maximized regeneration duration for optimal weight. 
+The role of RFCPS is applicable when other forms of power are unavailable and usually in short 
+duration due to the limited fuel capacity. 
+
+In this application, the RFCPS provides electric power for basic and necessary functions during 
+periods when no other means of power storage devices can reasonably achieve the similar result. 
+These basic functions are: 
+
+41 
+
+ 
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+Electric power—both 28 VDC and ±135 VDC—for basic and necessary functions during 
+periods when no other means of power storage devices can reasonably achieve the similar 
+result. The ±135 VDC powers high-electrical, power demand systems such as VCCs motor 
+and ME starter motor. 
+Electric  power  to  start  an  ME  on  ground.  PEMFCPS  provides  such  power  while 
+maintaining functionalities of the aircraft flight deck, internal lighting, and communication. 
+In-flight emergency electrical power in the event of an engine or engine-mounted generator 
+failure;  providing  50  percent  of  emergency  power  in  flight  within  5  seconds  and  full 
+emergency power in 30 seconds, in order to maintain control of the aircraft in functions 
+such as flight deck, communication, and flight control, to safely land the aircraft. 
+Electric power to meet aircraft electric-power demand during the flight’s descent phase so 
+the  MEs  can  be  set  to  lower  throttle  position  to  save  a  considerable  amount  of  liquid 
+aviation fuel. 
+Standby  power  mode  to  produce  minimum  power  (at  highest  efficiency)  to  support 
+functions  while  the  aircraft  is  unattended,  e.g.,  functions  such  as  keeping  temperature-
+sensitive equipment in desired condition. 
+
+The RFCPS is in regeneration mode whenever excess power is available from other sources such 
+as gate power or ME generators, and in power-generation mode whenever power is needed and 
+unavailable economically from other sources. 
+
+Table 17 summarizes RFCPS functions during different phases of the operation. 
+
+Table 17. RFCPS functions summary 
+
+Operational Functions 
+
+Services 
+
+Parked  Gate-MES  MES 
+
+FID 
+
+Emergency 
+
+RFCPS controls & monitor 
+
+Y 
+
+Cockpit avionics 
+
+Communication 
+
+Interior lighting 
+
+Cabin air conditioning 
+
+Flight control 
+
+Main engine start 
+
+4.1.1.1  Secondary Functions 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Y 
+
+Though the FC stack generates slightly less waste heat as its output electrical power (55 percent 
+average system power generation efficiency assumed), due to its relatively low temperature and 
+short duration, no viable heating application can benefit from it. 
+
+42 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+4.2  REQUIREMENTS 
+
+Based  on  the  implementation  rationale,  assumptions,  and  functions  served  by  the  RFCPS,  this 
+section discusses the requirement for the notional design. 
+
+4.2.1  Performance 
+
+The top-level performance requirement for notional design is derived from NTIA, which includes 
+high-level  trade  against  modern  GT  APU  in  terms  of  hardware  and  ME  fuel-burn  credits  and 
+penalties. 
+
+Table 18. Top-level performance requirement for notional design RFCPS 
+
+Electric Power, Rated 
+LHV Efficiency at Rated Power 
+LHV Efficiency at 25% Power 
+Electrolysis Efficiency 
+Electric Voltage 
+
+Cold Start Time at -22°F 
+Reactants System Weight 
+
+120 kW 
+55% 
+65% 
+80% 
+28 VDC 
+±135 VDC 
+20 seconds 
+80 kg 
+
+4.2.2  Installation 
+
+Table 19. Installation requirements for RFCPS 
+
+Attitude 
+
+X = Roll 
+X = ± 5° 
+Y = Pitch 
+Y = ± 5° 
+Z = ± 180°  Z = Yaw 
+
+43 
+
+ 
+ 
+ 
+ 
+4.2.3  Operation 
+
+Operating Envelope 
+
+Attitude 
+
+Emergency Landing 
+
+Gust Load 
+
+Ambient Temperature 
+
+4.2.4  Maintenance 
+
+Table 20. Operational requirements RFCPS 
+
+Sea level to 14,000 ft 
+Sea level to 50,000 ft 
+X = ± 20° 
+Y = ± 40° 
+9G 
+1.5G 
+3G 
+6G 
+3G 
+9.86G 
+9.86G 
+7.89G 
+-67° - 185° 
+
+Ground operation 
+Loss of cabin pressure, de-rated 
+
+  X = Roll 
+Y = Pitch 
+Forward 
+Aft 
+Side 
+Down 
+Up 
+Vector Sum 
+Down 
+Up 
+
+4.2.5  Reliability 
+
+Table 21. Maintenance requirements RFCPS 
+
+Maintenance Interval 
+
+2,000 hrs minimum 
+
+Table 22. Reliability requirements RFCPS 
+
+Power/Regen durability 
+Life (degradation<10%) 
+
+6,000 cycles 
+8,000 hrs 
+
+44 
+
+ 
+ 
+ 
+ 
+ 
+ 
+4.2.6  Safety 
+
+Table 23. Safety requirements RFCPS 
+
+Condition 
+
+Operating  Low  Temp 
+Operating High Temp 
+Short  Time  Operating 
+High  Temp 
+Ground  Survival  Low 
+Temp 
+Ground  Survival  High 
+Temp 
+Altitude 
+
+RTCA/ 
+DO-160G 
+Section 4  Category D2 (-55° C) 
+Section 4  Category D2 (+70° C) 
+
+Requirement 
+
+Section 4  Category D2 (+70° C) 
+
+Section 4  Category D2 (-55° C) 
+
+Section 4  Category D2 (+85° C) 
+
+Section 4  Category D2 (50,000 ft.) 
+
+Temperature Variation  Section 5 
+
+Humidity 
+
+Section 6 
+
+Operational Shock 
+
+Section 7 
+
+Crash Shock 
+
+Section 7 
+
+Crash Safety Sustained 
+Acceleration 
+
+Vibration 
+
+Section 7 
+
+Section 8 
+
+Explosion 
+
+Section 9 
+
+Waterproofness 
+
+Section 10 
+
+Sand and Dust 
+
+Section 12 
+
+Category B Operating: -55 to 70° C 
+Ramp: (5° C minimum/min.) 
+Category B (minimum 95% 
+relative humidity at +65° C) 
+Category B sawtooth pulse, with an 
+acceleration peak value of 6 G’s for 
+11 ms 
+Category B PROC 1 same as 
+operational shock except 20 G’s 
+Category B PROC 2 non-operating 
+– 9.0g along any axis 
+Category S Test Curve C, Standard 
+Vibration, 1 hr/axis 
+Category A or B* Site altitude, 
+70C fuel type recorded in test 
+report 
+Category Y or W* Drip proof test, 
+280 1/M** 2/h for 15 minutes 
+operating.  
+Category D Sand and dust jet along 
+each direction of each major 
+orthogonal axis at 25C and 55C 
+non-operating 
+
+Operating 
+
+Non-
+Operating 
+
+X 
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+45 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table 23. Safety requirements RFCPS (continued) 
+
+Condition 
+
+RTCA/ 
+DO-160G 
+
+Fungus Resistance 
+
+Section 13 
+
+Salt Spray 
+
+Section 14 
+
+Magnetic Effect 
+
+Section 15 
+
+Power Input 
+
+Section 16 
+
+Voltage Spike 
+
+Section 17 
+
+Audio Frequency 
+Conducted Susceptibility, 
+Power input leads 
+
+Induced Signal 
+Susceptibility 
+
+Section 18 
+
+Section 19 
+
+Radio Frequency 
+Susceptibility Conducted 
+
+Section 20 
+
+Radio Frequency 
+Susceptibility, Radiated 
+
+Section 20 
+
+Non-
+Operating 
+
+X 
+
+X 
+
+Requirement 
+
+Operating 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+sec 
+
+Category F Cultures of 5 Fungi, 
+28 days incubation 
+Category S 5% salt solution spray 
+at 35C for 48 hrs non-operating 
+Magnetic field of 14.4 A/m for 
+specified deflection, distance is 
+determined by test. 
+Category A normal and abnormal 
+operating voltage, interrupt, 
+normal and abnormal surge, 
+undervoltage 
+Category A 600V, 10 
+transient. 
+Category R or Z* Sine wave 
+audio frequency superimposed on 
+power lead 
+Category Z Magnetic and electric 
+fields and spikes induced into 
+equipment and cables 
+Category Y* Cable injection to 
+10kHz to 400MHz 
+Category Y* Radiated field to 
+18GHz Freq. 
+                             Avg (V/M)       
+Peak (V/M) 
+10kHz to 1 GHz   200                 
+N/A  
+1 to 2 GHz            200                 
+1700 
+2 to 4 GHz            200                 
+3000 
+4 to 6 GHz            200                 
+2300 
+6 to 8 GHz            200                   
+530 
+8 to 12 GHz          200                 
+1400 
+12 to 18 GHz        200                   
+850 
+
+46 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table 23. Safety requirements RFCPS 
+
+Condition 
+
+Emission of Radio 
+Frequency Energy 
+
+RTCA/ 
+DO-160G 
+
+Section 21 
+
+Lightning Induced 
+Transient Susceptibility 
+
+Section 22 
+
+Lightning Direct Effects 
+
+Section 23 
+
+Electrostatic Discharge 
+
+Section 25 
+
+4.3  NOTIONAL DESIGN 
+
+Requirement 
+
+Operating 
+
+Non-
+Operating 
+
+Category M* Radiated and 
+conducted 
+Category A 4XX Pin Injection: 
+ECU only 
+Multiple stroke: Waveform 1 
+(750V/1500A peak) and 3 
+(1500V/300A peak). Tests per 
+AC20-136 
+Multiple burst: Waveform 3 
+(damped sinusoid) at 1 MHz, 
+300V/60A peak. 
+Tests per AC20-136 
+The ECU is category X and no 
+tests were required 
+Category A 10 discharges, each 
+polarity 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+The  notional  design  of  the  RFCPS  is  intended  to  be  generic.  Since  the  goal  of  this  study  is  to 
+explore  and  expose  new  hazards  caused  by  the  introduction  of  new  fuel  cell  technologies,  the 
+notional design is taken only so far as to develop an understanding of these hazards, but likely 
+short of that required for actual implementation. Efforts have been made to capture some of the 
+rationale during the design process. 
+
+4.3.1  System Description 
+
+The RFCPS is a closed system that comprises two main functions—electrolysis (regeneration) and 
+power generation. The electrolysis function is a reverse of the power generation function, which 
+reduces water into hydrogen and oxygen gases in an endothermic reaction, using electrical power 
+when there is excess available. When electric power is needed, the process switches to FC mode 
+that generates electric power by combining the reactants. The entire system functions as a battery. 
+This study assumes a PEM-type FC stack. The PEMFC stack in this power range has matured in 
+the automotive industry; and for its integration into a sealed regenerative system, special attention 
+must be paid to changes necessary for the handling of pure oxygen and at a higher pressure.  
+
+The  RFCPS  has  two  major  competing  configurations—discrete  and  unitized.  The  unitized 
+configuration was determined earlier to be implausible due to its technology immaturity; however, 
+the discrete system has merit and will be discussed further. In the discrete system, separate fuel 
+cell  stacks  are  used,  each  dedicated  to  either  the  electrolysis  function  or  the  power  generation 
+function.  As  such,  these  stacks  are  designed  specifically  for  their  function.  As  a  system,  the 
+
+47 
+
+ 
+ 
+ 
+ 
+advantage is in system performance and durability. The discrete system configuration is the most 
+developed of the regenerative fuel cell power systems.  
+
+4.3.2  System Configuration 
+
+4.3.2.1  Discrete RFCPS 
+
+The  rationale  for  this  configuration  is  to  have  two  separate  stacks  with  one  optimized  for 
+electrolysis,  while  the  other  is  optimized  for  power  generation.  The  two  stacks  may  differ  in 
+catalysts, electrolytes, and operating conditions. Figure 14 shows the discrete regenerative fuel cell 
+power system (DRFCPS). 
+
+Figure 14. DRFCPS schematic diagram 
+
+For  the  notional  design  of  DRFCPS,  the  electrolyzer  is  arranged  in  cylindrical  shape  for  high-
+electrolysis  pressure of  up to  3,000 psia; the reactants are stored in  separate spherical  pressure 
+vessels. There are water extractors between the electrolyzer and storage tanks to keep water from 
+entering the tanks. 
+
+The pressure of the reactants is regulated down before entering the FC stack in power-generation 
+mode.  Though  the  fuel  cell  stack  may  be  of  NFT  design,  it  may  be  good  practice  to  include 
+recirculating loops, either by passive ejector or active pump, for stack hydration control. 
+
+A liquid cooling loop is needed to remove the heat generated during power-generation process and 
+released into the heat sink – ambient (ram) air.  
+
+48 
+
+ 
+ 
+Figure 15. Digital model rendering of the DRFCPS 
+
+A digital model of a generic aircraft was used to illustrate the installation and potential interactions 
+between systems. 
+
+Figure 16. Digital model rendering of the DRFCPS installation example 
+
+Though the non-air-breathing RFCPS functions like a battery, it does require access to ambient air 
+for cooling, and more importantly, ventilation. 
+
+4.3.3  RFCPS Subsystem Descriptions 
+
+With reference to the schematics in Figure 15 and Figure 16, the following sections provide some 
+detail on those subsystems relevant to this study.  
+
+49 
+
+ 
+ 
+ 
+4.3.3.1  Discrete Electrolyzer Stack 
+
+This PEM stack is designed for high-pressure electrolysis, which can regenerate reactants up to 
+175 bar (2,500 psia). It is constructed in cylindrical shape to maintain the pressure with reasonable 
+weight.  Moderate  waste  heat  from  other  processes  such  as  power-electronics  cooling  may  be 
+applied for this endothermic reaction. 
+
+4.3.3.1.1  Discrete Fuel Cell Stack 
+
+This PEM FC stack is typically designed for a hydrogen-oxygen pair, up to 60 psia in pressure. 
+This stack operates at a lower pressure than the electrolyzer stack and requires pressure regulation 
+of the reactants, which are stored at a much higher pressure. As the reactants are stored locally and 
+not ejected, the waste heat ejects from the stack with the mixed-phase steam. Liquid cooling is 
+required to maintain its operating temperature. 
+
+4.3.3.2  Fuel Cell Reactants System 
+
+4.3.3.2.1  Reactant Pressure Vessels 
+
+The high-pressure hydrogen will be stored in the 200 bar, Type IV pressure vessel. A spherical 
+configuration  is  preferred  over  cylindrical  for  better  fuel-weight  fraction  performance  and  is 
+enabled by space available inside the aircraft tail cone. The pressure vessel shall be strap-mounted 
+to avoid any concentrated stress-loading that may compromise the integrity of the pressure vessel. 
+
+Hydrogen gas leakage may pose a hazard due to the “more-enclosed” nature of aircraft fuselage. 
+The potential hazard will be addressed by the rest of the notional design. 
+
+Oxygen  gas  will  be  stored  in  a  similar  type  of  container  with  similar  mounting  approach.  In 
+compliance with ASTM G93 and CGA G-4.1, an “oxygen clean” process must be observed while 
+working on oxygen system-wetted components. 
+
+4.3.3.2.2  Pressure-Relief Devices 
+
+The reactant tanks will be protected by multiple PRDs for various conditions: 
+
+• 
+• 
+• 
+
+Rupture disc for overcharging, overheating-caused gas expansion  
+Fusible plugs placed strategically to protect from localized high temperature  
+Resealable safety relief valve in sequential arrangement 
+
+All  high-pressure  reactants  relief  shall  be  conducted  into  a  designated  protective  passage  and 
+vented to ambient away from potential ignition source or other flammable materials. 
+
+4.3.3.2.3  Pressure Regulating Valves 
+
+The reactants gas pressure must be reduced to a safe value for handling before the flow can be 
+modulated for load control. There shall be an in-tank, pressure-reducing valve, and back-pressure 
+regulating valve to safeguard the low-pressure fuel lines due to potential pressure built up by the 
+allowable leakage rate of the pressure-reducing valve.  
+
+50 
+
+ 
+4.3.3.2.4  Fuel Transmission 
+
+The high-pressure reactant gases shall be reduced from its storage pressure of (up to) 3,000 psig 
+to  medium  pressure  (100  –  150  psig)  for  transmission  once  it  leaves  the  storage  system.  The 
+pressure of the hydrogen gas is further reduced to stack pressure (15 – 60 psig) for consumption. 
+
+To minimize leakage, efforts shall be made to minimize gas line connections. 
+
+To  avoid  accumulation  of  hydrogen  gas,  the  transmission  line  shall  be doubly  contained  when 
+trespassing closed or pressurized spaces. The secondary containment volume shall be purged by 
+air or inert gas actively or passively at all times. 
+
+In case of insufficient purge flow, reactant-gas monitoring devices shall be employed to monitor 
+the secondary volume. 
+
+4.3.3.2.5  Leak Detection 
+
+The  current  state-of-the-art  (SOA)  hydrogen  gas  detector  is  relatively  slow  to  react  in  time  to 
+prevent  a  sudden  release  of  hydrogen-caused  fire  or  explosion.  The  installed  location  may  not 
+always have the worst gas-mixture condition. The most useful installation is to monitor the gas 
+composition within the double containment, reducing the possibility of an ignition source. 
+
+4.3.3.3  Power-Generation System 
+
+The power-generation system inside the RFCPS mainly consists of the electrolyzer and FC stacks, 
+wiring and insulation, and connectors and interconnects that transmit power into and out of the 
+sealed FC stacks. Power conditioning equipment and switches, etc. would most likely be outside 
+the stack assembly. In addition, there may be various sensors and other immediate surrounding 
+devices to maintain the health of the stacks. 
+
+4.3.3.3.1  Compartment Area Purging and Ventilation 
+
+The RFCPS resides in an unpressurized compartment in the aircraft. This compartment shall be 
+constantly purged by ambient air and vents overboard. 
+
+4.3.3.4  Thermal Management System 
+
+The RFCPS operates at  an efficiency range of 55 percent  - 65 percent,  which means  the stack 
+generates heat at a rate of moderately less than the electrical power it generates. This heat needs 
+to be removed to maintain a continuous safe operation of the system. There are a number of ways 
+to accomplish this, the most common of which will likely use the water generated inside the stacks 
+as a medium to transport this heat from the stack to an external HEX or separate liquid-cooling 
+media. 
+
+4.3.3.4.1  Liquid Cooling Loop 
+
+To  achieve  a  higher-power  density  of  FCPS  at  this  power  level,  liquid-cooling  is  necessary  to 
+remove the amount of waste heat from such a compact package. 
+
+51 
+
+ 
+The  liquid-cooling  is  preferably  a  closed  loop  with  anti-freezing  property  for  continued 
+airworthiness operation. 
+
+4.3.3.4.2  Heat Sink 
+
+This study will assume ambient air as the heat sink. 
+
+4.3.3.4.3  Electrolyzer Heating 
+
+This endothermic reaction may be supplemented with heat generated electrically, or with waste 
+heat from other systems such as power-electronics cooling loop if so equipped. 
+
+4.3.3.5  Electric Power System 
+
+The electrical system shown in the simplified diagram in Figure 17 represents a baseline typical 
+of a twin-engine, single-aisle, commercial air transport aircraft. The primary power generation is 
+from 115/200VAC, 3-phase, 4-wire generators on the MEs, and a 115/200VAC S/G on the turbine 
+APU,  or  115/200VAC  ground  power.  Emergency  power  is  provided  by  a  115/200VAC  RAT 
+generator, and by a 28VDC battery. 28VDC power is derived from the 115/200VAC buses via 
+transformer-rectifier  units  (TRUs).  The  MEs  start  pneumatically,  with  bleed  air  from  the  APU 
+being  supplied  to  ATS.  The  APU  starts  electrically  from  either  115/200VAC  or  the  28VDC 
+battery.  The  SPU  either  rectifies  115/200VAC  to  ~270VDC  or  boosts  the  battery  voltage  to 
+~270VDC.  The SCU  converts this  270VDC into variable amplitude, variable frequency AC to 
+drive the S/G. 
+
+52 
+
+ 
+Figure 17. Simplified electrical system diagram - Current 
+
+When an FCPS replaces the turbine APU, several changes need are needed. While the simplified 
+architecture shown in Figure 18 incorporates the FCPS, it attempts to minimize electrical system 
+changes and consequent power user equipment changes. Since an FCPS supplies DC output, an 
+inverter  is  required  to  generate  115/200VAC.  Additionally,  because  the  APS  no  longer  has  a 
+source of compressed (bleed) air, the MEs must be started electrically via an SCU and S/G. The 
+other function of an APS is to provide power to the aircraft ECS for air conditioning on ground. A 
+turbine APU would typically provide compressed air to an air-cycle ECS, this same ECS being 
+fed by ME bleed air in flight. The FCPS requires that the ECS be electrically powered, which is a 
+significant change to the aircraft systems. This power would be provided from the +/-135VDC bus 
+in Figure 18. 
+
+This  increased  use  of  electrical  power,  and,  in  particular,  higher-voltage  DC  drives  additional 
+considerations and technology needs, as discussed below. 
+
+4.3.3.5.1  High-Voltage DC Switching and Protection 
+
+High  voltage  DC  primary  power  distribution  contactors  are  heavier  and  more  expensive  than 
+traditional AC contactors to withstand switch contact arcing. Ideally, they need to be high-power 
+SSPC  modules  to  provide  fast  switching  since  the  pass-through  fault  energy  before  an 
+electromechanical  contactor  opens  (typically  a  20-30mS  period),  which  can  cause  significant 
+arcing. This effect is much less pronounced in AC systems because the arc self-extinguishes during 
+
+53 
+
+L-AC GeneratorTo CRNCB1L 115 Vac Bus28 VdcL-TRUR-AC GeneratorR 115 Vac BusBackup Bus28 VdcC1-TRU28 VdcC2-TRU28 VdcR-TRUAPU S/GRATL 28 Vdc BusR 28 Vdc BusCapt. Inst. BusF/O Inst. BusHot BBTo CRNHot BBSCUSPUBCBCTo CRNExt. Power 
+ 
+zero-crossing. Such high power SSPCs are not commercially available. As in current SSPC-based 
+secondary  distribution  systems  fail-short  protection  must  be  included  and  the  charging  of  load 
+capacitance by leakage current prevented (which is particularly important for personnel safety in 
+these high-voltage systems). SSPCs must be lightning immune and need to be able to withstand or 
+control load capacitive inrush currents. 
+
+Arc fault detection/protection is an important feature in high voltage DC systems. It needs to be 
+able  to  detect  different  arc  types  and  minimize  false  trips  due  to  transients  and  normal  loads. 
+Protection level coordination is required to ensure only the furthest downstream protection device 
+is activated. 
+
+Corona/partial discharge are important considerations in high voltage systems. The choice of +/-
+135VDC (or even +/-270VDC) allows standard insulation systems and design practices to be used. 
+
+Figure 18. Simplified electrical system diagram - PEMFUPS 
+
+4.3.3.5.2  Power Quality Including Transient Response 
+
+While 270VDC systems have been used for several years in some military fighter jet applications, 
+use of high voltage DC in commercial air transport has been limited, and where used it has typically 
+been locally distributed and used for a few specific loads. 
+
+54 
+
+Left-Starter/GeneratorTo CRNMainBat.L 115 Vac Bus28 VdcL-TRURight-Starter/GeneratorR 115 Vac BusBackup Bus28 VdcC1-TRU28 VdcC2-TRU28 VdcR-TRUL 28 Vdc BusR 28 Vdc BusInstrument BusInstrument BusHot BBBCExternal Power±135 Vdc Bus115 VacStaticInverterSCU135 VdcATRU135 VdcATRUFCPS 
+ 
+Power  quality,  including  transient  response,  is  an  important  consideration.  To  avoid  excessive 
+voltage excursions, the transient response of a FCPS needs to be carefully considered. This may 
+necessitate including energy storage (batteries) as part of the FCPS. The FCPS output may need 
+to be fed to the bus via a DC-DC converter to enable sufficient voltage control and energy-storage 
+power management. This DC-DC converter could also provide power control/current limiting (by 
+reducing the supplied steady-state voltage), but this is not effective with constant power loads. 
+
+Preventing FCPS overload requires load limiting (load-shedding). It also is recommended that the 
+distribution system provide for the staging load-on transient (applying different loads in sequence) 
+so  that  the  FCPS  has  time  to  respond  and  provide  the  required  power  without  permanently 
+damaging the system components and degrading performance. 
+
+While load-off transient cannot be controlled in all circumstances, an FCPS typically responds and 
+operates safely in open-circuit condition. 
+
+4.4  MAINTENANCE AND RELIABILITY 
+
+Since  the  RFCPS  is  a  closed  system,  the  anticipated  maintenance  activities  will  be  limited  to 
+replacement of coolant filter, and potential water accumulation traps. 
+
+In compliance with ASTM G93 and CGA G-4.1, an “oxygen clean” process must be observed 
+while working on oxygen system-wetted components.  
+
+• 
+
+• 
+
+ASTM G93, "Standard Practice for Cleaning Methods and Cleanliness Levels for Material 
+and Equipment Used in Oxygen-Enriched Environments" 
+CGA G-4.1, "Cleaning Equipment for Oxygen Service" 
+
+The  system  stack  performance  shall  be  constantly  monitored.  It  can  isolate  collapsed  cells  to 
+maintain the integrity of the system. 
+
+4.5  CONCLUSION 
+
+Due to the lack of  current market-driven motivation, the matured RFCPSes are limited to low-
+power, high-cost space applications. As most systems are among currently operative technologies, 
+the hazards have been addressed, including the HVDC system. 
+
+New  safety  hazards  introduced  by  RFCPS  revolve  mainly  around  high-pressure  combustible 
+hydrogen  gas  in  an  oxygen-enriched  environment,  and  materials  resistant  to  strong  oxidizer 
+(oxygen).  Autoignition  of  hydrogen/oxygen  mixtures  need  to  be  evaluated  for  high-pressure 
+electrolyzer failure modes. 
+
+Packaging  high-pressure  hydrogen  and  oxygen  gases  inside  a  common  pressure  vessel  can  be 
+disastrous. A breach of the separating barrier may lead to autoignition of the reactants and result 
+in an explosion proportional to the amount of reactants at a stoichiometry of one. For this reason, 
+a storage system with separately contained reactants may be required for the ability to shut off and 
+isolate the reactants. 
+
+55 
+
+ 
+5.  NOTIONAL CONCEPT DESIGN – SOFCPS 
+
+5.1  PRODUCT DESCRIPTION 
+
+As indicated earlier in this report, the SOFCPS requires significant integration at the platform level 
+to  achieve  plausibility.  The  FC  solutions  so  far  have  been  fairly  independent,  autonomously 
+providing electric power. There is not much else to support a minimal operational requirement. 
+The amount of power and duration for those systems is severely limited by the poor gravimetric 
+efficiency  of  the  high-pressure  gaseous  storage  on  board,  and/or  the  extent  of  the  airport 
+infrastructure developed to support all aircraft with gate power, and hydrogen refueling services. 
+The  SOFCPS,  on  the  other  hand,  can  use  almost  any  ultra-low,  or  no-sulfur  hydrocarbon  fuel, 
+many of which can be compatible with the aircraft MEs. They also demonstrate a gross thermal 
+efficiency through combined heat and power beyond that of even the MEs. However, these systems 
+are  handicapped  by  their  weight  and  operability,  and  will  also  require  a  different  concept  of 
+operations than either of the PEM-based FC systems, or the conventional GT-powered start and 
+APS. 
+
+As envisioned, the SOFCPS is a hybridized power plant that efficiently recaptures chemical and 
+thermodynamic  energy  from  within  the  SOFC  system  though  auxiliary  bottoming  cycles, 
+providing low-quality heat to satisfy platform needs for cabin-related services, and fire prevention 
+and control. This system potentially utilizes other devices for temporary energy storage in order to 
+provide both a constant  base power capability, along with the ability to handle transient power 
+demand. The power management is done in three tiers: 
+
+1. 
+
+2. 
+
+3. 
+
+Base load — Provide constant and steady level of power that is slightly higher than the 
+projected average power demand. This is provided by SOFC stack and GT generator. 
+Load shaving — Capable of storing excess energy during low-demand periods and use it 
+during peak-demand period. This is provided by high-specific power RFC. 
+Transient — Provide short burst of energy during sharp demand transient state. This is 
+provided by power batteries. 
+
+SOFCPS is an integrated power system that provides multiple extended functions besides electrical 
+power. It is idealized in the high-level schematic in Figure 19. Extended functions include: 
+
+1. 
+
+2. 
+3. 
+4. 
+5. 
+
+Thermal power from SOFC stack cooling for wing-icing protection, cargo-hold heating, 
+etc. 
+Superheated steam for galley food heating 
+Reclaimed water for lavatory use 
+ODA for fuel tank inerting and cargo hold fire suppression 
+Compressed oxygen gas for passenger in case of cabin depressurization 
+
+As  indicated  in  Section  2.3.3.5      Preliminary  Assessment,  because  this  system  is  so  highly 
+integrated  in  the  platform,  the  form  and  configuration  of  the  SOFCPS  will  have  a  number  of 
+variations.  Total  weight  for  a  335  kW  rated  system  will  likely  be  over  7000  kg.  When 
+implemented, much of this weight will be offset by legacy systems and components that it replaces. 
+
+56 
+
+ 
+ 
+Figure 19. Hybridized solid oxide fuel cell power system schematic diagram 
+
+5.1.1  Functions 
+
+The  function  of  SOFCPS  is  to  provide  complete  secondary  power,  to  rid  the  ME  of  parasitic 
+extraction  duties  for  its  main  function,  which  is  to  provide  uncompromised  propulsive  power 
+performance. 
+
+• 
+
+Base-load electric power 
+
+- 
+- 
+- 
+
+270VDC generated by SOFC stack. 
+115VAC generated by gas turbine. 
+28VDC generated by steam turbine. 
+
+• 
+
+Dynamic electric power 
+
+- 
+
+Battery bank and/or RFCPS. 
+
+• 
+
+Emergency power 
+
+- 
+
+Battery bank and/or RFCPS may provide emergency power due to its capacity and 
+redundancy. 
+
+• 
+
+Galley heating 
+
+- 
+
+Steam generated for both steam reformer and galley heating. 
+
+• 
+
+Lavatory water supply 
+
+- 
+
+Water condensed from galley heating or steam blowdown to be used for lavatory. 
+
+• 
+
+Fuel tank inerting 
+
+57 
+
+ 
+ 
+- 
+
+Use ODA from Catalytic Burner (CB) exhaust.  
+
+• 
+
+Cargo-hold fire suppression 
+
+- 
+
+Use ODA from CB exhaust for cargo-hold fire extinguishing and suppression. 
+
+• 
+
+Wing-icing protection 
+
+- 
+
+SOFC  stack  cooling  air  to  heat  cargo  hold  and  wing-icing  protection  system 
+(WIPS), may be hybridized with electric heating ribbons 
+
+• 
+
+Cargo-hold heating 
+
+- 
+
+SOFC stack cooling air to heat cargo hold and WIPS. 
+
+• 
+
+Emergency Oxygen Gas 
+
+- 
+
+In case of loss of cabin pressure, oxygen generated from RFCPS may be repurposed 
+for occupants’ breathing aid. RFCPS needs to be serviced after such use to maintain 
+its closed system integrity.  
+
+5.2  REQUIREMENTS 
+
+Based on the implementation rationale, assumptions, and functions served by the SOFCPS, this 
+section discusses the requirement for the notional design. 
+
+5.2.1  Performance 
+
+The top-level performance requirement for notional design is derived from NTIA,  with refined 
+system architecture after several iterations. The detail of the requirement refinement is in Appendix 
+A. 
+
+Table 24. Top-level performance requirement for notional design of SOFCPS 
+
+LHV stack efficiency at 60 psia, rated power 
+
+50% 
+
+Electric Power, Sustained 
+
+Electric Power, Peak 
+
+Thermal Power 
+
+Stack Startup Time 
+Stack Cooldown Time 
+
+5.2.2  Installation 
+
+28 VDC 
+±270 VDC 
+115 VAC 
+±270 VDC 
+Superheated steam 
+Stack cooling air 
+Ambient to 1,300°F 
+1,300°F to 120°F 
+
+34 kW 
+306 kW 
+110 kVA 
+120 kW 
+44 kW 
+186 kW 
+4 hours 
+4 hours 
+
+Table 25. Installation requirements for SOFCPS 
+
+58 
+
+ 
+Attitude 
+
+X = ± 5° 
+Y = ± 5° 
+Z = ± 180° 
+
+X = Roll 
+Y = Pitch 
+Z = Yaw 
+
+5.2.3  Operation 
+
+Table 26. Operational requirements for SOFCPS 
+
+Operating Envelope 
+
+Attitude 
+
+Emergency Landing 
+
+Gust Load 
+
+Ambient Temperature 
+
+5.2.4  Maintenance 
+
+Sea level to 50,000 ft 
+X = ± 20° 
+Y = ± 40° 
+9G 
+1.5G 
+3G 
+6G 
+3G 
+9.86G 
+9.86G 
+7.89G 
+-67° - 185° 
+
+Loss of cabin pressure, de-rated 
+X = Roll 
+Y = Pitch 
+Forward 
+Aft 
+Side 
+Down 
+Up 
+Vector Sum 
+Down 
+Up 
+
+Table 27. Maintenance requirements for SOFCPS 
+
+Maintenance Interval 
+
+1,500 hours  Visual inspection, filter replacement 
+
+5.2.5  Stack reliability 
+
+Table 28. Reliability requirements for SOFCPS 
+
+Power/Regen durability 
+Life 
+
+12 cycles 
+18,000 hours  Less than 20% degradation 
+
+6 cycle/year x 10 year 
+
+5.2.6  Safety 
+
+59 
+
+ 
+ 
+ 
+ 
+Table 29. Safety requirements for SOFCPS 
+
+RTCA/ 
+DO-160G 
+
+Requirement 
+
+Operating 
+
+Non-
+Operating 
+
+Condition 
+
+Operating  Low 
+Temp 
+Operating High 
+Temp 
+Short  Time 
+Operating  High 
+Temp 
+Ground 
+Survival  Low 
+Temp 
+Ground 
+Survival  High 
+Temp 
+Altitude 
+Temperature 
+Variation 
+
+Section 4  Category D2 (-55° C) 
+
+Section 4  Category D2 (+70° C) 
+
+Section 4  Category D2 (+70° C) 
+
+Section 4  Category D2 (-55° C) 
+
+Section 4  Category D2 (+85° C) 
+
+Section 4  Category D2 (50,000 ft.) 
+
+Section 5 
+
+Humidity 
+
+Section 6 
+
+Operational 
+Shock 
+
+Section 7 
+
+Crash Shock 
+
+Section 7 
+
+Category B Operating: -55 to 70° C 
+Ramp: (5° C minimum/min.) 
+Category B (minimum 95% relative 
+humidity at +65° C) 
+Category B sawtooth pulse, with an 
+acceleration peak value of 6 G’s for 
+11 ms 
+Category B PROC 1 same as 
+operational shock except 20 G’s 
+
+Crash Safety 
+Sustained 
+Acceleration 
+
+Section 7 
+
+Category B PROC 2 non-operating 
+– 9.0g along any axis 
+
+Vibration 
+
+Section 8 
+
+Explosion 
+
+Section 9 
+
+Waterproofness 
+
+Section 10 
+
+Sand and Dust 
+
+Section 12 
+
+Category S Test Curve C, Standard 
+Vibration, 1 hr/axis 
+Category A or B* Site altitude, 70C 
+fuel type recorded in test report 
+Category Y or W* Drip proof test, 
+280 1/M** 2/h for 15 minutes 
+operating.  
+Category D Sand and dust jet along 
+each direction of each major 
+orthogonal axis at 25C and 55C 
+non-operating 
+
+60 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table 29. Safety requirements for SOFCPS (continued) 
+
+Requirement 
+
+Operating 
+
+Non-
+Operating 
+
+X 
+
+X 
+
+Condition 
+
+Fungus 
+Resistance 
+
+RTCA/ 
+DO-160G 
+
+Section 13 
+
+Salt Spray 
+
+Section 14 
+
+Magnetic Effect 
+
+Section 15 
+
+Power Input 
+
+Section 16 
+
+Category F Cultures of 5 Fungi, 28 
+days incubation 
+Category S 5% salt solution spray at 
+35C for 48 hrs non-operating 
+Magnetic field of 14.4 A/m for 
+specified deflection, distance is 
+determined by test 
+Category A normal and abnormal 
+operating voltage, interrupt, normal 
+and abnormal surge, undervoltage 
+
+Voltage Spike 
+Audio 
+Frequency 
+Conducted 
+Susceptibility, 
+Power input 
+leads 
+
+Induced Signal 
+Susceptibility 
+
+Radio Frequency 
+Susceptibility 
+Conducted 
+
+Section 17  Category A 600V, 10 
+
+sec transient 
+
+Section 18 
+
+Category R or Z* Sine wave audio 
+frequency superimposed on power 
+lead 
+
+Section 19 
+
+Category Z Magnetic and electric 
+fields and spikes induced into 
+equipment and cables 
+
+Section 20 
+
+Category Y* Cable injection to 
+10kHz to 400MHz 
+
+Radio Frequency 
+Susceptibility, 
+Radiated 
+
+Section 20 
+
+Category Y* Radiated field to 
+18GHz Freq. 
+                             Avg (V/M)       
+Peak (V/M) 
+10kHz to 1 GHz   200                 N/A  
+1 to 2 GHz            200                 
+1700 
+2 to 4 GHz            200                 
+3000 
+4 to 6 GHz            200                 
+2300 
+6 to 8 GHz            200                   
+530 
+8 to 12 GHz          200                 
+1400 
+12 to 18 GHz        200                   
+850 
+
+61 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+X 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Table 29. Safety requirements for SOFCPS (continued) 
+
+Condition 
+
+RTCA/ 
+DO-160G 
+
+Requirement 
+
+Operating 
+
+Non-
+Operating 
+
+Emission of 
+Radio Frequency 
+Energy 
+
+Section 21 
+
+Category M* Radiated and 
+conducted 
+
+X 
+
+Category A 4XX Pin Injection: 
+ECU only 
+Multiple stroke: Waveform 1 
+(750V/1500A peak) and 3 
+(1500V/300A peak). Tests per 
+AC20-136 
+Multiple burst: Waveform 3 
+(damped sinusoid) at 1 MHz, 
+300V/60A peak. 
+Tests per AC20-136 
+The ECU is category X and no tests 
+were required 
+Category A 10 discharges, each 
+polarity 
+
+X 
+
+X 
+
+X 
+
+X 
+
+Lightning 
+Induced 
+Transient 
+Susceptibility 
+
+Section 22 
+
+Lightning Direct 
+Effects 
+Electrostatic 
+Discharge 
+
+Section 23 
+
+Section 25 
+
+5.3  NOTIONAL DESIGN 
+
+The notional design of the SOFCPS is intended to be generic. The goal is to explore and expose 
+new hazards introduced by the new technologies. 
+
+The  design  of  any  system  is  an  iterative  process.  This  notional  design  presents  the  final 
+representation as a result of these iterations. Efforts has been made to capture some of the rationale 
+during the notional design process. 
+
+5.3.1  System Description 
+
+The SOFCPS is a hybrid power system that integrates many functions with its output streams for 
+increased system efficiency and effectiveness. 
+
+The  SOFCPS  comprises  several  subsystems  tightly  integrated  into  one  unit.  The  subsystems 
+included are: fuel processing, fuel cell stack, catalytic burner, turbomachine, SG, stack cooling, 
+condenser, and water separator (see Figure 20). 
+
+5.3.1.1  Fuel Processing Subsystem 
+
+The fuel processing subsystem  reforms  sulfur-free or ultra-low sulfur aviation fuel  into carbon 
+monoxide and hydrogen enriched gaseous fuel for the stack through a catalytic steam reformer 
+(CSR). The aviation fuel may be shared with the ME. The fuel pump delivers the low-sulfur fuel 
+
+62 
+
+ 
+ 
+ 
+ 
+to  the steam  reformer (SR) to  produce fuel  rich reformate. The simplified chemical  reaction is 
+expressed in the following formula: 
+
+C12H26 + 12H2O → 12CO + 25H2 
+
+Both  hydrogen  and  carbon  monoxide  are  fuel  to  SOFC.  This  endothermic  steam  reformation 
+reaction takes place between 750°C and 950°C. Additional water is required to avoid coke or soot 
+formation  on  catalyst.  The  additional  water  content  effectively  lowers  the  fuel  gases  partial 
+pressure by 39 percent. 
+
+The simplified chemical reaction is expressed in the following formula: 
+
+C12H26 + 36H2O → 12CO + 25H2 + 24H2O 
+
+This hot reformate mixture of CO, H2 and H2O is delivered to the fuel cell anode. 
+
+5.3.1.2  SOFC Stack 
+
+The SOFC stack takes the hydrogen-enriched gas from the steam reformer (SR) into its anode, and 
+pressure-boosted air from the turbomachine’s compressor (CC) into its cathode. 
+
+This exothermic reaction takes place between 750°C and 850°C. The pressures of the reactants are 
+balanced and elevated to 60 psia. The reactants utilization rate is approximately 60 percent. Both 
+operating pressure and utilization rate may be adjusted to  optimize the system  size and weight 
+against overall efficiency.  
+
+The SOFC stack is cooled with ambient air, which is then routed through cargo hold for heating, 
+then fed into WIPS before exit into the environment. 
+
+5.3.1.3  Catalytic Burner 
+
+The stack exhaust gas streams from the anode and cathode are combined and fed into the catalytic 
+burner (CB) to further extract power from the unused reactants. Part of the thermal power is used 
+to sustain the endothermic SR reaction and drive the PT of the turbomachine. The selection of a 
+CB is for maintaining a very highly efficient rich burner without concerns of lean blowout. The 
+gas at the outlet with very low oxygen content at a fraction of a volumetric percent is ODA and 
+may be used for fuel tank inerting or platform fire suppression. 
+
+5.3.1.4  Turbomachine 
+
+The hot CB exhaust is fed into the PT of the turbomachine and expanded to generate mechanical 
+power to drive the stack CC, which is fed from the cabin air outflow and the electric generator 
+(MG). The CC boosts the cabin air with a 4:1 ratio prior to feeding the fuel cell stack, increasing 
+stack performance. Excess power from the PT is extracted through the MG. The output electrical 
+power from the MG is fed into the 115VAC bus. 
+
+63 
+
+ 
+5.3.1.5  Steam Generator (SG) and Precooler 
+
+The PT exhaust is routed through a steam generator (SG) to transfer the otherwise waste heat into 
+generating steam for the catalytic steam reformer (CSR) and galley food heating. The SG is a two-
+phase HEX. The hot  side receives turbine exhaust  gas and the  cold  side  receives the extracted 
+water from downstream coolers, condenser, and water separator. The water vapor contained in the 
+ODA is condensed in the hot side while the water is evaporated and superheated in the cold side 
+of the SG.  
+
+The hot  side gas is  further cooled by  cabin  outflow air in  the  pre-cooler  and finally chilled by 
+ambient air to condense and separate the water content for CSR and galley use.  
+
+5.3.1.6  Condenser/Water-Extractor 
+
+The two-phase ODA/water is chilled by the very cold ambient ram air in the condenser to ensure 
+sufficiently  dried  ODA  for  fuel  tank  inerting.  The  quality  of  the  ODA,  when  considering  total 
+reaction from stack inlets to CB outlet, is expressed in the following formula: 
+
+24CO + 50H2 + 48H2O + 37O2 + 185N2 → 24CO2 + 98H2O + 185N2 
+
+When  the  ODA  is  chilled  to  freeze  point,  roughly  95  percent  of  the  water  is  condensed  and 
+removed, based on 32°F steam pressure of 0.089 psia (ASHRAE steam table). The composition of 
+the ODA is as follows: 
+
+24CO2 + 5H2O + 185N2 
+
+The condensed water is then pumped through the SG and the dried ODA is fed back through an 
+economizer to recover some heat from the wet ODA to ensure no water droplet will enter the fuel 
+tank. The dry exhaust is high-quality ODA, which is directed to FTIS. 
+
+The steam condenses in galley heating and the condensate is fed into the water tank for lavatory 
+service. When the galley heating is not in use, the steam is routed through a steam turbine (ST) to 
+generate electricity for recharging the ESDs and condensing and reclaim the water for lavatory 
+service. 
+
+5.3.1.7  SOFC Stack Cooling Subsystem 
+
+The superheated steam leaves the SR cold side and enters a cooling circuit in the SOFC stack to 
+help cool it while elevating steam temperature ready for steam reformation process. Since the SR 
+requires  about  50  percent  of  the  steam  for  the  reformation  process,  the  remaining  superheated 
+steam can be piped to the galley for oven, then steam turbine, and finally lavatory water tank. 
+
+The SOFC stack is cooled by three main streams: 
+
+1. 
+2. 
+3. 
+
+Cathode air — Balanced for stack reaction stoichiometry. 
+Superheated steam — Higher heat content than air. 
+Ambient (ram) air — May be used for cargo-hold heating via a radiator then heading to 
+WIPS after leaving the stack. 
+
+64 
+
+ 
+Figure 20. SOFCPS schematic diagram 
+
+5.3.1.8  Other Energy Supply Devices 
+
+The SOFCPS is designed to provide a flat baseline loading power to support the aircraft systems. 
+It needs to be hybridized with ESDs, such as RFCPS and batteries, to handle peak and transient 
+loads, and regenerate/recharge when there is power surplus. 
+
+5.3.2  System Configurations 
+
+Due  to  the  large  amount  of  energy  storage  needed  for  this  hybrid  power  system,  RFCPS  is 
+preferred over batteries. The prime location for RFCPS will be the tail cone to accommodate the 
+size and shape of the reactant tanks. Batteries will be distributed where needed. 
+
+There  are  many  ways  to  configure  the  hybridized,  integrated  SOFCPS.  The  three  system 
+configurations are illustrated in Figure 21 through Figure 23 for the purpose of exploring hazards 
+and implementation challenges. 
+
+65 
+
+ 
+ 
+5.3.2.1  Belly Mount 
+
+The SOFCPS  is  highly integrated thermally; it would benefit if co-located with  ECS, which is 
+traditionally located at the fuselage belly and wing root. This arrangement makes installation easy 
+for its close proximity to the ECS air management, WIPS, fuel tank, and mid galley. 
+
+Due to the nature of the SOFCPS, it should be situated inside the DFZ, which poses as a hazard 
+for  the  closeness  to  the  fuel  tanks  and  the  cabin.  Figure  21  illustrates  the  notional  installation 
+location. 
+
+Figure 21. SOFCPS configuration option #1 
+
+5.3.2.2  Empennage Mount 
+
+The SOFCPS may be installed at the root of the vertical stabilizer, as shown in Figure 22. This 
+location is relatively safe as it has been used to mount the ME for some aircraft. The services it 
+provided such as FTIS and WIPS are ineffective and would not trade well with other installation 
+options. 
+
+66 
+
+ 
+ 
+Figure 22. SOFCPS configuration option #2 
+
+5.3.2.3  Wing-Root Leading Edge Mount 
+
+The third option is to have two half-sized SOFCPSes situated at the leading edge (LE) of the wing 
+root,  as  shown  in  Figure  23.  This  option  allows  easy  thermal  integration  while  at  a  safe  and 
+accessible location outside of the fuselage enclosure. 
+
+Figure 23. SOFCPS configuration option #3 
+
+67 
+
+ 
+ 
+ 
+5.3.3  Subsystem Notional Designs 
+
+The  implementation  of  such  a  hybridized  and  highly  integrated  power  system  presents  endless 
+design choices and optimization strategies. This notional design presents one which touches on 
+many aspects of possible configurations. 
+
+The thermally integrated main SOFCPS will be packaged similarly as a GT APU with more output 
+fluid streams such as high temperature steam and ODA lines. 
+
+5.3.3.1  SOFC Stack 
+
+Due  to  the  stack’s  brittleness,  high-temperature  seal-material  limitations,  elevated  operating 
+temperature,  and pressure condition,  the stack shall be in  a cylindrical  shape inside the system 
+pressure vessel. The stack’s thermal management (cooling) is the greatest challenge, though the 
+system mass and thermal balance calculations assume the cooling challenge is overcome. 
+
+5.3.3.2  Catalytic Steam Reformer 
+
+While the endothermic steam reformation reaction operates at a temperature slightly lower than 
+that of the stack, it shall be concentrically arranged around the stack for better thermal integration. 
+Both steam and fuel are premixed and preheated by the waste heat from the stack and act as part 
+of the stack cooling sink. 
+
+5.3.3.3  Catalytic Burner 
+
+This  exothermic  reaction  shall  also  be  arranged  concentrically  around  the  SR  to  maintain  its 
+temperature. 
+
+5.3.3.4  Turbomachine 
+
+The  PT  inlet  of  the  turbomachine  is  close  coupled  with  the  CB  exhaust.  The  turbomachine 
+resembles  a  small  traditional  GT  APU.  The  turbomachine  output  power  will  be  affected  by 
+altitude, unlike the stack that generates constant power, with same reactants flow conditions. 
+
+5.3.3.5  Steam Generator 
+
+SG is a two-phase HEX with water/steam on the cold side, while the hot exhaust ODA from the 
+power turbine on the hot side. 
+
+5.3.3.6  Condenser/Water Extractor 
+
+The cooled ODA is fed through a series of HEXs to further cool to ~70°F by cabin outflow air and 
+to dried ODA before it enters the ambient air-cooled condenser. 
+
+Special care must be taken into the design to avoid ice formation inside the condenser since the 
+sink temperature is subfreezing. 
+
+68 
+
+ 
+Water condensate will be extracted and pumped through the SG. The dried ODA, with ~95 percent 
+of the water removed, is sent through the wet ODA HEX to ensure it is droplet-free before entering 
+the fuel tank for inerting. 
+
+5.3.3.7  Cargo-Hold Heating Radiator and WIPS 
+
+The  stack  cooling  air  is  ducted  through  a  radiator  located  inside  the  cargo  hold  to  maintain 
+temperature for cargos. The hot air leaving the radiator is finally sent to the LE of the wings for 
+full time icing protection. 
+
+5.3.3.8  RFCPS 
+
+Section 4.3.1   discusses the RFCPS. 
+
+5.3.3.9  Electric Power System 
+
+Figure  24  is  the  top-level  electrical  system  architecture  for  this  notional  SOFCPS-equipped 
+aircraft. 
+
+Figure 24. Top-level electrical system architecture – Hybrid SOFCPS 
+
+5.3.3.9.1  High Voltage DC Switching and Protection 
+
+High-voltage  DC  primary  power  distribution  contactors  are  heavier  and  more  expensive  than 
+traditional AC contactors to withstand switch contact arcing. Ideally, they need to be high-power 
+
+69 
+
+ 
+ 
+SSPC  modules  to  provide  fast  switching  since  the  pass-through  fault  energy  before  an 
+electromechanical contactor opens (typically a 20-30mS period) and can cause significant arcing. 
+This effect is much less pronounced in AC systems because the arc self-extinguishes during zero-
+crossing.  Such  high  power  SSPCs  are  not  commercially  available.  As  in  current  SSPC-based 
+secondary  distribution  systems,  fail-short  protection  must  be  included  and  must  prevent  the 
+charging  of  load  capacitance  by  leakage  current  (which  is  particularly  important  for  personnel 
+safety in these high-voltage systems). SSPCs must be lightning-immune and need to be able to 
+withstand or control load capacitive inrush currents. 
+
+Arc fault detection/protection is an important feature in high-voltage DC systems. It needs to be 
+able  to  detect  different  arc  types  and  minimize  false  trips  due  to  transients  and  normal  loads. 
+Protection level co-ordination is required to ensure only the furthest downstream protection device 
+is activated. 
+
+Corona/partial discharge are important considerations in high-voltage systems. The choice of +/-
+270VDC allows standard insulation systems and design practices to be used. 
+
+5.3.3.9.2  Power Quality Including Transient Response 
+
+While 270VDC systems have been used for several years in some military fighter jet applications, 
+use of high voltage DC in commercial air transport has been limited, and where used, it typically 
+has been locally distributed and used for a few specific loads. 
+
+Power quality, including transient response, is an important consideration. In particular, transient 
+response of a FCPS needs to be carefully considered to avoid excessive voltage excursions. This 
+may necessitate including energy storage (batteries) as part of the FCPS. The FCPS output may 
+need to be fed to the bus via a DC-DC converter to enable sufficient voltage control and energy-
+storage  power  management.  This  DC-DC  converter  could  also  provide  power  control/current 
+limiting  (by  reducing  the  supplied  steady-state  voltage),  but  this  is  not  effective  with  constant 
+power loads. 
+
+Load  limiting  (load-shedding)  would  be  required  to  prevent  FCPS  overload.  It  also  is 
+recommended  that  the  distribution  system  provides  for  the  staging  load-on  transient  (applying 
+different loads in sequence) so that the FCPS has time to respond and provide the required power 
+without permanently damaging the system components and degrading performance. 
+
+While load-off transient cannot be controlled in all circumstances, an FCPS typically responds and 
+operates safely in open-circuit condition. 
+
+5.4  MAINTENANCE AND RELIABILITY 
+
+The  SOFCPS  is  a  sophisticated  system  that  ducts  high-pressure  reactive  gas.  It  includes  high-
+temperature  chemical  reaction  chambers,  sensitive  ceramic  or  metal/ceramic  hybrid  structures, 
+catalytic  materials,  high-speed  turbomachinery,  high-power,  high-voltage  electrical  feeds,  and 
+devices  for  power  conditioning  and  control.  Given  that  this  system  is  intended  to  operate 
+continuously, while the aircraft is on the ground and in all phases of flight, means that during the 
+expected life of the aircraft, this system will accumulate an unprecedented number of hours. The 
+critical  failure  of  a  component  in  this  system  is  inevitable.  How  that  failure  affects  the  safe 
+
+70 
+
+ 
+operation of the system and the aircraft it is installed in is driven by careful design of the system, 
+and the implementation of appropriate measures and features that manage this risk to an acceptable 
+level. Demonstration of appropriate reliability and system robustness will be key, as it is with any 
+other critical aircraft subsystem.  
+
+Many of the components in this system are similar-to components and equipment currently used 
+on  commercial  air  transport  aircraft.  As  such,  there  are  existing  methods  for  reliable  design, 
+manufacture, and qualification, including the electrical power and distribution system and the fuel 
+delivery system. The system HEXs and turbomachinery also share a heritage with existing aircraft 
+system  technology.  Their  reliability  should  be  within  existing  design  capability  and  the 
+maintenance of these systems consistent with current practices. 
+
+Unique is the implementation of a FC stack necessarily constructed with brittle materials that could 
+leak reactive gases into the compartment, or fail to function during critical periods of flight, for 
+which there are few mature reliability models that would apply. Reputedly, these systems have 
+shown very long lives in stationary earthbound applications. It remains to be seen how reliably 
+they perform in the air. While the stack core is likely not serviceable, there may be a design need 
+that allows repair, or replacement of external seals, and system components. Since the stack itself 
+is somewhat fragile and  cycle-limited there should be appropriate maintainability built into the 
+system to allow economical and safe removal and replacement. As the studied system weighs 7000 
+kg, the bulk of which is the stack, this could be a significant undertaking. 
+
+There  is  no  question  that  the  appropriate  health  monitoring  with  effective  prognostics  that  can 
+measure the progressive degradation of key aspects of the system-critical components can provide 
+early warning of the most critical or most common failures. It is a rare argument, however, that 
+health monitoring by itself improves system reliability, unless there is an adaptive feature in this 
+system that enables it to change modes, and provide limited or reduced, but still sufficient operative 
+capability during the worst-failure scenarios. 
+
+In any case, all of the components’ critical failure modes must be understood. Also, the system 
+design,  which  includes  build  quality,  as  well  as  operational  monitoring  and  analytics,  must  be 
+configured  to  predict,  avoid,  and  where  required,  safely  operate  with  one  or  several  key 
+components that are not operational or degraded in some way. 
+
+5.5  CONCLUSION 
+
+The functionalities of the all-time SOFCPS, which appears attractive in a notional design for its 
+higher  efficiency,  reduced  emission,  reduced  noise,  and  uninterrupted  and  independent  power 
+supply, encourages a new, uncompromised, and thrust-only ME design. It also allows the airplane 
+to be parked away from the terminal in overcongested or undersized airports around the world. 
+
+The  NCD  of  the  SOFCPS  performance  is  based  on  extreme  optimism  in  its  technology 
+development and design. The goal is to expose broader areas of implementation possibilities for 
+safety-hazard assessment. 
+
+The  equipment  replaced  by  the  system  potentially  includes  GT  APU,  S/Gs,  motors  and  motor 
+controllers, RAT, air separation module, potable water and reduced water tank size, all of which 
+will be credited for specific design trade. 
+
+71 
+
+ 
+The implementation of the notionally designed SOFCPS is contingent upon the paradigm shift in 
+the  aerospace  industry  in  determining  functions and  load  management  with  technology.  It  also 
+requires a clean-slate platform design opportunity usually driven by business rationale, but which 
+happens infrequently. 
+
+The  reliability  of  this  system  is  impacted  by  its  size,  and  concept  of  operations.  Although 
+implementation  of  trending  analytics  can  help  determine  dispatch  reliability  and  avoid  failure 
+during  critical  operation  modes,  it  is  dependent  on  the  development  and  recognition  of  critical 
+failure modes in this system, including the stack, and developing effective sensors and models that 
+can identify and track progressive structural and performance deterioration.  
+
+The greatest caveat of all is the availability of sulfur-free or ultra-low sulfur fuel to support the 
+SOFCPS technology implementation. 
+
+6.  NEW SAFETY HAZARDS ASSESSMENT 
+
+With  each  implementation  of  new  technology,  it  brings  along  new  safety  hazards  whether  in 
+system performance, operation, or maintenance. Unlike GA APU, FCPS comes in vast numbers 
+of  combinations  between  fuel  type,  fuel  state,  fuel  processing,  stack  chemistry,  operating 
+conditions, and services. 
+
+Also,  unlike  the  GT  APU,  FCPS  provides  fertile  ground  for  various  degrees  of  hybridization 
+between air-breathing FC,  turbomachines, self-contained reactants  fuel  cell, batteries, and even 
+super capacitors, each tailored to its strength as subsystems. The focus of assessing safety hazards 
+shift from specific design to categories of behaviors. 
+
+Hybridized  power  systems  add  one  more  layer  of  safety  hazards  due  to  the  interdependency 
+between  sub-systems,  which  is  difficult  to  assess  categorically  and  should  be  dealt  with 
+independently for each specific design. To this end, the aim of this study was shifted more toward 
+exploring multiple implementations to expose more categories of safety hazards than any well-
+defined specific notional design. 
+
+As the notional design progresses in discovering new hazard categories, it becomes apparent that 
+the hazard categories contained in each of the three selected FC technologies are hierarchical. That 
+is, most of the safety hazards involved in direct hydrogen PEMFCPS are also inherent in RFCPS. 
+Likewise, all the safety hazards involved in RFCPS are also inherent in SOFCPS implementation 
+because of the inclusivity of RFCPS. By understanding the safety hazards of SOFCPS, the other 
+FCPSes are automatically covered. 
+
+A summary of consolidated new safety hazard categories for FCPS is covered in the following 
+sections. 
+
+6.1  BATTERIES  
+
+The aviation power/energy batteries have been vigorously studied and certification requirement is 
+well developed. 
+
+72 
+
+ 
+6.2  GT 
+
+The GT APU certification requirement is mature and well-defined in TSO-C77b. 
+
+6.3  PEMFCPS 
+
+The safety standards for PEMFCPS are also well defined by the automotive industry, which may 
+be adapted readily. 
+
+6.4  RFCPS 
+
+This  self-contained  power  system  places  energy-dense  fuel  and  strong  oxidizer  in  very  close 
+proximity at very high pressure. The new safety hazards categories in this system include: 
+
+• 
+
+• 
+• 
+• 
+
+System component cleanliness for strong oxidizer. “Oxygen-clean” procedure must be 
+followed rigorously during installation and maintenance periods. 
+Elevated fire and explosion potential in oxygen-enriched environment. 
+Hydrogen/oxygen autoignition condition in high-pressure reactants gas system. 
+Fire potential for surrounding flammable materials. 
+
+6.5  HYBRIDIZED SOFCPS 
+
+As suggested in SOFCPS NCD, the implementation is unlikely without the integration of all forms 
+of powers and hybridization of other power sub-system such as GT, RFCPS, and batteries. The 
+new safety hazards should be analyzed by fluid circuits and hardware. 
+
+6.5.1  Hazard from Each Circuit 
+
+6.5.1.1  Superheated Steam 
+
+• 
+• 
+• 
+• 
+• 
+
+Galley heating — High-temperature steam transmission line 
+Superheated steam oven — Danger to personnel 
+Cargo hold heating (condensing) — High-temperature steam transmission line 
+Potable water (heating and) replenishment — Cleanliness standard 
+Icing (blockage) and collapsing — Vacuum created by steam condensing 
+
+6.5.1.2  Stack Cooling Air 
+
+• 
+• 
+
+Cargo hold heating (liquid cooled) — Radiator leak proofing 
+Wing icing protection (air cooled) — High-temperature over fuel tanks 
+
+6.5.1.3  Oxygen Depleted Air 
+
+• 
+
+Fuel tank inerting — Water condensate in fuel tank 
+
+6.5.1.4  Regenerated Reactants 
+
+• 
+
+Pressure control and regulation 
+
+73 
+
+ 
+• 
+• 
+
+Isolation of the reactants 
+Double containment in reactants transmission through pressurized zones 
+
+6.5.2  Hardware Hazards 
+
+6.5.2.1  Steam Reformer 
+
+• 
+• 
+• 
+
+Flammable liquid 
+Combustible gases 
+High temperature 
+
+6.5.2.2  SOFC Stack 
+
+• 
+• 
+
+Combustible gases 
+High temperature 
+
+6.5.2.3  Catalytic Burner 
+
+• 
+• 
+
+Combustible gases 
+High temperature 
+
+6.5.2.4  Turbomachine 
+
+• 
+• 
+
+Kinetic energy 
+High temperature 
+
+6.5.2.5  Electrical Connections and Sensors 
+
+• 
+• 
+
+High voltage 
+High temperature 
+
+6.6  DESIGNATED FIRE ZONE 
+
+The  area  enclosing  turbomachine  and  steam  reformer  should  be  considered  a  DFZ  because 
+turbomachine resembles a GT APU, and the SR operates at a very high temperature with liquid jet 
+fuel. 
+
+6.7  FUEL TANK (WATER) CONTAMINATION 
+
+The ODA supplied is slightly undersaturated at free point. It could be absorbed by warm fuel or 
+form tiny ice crystals in cold fuel. Current fuel is exposed to saturated ambient air in airport fuel 
+farms, the condition of which is no better than the blanketed aircraft fuel tank. 
+
+6.8  PREVENTION 
+
+• 
+• 
+• 
+
+Isolate energy source from power generation device, isolate between reactants 
+Ventilate (passive) to disperse leaked reactants 
+Channeling and directing released energy in case of explosion 
+
+74 
+
+ 
+• 
+
+Health monitoring on key system components 
+
+These assessments are incorporated into the RTSG. 
+
+7.  CONCLUSION AND RECOMMENDATION 
+
+7.1  CONCLUSION 
+
+The safe implementation of three FCPS technologies to provide auxiliary power for commercial 
+air transport aircraft  was  evaluated. The goal is  to reveal  new safety hazards introduced to the 
+aircraft by new technologies. 
+
+Unlike the GT  auxiliary  power unit (APU) that it replaces in  this study,  the FCPS comes with 
+many forms of stack chemistry that require different types and forms of fuel operating at different 
+conditions. It is physically improbable that FCPS could replace the full functionality of the GT 
+APU in a modern aircraft without a major modification to the aircraft. To accept FCPS as a viable 
+auxiliary power solution, the system architecture paradigm of the aircraft power needs change.  
+
+For each FCPS to be technologically feasible, reasonable and technically achievable assumptions 
+were made in this study. (The study approach is set to explore when, not if, some feasible FCPS 
+can replace GT APU functions, and assess the new safety hazards brought to the aircraft through 
+these technologies.) Three probable FCPS types were examined. The safety hazards nested with 
+the SOFCPS have been all-inclusive (that is, once the study is done on SOFCPS, it also should 
+cover RFCPS and PEMFCPS). 
+
+For  direct  hydrogen  PEMFCPS,  an  implementation  with  minimally  critical  functionality  was 
+assumed and compared  with  a GT APU to  determine that it could  be plausible. As PEMFCPS 
+technology  is  matured  from  automotive  applications,  all  learning  from  automotive  FCPS 
+implementation will be of great value. The obstacle for adapting this technology lies in the lack of 
+hydrogen-refilling infrastructure in all airports. 
+
+Although  RFCPS  is  independent  of  hydrogen  distribution  infrastructure,  the  maturity  of  this 
+technology for aviation is low. The added pressurized oxygen as a strong oxidizer increases safety 
+risk  for  providing  an  oxygen-enriched  environment,  as  well  as  reactants  system  cleanliness 
+requirement and autoignition potential. 
+
+To be a viable alternative, SOFC with reformed jet fuel needs extensive platform integration with 
+a pressure-boosting turbomachine and hybridization with RFCPS and/or batteries. The magnitude 
+of a system architecture change demands a paradigm shift in design philosophy, requiring a clean-
+sheet design opportunity. 
+
+Overall, most safety hazards are covered in the final report of the FAA ESD aviation rulemaking 
+committee. Few additional safety hazards identified in the study will be documented in RTSG: 
+
+a. 
+b. 
+
+RFCPS — Hydrogen autoignition potential in high-pressure reactants system 
+SOFCPS — Superheated steam system and galley appliances 
+
+75 
+
+ 
+7.2  RECOMMENDATION 
+
+1. 
+
+2. 
+
+3. 
+
+FAA to establish TSO for FCPS focusing on stack and balance of plant as packaged unit. 
+Refer interconnecting systems such as GT and fuel reforming/processing to other 
+appropriate certification standards.  
+Look for matured PEMFCPS implementation and certification requirement from the 
+automotive industry. 
+Industry collaboration on the following (in the form of FAA aviation rulemaking 
+committee) is recommended: 
+
+a. 
+
+b. 
+
+Maturity level of high-power/energy RFCPS is at its infancy, potential 
+development of URFCPS is desired. 
+Challenge of onboard fuel processing and miniaturization of SOFCPS demands 
+real life implementation experience and data. 
+
+76 
+
+ 
+

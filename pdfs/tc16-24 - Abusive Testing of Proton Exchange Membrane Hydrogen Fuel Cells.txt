@@ -1,0 +1,1314 @@
+DOT/FAA/TC-16/24 
+
+Federal Aviation Administration 
+William J. Hughes Technical Center 
+Aviation Research Division 
+Atlantic City International Airport 
+New Jersey 08405 
+
+Abusive Testing of Proton 
+Exchange Membrane Hydrogen 
+Fuel Cells 
+
+October 2016 
+
+Final Report 
+
+This document is available to the U.S. public 
+through the National Technical Information 
+Services (NTIS), Springfield, Virginia 22161. 
+
+This document is also available from the 
+Federal Aviation Administration William J. Hughes 
+Technical Center at actlibrary.tc.faa.gov. 
+
+U.S. Department of Transportation 
+Federal Aviation Administration 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+NOTICE 
+
+This  document  is  disseminated  under  the  sponsorship  of  the  U.S. 
+Department of Transportation in the interest of information exchange. The 
+U.S. Government assumes no liability for the contents or use thereof. The 
+U.S.  Government  does  not  endorse  products  or  manufacturers.  Trade  or 
+manufacturers’ names appear herein solely because they are considered 
+essential  to  the  objective  of  this  report.  The  findings  and  conclusions  in 
+this report are those of the author(s) and do not necessarily represent the 
+views  of  the  funding  agency.  This  document  does  not  constitute  FAA 
+policy.  Consult  the  FAA  sponsoring  organization  listed  on  the  Technical 
+Documentation page as to its use. 
+
+This  report  is  available  at  the  Federal  Aviation  Administration  William  J. 
+Hughes  Technical  Center’s  Full-Text  Technical  Reports  page:  
+actlibrary.tc.faa.gov in Adobe Acrobat portable document format (PDF). 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1. Report No.
+
+2. Government Accession No.
+
+3. Recipient's Catalog No.
+
+Technical Report Documentation Page 
+
+DOT/FAA/TC-16/24 
+
+4. Title and Subtitle 
+
+5. Report Date
+
+ABUSIVE  TESTING  OF  PROTON  EXCHANGE  MEMBRANE  HYDROGEN 
+FUEL CELLS 
+
+October 2016 
+6. Performing Organization Code
+
+7. Author(s)
+
+Steven M. Summer1 and Shane Nicholson2
+9. Performing Organization Name and Address 
+
+8. Performing Organization Report No.
+
+10. Work Unit No. (TRAIS)
+
+1Federal Aviation Administration 
+William J. Hughes Technical Center 
+Aviation Research Division 
+Fire Safety Branch, ANG-E21 
+Atlantic City International Airport, NJ 08405 
+
+2Parker Hannifin Corporation 
+Aerospace Group 
+Central Engineering FDC 
+6500 West Freeway, Suite 1010 
+Fort Worth, TX 76116 
+
+11. Contract or Grant No.
+
+12. Sponsoring Agency Name and Address 
+
+13. Type of Report and Period Covered
+
+FAA Northwest Mountain Regional Transport Airplane Directorate 
+1601 Lind Ave SW 
+Renton, WA 98057 
+
+Final Report 
+
+14. Sponsoring Agency Code
+
+ANM-111
+
+15. Supplementary Notes
+
+16. Abstract
+
+In collaboration with Parker Hannifin Corporation, the Fire Safety Branch of the FAA conducted testing to evaluate the effects of 
+three  potential  failure  conditions  of  hydrogen  proton  exchange  (or  polymer  electrolyte)  membrane  fuel  cell  stacks  supplied  by 
+Nuvera Fuel Cells. The three conditions examined were a loss of coolant to the stack, short circuit, and a crossflow condition. The 
+testing showed that the stacks were extremely robust under a variety of failure conditions and that, with proper monitoring of key 
+variables, the failures could have been detected and flow of reactant gases stopped prior to any hazardous effects occurring.  
+
+It  is  recommended  that  any  installation  of  a  hydrogen  fuel  cell  system  ensure  that  reactant  supply  gas  pressures,  stack 
+temperatures,  coolant  temperatures,  and  stack  electrical  load  characteristics  be  adequately  monitored  and  connected  to  system 
+shutdown features. In addition, provisions should be made so that the surrounding environment is monitored for any temperature 
+or hydrogen gas concentration increases. 
+
+17. Key Words 
+
+18. Distribution Statement
+
+Hydrogen, Fuel cell, Proton exchange membrane, PEM 
+
+This  document  is  available  to  the  U.S.  public  through  the 
+National  Technical  Information  Service  (NTIS),  Springfield, 
+Virginia  22161.  This  document  is  also  available  from  the 
+Federal  Aviation  Administration  William  J.  Hughes  Technical 
+Center at actlibrary.tc.faa.gov. 
+
+21. No. of Pages
+
+22. Price
+
+19. Security Classif. (of this report) 
+
+Unclassified
+
+Form DOT F 1700.7 (8-72) 
+
+20. Security Classif. (of this page) 
+
+Unclassified
+
+34
+
+Reproduction of completed page authorized
+
+ 
+ 
+vii 
+
+1 
+
+1 
+2 
+
+2 
+
+4 
+5 
+6 
+6 
+7 
+7 
+
+7 
+
+7 
+7 
+8 
+
+8 
+
+8 
+15 
+18 
+23 
+
+25 
+
+26 
+
+TABLE OF CONTENTS 
+
+EXECUTIVE SUMMARY 
+
+1. 
+
+INTRODUCTION 
+
+1.1 
+1.2 
+
+Background 
+Scope of Experiments 
+
+2. 
+
+EXPERIMENTAL APPARATUS 
+
+2.1 
+2.2 
+2.3 
+2.4 
+2.5 
+2.6 
+
+Fuel Cell Stacks 
+Anode and Cathode Gas Supply 
+Coolant Supply 
+Load Bank 
+Temperature Measurement 
+Gas Measurement 
+
+3. 
+
+EXPERIMENTAL PROCEDURES 
+
+3.1 
+3.2 
+3.3 
+
+Loss of Coolant Test 
+Short-Circuit Test 
+Crossflow Test 
+
+4. 
+
+DISCUSSION OF RESULTS 
+
+4.1 
+4.2 
+4.3 
+4.4 
+
+Loss of Coolant Test 
+Short-Circuit Test 
+Crossflow Condition Test 
+Additional Data—Hydrogen Leakage 
+
+5. 
+
+6. 
+
+CONCLUSIONS 
+
+REFERENCES 
+
+iii 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 
+
+Page 
+
+LIST OF FIGURES 
+
+1 
+
+2 
+
+3 
+
+4 
+
+5 
+
+6 
+
+7 
+
+8 
+
+9 
+
+10 
+
+11 
+
+12 
+
+13 
+
+14 
+
+15 
+
+16 
+
+17 
+
+18 
+
+19 
+
+20 
+
+21 
+
+22 
+
+23 
+
+24 
+
+25 
+
+26 
+
+27 
+
+28 
+
+Diagram of a typical proton exchange membrane fuel cell 
+
+Pressure vessel located at the FAA’s pressure fire modeling facility 
+
+Schematic of overall test setup 
+
+Photograph of experimental setup 
+
+Photograph of fuel cell stack as used in experiments 
+
+Photograph showing placement of surface thermocouples on fuel cell stack 
+
+Photograph of the load bank installed for testing 
+
+Loss of coolant test–reactant gas pressures and stack voltage/current 
+
+Loss of coolant test–stack surface temperatures 
+
+Loss of coolant test–coolant supply and exit temperatures 
+
+Loss of coolant test–pressure vessel temperatures 
+
+Loss of coolant test—still-frame photograph from test video during thermal event 
+
+Loss of coolant test—post-test photograph of damaged area 
+
+Loss of coolant test—post-test photograph of cathode inlet port with gas manifold 
+removed 
+
+Loss of coolant test—photograph taken during post-test teardown of MEA active  
+area damage 
+
+Loss of coolant test—photograph taken during post-test teardown of cathode inlet  
+port damage 
+
+Short-circuit test–reactant gas pressures and stack voltage/current 
+
+Short-circuit test–stack surface temperatures 
+
+Short-circuit test–coolant supply and exit temperatures 
+
+Crossflow condition test–reactant gas pressures and stack voltage/current 
+
+Crossflow condition test–stack surface temperatures 
+
+Crossflow condition test–coolant supply and exit temperatures 
+
+Crossflow condition test–pressure vessel temperatures 
+
+Crossflow condition test–hydrogen concentration 
+
+Crossflow condition test–external damage at O2 outlet port 
+
+Crossflow condition test–external damage at O2 inlet ports 
+
+Crossflow condition test–internal damage to fuel cell stack 
+
+Hydrogen leakage–reactant gas pressures and stack voltage/current 
+
+iv 
+
+2 
+
+3 
+
+3 
+
+4 
+
+5 
+
+5 
+
+6 
+
+8 
+
+9 
+
+9 
+
+10 
+
+11 
+
+12 
+
+13 
+
+14 
+
+15 
+
+16 
+
+16 
+
+17 
+
+18 
+
+19 
+
+19 
+
+20 
+
+20 
+
+21 
+
+22 
+
+23 
+
+24 
+
+ 
+ 
+29 
+
+30 
+
+Hydrogen leakage–stack surface temperatures 
+
+Hydrogen leakage–hydrogen concentration 
+
+24 
+
+25 
+
+v 
+
+ 
+ 
+ 
+ 
+LIST OF ACRONYMS 
+
+ARC 
+DAS 
+ODA 
+MEA 
+PEM 
+THC 
+
+Aviation Rulemaking Committee 
+Data acquisition system 
+Oxygen-depleted air 
+Membrane electrode assembly 
+Proton exchange (or polymer electrolyte) membrane 
+Total hydrocarbon 
+
+vi 
+
+ 
+ 
+ 
+EXECUTIVE SUMMARY 
+
+Driven by increasingly stringent environmental regulations, the aviation community is exploring 
+new  integrated  and  greener  technologies  to  satisfy  aircraft  power  and  electrical  needs.  
+Hydrogen-based fuel cells are one such technology that is attractive to the aviation community 
+because  of  their  high  power  output,  efficiency,  and  environmental  friendliness  as  compared  to 
+fossil  fuels.  The  aviation  industry  has  been  evaluating  and  developing  prototypes  to  support  a 
+variety of operations onboard the aircraft. These operations range from replacing the airplane’s 
+main  battery,  ram  air  turbine,  or  even  the  auxiliary  power  unit  to  supplying  power  to  galley 
+cooking  equipment.  In  addition  to  the  electrical  power  supply,  industry  is  evaluating  potential 
+ways to use the byproducts of hydrogen-based fuel cells, water, and oxygen-depleted air. These 
+byproducts could be used for fuel tank inerting, cargo bay fire suppression, or water supply. 
+
+In collaboration with Parker Hannifin Corporation, the Fire Safety Branch of the FAA conducted 
+testing to evaluate the effects of three potential failure conditions of hydrogen proton exchange 
+(or  polymer  electrolyte)  membrane  fuel  cell  stacks  supplied  by  Nuvera  Fuel  Cells.  The  three 
+conditions examined were a loss of coolant to the stack, short circuit, and a crossflow condition. 
+After  exposing  the  stack  to  the  various  failure  conditions,  it  was  observed  that  the  stack 
+continued to operate for an extended period of time before any hazardous effects were observed. 
+Once the stack components failed, external heat in excess of the normal operational temperature 
+was observed; however, only the loss of coolant and crossflow tests resulted in any fire/sparking 
+from  the  test  unit.  In  addition,  the  crossflow  condition  test  resulted  in  some  hydrogen  leakage 
+into the surrounding pressure vessel. 
+
+There were various opportunities for detection of the failure during the time spanning from when 
+the  failure  event  was  initiated  to  when  the  stack  deteriorated  to  the  point  of  flaming/sparking. 
+Failure  detection  could  have  been  achieved  by  monitoring  the  reactant  gas  supply  pressures, 
+coolant exit temperatures, stack surface temperatures, or the stack output voltage and current. 
+
+The  testing  showed  that  the  stacks  were  extremely  robust  under  a  variety  of  failure  conditions 
+and that, with proper monitoring of key variables, the failures could have been detected and flow 
+of reactant gases  stopped prior to any hazardous effects  occurring.  It is recommended  that any 
+installation  of  a  hydrogen  fuel  cell  system  ensure  that  reactant  supply  gas  pressures,  stack 
+temperatures,  coolant  temperatures,  and  stack  electrical  load  characteristics  be  adequately 
+monitored and connected to system shutdown features. In addition, provisions should be made so 
+that  the  surrounding  environment  is  monitored  for  any  temperature  or  hydrogen  gas 
+concentration increases. 
+
+It should be noted that this testing only evaluated failure mechanisms of the fuel cell stack itself. 
+The storage and distribution of high-pressure hydrogen gas provides its own level of hazard that 
+also  needs  to  be  addressed.  Further  testing  of  other  hydrogen  fuel  cells,  with  a  focus  on  these 
+aspects, should be conducted and evaluated prior to any implementation of a fuel cell system to 
+ensure that any safety issues are being adequately addressed. 
+
+vii 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1.  INTRODUCTION 
+
+1.1  BACKGROUND 
+
+Driven by increasingly stringent environmental regulations, the aviation community is exploring 
+new  integrated  and  greener  technologies  to  satisfy  aircraft  power  and  electrical  needs.  
+Hydrogen-based  fuel  cells,  attractive  to  the  aviation  community  because  of  their  high  power 
+output,  efficiency,  and  environmental  friendliness  as  compared  to  fossil  fuels,  are  one  such 
+technology.  The  aviation  industry  has  been  evaluating  and  developing  prototypes  to  support  a 
+variety of onboard operations. These operations range from replacing the airplane’s main battery, 
+ram  air  turbine,  or  even  the  auxiliary  power  unit  to  supplying  power  to  galley  cooking 
+equipment. In addition to the electrical power supply, industry is evaluating potential ways to use 
+the  byproducts  of  hydrogen-based  fuel  cells,  water,  and  oxygen-depleted  air  (ODA).  These 
+byproducts could be used for fuel-tank inerting, cargo bay fire suppressionn, or water supply. 
+
+The  implementation  of  hydrogen-based  fuel  cells  on  commercial  aircraft,  however,  presents  a 
+number of safety concerns because of the highly flammable nature of hydrogen gas. Industry has 
+been working to address these concerns through a joint European Organization for Civil Aviation 
+Equipment/Society of Automotive Engineers committee (AE-7AFC) to develop testing standards 
+and  installation  guidance  for  proton  exchange  (or  polymer  electrolyte)  membrane  (PEM)  fuel 
+cells.  In  addition,  the  FAA  recently  formed  an  Energy  Storage  Device  Aviation  Rulemaking 
+Committee  (ARC)  to,  among  other  things,  determine  the  hazards  and  applicable  airworthiness 
+requirements concerning the use of hydrogen-based fuel cells on transport-category aircraft. 
+
+There are several types of hydrogen-based fuel cells, including PEM, alkaline, solid oxide, and 
+others. The data generated in this report used a PEM fuel cell stack. PEM fuel cells are the focus 
+of the AE-7AFC committee and one of the focal points of the FAA ARC. 
+
+The PEM fuel cell transforms the chemical energy resulting from the electrochemical reaction of 
+hydrogen  and  oxygen  into  electrical  energy.  A  diagram  of  a  typical  PEM  membrane  electrode 
+assembly (MEA) is shown in figure 1. A fuel cell stack is constructed of multiple layers of these 
+MEAs  separated  by  bipolar  plates.  Hydrogen  is  supplied  to  the  anode,  whereas  air,  or  pure 
+oxygen, is supplied to the cathode. The hydrogen is separated into protons and electrons through 
+a  platinum  catalyst.  The  hydrogen  protons  then  migrate  through  the  PEM  to  the  cathode  side 
+while the electrons travel along an external load circuit to the cathode side, thereby generating 
+the  current  output  of  the  fuel  cell.  The  oxygen  then  reacts  with  the  hydrogen  protons,  thereby 
+generating water, ODA, and heat. 
+
+1 
+
+ 
+ 
+ 
+ 
+ 
+Figure 1. Diagram of a typical proton exchange membrane fuel cell [1] 
+
+Because  of  the  flammable  nature  of  hydrogen,  a  failure  within  the  fuel  cell  could  potentially 
+result  in  hazardous  conditions.  Potential  failure  mechanisms  include  a  short  circuit  of  the  fuel 
+cell, a crossflow condition in which the anode and cathode react with each other or an overheat 
+condition within the fuel cell. 
+
+1.2  SCOPE OF EXPERIMENTS 
+
+The  objective  of  this  study  was  to  evaluate  potential  failure  conditions  within  a  PEM  fuel  cell 
+stack. Conditions examined included a short circuit, crossflow, and a loss of coolant event. The 
+effects  of  each  failure  and  the  potential  for  indication  prior  to  failure  through  a  variety  of 
+measured parameters were examined. 
+
+2.  EXPERIMENTAL APPARATUS 
+
+The  experiments  discussed  within  this  report  were  conducted  at  the  FAA  William  J.  Hughes 
+Technical Center within the Pressure Fire Modeling Facility. This facility houses a 10-m3 vessel 
+capable of withstanding a maximum working pressure of 650 psi. The fuel cell stack, along with 
+temperature  and  gas  measurement  probes,  was  situated  inside  this  pressure  vessel.  High-speed 
+and infrared cameras were used to record the test events. The fuel cell stack was connected to an 
+external load bank and supplied with dry hydrogen and oxygen gases and deionized water as a 
+coolant  source.  In  addition,  gas  analyzers  were  used  to  measure  oxygen,  carbon  monoxide, 
+carbon  dioxide,  hydrogen,  and  total  hydrocarbon  (THC)  concentration  within  the  pressure 
+chamber. Figure 2 is a photograph of the pressure vessel, and figure 3 shows a schematic of the 
+overall test setup. Figure 4 is a photograph of the test setup with various items of interest labeled 
+for reference. 
+
+2 
+
+ 
+ 
+ 
+ 
+Figure 2. Pressure vessel located at the FAA’s Pressure Fire Modeling Facility 
+
+P.1
+
+Regulator
+RV-01
+
+Manual
+MV-01
+
+Solenoid
+IV-01
+
+P.2
+
+Regulator
+RV-02
+
+Manual
+MV-02
+
+Solenoid
+IV-02
+
+e
+b
+u
+T
+”
+¼
+
+e
+b
+u
+T
+”
+¼
+
+4/0 Cable 
+Pair
+
+C.1/C.2 
+Current Sensors
+
+FAA Fire Chamber
+
+Camera
+
+T.4
+
+H2
+
+Tank-01
+
+O2
+
+Tank-02
+
+Load 
+Resistor
+
+Relay
+K1
+
+Relay
+K2
+
+Load Resistor
+
+1
+0
+-
+V
+P
+
+2
+0
+-
+V
+P
+
+Gas 
+Purge 
+Valves
+
+Bleed Resistor
+
+V.1
+
+T.3
+
+e
+b
+u
+T
+”
+¼
+
+T.6
+
+Camera
+
+T.5
+
+T.1
+
+IV-03
+
+e
+b
+u
+T
+”
+8
+/
+3
+
+IV-04
+
+T.2
+
+3/8” Tube
+
+10 Cell Fuel Cell Stack
+
+Small Coolant Tank
+RES-01
+
+Coolant Pump
+Pump-01
+
+Figure 3. Schematic of overall test setup 
+
+3 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 4. Photograph of experimental setup 
+
+2.1  FUEL CELL STACKS 
+
+Three fuel cell stacks were used for testing. Figure 5 is a photograph of one of them, as set up for 
+testing, and figure 6 shows the placement of the surface thermocouples. These were PEM-type 
+fuel cell stacks with metal bipolar plates, consisting of 10 cells with an active area of 250 cm2 
+and laboratory-grade configuration hardware. An adapter manifold with silicon gaskets was used 
+to interface with the reactant and coolant inputs and outputs of the fuel cell. These fuel cells were 
+basic  research  stacks  with  no  protective  covers  or  electrical  isolation,  with  the  manifold  end 
+acting  as  the  ground  reference  for  the  stack.  The  opposite  end  of  the  stack  was  electrically 
+charged when reactants were present. 
+
+4 
+
+ 
+ 
+ 
+Figure 5. Photograph of fuel cell stack as used in experiments 
+
+Figure 6. Photograph showing placement of surface thermocouples on fuel cell stack 
+
+2.2  ANODE AND CATHODE GAS SUPPLY 
+
+Dry  gases  of  O2  (at  99%  purity)  and  H2  (at  99.999%  purity)  were  supplied  to  the  cathode  and 
+anode  sides,  respectively.  Pure  O2  was  used  as  opposed  to  air  on  the  cathode  side  so  as  to 
+maximize  the  potential  fire  load;  however,  it  should  be  noted  that  the  fuel  stacks  used  were 
+
+5 
+
+ 
+ 
+ 
+designed for use with air, not pure O2. The gas supply was controlled via manual needle valves 
+on  the  outlet  of  the  gas  bottles  to  achieve  the  desired  pressures,  and  electrically  controlled 
+solenoid  valves  were  used  to  turn  the  gas  flow  on  and  off  as  needed.  The  reactant  gases  were 
+supplied to the test unit through 3/8″ copper tubing. 
+
+2.3  COOLANT SUPPLY 
+
+Coolant flow was supplied to the fuel cell stack through a 1.7 gpm pump connected to a 2-gallon 
+supply of deionized water that was recirculated through the system during the test. Control of the 
+flow was via a pair of electrically controlled solenoid valves. The coolant was supplied to the test 
+unit through 3/8″ stainless steel tubing. 
+
+2.4  LOAD BANK 
+
+The electrical load was applied to the fuel cell using a load bank, shown in figure 7, consisting of 
+two  525A  stainless  steel  ribbon  resistors  with  a  resistance  of  0.02  ohms  each.  These  were 
+combined in series, providing 0.04 ohms total resistance for the loss of coolant test or in parallel 
+to provide 0.01 ohms total resistance for the short-circuit test. 
+
+Current Sensors 
+
+Bleed Resistor 
+
+Load Resistors 
+
+Power Relays 
+
+\ 
+
+Figure 7. Photograph of the load bank installed for testing 
+
+In addition, a smaller bleed resistor was used to keep the fuel cell loaded at 15A during start up 
+at  no-load  conditions  so  as  to  prevent  the  unit  from  operating  at  open  circuit  voltage.  This 
+resistor was rated at 0.5 ohm, 300W. 
+
+Two relays  were used to direct the  current through  either the  two  ribbon  resistors  or  the bleed 
+resistor. Current output was measured through the use of two current sensors, with a range from 
+
+6 
+
+ 
+ 
+ 
+ 
+ 
+0–500A  and  accuracy  of  ±0.4%.  Voltage  output  was  measured  directly  through  the  data 
+acquisition system (DAS). 
+
+2.5  TEMPERATURE MEASUREMENT 
+
+Temperature  measurements  were  recorded  with  1/8″  sheathed  K-type 
+thermocouples. 
+Measurements  were  taken  of  the  coolant  supply  and  exit temperatures  and  on  each  side  of  the 
+fuel cell stack. The stack thermocouples were each placed at the approximate center of the MEA 
+stacks on the front, rear, left, and right sides. In addition, five thermocouples situated on existing 
+thermocouple trees were used to monitor and record the chamber temperature. 
+
+2.6  GAS MEASUREMENT 
+
+Gas measurements of CO, CO2, O2, H2, and THC were monitored throughout testing. CO, CO2, 
+and O2 were all measured with a Rosemount Analytical MLT-4 multi-gas analyzer; an H2scan 
+HY-OPTIMA™  2700  and  a  Signal  Instruments  3000HM  analyzer  were  used  for  H2  and  THC 
+measurements,  respectively.  THC  samples  were  routed  from  the  pressure  chamber  to  the 
+analyzer with heated lines maintained at 200°F so as to ensure there was no condensation of the 
+sample prior to reaching the sensor. 
+
+3.  EXPERIMENTAL PROCEDURES 
+
+Prior to each test, leak checks of the anode and cathode lines were conducted using nitrogen gas. 
+In  addition,  leak  checks  of  the  coolant  path  were  conducted.  The  DAS  was  initiated  and  all 
+sensors were checked for proper functionality. The coolant flow was initiated and H2 and O2 gas 
+bottle  pressures  were  set  at  36.3  and  34.8  psia,  respectively.  With  the  test  article  at  ambient 
+temperature conditions, valves were opened to allow the anode and cathode gases to flow. The 
+unit was then run at this idle condition for a period of time to ensure proper operation of the fuel 
+cell and all measurement apparatuses prior to proceeding with the test conditions. 
+
+3.1  LOSS OF COOLANT TEST 
+
+The load bank relays were closed to move the unit from idle to a power supply condition. This 
+produced an approximate 170A load on the fuel cell system. The system was maintained at this 
+condition for a period of time before shutting down the flow of coolant to the fuel cell stack. This 
+was achieved by turning off the coolant pump and closing the coolant isolation valves. Data and 
+video recording were then continued until a failure event occurred. 
+
+3.2  SHORT-CIRCUIT TEST 
+
+Prior  to  the  short-circuit  test,  the  load  bank  was  reconfigured  such  that  the  load  resistors  were 
+parallel  with  the  bleed  resistor.  Once  the  test  was  underway,  the  load  bank  relays  were  closed 
+when  the  fuel  cell  system  was  operating  at  the  idle  condition,  thereby  inducing  a  load  of 
+approximately  470A  on  the  system.  The  system  was  maintained  at  this  condition,  with  data 
+collection and video recording continuing until a failure event occurred. 
+
+7 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+3.3  CROSSFLOW TEST 
+
+Pretest inspections of the final fuel cell stack verified an internal failure condition within the fuel 
+cell stack, which led to a  crossflow condition  whereby  the  H2, once introduced to the fuel cell 
+stack,  was  interacting  with  the  O2.  The  stack  was  run  in  its  idle  condition  and  a  short-circuit 
+condition to examine any potential failure events resulting from this crossflow condition. 
+
+4.  DISCUSSION OF RESULTS 
+
+Experimental data and results of the post-test teardown analysis of each of the fuel cell stacks are 
+provided in this section. On each of the data plots provided, significant events relevant to the test 
+are  labeled.  The  various  gas  analysis  probes  did  not  provide  any  substantial  measurements, 
+indicating an inconsequential change in quantities of CO, CO2, O2, THC, and H2 for each of the 
+tests. As such, the gas analysis data from these experiments are not provided in this report. 
+
+4.1  LOSS OF COOLANT TEST 
+
+Figures  8–11  show  the  results  of  the  loss  of  coolant  test.  Figure  8  shows  a  plot  of  the  stack 
+voltage  and  current  along  with  the  supply  H2  and  O2  pressures  for  the  loss  of  coolant  test.  
+Figure 9 provides the four stack surface temperatures. Figure 10 shows the coolant supply and 
+exit temperatures, and figure 11 shows the temperatures from the two temperature trees installed 
+in the pressure vessel.  
+
+Figure 8. Loss of coolant test–reactant gas pressures and stack voltage/current 
+
+8 
+
+ 
+ 
+ 
+ 
+Figure 9. Loss of coolant test–stack surface temperatures 
+
+Figure 10. Loss of coolant test–coolant supply and exit temperatures 
+
+9 
+
+ 
+ 
+ 
+Figure 11. Loss of coolant test–pressure vessel temperatures 
+
+Once  the  electrical  load  was  placed  on  the  system,  it  was  allowed  to  operate  at  170A  for 
+approximately 140 seconds with coolant flow. At this point, the voltage reading was lost because 
+of  an  error  in  the  sensor  placement.  This  sensor  placement  was  corrected  for  subsequent  tests. 
+Following the initial load application, coolant flow to the unit was stopped by closing the coolant 
+isolation  valves  and  disabling  the  coolant  pump.  This  resulted  in  a  slight  increase  in  the  load 
+current to approximately 175A for a period of 165 seconds. The current increase and a change in 
+the  coolant  exit  temperature  were  noted  almost  immediately  after  coolant  flow  was  stopped. 
+Within approximately 1 minute after stopping the coolant flow, an increase in the stack surface 
+temperatures was also noted. In addition, at this point, current began to drop and reactant supply 
+pressures  were  adjusted  in  an  attempt  to  recover  the  unit.  The  current  was  unable  to  be  fully 
+recovered, however, and continued to decline until reaching 0A approximately 500 seconds after 
+the coolant flow was stopped. 
+
+Approximately 111 seconds after completely losing current flow, a thermal event occurred, with 
+sparks  emanating  from  the  forward-facing  side  of  the  fuel  cell  stack.  This  event  is  shown  in 
+figure 12 with a still frame from the recorded video of the test. The event is also shown in figures 
+9 and 11 as the forward stack surface temperature rises to over 220°F and all of the temperature 
+probes  within  the  pressure  vessel  also  increase.  The  failure  event  was  allowed  to  continue  for 
+approximately 1 minute  after the  sparking and flaming  was observed. After this point,  flow of 
+the  reactant  gases  was  shut  off  and  the  primary  fire  was  observed  to  self-extinguish  within 
+seconds. Burning of the fuel cell stack materials continued for approximately 40 seconds, after 
+which time it self-extinguished. 
+
+10 
+
+ 
+ 
+ 
+ 
+Figure 12. Loss of coolant test—still-frame photograph from test video during thermal 
+event 
+
+Figures 13 and 14 are photographs of the unit after removal from the test fixture. Figure 13 is an 
+external  view  of  the  forward  side  of  the  unit;  it  shows  signs  of  severe  damage  to  the  O2  inlet 
+section of the stack. Figure 14 is a photograph, looking downward into the O2 inlet port, with the 
+gas manifold removed. 
+
+11 
+
+ 
+ 
+ 
+Figure 13. Loss of coolant test—post-test photograph of damaged area 
+
+12 
+
+ 
+ 
+ 
+Figure 14. Loss of coolant test—post-test photograph of cathode inlet port with gas 
+manifold removed 
+
+A post-test teardown of the fuel cell stack, conducted by the manufacturer, revealed two distinct 
+areas  of  damage.  One,  shown  in  figure  15,  was  situated  between  the  active  cell  area  at  the 
+oxidant and coolant inlet. This effectively was a hot spot where burning occurred on the active 
+area  of  the  bipolar  metal  plate.  Damage  was  noted  through  the  discoloration  of  the  plate  and 
+fusing  of  the  gasket  material  to  the  active  area.  The  damage  caused  by  this  was  most  severe  
+(i.e., largest damage area) toward the center of the stack and smaller toward the end cells. The 
+burning caused by the failure in this area appeared to be caused by shorting of the plates and was 
+isolated to the active area of the plates. 
+
+13 
+
+ 
+ 
+ 
+Figure 15. Loss of coolant test—photograph taken during post-test teardown of MEA 
+active area damage (photograph intentionally blurred to protect proprietary information) 
+
+The second area of damage occurred outside of the active cell area between the anode outlet and 
+the cathode inlet manifolds. This is the damage that was noted on the external photographs (see 
+figures 13 and 14) immediately following the test. The post-test analysis showed that there was a 
+fire  at  the  cathode  inlet  that  consumed  the  gasket  material  and  a  portion  of  the  stainless  steel 
+plates in this area. This fire breached the anode outlet, allowing H2 to continue to feed the fire. 
+Figure 16 shows a close-up photograph of this area during the post-test disassembly of the fuel 
+cell stack. 
+
+14 
+
+ 
+ 
+ 
+Figure 16. Loss of coolant test—photograph taken during post-test teardown of cathode 
+inlet port damage (photograph intentionally blurred to protect proprietary information) 
+
+4.2  SHORT-CIRCUIT TEST 
+
+Figures  17–19  show  the  results  of  the  short-circuit  test.  Figure  17  shows  a  plot  of  the  stack 
+voltage and current along with the supply H2 and O2 pressures for the loss of coolant test. Figure 
+18 shows the four stack  surface temperatures, and figure 19 shows the coolant supply and exit 
+temperatures.  The  temperature  probes  placed  within  the  pressure  vessel  did  not  record  any 
+significant  temperature  events  and,  therefore,  data  from  these  probes  are  not  provided  in  this 
+report. 
+
+15 
+
+ 
+ 
+ 
+Figure 17. Short-circuit test–reactant gas pressures and stack voltage/current 
+
+Figure 18. Short-circuit test–stack surface temperatures 
+
+16 
+
+ 
+ 
+ 
+Figure 19. Short-circuit test–coolant supply and exit temperatures 
+
+The stack was run at the idle condition with a 15A load for a period of time before applying the 
+short-circuit  condition.  Once  applied,  a  peak  current  of  470A  (235A/sensor)  was  observed  for 
+approximately  10  seconds.  The  voltage  and  current  then  began  to  drop  significantly  until 
+reaching approximately 200A. At this point, the short-circuit condition was temporarily removed 
+and gas pressures were adjusted in an attempt to recover full operation of the system. The current 
+continued  to  drop  during  this  duration  and,  approximately  100  seconds  later,  the  short-circuit 
+load  was  again  applied.  The  stack  was  operated  for  nearly  12  minutes  in  this  condition  and, 
+though  the  electrical  capacity  of  the  fuel  cell  continued  to  deteriorate,  there  were  no  observed 
+conditions indicating a stack fire or hydrogen leakage in the chamber. 
+
+Temperature  increases  of  the  stack  surfaces  and  coolant  exit  are  shown  in  figures  18  and  19, 
+respectively. These increases could be observed during the test as steam exiting the stack through 
+the coolant exhaust ports located on top of the stack. 
+
+A post-test examination of the fuel cell stack showed little to no damage to the stack; however, 
+during  the  post-test  teardown  of  the  stack,  it  showed  significant  internal  damage.  All  of  the 
+MEAs  were  damaged,  and  some  sections  were  destroyed.  In  addition,  further  evidence  of  the 
+heat generated within the stack was seen in discolorization of the bipolar plates, damage to the 
+gasket materials, and burnt components of the plastic frame surrounding  each layer of the cell. 
+The gasket material at both cathode inlet ports failed because of the heat damage, but this was of 
+little consequence because the two ports only leaked into each other, causing no further damage. 
+The damage to the bipolar plates was most severe toward the center of the stack and decayed in 
+size toward the outer cells. 
+
+17 
+
+ 
+ 
+ 
+ 
+4.3  CROSSFLOW CONDITION TEST 
+
+Figures 20–24 show the results of the crossflow test. Figure 20 shows a plot of the stack voltage 
+and current along with the supply H2 and O2 pressures for the crossflow test. Figure 21 shows the 
+four stack surface temperatures, figure 22 shows the coolant supply and exit temperatures, and 
+figure 23 shows the temperatures from the two temperature trees installed in the pressure vessel. 
+Figure 24 shows the H2 data from within the pressure vessel. 
+
+Figure 20. Crossflow condition test–reactant gas pressures and stack voltage/current 
+
+18 
+
+ 
+ 
+ 
+Figure 21. Crossflow condition test–stack surface temperatures 
+
+Figure 22. Crossflow condition test–coolant supply and exit temperatures 
+
+19 
+
+ 
+ 
+ 
+Figure 23. Crossflow condition test–pressure vessel temperatures 
+
+Figure 24. Crossflow condition test–hydrogen concentration 
+
+20 
+
+ 
+ 
+ 
+After supplying the reactant gases to the fuel cell, it is observed in figure 20 that, because of the 
+crossover condition, there was initial difficulty in obtaining a constant gas pressure supply to the 
+stack. Nevertheless, the stack was able to be operated in its idle condition at a load of 15A for a 
+period  of  approximately  5  minutes  without  any  apparent  impact  to  the  resulting  voltage  or 
+current  output  of  the  stack.  After  approximately  5  minutes  of  idle  performance,  a  short-circuit 
+condition  was  applied  to  the  fuel  cell  stack.  This  resulted  in  a  peak  current  of  521A  for 
+approximately  4  seconds.  The  voltage  and  current  then  decayed  until  complete  failure  110 
+seconds  later. At the approximate time  of the stack current  reaching  0A, it  is  suspected  the H2 
+fire  initiated.  This  suspicion  regarding  the  timing  of  the  H2  fire  is  because  of  the  pressure 
+readings  observed  in  figure  20  and  the  slight  stack  surface  temperature  (see  figure  21)  and 
+pressure vessel temperature increases (see figure 23) observed at this time. In addition, figure 22 
+shows an increase in the coolant exit temperature at this time. Approximately 90 seconds later, a 
+visible fire occurred along with the detection of H2 leakage into the pressure vessel. At this point, 
+the reactant gases were turned off and the fire rapidly self-extinguished. 
+
+A  post-test  evaluation  of  the  fuel  cell  stack  showed  significant  external  damage.  There  was 
+evidence of two distinct damage areas external to the fuel cell stack. The first, shown in figure 
+25, was at one of the O2 outlet ports; the other was located at both of the O2 inlet ports, as shown 
+in figure 26. 
+
+Figure 25. Crossflow condition test–external damage at O2 outlet port 
+
+21 
+
+ 
+ 
+ 
+ 
+Figure 26. Crossflow condition test–external damage at O2 inlet ports 
+
+During  a  complete  teardown  analysis  of  the  stack,  significant  internal  damage  was  observed. 
+Nine  of  the  ten  cells  were  fused  together,  and  a  large  hole  was  burned  straight  through  the 
+MEAS. Again, heavier signs of damage were observed toward the center of the stack. The gasket 
+material  and  metal  bipolar  plate  material  between  the  O2  manifold  and  ambient  environment 
+were destroyed  by burning.  Though the  damage  was severe,  it still  remained  localized  and did 
+not  appear  to  propagate  throughout  the  active  area  of  the  cells.  Photographs  of  the  internal 
+damage noted during the teardown analysis are shown in figure 27. 
+
+22 
+
+ 
+ 
+ 
+Figure 27. Crossflow condition test–internal damage to fuel cell stack 
+
+4.4  ADDITIONAL DATA—HYDROGEN LEAKAGE 
+
+During  the  first  attempt  at  conducting  the  short-circuit  condition  test,  there  was  an  accidental 
+failure of one of the anode gas connection points. This failure resulted in a hydrogen leak into the 
+pressure vessel, which came very close to reaching the lower flammability limit. This constitutes 
+another potential failure condition that could lead to hazardous conditions and must be protected 
+against. 
+
+Figures 28–30 show the results from this failure condition. Figure 28 shows a plot of the stack 
+voltage and  current along with the supply  H2 and  O2 pressures. Figure 29 provides the surface 
+temperatures  for  the  four  stacks,  and  figure  30  provides  the  H2  data  from  within  the  pressure 
+vessel. 
+
+23 
+
+ 
+ 
+ 
+ 
+Figure 28. Hydrogen leakage–reactant gas pressures and stack voltage/current 
+
+Figure 29. Hydrogen leakage–stack surface temperatures 
+
+24 
+
+ 
+ 
+ 
+Figure 30. Hydrogen leakage–hydrogen concentration 
+
+Aside from the H2 concentration reading in figure 30, there were several indicators that there was 
+a failure condition existing within the stack. Figure 28 shows that the test operators were having 
+a difficult time maintaining the reactant gas pressures. In hindsight, it is clear that this was due to 
+the  H2  leak  occurring  at  the  time.  In  addition,  stack  surface  temperatures  indicated  a  failure 
+condition  long  before  the  leak  was  detected  by  the  gas  analyzer,  with  temperatures  exceeding 
+400°F.  There  were,  however,  no  visual  indications  of  any  thermal  event  on  the  HD  or  FLIR 
+video. 
+
+5.  CONCLUSIONS 
+
+In collaboration with Parker Hannifin, the Fire Safety Branch of the FAA conducted testing to 
+evaluate  the  effects  of  three  potential  failure  conditions  of  hydrogen  proton  exchange  (or 
+polymer  electrolyte)  membrane  fuel  cell  stacks  supplied  by  Nuvera  Fuel  Cells.  The  three 
+conditions examined were a loss of coolant to the stack, short circuit, and a crossflow condition. 
+After  exposing  the  stack  to  the  various  failure  conditions,  it  was  observed  that  the  stack 
+continued to operate for an extended period of time before any hazardous effects were observed. 
+Because the fuel cell stack was not expected to survive as long as it did, the typical balance of 
+plant  to  properly  condition  the  supply  gases  was  not  utilized.  Had  these  gases  been  properly 
+conditioned, an increased survivability of the stack would be expected.  
+
+Once the stack components failed, external heat in excess of the normal operational temperature 
+was observed; however, only the loss of coolant and crossflow tests resulted in any fire/sparking 
+
+25 
+
+ 
+ 
+ 
+ 
+from the test unit. The crossflow condition test resulted in hydrogen leakage into the surrounding 
+pressure vessel. 
+
+There  were  various  opportunities  for  detection  of  the  failure  during  the  time  from  when  the 
+failure  event  was  initiated  to  when  the  stack  deteriorated,  and  finally  when  the  point  of 
+flaming/sparking began. Failure detection could have been achieved by monitoring the reactant 
+gas supply pressures,  coolant  exit temperatures,  stack surface temperatures, or  the  stack  output 
+voltage and current. 
+
+An  additional  failure  mechanism  was  observed  during  testing  when  one  of  the  hydrogen  gas 
+connections failed, resulting in a large leak of hydrogen into the surrounding vessel. Though this 
+leak approached  the lower  explosive limit,  there  was  ample  opportunity  for  the  failure  to have 
+been detected. The failure could have been noted via monitoring of the gas supply pressures or 
+stack surface temperatures. 
+
+The  testing  showed  that  the  stacks  were  extremely  robust  under  a  variety  of  failure  conditions 
+and that, with proper monitoring of key variables, the failures could have been detected and flow 
+of reactant gases  stopped prior to any hazardous effects  occurring.  It is recommended  that any 
+installation  of  a  hydrogen  fuel  cell  system  ensure  that  reactant  supply  gas  pressures,  stack 
+temperatures,  coolant  temperatures,  and  stack  electrical  load  characteristics  be  adequately 
+monitored and connected to system shutdown features. In addition, provisions should be made so 
+that  the  surrounding  environment  is  monitored  for  any  temperature  or  hydrogen  gas 
+concentration increases. 
+
+It should be noted that this testing only evaluated failure mechanisms of the fuel cell stack itself. 
+The storage and distribution of high-pressure hydrogen gas provides its own level of hazard that 
+additionally needs to be addressed. Further testing of other hydrogen fuel cells, with a focus on 
+these  aspects,  should  be  conducted  and  evaluated  prior  to  any  implementation  of  a  fuel  cell 
+system to ensure that all safety issues are adequately addressed. 
+
+6.  REFERENCES 
+
+1. 
+
+“Membrane Electrode Assembly - Electro-Chemical Reaction Diagram,” by 
+CFA213FCE - Own work. Licensed under CC BY-SA 3.0 via Commons, available at 
+https://commons.wikimedia.org/wiki/File:Membrane_Electrode_Assembly_-_Electro-
+Chemical_Reaction_Diagram.jpg#/media/File:Membrane_Electrode_Assembly_-
+_Electro-Chemical_Reaction_Diagram.jpg (accessed 03/02/16). 
+
+26 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+

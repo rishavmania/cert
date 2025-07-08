@@ -1,0 +1,4108 @@
+DOT/FAA/TC-21/30 
+
+Federal Aviation Administration 
+William J. Hughes Technical Center 
+Aviation Research Division 
+Atlantic City International Airport 
+New Jersey 08405 
+
+Study of Unitized Regenerative 
+Fuel Cell Systems for Aircraft 
+Applications 
+
+January 2022 
+
+Final report 
+
+ 
+ 
+ 
+ 
+ 
+NOTICE 
+
+This document is disseminated under the sponsorship of the U.S. Department of 
+Transportation in the interest of information exchange. The U.S. Government 
+assumes no liability for the contents or use thereof. The U.S. Government does 
+not endorse products or manufacturers. Trade or manufacturers’ names appear 
+herein solely because they are considered essential to the objective of this report.  
+The findings and conclusions in this report are those of the author(s) and do not 
+necessarily represent the views of the funding agency. This document does not 
+constitute FAA policy. Consult the FAA sponsoring organization listed on the 
+Technical Documentation page as to its use. 
+
+This report is available at the Federal Aviation Administration William J. Hughes 
+Technical Center’s Full-Text Technical Reports page: actlibrary.tc.faa.gov in 
+Adobe Acrobat portable document format (PDF). 
+
+ii 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Form DOT F 1700.7  (8-72)                              Reproduction of completed page authorized 
+
+1.  Report No. 
+
+2. Government Accession No. 
+
+3.  Recipient's Catalog No. 
+
+Technical Report Documentation Page 
+
+DOT/FAA/TC-21/30 
+
+4.  Title and Subtitle 
+
+Study of Unitized Regenerative Fuel Cell Systems for Aircraft Applications  
+
+7.  Author(s) 
+
+Robert C. Utz 
+9.  Performing Organization Name and Address 
+
+TELEDYNE ENERGY SYSTEMS INC  
+10707 GILROY RD SB NET 30 
+HUNT VALLEY MD 21034-1311 
+
+12.  Sponsoring Agency Name and Address 
+FAA William J. Hughes Technical Center 
+Building 300, Fourth Floor 
+Atlantic City International Airport Atlantic City NJ 08405 
+
+15.  Supplementary Notes 
+
+16.  Abstract 
+
+5.  Report Date 
+
+January 2022 
+6.  Performing Organization Code 
+
+ANG-E283 
+
+8.  Performing Organization Report No. 
+
+10.  Work Unit No. (TRAIS) 
+
+11.  Contract or Grant No. 
+
+692M15-19-C-00005 
+
+13.  Type of Report and Period Covered 
+
+Final Report 
+14.  Sponsoring Agency Code 
+
+Unitized regenerative fuel cells (URFCs) have been explored as potential high energy density power systems for aerial and space 
+applications due to their potential to provide multiple functions with a single set of stack hardware. System designers and 
+researchers have developed demonstration-scale URFCs using low temperature proton exchange membrane (LTPEM) and solid 
+oxide fuel cell (SOFC) technologies. Both technologies have shown promise but exhibit features that are disadvantages for 
+integration into an aircraft. High temperature proton exchange membrane (HTPEM) technology could have the ability to achieve 
+the advantages of the previous technologies explored without the downsides. A 125-kW HTPEM URFC system design was 
+developed specifically for an electric propulsion application. The system consists of a URFC stack stored within the oxygen 
+reactant storage tank to save volume, simplify water management, and reduce system complexity. A hydrogen storage tank, 
+thermal control system, pressure/flow control devices, and the control logic required to maintain safe and effective system 
+operation were included and system concepts, operational parameters, and alarm conditions were defined. A system model was 
+developed to explore the performance of the system in fuel cell mode during flight and electrolysis mode to recharge the reactant 
+storage tanks while on the ground. The system was shown to be effective in providing power for one, two, and five-hour flights 
+with a recharge time approximately equal to the time of the flight. Despite the projected success of the simulation, the mass and 
+volume of components required to implement the HTPEM URFC into an aircraft may be prohibitive without extensive 
+development and improvements in the system design and performance of individual components, including the URFC stack. 
+
+17.  Key Words 
+
+18.  Distribution Statement 
+
+Unitized regenerative fuel cell, HTPEM, electric propulsion, 
+electrolysis, specific energy, specific power 
+
+This document is available to the U.S. public through the 
+National Technical Information Service (NTIS), Springfield, 
+Virginia 22161. This document is also available from the 
+Federal Aviation Administration William J. Hughes Technical 
+Center at actlibrary.tc.faa.gov. 
+
+19.  Security Classif. (of this report) 
+
+20.  Security Classif. (of this page) 
+
+21.  No. of Pages 
+
+22.  Price 
+
+     Unclassified  
+
+     Unclassified 
+
+63 
+
+iii 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Contents 
+
+1 
+
+Introduction ........................................................................................................................... 1 
+
+2  Unitized regenerative fuel cell technology report .............................................................. 1 
+
+2.1  Regenerative fuel cell definition ...................................................................................... 2 
+
+2.1.1  Discrete regenerative fuel cells ................................................................................. 2 
+
+2.1.2  Unitized regenerative fuel cells ................................................................................ 3 
+
+2.2  Unitized regenerative fuel cell technology ....................................................................... 4 
+
+2.2.1 
+
+Low temperature PEM RFCs .................................................................................... 5 
+
+2.2.2 
+
+Solid oxide RFCs (RSOFCs) .................................................................................. 12 
+
+2.2.3  High temperature PEM RFC ................................................................................... 17 
+
+2.3  Aircraft application and technology selection ................................................................ 18 
+
+2.3.1  Aircraft applications................................................................................................ 18 
+
+2.3.2 
+
+Selected technology and rationale .......................................................................... 19 
+
+3 
+
+System design ...................................................................................................................... 19 
+
+3.1 
+
+Scope statement .............................................................................................................. 19 
+
+3.1.1  Within scope ........................................................................................................... 20 
+
+3.1.2  Outside of scope ...................................................................................................... 20 
+
+3.2 
+
+System components and features ................................................................................... 20 
+
+3.2.1  Unitized fuel cell stack ............................................................................................ 21 
+
+3.2.2  Reactant storage tanks ............................................................................................. 21 
+
+3.2.3 
+
+Thermal control system ........................................................................................... 23 
+
+3.2.4  Valves/devices for pressure/flow control ................................................................ 24 
+
+3.2.5  Control logic ........................................................................................................... 25 
+
+3.3 
+
+System operation and parameters ................................................................................... 27 
+
+3.3.1  Concept of operations ............................................................................................. 27 
+
+3.3.2  Operational parameters ........................................................................................... 29 
+
+3.3.3  Alarm conditions ..................................................................................................... 29 
+
+3.4 
+
+Safety implications ......................................................................................................... 30 
+
+iv 
+
+ 
+ 
+ 
+ 
+3.4.1 
+
+Storage of the fuel cell stack in the oxygen tank .................................................... 30 
+
+3.4.2  Water sloshing, oxygen tank ................................................................................... 31 
+
+3.4.3  Discrete operation vs fast mode switching ............................................................. 32 
+
+3.5  Applicability to other aircraft applications ..................................................................... 33 
+
+4  Mission simulation .............................................................................................................. 33 
+
+4.1 
+
+Introduction .................................................................................................................... 33 
+
+4.2 
+
+Fuel cell mode ................................................................................................................ 34 
+
+4.3  Electrolysis mode ........................................................................................................... 39 
+
+5  Conclusions .......................................................................................................................... 40 
+
+5.1 
+
+System benefits .............................................................................................................. 40 
+
+5.2  Obstacles and next steps ................................................................................................. 41 
+
+6  References ............................................................................................................................ 43 
+
+A  Piping and instrumentation diagram, 125 kW URFC ................................................... A-1 
+
+B  Bill of materials, 125 kW URFC ...................................................................................... B-1 
+
+v 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figures 
+
+Figure 1: Discrete regenerative fuel cell system diagram ............................................................... 2 
+
+Figure 2. Unitized regenerative fuel cell system diagram .............................................................. 4 
+Figure 3. URFC single cell hardware, Proton Energy Systems, a) 46 cm2 and b) 92 cm2 ............. 7 
+Figure 4. Unitized regenerative fuel cell stack hardware, LTPEM, manufactured by a) Proton 
+
+Energy Systems and b) Lynntech, Inc. (Burke, Unitized Regenerative Fuel Cell Development, 
+
+2003) ............................................................................................................................................... 8 
+
+Figure 5. RFC Hardware installed in cargo bay of 737, Boeing/IHI, ecoDemonstrator program 
+
+(Carlo, 2014) ................................................................................................................................... 9 
+
+Figure 6. RSOFC multi-cell stack hardware by a) General Electric, 10-cell, 200 cm2 and b) 
+
+Korea Institute of Science and Technology, 3-cell, 100 cm2, 200W ........................................... 16 
+
+Figure 7. P&ID with control logic: hydrogen flow, temperature, liquid level, and differential 
+
+pressure ......................................................................................................................................... 26 
+
+Figure 8. Example of a typical propellant tank with baffles for slosh damping (Yang & West, 
+
+2015) ............................................................................................................................................. 32 
+
+Figure 9. Simulation results, one hour, standard .......................................................................... 35 
+
+Figure 10. Simulation results, one hour, extended ........................................................................ 36 
+
+Figure 11. Simulation results, two hour, standard ........................................................................ 36 
+
+Figure 12. Simulation results, two hour, extended ....................................................................... 37 
+
+Figure 13. Simulation results, five hour, standard ........................................................................ 37 
+
+Figure 14. Simulation results, five hour, extended ....................................................................... 38 
+
+Figure 15. System mass breakdown, 125-kW URFC ................................................................... 42 
+
+vi 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Tables 
+
+Table 1. Operational parameters of 125 kW URFC system for aircraft, fuel cell mode .............. 29 
+
+Table 2. Operational parameters of 125 kW URFC system for aircraft, reactant regeneration ... 29 
+
+Table 3. Alarm set points, 125 kW unitized RFC system for aircraft .......................................... 29 
+
+Table 4. Specifications by power level ......................................................................................... 34 
+
+Table 5. Mission profile definition for electric propulsion, 125-kW URFC ................................ 34 
+
+vii 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Acronyms 
+
+Acronym  Definition 
+APU 
+
+Auxiliary Power Unit 
+
+COPV 
+
+DOE 
+
+Composite Overwrapped Pressure Vessel 
+
+Department of Energy 
+
+ERAST 
+
+Environmental Research Aircraft and Sensor Technology 
+
+FAA 
+
+GDC 
+
+Federal Aviation Administration 
+
+Gadolinium-Doped Ceria 
+
+HALE 
+
+High Altitude Long Endurance 
+
+HTPEM 
+
+High Temperature Proton Exchange Membrane 
+
+IMPRESS 
+
+Integrated Modular Propulsion and Regenerative Electro-Energy Storage System 
+
+LLNL 
+
+LSCF 
+
+Lawrence Livermore National Laboratory 
+
+Lanthanum Strontium Cobalt Ferrite 
+
+LSCoF 
+
+Lanthanum Strontium Cobalt Ferrite 
+
+LSF 
+
+LSGM 
+
+LSM 
+
+Lanthanum Strontium Ferrite 
+
+Lanthanum Strontium Gallium Magnesium Oxide 
+
+Lanthanum Strontium Manganite 
+
+LTPEM 
+
+Low Temperature Proton Exchange Membrane 
+
+MEA 
+
+NASA 
+
+P&ID 
+
+PBI 
+
+PEM 
+
+RFC 
+
+Membrane Electrode Assembly 
+
+National Aeronautics and Space Administration 
+
+Piping and Instrumentation Diagram 
+
+Polybenzimidazole 
+
+Proton Exchange Membrane 
+
+Regenerative Fuel Cell 
+
+RMIT 
+
+Royal Melbourne Institute of Technology 
+
+RSOFC 
+
+Reversible Solid Oxide Fuel Cell 
+
+ScSZ 
+
+SOEC 
+
+SOFC 
+
+UAV 
+
+URFC 
+
+Scandium Oxide Stabilized Zirconium 
+
+Solid Oxide Electrolysis Cell 
+
+Solid Oxide Fuel Cell 
+
+Unmanned Aerial Vehicle 
+
+Unitized Regenerative Fuel Cell 
+
+WaMM 
+
+Water Management Membrane 
+
+YSZ 
+
+Yttria-Stabilized Zirconia 
+
+viii 
+
+ 
+ 
+ 
+ 
+ 
+Executive summary 
+
+This document provides a summary of activities performed by Teledyne for the FAA under 
+
+contract 692M15-19-C-00005. The scope of this contract was to explore the potential of a 
+
+unitized regenerative fuel cell (URFC) system to provide power onboard an aircraft. Fuel cell 
+
+systems are being explored as potentially useful power systems for aerial applications as the 
+
+industry transitions to more electric aircraft designs that can better utilize their advantages. A 
+
+URFC system can provide operational advantages for an aircraft, such as long mission durations 
+
+or persistent flight, reduced requirements for fuel infrastructure, and reduced system mass and 
+
+volume. 
+
+URFC systems have been explored as potential power sources for multiple applications 
+
+involving mass and volume minimization, including space and aerial vehicles. Much research 
+and development has been performed on developing the technology from the cell level, which 
+
+requires careful choice of materials that can survive the electrochemical environment in both fuel 
+
+cell and electrolysis modes, and flexible cell designs that handle reactants and products of each 
+
+reaction without impeding the process. Developers have attempted to build their designs around 
+
+either low temperature proton exchange membrane (LTPEM) or solid oxide fuel cell (SOFC) 
+
+technologies, each built upon several decades of maturation in fuel cell applications. 
+
+Demonstration hardware at the single cell, short stack, and full stack levels has been 
+
+manufactured and tested for performance. Both technologies have shown the ability to operate in 
+
+a reversible mode, but with several technical challenges that make long-term, stable, and durable 
+
+operation difficult in practice. LTPEM technology struggles with managing the two-phase flow 
+
+of water, especially during transitions between modes. SOFC technology requires large heat 
+
+inputs and does not easily handle transitions between power levels or start-stop cycles. High 
+
+temperature proton exchange membrane (HTPEM) technology has the potential of eliminating 
+
+the downsides of both previously explored URFC technologies, but has yet to be explored in this 
+
+application due to the lower level maturity of the technology. 
+
+Teledyne has developed a conceptual design of a 125-kW HTPEM URFC system to be 
+
+integrated into an aircraft. Potential applications include direct power for electric propulsion in 
+
+small aircraft or a load-balancing device for larger aircraft, such as a 787 Dreamliner. The 
+
+electric propulsion application was explored in detail during this study. The system consists of an 
+
+open-cathode URFC stack with HTPEM technology stored within the oxygen reactant storage 
+
+tank. This provides advantages by simplifying water management, eliminating oxygen flow 
+
+control devices, and minimizing volume. This arrangement raises multiple safety issues that must 
+
+be addressed in the detailed design, including the potential for hydrogen-oxygen gas mixtures 
+
+ix 
+
+ 
+ 
+ 
+ 
+due to leakage, product water sloshing, and electrical shorting of the stack. A hydrogen storage 
+
+tank, thermal control system, pressure/flow control devices, and control logic were defined and 
+
+described in detail to maintain safe and effective system operation over the length of the 
+
+proposed flight. The concept of operations, system parameters, and alarm conditions were 
+
+defined to provide a framework for system operation. Individual components were selected with 
+
+performance data and physical specifications gathered. 
+
+A system model was developed based upon the URFC system design. The model used power 
+
+consumption data from all of the components required for operation, performance data from 
+
+HTPEM technology during power production and electrolysis, thermal requirements defined by 
+
+the stack mass and efficiency, and expected flight profile of one, two, and five-hour flights. 
+
+Performance was evaluated in both fuel cell and electrolysis modes of operation. The system was 
+
+shown to be effective in providing power for the electric propulsion application with enough 
+
+reactant supply to handle the worst-case scenario. Refueling times were shown to be less than or 
+
+equal to the mission duration. The major disadvantage of this system is the power and energy 
+
+density of less than 100 W/kg and 200 Wh/kg, which is not competitive with lithium ion battery 
+
+technology of similar scale, largely due to the size and mass of the reactant storage tanks. 
+
+Recommendations include scaling the system down to the kW or sub-kW scale to reduce the 
+
+reactant tank mass, exploring Failure Modes and Effects Analysis (FMEA) studies to explore the 
+
+safety implications and identify areas of improvement, and putting resources into improving the 
+
+HTPEM technology itself to maximize efficiency and durability. 
+
+x 
+
+ 
+ 
+ 
+ 
+ 
+1 
+
+Introduction 
+
+This document contains the details of the study completed by Teledyne for the FAA in exploring 
+
+URFC systems for aircraft integration. The program started with a survey of URFC technology 
+
+described in Section 2, including the research and development history, hardware development, 
+
+and recommendations for future direction. Using those recommendations, a system design was 
+
+developed, as described in Section 3, that details the URFC stack, reactant storage tanks, thermal 
+
+control system, pressure and flow controls, control logic, concept of operations, operational 
+
+parameters, alarm conditions, and safety implications. A simulation of an electric propulsion 
+
+aircraft using this URFC as its power system was developed and it is described in Section 4, 
+
+followed by overall conclusions of the study in Section 5. 
+
+2  Unitized regenerative fuel cell technology report 
+
+This section provides a summary of the literature review, technology selection, and definition of 
+
+aircraft application performed by Teledyne on unitized regenerative fuel cell systems. Teledyne 
+
+participated in discussions with aircraft industry representatives and the FAA regarding possible 
+
+applications for a URFC on an aircraft. These discussions culminated in a proposed URFC 
+
+application for analysis under this program. Teledyne gathered and reviewed published research 
+
+and commercially available information on URFC technology. The material was summarized 
+
+and reviewed by a team of fuel cell subject experts. The team made recommendations for the 
+
+best available technology to satisfy the performance requirements of a potential URFC aircraft 
+
+application. 
+
+A definition of a regenerative fuel cell is provided along with the differences between discrete 
+
+and unitized regenerative fuel cell systems. Previous research and development of URFC 
+
+technologies is reviewed and discussed. LTPEM technology has an extensive history of 
+
+development by NASA, universities, and private organizations because of a high technical 
+
+maturity level through parallel developments in the fuel cell industry. Reversible Solid Oxide 
+
+Fuel Cell (RSOFC) have been researched with interest in recent years due to its ease of 
+
+reversibility found experimentally. HTPEM, although the least mature of the available 
+
+technologies discussed in this report, can also be used for regenerative fuel cell (RFC) 
+
+applications. The technology selection made by the Teledyne review team is derived from the 
+
+information summarized above. 
+
+1 
+
+ 
+ 
+2.1  Regenerative fuel cell definition 
+
+Regenerative fuel cell (RFC) systems have been studied as a potential power system concept that 
+
+can provide many operational benefits to the user. RFCs are fuel cell power systems that are 
+
+reversible, meaning that they can be operated both in fuel cell mode to produce power with 
+
+reactant inputs and in electrolysis mode to produce reactants with power input. When designed 
+
+as a closed loop system, the reactants produced during electrolysis are kept in storage to be used 
+
+later in fuel cell mode for power production. Conserving reactants through closed loop system 
+
+design in RFCs enables long duration power system operation in a smaller package by 
+
+eliminating the need to refuel. 
+
+In theory, RFCs can be composed of any combination of fuel cell and electrolysis technologies, 
+
+provided that the same reversible reaction is used for the fuel cell and electrolysis modes of 
+operation. There are two types of RFC systems: discrete and unitized. The differences between 
+
+the two types of RFCs are described in sections 2.1.1 and 2.1.2 below. 
+
+2.1.1  Discrete regenerative fuel cells 
+
+Discrete RFCs are reversible fuel cell systems that employ separate hardware units to perform 
+
+the power-producing and reactant-evolution processes. A system diagram of a discrete RFC 
+
+utilizing the hydrogen-oxygen reaction is shown in Figure 1. The system can start in any state if 
+
+a source of power is available. 
+
+Figure 1: Discrete regenerative fuel cell system diagram 
+
+2 
+
+ 
+ 
+ 
+ 
+The following is how a discrete RFC functions assuming a proton exchange membrane (PEM)-
+
+based system that is fully supplied with hydrogen and oxygen reactants at the beginning of 
+
+operation. When power is required, hydrogen and oxygen reactants are withdrawn from the 
+
+storage tanks and routed to the fuel cell stack. The fuel cell stack reacts the hydrogen and oxygen 
+
+to produce DC power that can be used by an available electronic load. The hydrogen-oxygen 
+
+reaction produces water, which is removed from the fuel cell stack and stored in a separate 
+
+vessel. The fuel cell continues to produce power until either the demand from the electronic 
+
+device is removed or the reactant storage tanks are emptied. When power is available for the 
+
+system to use, the water produced during fuel cell mode is withdrawn from the storage tanks and 
+
+routed to the electrolyzer module. The electrolyzer uses the available DC power to 
+
+electrochemically split the water into hydrogen and oxygen gas. The gasses are pumped back 
+
+into the storage tanks to be used again by the fuel cell stack later. 
+
+A discrete RFC system is simple in that the fuel cell stack and electrolysis module hardware used 
+
+can be similar to, if not the same as, those used in standalone power generation or gas production 
+
+applications. The hardware configuration can be optimized for each reaction with the use of 
+
+separate devices. Discrete RFCs can quickly transition between the two modes of operation with 
+
+very few restrictions and could even run in both modes simultaneously if the application required 
+
+the system to do so. Although simple in concept, discrete RFC designs can increase the mass and 
+
+volume of the power system beyond what is normally acceptable for mobile power applications.  
+
+2.1.2  Unitized regenerative fuel cells 
+
+Unitized RFCs are reversible fuel cell systems that can generate power or reactants using a single 
+
+electrochemical unit. A system diagram of a unitized RFC utilizing the hydrogen-oxygen 
+
+reaction is shown in Figure 2. The operation of a unitized RFC is similar to a discrete RFC. 
+
+When power is required, hydrogen and oxygen are withdrawn from the reactant storage tanks 
+and routed to the unitized stack. The unitized stack reacts the hydrogen and oxygen to produce 
+
+DC power that can be used by an available electronic load. The water produced from the reaction 
+
+is removed from the stack and stored in a separate vessel. Power is produced until either the 
+
+demand from the electronic device is removed or the reactant storage tanks are emptied. The 
+
+water produced during fuel cell mode is withdrawn from the storage tanks and routed back to the 
+
+same stack when power is available. The water is electrochemically split into hydrogen and 
+
+oxygen gas, which are pumped back into the storage tanks for later use. 
+
+3 
+
+ 
+ 
+ 
+Figure 2. Unitized regenerative fuel cell system diagram 
+
+Unitized RFC systems have promise as power systems for aircraft, especially those employing 
+electric power for some or all the propulsion and device power requirements. These aircraft 
+
+require an increased specific energy to meet target aircraft weight requirements. A unitized RFC 
+
+requires less mass and volume than a discrete RFC due to the use of a single electrochemical 
+
+stack that performs both reactions. Proper integration of a unitized RFC into an aircraft can 
+
+enable successful operation of new aircraft designs. 
+
+Unitized RFCs come with performance limitations. They can be more difficult to manage and 
+
+operate than discrete RFCs. The hardware design must be capable of performing each 
+
+electrochemical reaction at an efficient rate without compromising operation in the reverse mode 
+
+or sacrificing stack durability. Transitions from one mode to the other are challenging because 
+
+the products of the previous reaction must be cleared and the optimal operational conditions for 
+
+each mode are different. Simultaneous operation in both modes is not an option with unitized 
+
+systems. 
+
+2.2  Unitized regenerative fuel cell technology 
+
+The potential benefits of unitized RFCs in mobile applications have driven various organizations 
+
+to invest in research and development of URFCs. The main challenge is to find technologies that 
+
+can perform well as both fuel cells and electrolyzers. Research has focused on incorporating 
+
+materials into the stack design that perform both functions efficiently while remaining stable and 
+
+durable over an extended period of use. Other system design challenges have been investigated 
+
+as well, such as handling transitions between operating modes and optimizing thermal 
+
+management. This work has led to hardware demonstrations to test the concepts, mostly 
+
+consisting of single cell or small, subscale stack tests. 
+
+4 
+
+ 
+ 
+ 
+A literature survey of unitized RFC technology was conducted to provide an understanding of 
+
+the current capabilities of unitized systems and potential hardware available. The survey focused 
+
+on two electrochemical technologies: Proton Exchange Membrane RFCs and Solid Oxide RFCs. 
+
+These two technologies represent the most mature electrochemical processes used for mobile 
+
+power for terrestrial, aerial, and space applications by both commercial and government users. 
+
+The survey focused on research efforts that included demonstration hardware to help increase the 
+
+applicability and practicality of the conclusions drawn. 
+
+2.2.1  Low temperature PEM RFCs 
+
+The most mature electrochemical technology for mobile applications is the PEM fuel cell. PEM 
+
+fuel cell technology was originally developed in the 1960s and used by NASA on the Gemini 
+
+missions and other subsequent space programs. Most PEM cells use Nafion, a fluoropolymer 
+material that conducts protons when hydrated, to allow the transport of protons derived from the 
+
+hydrogen used in the reaction. The insulating properties of Nafion divert the electric current 
+
+produced by the reaction through an external circuit, thus generating power for electrical devices. 
+
+Recent development of PEM fuel cell technology in the industry has focused on cost reduction 
+
+and increased reliability to optimize the technology for commercial automotive, material 
+
+handling, and unmanned aerial vehicle (UAV) applications. An extensive development history of 
+
+the technology for over 50 years along with established component materials, designs, and 
+
+supply chains make PEM technology a logical choice for a unitized RFC system. 
+
+2.2.1.1 Applications and demonstrations 
+The history of LTPEM URFCs goes back almost as far as PEM technology itself. In the early 
+
+1970s, General Electric explored the concept of a LTPEM URFC for providing power onboard a 
+
+geosynchronous satellite with a seven to ten year lifetime (Mitlitsky F. , Lightweight Pressure 
+
+Vessels and Unitized Regenerative Fuel Cells, 1996) (Mitlitsky F. , Unitized Regenerative Fuel 
+Cell Systems, 1998). Using alternate but similar materials to today’s PEM technology, GE 
+
+performed single cell testing for over 700 cycles to show that the concept could work with 
+minimal performance degradation (< 40 mV at 108 mA/cm2). Despite the successful 
+demonstration, the technology was never advanced to the point of integration into the intended 
+
+application. 
+
+NASA has devoted much funding and attention to developing a LTPEM unitized RFC system 
+
+that could be used in a space or aerial application. NASA began to research LTPEM technology 
+
+for use in an RFC system to power High Altitude Long Endurance (HALE) aircraft, 
+
+extraterrestrial outposts, and terrestrial secondary battery applications in the 1990s. Initial system 
+
+concepts and design studies showed that an RFC based on PEM technology could provide mass 
+
+5 
+
+ 
+ 
+reduction over batteries in applications when discharge times were greater than one hour (Burke, 
+
+Unitized Regenerative Fuel Cell Development, 2003). One such concept showed that indefinite 
+
+operation is possible in an ultralight aircraft design on a 12-hour charge, 12-hour discharge cycle 
+
+(Burke, High Energy Density Regenerative Fuel Cell Systems for Terrestrial Applications, 
+
+1999). The system concept uses solar panels mounted to the wings to power the engines and 
+
+perform water electrolysis during the day. The hydrogen and oxygen generated from electrolysis 
+
+would provide 3.5 kW of power through twelve hours of fuel cell operation when no solar power 
+
+is available. NASA’s study showed that energy density approaching 800 Wh/kg was achievable 
+
+through implementation of passive system design components and clever integration of the RFC 
+
+system hardware into the aircraft structure. Passive system design concepts included wrapping 
+
+the gas tubing around the tank to serve as a gas dryer/humidifier, a pressure-loaded bellows for 
+
+water storage, and implementation of heat pipes that reject heat from the unitized stack to the 
+reactant storage tanks (USA Patent No. 7,410,714 B1, 2004) (Burke, Unitized Regenerative Fuel 
+
+Cell System Gas Storage-Radiatior Development, 2005). 
+
+Physicists at Lawrence Livermore National Laboratory (LLNL) began investigating unitized 
+
+LTPEM RFC systems for potential use in HALE aircraft in the mid-1990s with NASA and 
+
+Department of Energy (DOE) support. The lightweight power system requirement for the 
+
+application drove LLNL to develop URFCs and novel pressure vessels that could be integrated 
+
+into the aircraft (Mitlitsky F. , Lightweight Pressure Vessels and Unitized Regenerative Fuel 
+Cells, 1996). LLNL built a 46 cm2 single cell Nafion-based LTPEM URFC and completed 
+testing to match the work completed by GE in the 1970s, and explore operational parameters 
+
+such as temperature and current density. Operating at pressures below 160 psi, LLNL was able to 
+
+achieve over 2000 cycles with less than 50 mV of degradation, which is equivalent to less than a 
+few percent. LLNL was able to demonstrate high current operation (greater than 1 A/cm2) in 
+both fuel cell and electrolysis mode using an improved cell design with a lower resistance 
+membrane (Mitlitsky, Myers, & Weisberg, 1998). LLNL also developed a URFC concept to 
+
+power small spacecraft, much like the original GE application. Called the Integrated Modular 
+
+Propulsion and Regenerative Electro-Energy Storage System (IMPRESS), the concept combined 
+
+the URFC stack with a hydrogen/oxygen propulsion system to reduce spacecraft mass (Mitlitsky, 
+
+de Groot, Butler, & McElroy, 1996). The IMPRESS concept gained the attention of the Air 
+
+Force as a potentially beneficial efficiency improvement for satellite operations (Coalson, 1996). 
+
+NASA and the DOE also funded private electrochemical companies to develop unitized 
+
+regenerative fuel cell stack hardware. Proton Energy Systems was one such company. Proton 
+worked with LLNL on testing their URFC stacks, first matching the 46 cm2 format before 
+doubling the area to 92 cm2 (see Figure 3). These units operated at a pressure of 400 psi, 
+
+6 
+
+ 
+ 
+allowing for higher system energy density by minimizing reactant storage volume without the 
+
+need for mechanical pumping. A DOE report generated from a Unitized Regenerative Fuel Cell 
+
+Workshop in 2011 showed that Proton continued to develop both discrete and unitized RFC 
+
+technology for much of the previous decade (Remick & Wheeler, 2011). Proton developed a 
+
+URFC stack under the product line UNIGEN to satisfy multiple applications that require long 
+
+endurance, high energy density power systems. Those applications include a zero-gravity URFC 
+
+concept under the DARPA Water Rocket program that would work much like the IMPRESS 
+
+concept from LLNL, a terrestrial URFC serving as a backup UPS, and energy storage devices for 
+
+the electrical grid. The UNIGEN technology demonstrated over 1,000 cycles with 37% round 
+
+trip efficiency in 2003 (Remick & Wheeler, 2011) but has not found a use in commercial 
+
+applications (Wang Y. , A review on unitized regenerative fuel cell technologies, Part-A: 
+
+Unitized regenerative proton exchange membrane fuel cells, 2016). 
+
+Figure 3. URFC single cell hardware, Proton Energy Systems, a) 46 cm2 and b) 92 cm2 
+
+Multiple organizations have filed patents on LTPEM URFC technology (see Figure 4). 
+Hydrogenics Corp. filed a patent for a URFC with a bifunctional humidifier in 2004 (USA Patent 
+
+No. 6,833,207 B2, 2004). The design is unitized in the sense that the physical stack is only one 
+
+piece of hardware but includes individual fuel cell and electrolyzer sections sharing a single 
+
+interface plate. The patent claims include the ability to perform rapid transitions between fuel 
+
+cell and electrolyzer modes, to provide instantaneous full-power operation, and to reduce system 
+
+components. Despite these benefits, the system would not provide the mass and volume savings 
+
+of fully unitized RFC stack designs in lightweight applications. Giner Inc. has filed patents on 
+
+unitized RFC technology, focusing on methods to improve water separation in the unitized stack 
+
+through what is called a Water Management Membrane (WaMM) (USA Patent No. 9,595,727 
+
+B2, 2017). The WaMM provides a means of transporting water to the cell during electrolysis and 
+
+7 
+
+ 
+ 
+ 
+ 
+removing water during fuel cell power generation by maintaining water in the vapor phase. This 
+
+method also allows for rapid transitions between modes. The concepts developed by 
+
+Hydrogenics and Giner appear to be technically successful but have not been developed into 
+
+commercial products available for integration into mobile power applications. 
+
+Figure 4. Unitized regenerative fuel cell stack hardware, LTPEM, manufactured by a) Proton 
+Energy Systems and b) Lynntech, Inc. (Burke, Unitized Regenerative Fuel Cell Development, 
+2003) 
+
+NASA had been scheduled to demonstrate LTPEM RFC hardware in a solar-powered, high-
+
+altitude aircraft for a long endurance flight under the Environmental Research Aircraft and 
+
+Sensor Technology (ERAST) project in 2003. After a gate review in late 2001, the unitized RFC 
+
+hardware was abandoned in favor of a primary fuel cell only version. The URFC under 
+
+development had not been “working reliably” and it would not be ready for the demonstration 
+
+with the schedule and budgetary restraints of the program (Noll, et al., 2004). NASA continued 
+
+developing RFC technology after the conclusion of the program but focused on discrete system 
+
+designs instead. A closed loop RFC using Lynntech fuel cell and electrolyzer hardware was built 
+
+and demonstrated for the first time at NASA Glenn Research Center in 2003 (Bents, 2007). 
+
+Testing continued into 2005, demonstrating operation at the full power rating of 15 kW 
+
+electrolysis / 5 kW fuel cell, five continuous charge-discharge cycles, and fully automated 
+
+controls. 
+
+Studies on using URFCs for long duration power systems by NASA and other organizations 
+
+continued after the ERAST program ended. A NASA study in 2006 on HALE for science and 
+
+communication applications showed that solar-RFC hybrid propulsion systems are only 
+
+attractive in applications with longer (multiple week) cycle times (Nickol, Guynn, Kohout, & 
+
+Ozoroski, 2006). Only discrete RFC systems were analyzed because URFC technology was 
+
+8 
+
+ 
+ 
+ 
+ 
+considered not mature enough to be included as a viable option on the projected application 
+
+development timeline. 
+
+Boeing and Ishikawajima-Karima Heavy Industries (IHI) completed a demonstration on a 
+
+regenerative fuel cell system onboard a Boeing aircraft in 2012 under the Boeing 
+
+ecoDemonstrator program (Okaya, Arastu, & Breit, Regenerative Fuel Cell (RFC) for High 
+
+Power Space System Applications, 2013) (Carlo, 2014), see Figure 5. The RFC was designed to 
+
+be an auxiliary power unit (APU) for the aircraft and has a discrete RFC configuration rather 
+
+than a unitized stack. Calculations of the performance of the RFC system showed that it was 
+
+capable of 300 Wh/kg for a 15 to 30 kW system. To our knowledge, an RFC, unitized or 
+
+discrete, has not been integrated into an aerial application beyond this demonstration. 
+
+Figure 5. RFC Hardware installed in cargo bay of 737, Boeing/IHI, ecoDemonstrator program 
+(Carlo, 2014) 
+
+2.2.1.2 Cell design and material research 
+Many research organizations have attempted to address the performance issues related to 
+
+unitized RFC stack materials and designs. New oxygen electrode materials have been reviewed 
+
+due to the accelerated degradation observed in this area during extended operation and cyclic 
+
+mode switching. Degradation in URFCs appears to be driven by the oxygen reactions, especially 
+
+in electrolysis mode, making the choice of designs and materials in this region critical to a 
+
+9 
+
+ 
+ 
+ 
+ 
+successful LTPEM URFC (Sadhasivam, et al., 2017). Catalyst materials must be bifunctional, 
+
+meaning that they remain active in both fuel cell and electrolysis operation. The carbon-based 
+
+materials typically used for catalyst supports, diffusion layers, and bipolar plates in fuel cell 
+
+mode must be replaced because they are not stable during electrolysis. Various passive water 
+
+management structures and materials have been incorporated into the cell to simplify water 
+
+delivery to and removal from the cell without the need for extensive external equipment. 
+
+2.2.1.2.1 
+URFC electrode configuration can take two different approaches to reversibility. The most 
+
+Catalysts 
+
+common approach is to dedicate each electrode to an individual reactant species, hydrogen or 
+
+oxygen. This simplifies gas management when switching between operational modes, but places 
+
+significant stress on electrode materials by forcing them to operate across a wide voltage range. 
+
+The second approach is to dedicate each electrode to either reduction reactions or oxidation 
+
+reactions independent of operating mode. This has the potential to maximize efficiency of the 
+
+reactions in a unitized cell, but complicates gas management and the mode transition process. 
+
+Many institutions have researched bifunctional catalysts for URFCs. A typical approach includes 
+
+combining catalyst materials that perform well in fuel cell reactions with other catalyst materials 
+
+that perform well in the electrolysis reaction on the same electrode. Combinations of platinum, 
+
+ruthenium, iridium, and their oxides are most commonly used (Sadhasivam, et al., 2017) (Wang 
+
+Y. , A review on unitized regenerative fuel cell technologies, Part-A: Unitized regenerative 
+
+proton exchange membrane fuel cells, 2016) (Wang, et al., 2018). Methods of combining the 
+
+catalyst include homogenous mixing, layering, or segmented catalyst sections in a single layer. 
+
+Platinum-iridium mixtures have been identified as an efficient catalyst on both a dedicated 
+
+oxygen electrode and as a dedicated oxidation electrode. A collaboration between the University 
+of Paris and Kurchatov Institute demonstrated a two-cell, 250 cm2 URFC stack with a layered Pt-
+Ir catalyst as the oxidation catalyst. Performance was stable although inferior to dedicated PEM 
+
+fuel cell and electrolyzer units (Ranjbari, Millet, Grigoriev, & Fateev, 2010). A research group at 
+
+Santa Clara University used a layered approach of Pt-black and IrRu oxide in the oxygen 
+
+electrode of their URFC singe cell design (Lele, 2016).  
+
+2.2.1.2.2 
+Titanium has become the material of choice for components in contact with the oxygen side due 
+
+Diffusion layers and plates 
+
+to the high corrosion resistance of the material. Contact resistance issues may arise with titanium 
+
+due to the propensity of the material to form a passive oxide layer on the surface. Modifying the 
+
+form of the titanium or coating the titanium with a conductive layer helps to mitigate the contact 
+
+resistance problem. The Energy Research Center of the Netherlands examined porous titanium 
+
+10 
+
+ 
+ 
+gas diffusion layers and supports for the oxygen electrode in 2004 (Grootjes & Makkus, 2004). 
+
+Incorporated with a platinum-iridium oxygen catalyst, they were able to demonstrate stable 
+
+operation in a small, single cell test over tens of hours. Sintered titanium electrodes and titanium 
+
+flow field plates electroplated with gold were used in the URFC cell from Santa Clara (Lele, 
+
+2016). Researchers at the University of South Carolina demonstrated that titanium bipolar plates 
+
+with electrochemically deposited platinum greatly reduced corrosion when compared to a 
+
+carbon-based plate, while maintaining sufficient electrical conductivity (Jung H.-Y. , 2009). 
+
+2.2.1.2.3 
+Passive water management schemes for URFCs are necessary to maintain a low mass system that 
+
+Water management 
+
+can handle both operating modes. They have often employed wicking structures and materials, 
+
+much like the WaMM developed by Giner. A unitized cell design known as Passive Unitized 
+
+Regenerative Fuel Cell developed at Santa Clara University employs a two-stage porous polymer 
+
+wicking element to remove water during fuel cell mode and supply water during electrolysis 
+through capillary action (Lele, 2016). The first attempt at demonstrating the concept with a 5 cm2 
+single cell prototype was built, but the performance struggled at higher current densities. The rate 
+
+of water generated or consumed in the original design outpaced the maximum transport rate of 
+
+the capillary forces in the wicking structure. A second design attempted to shorten the capillary 
+
+transport length by removing or supplying water at the center of the cell but was not successful 
+
+during experimental testing. 
+
+The Royal Melbourne Institute of Technology (RMIT) explored URFCs paired with solar power 
+
+for remote area power supplies (Doddathimmaiah & Andrews, 2006) as a way to reduce costs. 
+Using URFC LTPEM MEAs supplied by Lynntech, RMIT built a 10 cm2 single cell test unit 
+with an integrated reservoir to manage water delivery to and from the cell for each operational 
+
+mode. The unitized cell performance matched that of a standalone electrolyzer but was much less 
+
+efficient than a standalone fuel cell stack. 
+
+Others have tried to handle water management issues through novel control schemes and mode 
+
+transition sequences. Switching from electrolysis to fuel cell mode is particularly difficult 
+
+because the electrodes can become flooded with water, preventing the reactions from occurring 
+
+and causing a failure to start power production (Liu, Guo, Yuan, & Ye, 2018). Two-phase flow 
+
+consisting of liquid water and oxygen gas occurs during this transition, where the drag force of 
+
+the oxygen flowing into the unitized stack must clear the water droplets from the surface of the 
+
+oxygen electrode. A delay time before drawing power must be incorporated into the mode 
+
+transition so that the water can be cleared. Other beneficial mitigation techniques for the 
+
+11 
+
+ 
+ 
+transition include temporarily increasing the cell temperature to evaporate water or limiting the 
+
+power of the stack until enough water is cleared (Liu, Guo, Yuan, & Ye, 2018). 
+
+2.2.1.2.4 
+Some research organizations have been able to advance their URFC concepts to the level of 
+
+Multi-cell stacks 
+
+larger area, multi-cell stacks. A group at the South China University of Technology built a 
+
+microscale URFC system complete with hydrogen gas storage and balance of plant components 
+centered around a 6-cell, 28.5 cm2 LTPEM URFC stack (Su, Liao, & Xu, 2009). The system 
+went through 10 cycles of operation without degradation but was only capable of a low current 
+
+density due to hydrogen storage limitations. Takasago Thermal Engineering built and 
+
+demonstrated a 100W LTPEM URFC stack with 17 cells for the Japanese Aerospace Exploration 
+
+Agency (Sone, 2011). The Japanese National Institute of Advanced Industrial Science and 
+
+Technology tested a 10-cell version of this stack from Takasago in a pilot application for 
+
+combined heat and power known as the Totalized Hydrogen Energy Utilization System. Their 
+
+testing and analysis showed that heat recovery could increase the round trip efficiency of the 
+
+system above 60% (Ito, Miyazaki, & Nakano, 2016) (Bhogilla, Ito, Kato, & Nakano, 2016). The 
+University of Paris/Kurchatov Institute collaboration built a 7-cell, 256 cm2 LTPEM URFC stack 
+using dedicated reduction/oxidation electrodes capable of 500W in fuel cell mode with a 30% 
+
+round trip efficiency in short term testing (Grigoriev, Millet, Porembsky, & Fateev, 2011). To 
+
+date, no organization or institution has demonstrated a LTPEM URFC system that can deliver 
+
+power above 1 kW. 
+
+2.2.2  Solid oxide RFCs (RSOFCs) 
+
+SOFC technology has generated interest for use in mobile applications in recent years. SOFC 
+
+technology can trace its origins to 1897 when Nernst developed the Nernst lamp, an incandescent 
+
+lamp that used a yttria-stabilized zirconia (YSZ) filament (Mobius, 1997). The material is a 
+natural choice for a fuel cell electrolyte material because it is a mixed oxide solid solution that 
+
+allows for oxide ion conduction at elevated temperatures (500-1000°C). Research into solid 
+electrolyte cells proceeded slowly for the first half of the 20th century, with the first use of 
+zirconia-based ceramics in tubular fuel cells in 1937 and in planar cells in the 1950s. Companies 
+
+such as General Electric and Westinghouse began collecting patents and developing SOFCs for 
+
+potential power generation applications.  
+
+Recent development of SOFC technology in the industry has focused on new and improved 
+
+electrolytes and electrode materials to reduce cost, simplify manufacturing, and increase 
+
+durability and lifetime. SOFC manufacturing and supply chains are not as advanced as PEM but 
+
+continue to develop to the point where the technology is reaching the marketplace in a handful of 
+
+12 
+
+ 
+ 
+applications. SOFCs have begun to enter the market as stationary power systems in the kW to 
+
+MW range and as kW-scale auxiliary power units for vehicles in both commercial and military 
+
+applications. 
+
+2.2.2.1 SOEC and RSOFC Research 
+Interest in using solid oxide electrochemical technology as a reversible fuel cell system 
+
+originated from research into solid oxide electrolysis cells (SOEC). High temperature electrolysis 
+
+processes were viewed as a potential way to increase the efficiency of hydrogen production 
+
+processes beyond the efficiency found in alkaline technology that was, and largely remains, the 
+
+industry standard (Gomez & Hotza, 2016). Researchers at Dornier, a German aircraft company, 
+
+engaged in development of high temperature solid oxide electrochemical cells as early as the 
+
+1970s. In 1987, they began researching their technology for use in fuel cells as well. 
+
+Experimental testing of both modes on a 10-cell tubular stack operating at 1000°C revealed that 
+
+zirconia-based solid oxide electrochemical cells “can be reversibly changed from the electrolysis 
+
+mode to the fuel cell mode and vice versa without any discontinuity,” (Erdle, Donitz, Schamm, 
+
+& Koch, 1992). They immediately recognized the importance of this observation, noting that 
+
+“this technology offers the potential of establishing a regenerative fuel cell system for electrical 
+
+energy storage applications, where the fuel cell and the electrolysis function are combined in 
+
+only one unit,” (Erdle, Donitz, Schamm, & Koch, 1992). Kansai Electric Power Company and 
+Mitsubishi developed and tested a 750 cm2 planar version of the technology at around the same 
+time to be paired with a nuclear power plant as an energy storage device (Wang Y. , A review on 
+
+unitized regenerative fuel cell technologies, part B: unitized regenerative alkaline fuel cell, solid 
+
+oxide fuel cell, and microfluidic fuel cell, 2016) (Shimaki, et al., 1992) (Kusunoki, et al., 1995). 
+
+Much like LTPEM technologies, the challenge in creating a reversible fuel cell technology that 
+
+can handle a wide operating voltage range over multiple mode cycles is in selecting the right 
+
+combination of materials in the electrodes and electrolyte. RSOFCs have had difficulty finding 
+
+their way into applications despite a superior round trip efficiency because the electrolyte and 
+
+electrode materials chosen have shown poor long-term stability and cycle life (Wang Y. , A 
+
+review on unitized regenerative fuel cell technologies, part B: unitized regenerative alkaline fuel 
+
+cell, solid oxide fuel cell, and microfluidic fuel cell, 2016) (Gomez & Hotza, 2016). YSZ 
+
+remains the most popular electrolyte for RSOFC research, but other oxide ion conducting 
+
+electrolytes such as scandium oxide stabilized zirconium (ScSZ), Lanthanum Strontium Gallium 
+
+Magnesium Oxide (LSGM), samaria-doped ceria (SDC), and gadolinium-doped ceria (GDC) 
+
+have also been employed. A blend of nickel and the electrolyte material is commonly used on the 
+
+hydrogen electrode, but is particularly susceptible to oxidation during electrolysis mode, 
+
+resulting in a reduction in activity and delamination from the electrolyte. Lanthanum strontium 
+
+13 
+
+ 
+ 
+manganite (LSM) is commonly used for the oxygen electrode but has similar degradation issues 
+
+to the hydrogen electrode in electrolysis mode. Cycling between operating modes and operating 
+at high current densities (> 500 mA/cm2) appear to accelerate degradation problems in these 
+materials. 
+
+2.2.2.1.1 
+Pacific Northwest National Laboratory and the National Energy Technology Laboratory 
+
+Materials Research 
+
+explored various combinations of electrode materials with a YSZ electrolyte to form an RSOFC 
+
+(Marina, et al., 2007). Nickel/zirconia cermet (Ni/YSZ) and LSM/ceria composites were used as 
+
+hydrogen electrodes. Lanthanum strontium ferrite (LSF), lanthanum strontium copper ferrite 
+
+(LSCuF), lanthanum strontium cobalt ferrite (LSCoF), and LSM were used as oxygen electrodes. 
+Single cell tests were performed on a 33.6 cm2 cell to observe electrochemical behavior in both 
+fuel cell and electrolysis modes. Ni/YSZ and LSCoF were found to be the optimal material 
+
+combination, but still showed high resistance during electrolysis at 750°C. 
+
+Researchers at the European Institute for Energy Research (EIFER) performed high temperature 
+
+solid oxide water electrolysis studies by operating an SOFC in reverse with Ni/YSZ and LSM 
+electrodes and YSZ electrolyte (Brisse, Schefold, & Zahid, 2008). 45 cm2 single cell testing at 
+800 and 900°C proceeded with fuel cell operation for four days, followed by electrolysis 
+
+experiments totaling 160 hours of operation, without any signs of degradation. The unit was not 
+
+continuously cycled between modes as it would be in an RFC application, which could 
+
+significantly accelerate degradation mechanisms. 
+
+The University of Science and Technology of China took the approach of changing the 
+
+electrolyte from YSZ to BaCe0.5Zr0.3Y0.2O3-δ, a proton-conducting material (He, Song, Peng, 
+
+Meng, & Yang, 2010). Using a proton-conducting electrolyte provides the advantages of 
+
+producing pure hydrogen without the need for separation and lowering the activation energy at 
+
+moderate temperatures for ionic conduction in solid oxide technologies (600-700°C). Single cells 
+with less than 1 cm2 active area were fabricated and tested reversibly in SOFC and SOEC mode, 
+showing variations in performance with steam concentration in SOEC. SOFC performance of 
+
+this cell appeared inferior to LTPEM fuel cell technologies. No cycle life testing was completed. 
+
+A group at Yuan Ze University in Taiwan developed an RSOFC with a NiO/YSZ, YSZ, 
+LSM/YSZ configuration (Jung, et al., 2016). Single cell testing was performed on a 5 cm2 cell. 
+Addition of YSZ into the LSM oxygen electrode increased SOEC performance but decreased 
+
+SOFC performance. Cyclic durability testing showed that the performance in fuel cell mode 
+
+degraded 10% in 10 cycles corresponding to an increase in ohmic resistance of the cell arising 
+
+from delamination of the electrode and electrolyte layers. 
+
+14 
+
+ 
+ 
+Researchers at Kyushu University in Japan experimented with an RSOFC stack configuration 
+
+consisting of an LSGM electrolyte, an LSF cathode, and a Ba0.6La0.4CoO3 (BLC) anode 
+
+(Ishihara, 2017). Testing was performed in both electrolysis-only mode and in cyclic operation 
+
+between electrolysis and fuel cell modes. The LSF material showed no signs of degradation in 
+
+electrochemical characteristics or physical appearance after 40 cycles. The material did show 
+
+promise as a reversible fuel cell material but is noted to be not as conductive as materials used in 
+
+dedicated fuel cells or electrolyzers. 
+
+A complete summary of materials combinations attempted in RSOFC research can be found in 
+
+comprehensive review articles on RSOFC cell development provided in the references (Wang Y. 
+
+, A review on unitized regenerative fuel cell technologies, part B: unitized regenerative alkaline 
+
+fuel cell, solid oxide fuel cell, and microfluidic fuel cell, 2016) (Gomez & Hotza, 2016). 
+
+2.2.2.1.2 
+A consortium of Spanish researchers and St Andrews in the UK developed a “symmetrical” 
+
+Symmetric Cell Designs 
+
+Solid Oxide Fuel Cell (SSOFC) concept where the same electrode material is used on both the 
+
+anode and cathode, as well as the electrical interconnects (Ruiz-Morales, Marrero-Lopez, 
+
+Canales-Vasquez, & Irvine, 2011). This approach would greatly simplify the manufacturing 
+
+process for an SOFC/SOEC cell by allowing for a single thermal treatment step. Both SOFC and 
+
+SOEC studies were performed, making them a candidate for an RSOFC. Sr2Fe1.5Mo0.5O6−δ was 
+
+identified as the best candidate for a symmetric RSOFC, but no manufacturing or experimental 
+
+work was completed with the material. 
+
+NASA developed a symmetric RSOFC design concept that used YSZ electrolyte with Ni-YSZ 
+
+electrode and replaced the metallic interconnects with a thin LaCaCrO3 (LCC) layer (Cable, 
+
+Setlock, Farmer, & Eckel, 2009). System design analysis of this stack in a UAV HALE 
+
+application showed that the interconnect material replacement could reduce the stack mass by 
+
+40%, achieving a power density far superior to PEM or internal combustion-based power 
+
+systems for the application. A novel manufacturing technique known as freeze-casting was used 
+
+to create Ni-YSZ electrodes with built-in micro-channels to boost performance in electrolysis 
+
+mode by enhancing gas diffusion through the cell. Degradation testing showed mixed results, 
+
+with stable performance in electrolysis mode but accelerated degradation of 20-30% per 1000 
+
+hours when cycling between operational modes. 
+
+2.2.2.2 Multi-cell RSOFC Stacks 
+Some multi-cell RSOFC stacks have been built and tested but have often been plagued by 
+degradation problems. General Electric was able to build and test 3-cell and 10-cell, 200 cm2 
+stacks (as shown in Figure 6a) with Ni/YSZ hydrogen electrodes, YSZ electrolytes, and 
+
+15 
+
+ 
+ 
+lanthanum strontium cobalt ferrite (LSCF) oxygen electrodes that performed water electrolysis 
+and methane reforming in fuel cell mode (Minh, 2011). The 3rd cell in the 3-cell stacks showed 
+rapid degradation by resistance increases associated with the increase in contact 
+
+electrode/interconnect resistance from chromium and strontium migration. The 10-cell stack 
+
+produced over 6 SLM of H2 in electrolysis mode with 1110 W of DC power at 800°C using a 
+
+70% H2O / 30% H2 feed. The 10-cell stack was able to operate for over 1000 hours with two 
+
+total cycles and 100-400 hours per operating mode but showed accelerated degradation during 
+
+electrolysis. 
+
+Figure 6. RSOFC multi-cell stack hardware by a) General Electric, 10-cell, 200 cm2 and b) 
+Korea Institute of Science and Technology, 3-cell, 100 cm2, 200W 
+
+The Julich Institute of Energy and Climate Research developed an RSOFC based on a Ni/YSZ, 
+YSZ, and LSCF configuration (Nguyen, Fang, Packbier, & Blum, 2013). They built a 2-cell, 80 
+cm2 stack and completed 4000 hours of fuel cell testing along with over 4000 hours of steam 
+electrolysis and co-electrolysis of steam and CO2 at various conditions. Minimal degradation was 
+
+observed in both fuel cell and steam electrolysis modes, with higher degradation during co-
+
+electrolysis and at higher current densities. The results show that the Julich cell design is 
+
+promising for an RSOFC, although testing did not feature any cycling between fuel cell and 
+
+electrolysis operational modes. 
+
+The Korea Institute of Science and Technology developed and built a 3-cell, 100 cm2 RSOFC 
+capable of up to 200W (see Figure 6b) (Hong, et al., 2014). The stack employed an ScSZ 
+
+16 
+
+ 
+ 
+ 
+ 
+electrolyte with Ni-YSZ and LSC-GDC electrodes. Stable operation in electrolysis mode was 
+
+achieved for over 1000 hours, with less than 8% degradation achieved. Operational mode 
+
+switching was found to greatly accelerate degradation resulting from delamination of the 
+
+electrode and electrolyte layers. 
+
+2.2.2.3 System Analysis 
+Little analysis has been done on integrating RSOFCs into real-life applications. The Colorado 
+
+School of Mines has investigated using a RSOFC for distributed energy storage applications in 
+
+the range of 100 to 800 kW (Wendel & Braun, 2016). The RSOFC was considered able to handle 
+
+a wide range of fuels, including methane, hydrogen, and carbon monoxide, and electrolysis 
+
+feeds, including water and carbon dioxide. The analysis considered thermal aspects, 
+
+configurations with other power system equipment, and operating conditions to maximize the 
+
+overall efficiency of the system and built upon previous steady state, 1D RSOFC models based 
+
+on a LSGM electrolyte, nickel with strontium lanthanum titanium oxide fuel electrode, and 
+
+LSCF-GDC oxygen electrode configuration. The author of the study notes that the area-specific 
+
+resistance of this cell at 600C is notably higher than standard LSGM or YSZ-based cells at their 
+
+optimal temperatures. Despite that, an optimized system in this range can achieve a round trip 
+
+efficiency of 65 to 75%. RSOFCs were found to outperform LTPEM URFCs for these 
+
+applications if water could be kept in the vapor phase and the cycle time was over 8 hours. 
+
+The German Aerospace Center (DLR) developed a theoretical system model of an RSOFC for 
+
+energy storage applications (Sanatham, Heddrich, Riedel, & Friedrich, 2017). The energy system 
+
+employed thermal energy storage to help maximize overall system efficiency when switching 
+
+between fuel cell and electrolysis modes. A “commercially available” 10-cell, 300W RSOFC 
+
+stack was tested as part of this work to provide experimental data in both fuel cell and 
+
+electrolysis mode for comparison with the analysis. The stack could operate at up to 115 psi with 
+
+an open-air electrode and consisted of a LSCF-GDC/YSZ/Ni-GDC electrode/electrolyte 
+
+configuration. Analysis and experiments showed that a roundtrip efficiency of 55% was possible 
+
+with this stack, better than what has been achieved with LTPEM. 
+
+Both system analyses described above were for larger-scale stationary applications. Solid oxide 
+
+technologies do have some characteristics that make mobile applications difficult, such as high 
+
+temperature operation, relative fragility to forces and vibrations, and long startup times. 
+
+2.2.3  High temperature PEM RFC 
+
+HTPEM fuel cells have been under research and development as an alternative fuel cell 
+
+technology with potential operational benefits for specific applications. HTPEM technology uses 
+
+17 
+
+ 
+ 
+alternate membrane materials that can conduct protons at temperatures in the range of 150-
+
+200°C, above the 100°C limit of Nafion found in LTPEM technology. The higher operational 
+
+temperature enables HTPEM technology to use dirtier fuels without significant performance 
+
+penalties, eliminates liquid water reactant/product management issues, and provides potential 
+
+efficiency improvements in an RFC from the thermal effects. The most common and mature 
+
+HTPEM membrane material is polybenzimidazole (PBI), a fibrous material first manufactured in 
+
+the 1960s and used by NASA and the Air Force for thermal protection applications. Doping PBI 
+
+with phosphoric acid gives the material proton conductivity, an idea that was first introduced by 
+
+researchers at Case Western Reserve University in the 1990s (Wainright, Wang, Weng, Savinell, 
+
+& Litt, 1995). PBI and other proton-conducting membranes have been a subject of research and 
+
+development for the past twenty years to the point of manufacturing kW-scale stacks. However, 
+
+HTPEM technology has not found much use in actual power system applications to date. 
+
+HTPEM electrolysis has been explored by researchers, but to a lesser extent than power 
+
+production. Investigation has been limited to theoretical system studies and catalyst research 
+
+(Goni-Urtiaga, Presvytes, & Scott, 2012) (Xu, Ma, Li, Zhao, & Zhongxue, 2012) (Nikiforov, et 
+
+al., 2012). This means that a unitized PEMFC stack based on this or similar technology in the 
+
+intermediate temperature range (100-300°C) has not been explored. HTPEM systems have been 
+
+considered as the fuel cell portion of a discrete RFC system. CMR Prototech and the European 
+
+Space Agency (ESA) have developed a concept for a discrete RFC with a HTPEM fuel cell and 
+
+LTPEM electrolyzer to replace batteries for long-term operation of geostationary orbit 
+
+telecommunication satellites (Farnes, et al., 2017). Although progress was made on hardware for 
+
+each operational mode, the system has not been integrated and operated as a single unit. 
+
+2.3  Aircraft application and technology selection 
+
+2.3.1  Aircraft applications 
+
+We studied the advantages of developing a URFC system as either an electric propulsion device 
+
+for an all-electric aircraft or hybrid auxiliary power unit (APU) for use in a Boeing 787 
+
+passenger aircraft. This URFC system will be designed with enough reactant storage to support 
+
+one, two, or five hours of operation in fuel cell mode. The advantage of the URFC in this 
+
+scenario is that energy storage and power generation are independent of each other, thus the 
+
+same 125 kW power source can be used in a 125 kWh, 250 kWh, and 625 kWh energy storage 
+
+system. The URFC in the Boeing 787 is expected to be hybridized with the present generator that 
+
+composed the current APU. The APU in the Boeing 787 is used to provide ground power and 
+
+serves as backup power in flight. The URFC component of the auxiliary power unit would 
+
+18 
+
+ 
+ 
+produce 125 kW of power and thus it could be used as a building block for other more-electric 
+
+aircraft applications like electric propulsion. For the APU, the proposed system would consist of 
+
+two URFCs systems working with one half of the current Boeing 787 APU. It is envisioned that 
+
+the hybrid APU for the Boeing 787 would require 125 kWh of storage whereas a more-electric 
+
+aircraft requiring electric propulsion would utilize the 625 kWh of storage. For the Boeing 787 
+
+application, the aircraft may operate on a single URFC to provide ground power and thus 
+
+maximize aircraft fuel efficiency.  
+
+2.3.2  Selected technology and rationale 
+
+In reviewing the technology available, we have proposed one based on HTPEM technology for 
+
+the development of a URFC system. An issue that is common to all URFC systems is supporting 
+
+two electrochemical reactions on the same surface. In charge mode, a fuel cell cathode, which 
+would traditionally electrochemically reduce oxygen to water, would also need to oxidize water 
+
+to oxygen. Although catalysts for a reversible electrode as described exist, the electrode structure 
+
+to support the reaction would require development to ensure consistent and durable performance. 
+
+In a LTPEM fuel cell, liquid water is a byproduct of the fuel cell reaction. Thus, the electrode 
+
+structure of the cathode in a LTPEM fuel cell would be required to remove the fuel cell product 
+
+water during a discharge event and accept water during a charge event. The cathode electrode 
+
+structure in a traditional LTPEM fuel cell is designed to expel water. This electrode structure 
+
+would not readily accept water during a charge event. The water byproduct in a HTPEM fuel cell 
+
+is in a gas phase. This allows for a simpler electrode structure when considering the requirement 
+
+for a reversible electrode. This approach would be similar to SOFC-based URFC systems. One 
+
+advantage of a HTPEM-based versus a SOFC-based URFC is that the HTPEM allows for 
+
+multiple stop-start cycles without damage to the stack hardware. The HTPEM-based URFC also 
+
+allows for pressurization, allowing for more compact reactant storage when taking the entire 
+
+URFC fuel cell system into consideration. 
+
+3 
+
+System design 
+
+3.1  Scope statement 
+
+Teledyne has proposed an energy storage system design using a unitized regenerative PEM fuel 
+
+cell stack to support an aircraft application. A system piping and instrumentation diagram 
+
+(P&ID), list of components, and list of operational parameters have been composed to define the 
+
+system that has been studied and modeled in the simulations described in Section 4. The system 
+
+19 
+
+ 
+ 
+defined in the following section reflects what was within the scope of the energy storage system 
+
+and what was excluded from the analysis. 
+
+3.1.1  Within scope 
+
+Teledyne has developed a system design that encompasses components relevant to simulating the 
+
+unitized RFC system in aircraft applications. Only items that are critical to evaluating the 
+
+operation of the system for performance purposes are included. The list of components and 
+
+supporting information includes the following: 
+
+•  Unitized fuel cell stack 
+•  Reactant storage tanks 
+•  Thermal control system 
+•  Valves/devices for pressure/flow control 
+•  Control logic 
+•  CONOPS for system startup/shutdown 
+
+The system piping and interface diagram is shown in Appendix A and the bill of materials is 
+listed in Appendix B. 
+
+3.1.2  Outside of scope 
+
+Items that are not necessary for evaluating the performance of the system are eliminated from 
+
+consideration in this study. This will enable a proper assessment of the merits of the system prior 
+
+to investing resources into developing a fully mature system design. The list of components to be 
+
+excluded is as follows: 
+
+Items for physical mounting (brackets, fasteners, structural members) 
+
+•  Power conditioning equipment 
+• 
+•  Wiring 
+•  Controller design 
+•  Ground support equipment and infrastructure 
+•  Connections to existing aircraft equipment 
+
+3.2  System components and features 
+
+This section defines the major system components shown in Appendix A and Appendix B along 
+
+with the assumptions behind the design decisions and a general description of how each 
+
+component operates. The unitized fuel cell system developed under this program employs 
+
+creative ideas that make it a unique concept for a regenerative fuel cell system. Passive controls 
+
+were employed as much as possible to maximize the reliability and simplify operation. The 
+
+system also represents the most volumetrically dense regenerative fuel cell system of its type by 
+
+20 
+
+ 
+ 
+incorporating a unitized stack design within a reactant storage vessel. The combination of these 
+
+attributes makes the system an attractive option for aerial applications. 
+
+3.2.1  Unitized fuel cell stack 
+
+The regenerative fuel cell stack (RFC1) produces power in fuel cell mode and generates 
+
+hydrogen and oxygen reactants in electrolysis mode. While operating in fuel cell mode the stack 
+
+receives a supply of hydrogen and oxygen, converts them into power, water, and heat. When 
+
+running in electrolysis mode, the stack receives a supply of water and electrical power, produces 
+
+hydrogen and oxygen, and generates heat as a byproduct. 
+
+HTPEM technology was chosen for the aircraft electric propulsion application. For the duration 
+of each operational cycle, the system will maintain a high operating temperature of 160ºC to  
+180ºC. Operating at such temperatures ensures the product water remains in gaseous phase while 
+avoiding the large thermal energy input required for fuel cell technologies that operate at much 
+higher temperatures (> 600ºC). An external thermal control system will control the operating 
+temperature with a liquid coolant loop and ambient air supply.  
+
+The fuel cell membrane electrode assembly (MEA) design will consist of a commercially 
+
+available PBI-membrane, for which performance data is publicly available. The stack will be 
+
+sized to meet the full power condition of 125 kW. Using the best available performance data 
+
+from MEAs of this design (Advent High Temperature Membrane Electrode Assemblies, 2019), 
+the fuel cell stack will consist of 400 cells with 844 cm2 of active area for each cell. The stack 
+will produce 125 kW at 233.1 VDC and 541 A and encompass a physical envelope of 30.5 cm by 
+
+106.7 cm by 223.5 cm (726.8 L). 
+
+The unitized stack will consist of an open cathode design, which are typically employed in air-
+
+breathing fuel cells as a method of eliminating oxidant gas storage and simplifying flow control. 
+
+The fuel cell stack will be horizontally mounted within the oxygen tank to take advantage of 
+
+these beneficial attributes for aircraft applications. Excess water vapor allowed to cool below  
+100ºC will condense on the walls of the tank and collect in the clearance space below the 
+mounted fuel cell stack. 
+
+3.2.2  Reactant storage tanks 
+
+The reactant storage tanks contain pressurized hydrogen and oxygen gas that is consumed by the 
+
+unitized stack in fuel cell mode and refilled with reactants during electrolysis mode. The reactant 
+
+tanks were sized with a 20% margin to account for worst-case energy use and unforeseen 
+
+circumstances during flight missions. The hydrogen tanks were sized for the individual missions 
+
+21 
+
+ 
+ 
+to allow consideration of weight and volume in optimizing the system design while the oxygen 
+
+tank volume is fixed to account for internal housing of the fuel cell system. The tanks will be 
+
+manufactured with carbon fiber in a composite overwrapped pressure vessel (COPV) design of 
+
+type III to minimize their weight. Type III COPVs employ a metal liner, usually aluminum, 
+
+around which the fibers are wrapped. This approach is quite common for lightweight pressure 
+
+vessel designs used for man-portable and fuel cell vehicle applications. 
+
+The hydrogen tanks were designed to employ high-pressure hydrogen storage of a maximum 
+
+value of 20,684 kPa (3000 psi) to minimize the required volume per unit mass. For a one-hour 
+
+flight in the electric propulsion application, the hydrogen tank will have a volume of 790 L and 
+
+hold 7.76 kg of hydrogen. During a two-hour flight mission, the tank will have a volume of 1460 
+
+L and hold 14.3 kg of hydrogen. A five-hour flight mission requires 34.5 kg of hydrogen stored 
+
+in a tank with a volume of 3510 L. Tank mass was determined by using an industry derived 
+
+metric of 0.75 lbs./L (Legault, 2012). 
+
+The hydrogen holding tank V3 was implemented to help balance the stack pressure during 
+
+electrolysis mode to account for varying reactant production rates within the stack. The tank will 
+
+hold hydrogen until the pressure differential between the hydrogen and oxygen volumes builds to 
+
++15 psi (103 kPa). A compressor will transfer the reactant to the main hydrogen storage tank V1. 
+
+As hydrogen builds at a steady rate of 1154 SLM, a small volume of gas will be held in V3 while 
+
+the pressure builds. The tank was sized to a volume of 400 L of gas capable of containing the 
+
+maximum storage pressure achievable in the main hydrogen storage tank. 
+
+The oxygen tank is required to store the fuel cell stack that encompasses a physical envelope of 
+
+0.30 m by 1.07 m by 2.24 m. The tank was sized to be 2.44 m long with a diameter of 1.27 m for 
+
+a total volume of 3089 L and net internal volume of 2692 L that is not filled by the fuel cell 
+
+stack. In addition to the internally mounted stack, the oxygen tank houses a heating element to 
+
+evaporate product water during fuel cell mode and excess supply water during electrolysis mode. 
+
+The oxygen tank dimensions account for the recirculation fan required to maintain proper 
+
+reactant flow and water vapor supply during both operational modes. The oxygen tank will have 
+
+a maximum volume of 2700 L capable of holding 362 kg of oxygen at a maximum storage 
+
+pressure of 15,168 kPa (2200 psi) when filled completely. The tank will only store the required 
+
+amount of reactant needed to complete specific flight durations. During a one-hour flight 
+
+mission, the tank will hold 61 kg of oxygen at a maximum pressure of 2,758 kPa (400 psi). For a 
+
+two-hour flight mission, the tank will hold 114 kg of oxygen at a maximum pressure of 5,000 
+
+kPa (725 psi). A five-hour flight mission requires 274 kg of oxygen at a maximum pressure of 
+
+11,721 kPa (1700 psi).  
+
+22 
+
+ 
+ 
+Both tanks will include pressure and temperature monitoring (PT1, PT3, T1, T2) to ensure that 
+
+they are in safe operating regimes for the duration of operation. The hydrogen tank will include 
+
+isolation valves, a manual valve/check valve assembly for external pressurization, and a relief 
+
+valve in case of over pressurization. The oxygen tank will include a water fill and drain port as 
+
+well as liquid level monitoring to ensure that the tank does not become flooded with water. 
+
+3.2.3  Thermal control system 
+
+The thermal control system will be sized to heat the fuel cell prior to start-up and to reject heat 
+
+for the duration of flight missions. The system will contain a 170 L carbon fiber water tank (V4) 
+
+with a 9-kW heating element (HT1) to achieve initial temperature requirements. A multistage 
+
+centrifugal pump (P3) will be set to a constant flowrate to circulate the coolant stream during 
+
+fuel cell and electrolysis modes. For in-flight temperature control, the system will utilize an air-
+cooled heat exchanger (HX1) to reject heat from the coolant stream. A variable frequency drive 
+
+(VFD1) will control the speed of the direct drive fan to adjust the air flow rate traveling through 
+
+the heat exchanger.  
+
+The coolant tank will be manufactured to incorporate a flange-style immersion heater (HT1) 
+
+from the top of the vessel. The dimensions of the tank were sized to fully submerge the 76.2 cm 
+heating element HT1 required to heat the fuel cell system to 160ºC prior to operation. The level 
+switch (LS1) will monitor the liquid level and temperature in the tank while serving as an alarm 
+
+when the tank volume is too high or low for operation. The water pump (P3) has a maximum 
+
+flow rate of 113.5 LPM and specialized mechanical seals to withstand high operating 
+
+temperatures. The pump is equipped with a 3-phase, totally enclosed and fan controlled 60 Hz 
+
+motor that can operate at a maximum of 3550 RPM. There will be a flow switch (FS1) located at 
+
+the outlet of P3 to monitor the flow and temperature of the coolant stream for pump failure.  
+
+An air-cooled heat exchanger (HX1) will rely on the ambient air supply at high altitudes in flight 
+
+and an external air blower on the ground during electrolysis mode. The exchanger has been sized 
+
+to 0.23 m x 0.61 m x 0.61 m and contains eighty tubes in a 16 by 5 arrangement with a diameter 
+
+of 2.5 cm for coolant flow. There will be a 0.61 m x 0.61 m direct drive fan mounted on the 
+
+larger face of the heat exchanger to force air flow through the tube bundles. The speed of the 
+
+direct drive fan will be controlled by a 3-phase, 746 W variable frequency drive to control the 
+
+airflow traveling through the bundles. 
+
+The amount of heat generated within the fuel cell stack changes as the system fulfills various 
+
+power levels through flight missions. At 25% of full power or 31.25 kW, the system generates 
+
+33.7 kW of heat. When operating at 50% of power or 62.5 kW, the system generates 74.7 kW of 
+
+23 
+
+ 
+ 
+heat. At 75% of full power or 93.75 kW, the system generates 125.3 kW of heat. When the 
+
+system is at maximum power of 125 kW, 192.4 kW of heat are generated. While operating at 
+
+maximum power, the system requires an ambient air flow rate of 82,000 LPM to reject 192.4 kW 
+
+of heat. As the system completes various flight missions, the ambient air flow rates will range 
+
+from 21,200 LPM to the maximum of 82,000 LPM as required to reject heat from the system 
+
+over the duration of a flight mission. 
+
+During electrolysis mode, an external air blower is used to supply ambient air to HX1. As the 
+
+system operates at constant ground power of 125 kW, the ambient air flow rate is constant during 
+
+the reactant regeneration process. The stack generates 98 kW of heat requiring an ambient air 
+flow rate of 42,000 LPM to maintain 160ºC operating temperature. The coolant flow rate is kept 
+the same at 67 LPM. 
+
+3.2.4  Valves/devices for pressure/flow control 
+
+Several valves and flow control devices are included in the system design to safely manage the 
+
+transfer of gas between the fuel cell stack and reactant storage tanks. They enable pressures to be 
+
+evenly balanced between sensitive components and provide safety relief in the event of a failure 
+
+of one or more components. The reactant flow rates generated by these devices ensure that the 
+
+fuel cell stack is operating at optimal conditions where hydrogen, oxygen, and water are 
+
+introduced and removed in sufficient quantity to sustain the processes. The hydrogen flow 
+
+controls are divided into dedicated fuel cell and electrolyzer reactant flow regimes. The oxygen 
+
+flow controls are much simpler than the hydrogen flow controls due to the open cathode stack 
+
+configuration inside of the oxygen reactant storage tank.  
+
+While operating in fuel cell mode, SV1 is opened to enable hydrogen reactant flow from the 
+
+hydrogen tank (V1) to the unitized fuel cell stack (RFC1) while a check valve (CV3) prevents 
+
+flow through electrolysis-specific components. Hydrogen flows through the forward pressure 
+
+regulator (FPR1), which maintains the hydrogen pressure in the unitized fuel cell stack within ± 
+
+103 kPa (15 psi) of the pressure in the oxygen tank. The hydrogen inlet line penetrates the 
+
+oxygen vessel and connects to the unitized fuel cell stack, where the hydrogen gas is consumed 
+
+to produce power. The remaining hydrogen gas that is not consumed exits the stack and is 
+
+pumped through the open SV2 and another check valve (CV5) by a hydrogen recirculation pump 
+
+(P2). The recirculation generated by the pump promotes an even distribution of hydrogen gas 
+
+throughout the fuel cell stack, ensuring power production at higher efficiencies than that 
+
+produced by a dead-ended stack design without active flow. 
+
+24 
+
+ 
+ 
+In electrolysis mode, SV1 and SV2 are closed to disable the hydrogen recirculation and pressure 
+
+regulation components used in fuel cell mode. Hydrogen gas generated by the stack travels 
+
+through the check valve (CV3) and is compressed (P1) to higher pressures for storage in the 
+
+hydrogen reactant storage tank (V1). The compressor will be intermittently operated to maintain 
+
+a balanced pressure in the stack as the gasses are generated. The difference in available gas 
+
+volumes and in production rate from the reaction stoichiometry means that the pressures of each 
+
+gas will build at different rates. A differential pressure transmitter (DPT2) measures the relative 
+
+pressure between the hydrogen and oxygen regimes in the stack. When the hydrogen pressure 
+
+exceeds the oxygen pressure by 103 kPa (15 psi), the compressor is turned on to pump hydrogen 
+
+into reactant storage (V1) and reduce the hydrogen pressure inside the stack. The compressor is 
+
+turned off again when the hydrogen pressure trails the oxygen pressure by 103 kPa (15 psi). A 
+
+buffer tank (V3) is included and sized to moderate the process of turning the compressor on and 
+off. 
+
+A recirculation fan (F1) is all that is required to maintain proper reactant flow to the fuel cell or 
+
+water vapor supply to the electrolyzer inside of the oxygen tank. The fan maintains a constant, 
+
+steady flow of gas through the open cathode channels of the stack and ensures even mixing of 
+
+the oxygen gas and water vapor. Maintaining flow will ensure that water vapor expelled from the 
+
+fuel cell stack during power production will encounter the walls of the oxygen storage tank. The 
+
+walls of the tank will be at a lower temperature than the stack, promoting condensation that will 
+
+encourage any liquid water that forms to collect at the bottom of the tank. 
+
+Both reactant flow loops contain mechanisms for venting hydrogen or oxygen gas out of the 
+
+aircraft in the event of an unsafe pressure condition. RV2 and RV3 provide passive pressure 
+
+relief in the event of a large increase in pressure. SV3 and SV4 are active venting valves that can 
+
+assist in balancing the pressure due to a high differential in pressure. Pressure monitoring devices 
+
+PT2, PT3, and DPT2 will enable alarms and trigger system shutdowns or other safety measures 
+
+in the event of an unsafe pressure condition. 
+
+3.2.5  Control logic  
+
+The unitized RFC system was designed with the goal of utilizing as many passive controls as 
+
+possible, which maximizes the reliability of the system while minimizing parasitic power 
+
+required for normal operation. Four active control systems are required: stack temperature, stack 
+
+differential pressure, hydrogen recirculation flow, and oxygen tank water level control. These 
+
+control systems are shown in black in Figure 7 below. 
+
+25 
+
+ 
+ 
+ 
+Figure 7. P&ID with control logic: hydrogen flow, temperature, liquid level, and differential 
+pressure 
+
+3.2.5.1 Temperature control 
+The temperature control scheme will be implemented to maintain optimal operating temperatures 
+
+during fuel cell and electrolysis modes. The amount of heat rejected from the fuel cell system 
+
+will depend on the stage of the mission profile. As the temperature fluctuates with energy 
+consumption, the ambient air flow will be controlled to maintain operating temperature. The inlet 
+
+and outlet cooling water temperatures will be measured by TC3 and TC4. The controller will 
+
+monitor the temperature change and adjust the speed of the fan to a specific airflow rate required 
+
+to cool the water stream to the temperature setpoint. The same control logic will be used to 
+
+control the temperature of the system during electrolysis mode.  
+
+3.2.5.2 Differential pressure control, electrolysis 
+As the rate of hydrogen production exceeds that of oxygen, the gasses will build pressure at 
+
+different rates. The differential pressure between the hydrogen and oxygen vessels will be 
+
+monitored using a differential pressure transmitter (DPT2). During operation, the hydrogen 
+
+26 
+
+ 
+ 
+ 
+pressure in the holding tank (V3) will build to +103 kPa (15 psi). Once the differential pressure 
+
+reaches that limit, DPT2 will send a signal to start the hydrogen compressor and pump hydrogen 
+
+gas to the main reactant storage vessel (V1). When the differential pressure begins to approach -
+
+103 kPa (15 psi), DPT2 will send a signal to the hydrogen compressor to shut down gradually. If 
+
+the differential pressure exceeds ± 206 kPa (30 psi), an alarm will trigger a system shut down. 
+
+The step process will continue as the reactant storage vessels produce enough gas for the next 
+
+flight mission. 
+
+3.2.5.3 Recirculation flow control 
+The recirculation flow control is designed to provide enough flow of unconsumed hydrogen back 
+
+into the fuel cell stack for even hydrogen distribution to sustain the reaction. The required rate of 
+
+recirculation provided by hydrogen recirculation pump (P2) will be proportional to the current 
+
+produced by the fuel cell stack. The fuel cell controller will increase or decrease the pump speed 
+
+to a maximum of 1606 SLM at full power based upon the amount of current measured by a 
+
+current sensor on the power delivery cable. The controls are deactivated for electrolysis mode 
+
+because the recirculation flow is not required during hydrogen production. 
+
+3.2.5.4 Oxygen tank water level control 
+The water level control is designed to evaporate product water that has condensed from the 
+
+oxygen exhaust of the unitized fuel cell stack. Water vapor must be present in the stack during 
+
+electrolysis mode to sustain hydrogen and oxygen generation. Evaporating the product water also 
+
+provides protection against the liquid level rising too high in the oxygen tank and submerging the 
+
+unitized stack. A heater (HT2) is submerged in the excess liquid water inside of the oxygen tank. 
+
+The heater will be activated when electrolysis mode commences and the liquid level in the tank 
+
+is above 7” as measured by differential pressure transmitter DPT1. The heater will be turned off 
+
+when the level drops below 5”. The heater can also be turned on at any time if the liquid level 
+
+rises above 15”.  
+
+3.3  System operation and parameters 
+
+3.3.1  Concept of operations 
+
+3.3.1.1 Startup procedure 
+The following is the proposed concept of operations for electric propulsion flight missions 
+
+ranging from one to five hours. The system will complete a purge cycle with inert gas supplied 
+
+from ground resources. Once the system has been cleared of possible contaminants, the hydrogen 
+
+and oxygen tanks will be fully pressurized to their application-specific rated capacity. The 
+
+oxygen reactant storage tank will contain a small volume (16L or 5% above required) of liquid 
+
+27 
+
+ 
+ 
+water that can be electrolyzed in future cycles to provide extra capacity in the case of venting or 
+losses in the system. The system will start by heating up the unitized fuel cell stack to the 160ºC 
+
+operating temperature by turning on heater HT1 and coolant pump P3. Once the operating 
+
+temperature has been reached, SV1 will open, allowing FPR1 to introduce more hydrogen into 
+
+the fuel cell stack when power production begins. SV2 will open and hydrogen pump P2 will 
+
+turn on to begin recirculating hydrogen through the stack. Once the open circuit voltage of the 
+
+fuel cell stack is measured and verified, power can be drawn from the fuel cell stack. The startup 
+
+heater can be turned off, allowing the air to coolant heat exchanger to handle thermal control. 
+
+This signals the start of the normal mission profile for the electric propulsion application. 
+
+3.3.1.2 Operational mode transition 
+Once the aircraft safely completes the flight mission and powers down at the terminal, the 
+unitized fuel cell can transition to electrolysis mode. The electrical output of the fuel cell system 
+
+is electrically disconnected from the aircraft. The internal water heater HT2 is turned on to 
+
+vaporize excess water that has condensed in the oxygen tank. The hydrogen recirculation pump 
+
+P2 is turned off and SV2 is closed to terminate hydrogen recirculation flow. SV1 is closed to 
+
+isolate the forward pressure regulator FPR1. The thermal control loop maintains the stack 
+temperature at 160ºC by continuing recirculation of coolant and activating HT1. The ground 
+water supply will connect to HV4. The air blower provided from ground resources is connected 
+
+to the tube bundles on the air-cooled heat exchanger HX1.  
+
+3.3.1.3 Reactant regeneration 
+The unitized stack and balance of plant power supply can then be connected to ground power to 
+
+run the electrolysis process. Once in place, power application to the unitized stack will start the 
+
+electrolysis process. Electrolysis will proceed until all the water is consumed or one of the upper 
+
+limits of reactant storage pressure are reached as measured by PT1 and PT3. Once the set points 
+
+are reached, power to the unitized stack will be removed. The thermal control system will remain 
+operational until the temperature of the system is lowered to less than 50ºC. The system is now 
+ready for the next mission and can disconnect from all ground resources.  
+
+28 
+
+ 
+ 
+3.3.2  Operational parameters 
+
+Table 1. Operational parameters of 125 kW URFC system for aircraft, fuel cell mode 
+
+P&ID  Description 
+F1 
+
+Direct Drive Exhaust Fan 
+
+Value 
+753 
+
+FPR1  H2 Dome Loaded Regulator 
+
+±15psi O2 
+
+P2 
+
+P3 
+
+T3 
+
+H2 Recirculating Pump/Blower 
+
+Coolant Pump 
+
+Cooling Stream Inlet Temperature 
+
+1506 
+
+67 
+
+160 
+
+Unit 
+SLM 
+
+psi 
+
+SLM 
+
+LPM 
+
+ºC 
+
+Table 2. Operational parameters of 125 kW URFC system for aircraft, reactant regeneration 
+
+P&ID  Description 
+F1 
+
+Direct Drive Exhaust Fan 
+
+P1 
+
+P3 
+
+T3 
+
+H2 Compressor 
+
+Coolant Pump 
+
+Cooling Stream Inlet Temperature 
+
+Value 
+576 
+
+1154 
+
+67 
+
+160 
+
+Unit 
+SLM 
+
+LPM 
+
+LPM 
+
+ºC 
+
+3.3.3  Alarm conditions 
+
+Table 3. Alarm set points, 125 kW unitized RFC system for aircraft 
+
+P&ID  Description 
+DPT1  Water Level, Oxygen Tank 
+
+Alarm Min  Alarm Max  Unit 
+15" 
+5” 
+
+in H2O 
+
+DPT2  H2 Differential Pressure Transmitter 
+
+LS1 
+
+PT1 
+
+PT2 
+
+PT3 
+
+RV1 
+
+RV2 
+
+RV3 
+
+T1 
+
+T2 
+
+T3 
+
+T4 
+
+-30 
+
+12’’ 
+
+100 
+
+Coolant Tank Level Switch 
+
+V1 (H2) Inlet/Outlet Pressure Transducer 
+
+V3 (H2) Inlet/Outlet Pressure Transducer 
+
+0 
+
+V2 (O2) Pressure Transducer 
+
+V1 (H2 tank) Relief Valve 
+
+H2 Outlet Safety Relief Valve 
+
+O2 Outlet Safety Relief Valve 
+
+V1 (H2) Inlet/Outlet Temperature 
+
+V2 (O2) Inlet/Outlet Temperature 
+
+Cooling Stream Inlet Temperature 
+
+Cooling Stream Outlet Temperature 
+
+100 
+
+None 
+
+None 
+
+None 
+
+None 
+
+None 
+
+140 
+
+140 
+
+29 
+
+30 
+
+32’’ 
+
+3500 
+
+3500 
+
+2000 
+
+3500 
+
+2000 
+
+2000 
+
+250 
+
+250 
+
+200 
+
+200 
+
+psi 
+
+in H2O 
+
+psi 
+
+psi 
+
+psi 
+
+psi 
+
+psi 
+
+psi 
+
+ºC 
+
+ºC 
+
+ºC 
+
+ºC 
+
+ 
+ 
+ 
+3.4  Safety implications 
+
+3.4.1  Storage of the fuel cell stack in the oxygen tank 
+
+The fuel cell system design proposed in this study takes a unique approach by placing the fuel 
+
+cell stack inside of the oxygen tank. The major benefit of taking this approach is reducing overall 
+
+system volume. This design also offers many benefits that improve system safety and reliability, 
+
+such as simplifying system controls, easing the process of collecting product water, and enabling 
+
+smoother transitions between fuel cell and electrolysis modes. The system requires fewer 
+
+controls due to the elimination of tubing, valves, and flow control devices, with only a single 
+
+recirculation fan needed to ensure even distribution and flow of oxygen and steam. Placing the 
+
+stack inside of the oxygen tank takes advantage of the natural thermal gradient between the  
+160ºC fuel cell stack and the environmental temperature conditions (30ºC or less) outside of the 
+oxygen tank vessel walls. This encourages a portion of the water to condense and gather at the 
+
+bottom of the tank from the influence of gravity, eliminating a separate water removal subsystem 
+
+entirely. Maintaining the fuel cell stack and oxygen tank at an elevated temperature ensures that 
+
+the oxygen gas remains saturated with steam, which enables the system to quickly transition 
+
+between fuel cell and electrolysis modes if required and without damaging the fuel cell stack or 
+
+requiring the high risk process of switching the reactant types through the tubing. 
+
+Placing the unitized fuel cell stack inside of the oxygen tank greatly improves reliability and has 
+
+some safety advantages described above, but also introduces some safety concerns that must be 
+
+addressed in order to ensure successful implementation. Perhaps the most obvious concern is a 
+
+leak of hydrogen out of the stack and into the oxygen vessel. A leak that is large enough to allow 
+
+for hydrogen accumulation would result in the creation of a dangerous gas mixture that could 
+
+start a fire or cause an explosion. A common and proven method of preventing the accumulation 
+
+of a gas leaking into a vessel is the use of a getter to trap the gas or a catalyst to react the leaking 
+gas with the ambient gas in the vessel. Teledyne has successfully used both methods in power 
+
+system designs, including catalyst scavenging systems to control reactant leakage out of fuel cell 
+
+systems inside of enclosures for underwater applications. The presence of the recirculation fan in 
+
+the URFC system would greatly improve the effectiveness of catalyst scavenging by ensuring 
+
+that any leaking gas reaches the catalyst surface. The catalyst would use a small amount of the 
+
+oxygen present to convert the leaking hydrogen into water, which would condense and be 
+
+collected at the bottom of the tank much like the product water from the fuel cell reaction. 
+
+Mitigating hydrogen leakage by reacting it into water ensures that the reactant is not permanently 
+
+lost to the system. The condensed water would be evaporated and split into hydrogen and oxygen 
+
+during the next electrolysis cycle. Minimizing the number and size of hydrogen penetrations and 
+
+30 
+
+ 
+ 
+using welded connections is also important to help minimize hydrogen leakage into the vessel 
+
+from the reactant tubing. 
+
+The presence of the unitized stack within the oxygen vessel can run the risk of an electrical short. 
+
+If the stack becomes submerged or covered in liquid water, the water can create a conductive 
+
+path that allows current to bypass the cells within the stack. This effectively eliminates the power 
+
+source in fuel cell mode and ceases gas generation in electrolysis mode. The stack must be 
+
+mounted in an elevated position in the tank with respect to gravity to ensure that it cannot be 
+
+submerged. The maximum liquid water volume present in the tank at any time is 12% of the tank 
+
+volume, making the prospect of avoiding submerging the stack achievable within the vessel. If 
+
+this cannot be guaranteed for all of the potential maneuvers performed by the aircraft, a separate 
+
+but adjoining vessel can be mounted to the bottom of the oxygen vessel and designed in such a 
+
+way to achieve all of the functions described above while preventing splashing and sloshing 
+
+during flight. Section 3.4.2 will discuss this possibility in more detail. The liquid level 
+
+monitoring device (DPT1) provides further protection against an overaccumulation of liquid 
+
+water. A high level of greater than 10” will activate the water heater (HT2) to evaporate water 
+
+back into steam. Coating the stack with a water resistant and electrically insulating material 
+
+provides an additional layer of protection against this hazard. 
+
+3.4.2  Water sloshing, oxygen tank 
+
+Using the oxygen tank as the location for product water storage simplifies controls and 
+
+eliminates extra components. With these benefits do come added concerns in a mobile 
+
+application. Liquid in a tank that is partially filled is subject to the accelerations and changes in 
+
+direction of the aircraft on which the tank is installed. The liquid has a free surface inside of the 
+
+tank, which allows the forces exerted by the walls of the tank on the liquid via aircraft change in 
+
+direction to generate waves within the liquid. These waves can violently disturb the liquid and 
+create uncontrollable forces reverberating through the tank. Sloshing is commonly seen in 
+
+propellant tanks for space applications and liquid cargo in tankers transported by truck, train, or 
+
+ship. If unmitigated, these forces can damage the fuel cell stack or the tank and interfere with the 
+
+controllability of the aircraft in flight. 
+
+The risk of sloshing can be mitigated by installing baffles in the tank. Baffles are internal 
+
+structures within the tank that break up the waves generated by sloshing forces while still 
+
+allowing for communication of liquid between the sections partitioned off by the baffles. They 
+
+are commonly employed in aircraft fuel tanks and in the other applications mentioned above 
+
+where sloshing is observed. An example of a baffle design for a vertically mounted propellant 
+
+tank is shown below in Figure 8. If baffles alone do not ensure that sloshing cannot present a 
+
+31 
+
+ 
+ 
+hazard to the fuel cell stack, the oxygen tank, or the aircraft, a separate compartment may need to 
+
+be installed at the bottom of the oxygen tank that incorporates baffling and water containment. 
+
+Figure 8. Example of a typical propellant tank with baffles for slosh damping (Yang & West, 
+2015) 
+
+3.4.3  Discrete operation vs fast mode switching 
+
+The URFC system design presented in this study provides the ability to alternate between fuel 
+
+cell and electrolysis modes in short time spans, which can be of great advantage to an RFC 
+
+system. The URFC system can be used as a load-leveling device, consuming excess power when 
+
+available to generate gas and using that gas to provide additional power to devices or the aircraft. 
+
+For the electric propulsion application, the device operates more like a discrete RFC system, with 
+
+fuel cell mode employed during flight and electrolysis mode only used to refuel the aircraft when 
+
+32 
+
+ 
+ 
+ 
+ 
+on the ground. The discrete operation configuration is considered more gentle on the stack in 
+
+terms of operation. The catalysts and electrodes of the cells would be subject to less degradation, 
+
+increasing the lifetime of the system. The open cathode design of the URFC lends itself well to 
+
+quick transitions from power production to electrolysis. However, the balance of plant 
+
+equipment, specifically the valves and pumps required to manage the hydrogen reactant, may 
+
+have trouble quickly shuttling between each mode if called upon to do so, but would have no 
+
+issue with the slower transition between modes for the electric propulsion application. A system 
+
+with this design may be more suitable to the electric propulsion application over the load-
+
+balancing application for the reasons mentioned above. 
+
+3.5  Applicability to other aircraft applications 
+
+The system design for the electric propulsion application can also serve as the basis for a 787 
+
+Dreamliner load-balancing application. The reactant storage capacity would be reduced because 
+
+the system does not need to operate at full power for the duration of the flight and would even be 
+
+replenishing reactant during certain flight stages by electrolysis. The reactant storage volumes 
+
+would be sized proportionally to allow for equal pressurization and depressurization rates during 
+
+both electrolysis and power consumption without the need for active control. This allows for a 
+
+major simplification of the pressure and flow control by eliminating P1, SV1, SV2, V3, CV3, 
+
+CV4, CV5, and FPR1. Control logic will be simpler, and the parasitic power observed will be 
+
+reduced, making this system design promising for the application. Power electronics would need 
+
+to handle quick alternations between fuel cell and electrolysis mode, although that is outside of 
+
+the scope of this study. 
+
+4  Mission simulation 
+
+4.1 
+
+Introduction 
+
+Teledyne has developed a detailed model to simulate the mission profile of an electric propulsion 
+
+aircraft using a 125 kW HTPEM URFC system. The model investigates the overall system 
+
+performance during one, two, and five-hour flight missions as the electric propulsion aircraft 
+
+goes through multiple power stages. A model simulating reactant regeneration was developed 
+
+utilizing on-board and ground resources for the operation. The following sections detail the 
+
+performance and parametric analysis of the unitized regenerative fuel cell technology in both 
+
+modes of operation. 
+
+33 
+
+ 
+ 
+4.2  Fuel cell mode 
+
+The information detailed in the system design was used to model the overall performance of the 
+
+system in the mission simulation. A power and equipment list (PEL) was compiled using 
+
+component data sheets to determine power consumption of each component at each power level 
+
+of the flight profile. Two additional models were developed to account for the power 
+
+consumption of the hydrogen recirculation blower and thermal control system as a function of 
+
+the load. The parasitic power for all system components in fuel cell mode is 1520 W at 25%, 
+
+1950 W at 50%, 2370 W at 75%, and 2800 W at maximum power.  
+
+The steady state performance of the fuel cell system at maximum power for a five-hour flight 
+
+was used to determine reactant consumption for baseline sizing of the system. The MEA data 
+
+from the Advent PBI-membrane MEA specifications was used to determine stack efficiency, 
+stack voltage, and current density at each power level since it is the most mature HTPEM 
+
+technology (Advent High Temperature Membrane Electrode Assemblies, 2019). The total 
+
+current of the system was then calculated and used to determine hydrogen and oxygen 
+
+consumption rates during each stage of the flight mission. Table 4 lists the values at each power 
+
+segment.  
+
+Table 4. Specifications by power level 
+
+Power 
+(%) 
+25% 
+
+50% 
+
+75% 
+
+100% 
+
+Power 
+(kW) 
+31.25 
+
+62.50 
+
+93.75 
+
+125.0 
+
+Parasitic 
+Power (W) 
+1520 
+
+Efficiency 
+(%) 
+48.1 
+
+H2 Consumption 
+(mol/s) 
+0.23 
+
+O2 Consumption 
+(mol/s) 
+0.11 
+
+1950 
+
+2370 
+
+2800 
+
+45.5 
+
+42.8 
+
+39.4 
+
+0.49 
+
+0.77 
+
+1.12 
+
+0.25 
+
+0.39 
+
+0.56 
+
+Table 5. Mission profile definition for electric propulsion, 125-kW URFC 
+
+Segment 
+Take-off 
+
+Power  Time (min)  Required 
+100% 
+
+Yes 
+
+3 
+
+Climb Out 
+
+100% 
+
+12 
+
+Cruise 
+
+Descent 
+
+Landing 
+
+75% 
+
+25% 
+
+25% 
+
+Go Around 
+
+100% 
+
+Divert 
+
+75% 
+
+Variable 
+
+20 
+
+5 
+
+2 
+
+15 
+
+34 
+
+Yes 
+
+Yes 
+
+Yes 
+
+Yes 
+
+No 
+
+No 
+
+ 
+ 
+ 
+ 
+Once the reactant consumption rates were determined, the flight mission was modeled using the 
+
+power profile at each stage of the flight. The performance curves model the overall hydrogen 
+
+consumption and power level over the duration of each flight mission. Two separate scenarios 
+
+were modeled for each of the one, two, and five-hour flight durations. The first simulation 
+
+models the flight profile that fulfills the required stages of take-off, climb-out, cruise, descent, 
+
+and landing. The second simulation models the flight profile with additional stages for diversion 
+
+and go-around instances. The second model accounts for the potential to require go-around and 
+
+diversion phases following the cruise stage of each flight. All stages of the flight are fixed except 
+
+for the cruise stage. The flight missions including additional stages for diversion and go-around 
+
+instances are representative of the worst-case reactant consumption. A summary of the stages 
+
+and their properties, shown in Table 5, was used to build the power profile for each mission and 
+
+calculate the energy consumption. The performance graphs for each mission simulation are 
+shown in Figure 9 through Figure 14. 
+
+Figure 9. Simulation results, one hour, standard 
+
+35 
+
+ 
+ 
+ 
+ 
+ 
+Figure 10. Simulation results, one hour, extended 
+
+Figure 11. Simulation results, two hour, standard 
+
+36 
+
+ 
+ 
+ 
+ 
+ 
+Figure 12. Simulation results, two hour, extended 
+
+Figure 13. Simulation results, five hour, standard 
+
+37 
+
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 14. Simulation results, five hour, extended 
+
+The aircraft cruises for 20 minutes during the one-hour flight mission, consuming 2303 moles of 
+
+hydrogen and 1151 moles of oxygen. When the flight mission is extended by 18 minutes for 
+
+additional stages, the total consumption increases to 3195 moles of hydrogen and 1598 moles of 
+
+oxygen. For the best-case model, there was an excess of 1648 moles of hydrogen and 767 moles 
+
+of oxygen. The worst case had an excess of 755 moles of hydrogen and 320 moles of oxygen. 
+
+During the two-hour flight mission, the aircraft cruises for 80 minutes consuming 5081 moles of 
+
+hydrogen and 2541 moles of oxygen. When the model accounts for additional stages, the total 
+
+consumption increases to 5925 moles of hydrogen and 2964 moles of oxygen. For the best-case 
+
+model, there was an excess of 1989 moles of hydrogen and 1018 moles of oxygen. The worst 
+
+case had an excess of 1145 moles of hydrogen and 596 moles of oxygen. 
+
+For the five-hour flight mission, the aircraft cruises for 260 minutes consuming 13393 moles of 
+
+hydrogen and 6698 moles of oxygen. When the model accounts for additional stages, the total 
+
+consumption increases to 14250 moles of hydrogen and 7127 moles of oxygen. For the best-case 
+
+model, there was an excess of 3672 moles of hydrogen and 3371 moles of oxygen. The worst 
+
+case had an excess of 2814 moles of hydrogen and 2942 moles of oxygen. 
+
+38 
+
+ 
+ 
+ 
+ 
+4.3  Electrolysis mode 
+
+The reactant regeneration process proceeds after the aircraft has completed the flight mission. 
+
+The fuel cell stack is electrically disconnected from the propulsion system of the aircraft. The 
+
+hydrogen recirculation loop is deactivated during electrolysis mode. The recirculation pump P2 
+
+is deactivated and solenoid valve SV2 is fully closed to terminate hydrogen flow through the 
+
+system. Similarly, solenoid valve SV1 is fully closed to isolate FPR1 to prevent differential 
+
+pressure control between the hydrogen and oxygen tank.  
+
+The unitized stack will transition into electrolysis mode once ground power is connected to the 
+
+system. The thermal control system maintains operation utilizing a ground air blower for the heat 
+
+exchanger. In addition to the major components used during fuel cell mode, the hydrogen 
+
+compressor is operative during electrolysis mode, which increases the parasitic power to  
+6263 W. Additionally, the water heating element HT2 is activated to vaporize condensed water 
+
+from the oxygen exhaust and control elevated liquid levels in T2. These components will rely on 
+
+ground power supply water to operate. 
+
+Research studies on HTPEM electrolysis from the Technical University of Denmark were used 
+
+to determine the expected current density and voltage at a 125-kW power level using the same 
+
+stack sized for electric propulsion (Hansen, et al., 2012). That information was used to determine 
+
+the total current, the hydrogen production rate of 0.858 mol/s, and oxygen production rate of 
+
+0.429 mol/s. As the system operates at steady state, 1154 SLM of hydrogen and 576 SLM of 
+
+oxygen are generated while 0.980 SLM of water is consumed. During electrolysis mode, 98 kW 
+
+of heat are generated as reactants are produced. 
+
+As various flight missions were modeled in Section 4.2, minimum and maximum reactant 
+
+consumption was determined. Although power levels change during flight missions, 8.15 kg/hr 
+
+of hydrogen and 64.5 kg/hr of oxygen are consumed at 125 kW, while 6.226 kg/hr of hydrogen 
+and 49.4 kg/hr of oxygen are generated during electrolysis mode. During the basic 1-hour flight 
+
+modeled in Figure 9, 4.64 kg of hydrogen and 36.9 kg of oxygen were consumed. It would take 
+
+about 45 minutes to regenerate the reactants used during that mission. For the 1-hour flight with 
+
+additional stages, 6.44 kg of hydrogen and 51.1 kg of oxygen were consumed. The reactant 
+
+regeneration would take 62 minutes. The basic 2-hour flight mission uses 10.2 kg of hydrogen 
+
+and 81.3 kg of oxygen, which would take 98 minutes to regenerate. Similarly, the extended 2-
+
+hour flight would use 12.1 kg of hydrogen 94.9 kg of oxygen resulting in a 115-minute 
+
+regeneration period. The standard 5-hour flight mission uses 27 kg of hydrogen and 214.3 kg of 
+
+oxygen. It would take 260 minutes, about 4.25 hours to regenerate the reactants. The 5-hour 
+
+flight with additional stages goes through 28.7 kg of hydrogen and 228.1 kg of oxygen, which 
+
+39 
+
+ 
+ 
+would take 277 minutes, or 4.5 hours to regenerate. There is potential to reduce these refueling 
+
+times even further. The system can operate higher current densities in electrolysis mode by 
+
+taking advantage of an excess cooling capacity of 96 kW available in the thermal control system, 
+
+which could potentially reduce refueling times by approximately 50%. 
+
+5  Conclusions 
+
+Teledyne sought to develop and explore a URFC concept for aircraft applications in this study. 
+
+We reviewed the history of unitized fuel cell system development and implementation. Both 
+
+LTPEM and SOFC technologies have been explored in these applications, with single cell, short 
+
+stack, and even some full-size hardware built and tested. We chose to pursue a HTPEM-based 
+
+URFC design with the goal of marrying the benefits of handling gaseous water in SOFC with the 
+
+more manageable heat load of a PEM technology. We developed a system design based on an 
+
+open-cathode HTPEM fuel cell stack housed inside of the oxygen storage tank and selected 
+
+components to support its operation. This approach simplifies flow controls, removes the need 
+
+for complex water management systems, and minimizes volume but adds some operational and 
+
+safety challenges that need to be addressed in a matured system. We built a system model in 
+
+Excel using inputs from real HTPEM performance data and information derived from the 
+
+datasheets of chosen components. The model was used to explore the feasibility of powering an 
+
+electric propulsion aircraft for one to five-hour flights. The results showed that the system 
+
+concept could perform well in this application and might have operational benefits but may be 
+
+challenging to implement due to the mass and volume required for the system. 
+
+5.1  System benefits 
+
+The URFC system proposed in this study provides benefits for the intended application. Short, 
+
+regional flights with small numbers of passengers (less than ten) may be well served by this 
+system. The URFC does not require refueling structure by eliminating jet fuel and having the 
+
+built-in ability to recharge the fuel tanks while on the ground through electrolysis mode. The 
+
+URFC only needs a source of electrical power at 125 kW at the landing site, which could 
+
+increase the number of potential destinations serviced by the aircraft. The need to install 
+
+hydrogen infrastructure at the landing sites has been removed, a requirement that has limited 
+
+PEM fuel cell system implementations into aircraft due to the capital equipment investment and 
+
+zoning requirements to ensure reliable and safe hydrogen supplies. When operating in flight, the 
+
+fuel cell stack has the ability to provide electric power for more aircraft devices beyond just the 
+
+propulsion system, including personal devices of passengers and avionics, as long as they 
+
+represent a small percentage (<10%) of the propulsive load. These features combined can 
+
+40 
+
+ 
+ 
+provide operational advantages over battery and primary fuel cell systems being considered for 
+
+electric propulsion aircraft of this class. 
+
+5.2  Obstacles and next steps 
+
+Despite the benefits of using the proposed URFC, many obstacles to implementation remain. The 
+
+URFC system as proposed is quite bulky and heavy at a minimum of 4150 L and 2338 kg for the 
+
+one-hour and two-hour application and 6870 L and 2837 kg for the five-hour mission, greatly 
+
+prohibiting implementation on small electric propulsion aircraft. This is almost entirely driven by 
+
+the reactant storage tanks. This corresponds to a specific power of 42 to 60 W/kg, with the 
+
+maximum occurring for the one-hour mission, and a specific energy of 57 to 164 Wh/kg, with 
+
+the maximum occurring for the five-hour mission. These performance metrics are both less than 
+
+the hundreds of W/kg and 200 Wh/kg or greater from lithium ion batteries. The size of the 
+
+hydrogen and oxygen tanks (V1 and V2) required to house both the fuel cell stack and the 
+
+quantity of gas required to support the flight duration at the 125-kW scale prohibits 
+
+implementation into the aircraft body. The large flow rates of hydrogen and oxygen and cooling 
+
+load required to sustain the fuel cell reaction at 125 kW requires large fans, pumps, and heat 
+
+exchangers (P1, P2, P3, F2, HX1) with high parasitic power requirements, as well as many 
+
+supporting components for alternating operational modes and providing layers of safety.  
+
+The system as proposed might be better suited from a volumetric standpoint as an auxiliary 
+
+power unit on a larger aircraft, such as the 787 Dreamliner application discussed earlier in this 
+
+study. The magnitude of power delivered versus the overall power of the aircraft results in a fuel 
+
+cell system volume that has the potential to fit within the available cargo space of the aircraft 
+
+instead of taking up a large portion of the fuselage. The overall mass of the system may be of 
+
+greater concern and would greatly impact the aerodynamics of the aircraft. A mass breakdown of 
+
+the system components is shown in Figure 15. This system concept might demonstrate a better 
+technical fit to applications at a power scale of two to three orders of magnitude lower, with 
+
+power requirements of 1 kW or less. The size of the oxygen tank and fuel cell stack as well as 
+
+the reactant flow and cooling required to support operation would be greatly reduced. There may 
+
+be applicability to UAVs that fall within this class, although ambient air breathing fuel cell 
+
+systems are sure to have better power density metrics. Applications could still be found for 
+
+UAVs operating in areas without a source of clean ambient air, such as battlefields, disaster 
+
+recovery, and other harsh environments. 
+
+41 
+
+ 
+ 
+ 
+Figure 15. System mass breakdown, 125-kW URFC 
+
+Potential applications for smaller electric propulsion aircraft include air taxis, which make 
+
+several short flights on demand. The URFC system proposed in this study could potentially 
+
+service these applications. An impediment to successful operation of this system in an air taxi is 
+
+the time it takes to recharge the reactant storage tanks by electrolysis. Electrolysis-based 
+
+refueling does eliminate the need for hydrogen and oxygen infrastructure at the site at the 
+
+expense of refueling time. Refueling by electrolysis is not as quick as filling the tank from a 
+
+compressor and pressurized storage tanks. A refueling process in URFC system in this study that 
+
+is on the order of 50-75% of the length of the flight could limit the functionality of an air taxi and 
+
+other electric propulsion aircraft that require frequent trips with multiple stops. Increasing the 
+
+power used for electrolysis would reduce the time to refuel but would put stress on the coolant 
+
+system that is sized for the fuel cell load as well as other components required to maintain 
+
+operation. 
+
+42 
+
+ 
+ 
+ 
+The URFC system proposed in this study employs novel system design concepts that promise 
+
+operational benefits but may also have unforeseen circumstances. Integrating the system into 
+
+aircraft applications will require multiple phases of development and demonstration to test the 
+
+subsystems and prove the functionality and safety of the design. Performing FMEAs at each 
+
+stage of development and completing testing on individual components and subsystems will help 
+
+identify weaknesses in the system design, as well as the risks most likely to cause performance 
+
+and safety issues. 
+
+HTPEM technology resides in an optimal temperature range for a URFC application. Despite 
+
+this system-level advantage, HTPEM performance in fuel cell mode shows a lower efficiency 
+
+that that exhibited by LTPEM and SOFCs. Today’s LTPEM and SOFC technologies are built 
+
+upon several decades of technology development through materials research, cell and stack 
+
+design, manufacturing improvements, and expertise gained through system integration in real 
+
+world applications. The relative novelty of HTPEM technologies and lack of widespread 
+
+implementation in the market puts it at a disadvantage. There is a need for improvements in 
+
+efficiency for fuel cell operation in order to reduce the mass and volume of the stack. Better data 
+
+on steam-fed electrolysis, which has almost no published research, is also needed. Durability of 
+
+HTPEM is a primary concern in each mode. The role of water in degrading the acid-impregnated 
+
+high temperature membranes is well known and must be properly managed in this application. A 
+
+unitized system of this design may not be the right approach today with this in mind. The 
+
+technology maturity is too low for near-term implementation, but might be achievable given time 
+
+and investment, especially if other potential applications of the technology can be found. 
+
+6  References 
+
+Advent High Temperature Membrane Electrode Assemblies. (2019). Retrieved from Advent 
+
+Technologies website: https://www.advent.energy/products-high-temperature-meas/ 
+
+Bents, D. (2007). Solar Airplanes and Regenerative Fuel Cells. Retrieved from NASA: 
+
+https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20080003889.pdf 
+
+Bhogilla, S., Ito, H., Kato, A., & Nakano, A. (2016). Research and development of a laboratory 
+
+scale totalized hydrogen energy utilization system. International Journal of Hydrogen 
+
+Energy, 41(2), 1224-1236. 
+
+Brisse, A., Schefold, J., & Zahid, M. (2008). High temperature water electrolysis in solid oxide 
+
+cells. International Journal of Hydrogen Energy, 33, 5375-5382. 
+
+43 
+
+ 
+ 
+Burke, K. (1999). High Energy Density Regenerative Fuel Cell Systems for Terrestrial 
+
+Applications. Retrieved from 
+
+https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/19990063763.pdf 
+
+Burke, K. (2003). Unitized Regenerative Fuel Cell Development. Retrieved from 
+
+https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20040027863.pdf 
+
+Burke, K. (2004). USA Patent No. 7,410,714 B1.  
+
+Burke, K. (2005). Unitized Regenerative Fuel Cell System Gas Storage-Radiatior Development. 
+
+Retrieved from https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20050238492.pdf 
+
+Cable, T., Setlock, J., Farmer, S., & Eckel, A. (2009). Regenerative Performance of the NASA 
+
+Symmetrical Solid Oxide Fuel Cell Design. Retrieved from NASA: 
+https://ntrs.nasa.gov/archive/nasa/casi.ntrs.nasa.gov/20090013708.pdf 
+
+Carlo, A. (2014). Consideration of Fuel Cells for Future Airplanes. Retrieved from FAA: 
+
+https://www.fire.tc.faa.gov/pdf/systems/Oct14Meeting/CARLO-1014-FuelCells.pdf 
+
+Coalson, R. (1996). Unitized Regenerative Fuel Cells (URFCs): URFC Opportunities and 
+
+LImitations in the Fields of Space Propulsion and Energy Storage. Retrieved from 
+
+Defense Technicl Information Center: https://apps.dtic.mil/dtic/tr/fulltext/u2/a356494.pdf 
+
+Doddathimmaiah, A., & Andrews, J. (2006). The use of PEM unitised regenerative fuel cells in 
+
+solar-hydrogen systems for remote area power supply. Proceeds of the World Hydrogen 
+
+Energy Conference. Lyon, France. 
+
+Erdle, E., Donitz, W., Schamm, R., & Koch, A. (1992). Reversibility and polarization behaviour 
+
+of high temperature solid oxide electrochemical cells. International Journal of Hydrogen 
+
+Energy, 17(10), 817-819. 
+
+Farnes, J., Bokach, D., ten Hoopen, S., Skatun, K., Schautz, M., Geneste, X., & Vik, A. (2017). 
+
+Optimized High Temperature PEM Fuel Cell & High Pressure PEM Electrolyzer for 
+
+Regenerative Fuel Cell Systems in GEO Telecommunication Satellites. E3S Web of 
+
+Conferences, 16, 10004. 
+
+Gomez, S., & Hotza, D. (2016). Current developments in reversible solid oxide fuel cells. 
+
+Renewable and Sustainable Energy Reviews, 61, 155-174. 
+
+Goni-Urtiaga, A., Presvytes, D., & Scott, K. (2012). Solid Acids as electrolyte materials for 
+
+proton exchange membrane (PEM) electrolysis: Review. International Journal of 
+
+Hydrogen Energy, 37(4), 3358-3372. 
+
+44 
+
+ 
+ 
+Grigoriev, S., Millet, P., Porembsky, V., & Fateev, V. (2011). Development and preliminary 
+
+testing of a unitized regenerative fuel cell based on PEM technology. International 
+
+Journal of Hydrogen Energy, 36(6), 4164-4168. 
+
+Grootjes, A., & Makkus, R. (2004). Dewvelopment of an oxygen electrode for a unitized 
+
+regenerative PEM fuel cell. Proceedings of the 2004 Fuel Cell Seminar. San Antonio, 
+
+TX. 
+
+Hansen, M. K., Aili, D., Christensen, E., Pan, C., Eriksen, S., Jesnen, J. O., . . . Bjerrum, N. J. 
+
+(2012). PEM steam electrolysis at 130C using a phosphoric acid doped short side chain 
+
+PFSA membrane. International Journal of Hydrogen Energy, 37(15), 10992-11000. 
+
+He, F., Song, D., Peng, R., Meng, G., & Yang, S. (2010). Electrode performance and analysis of 
+
+reversible solid oxide fuel cells with proton conduction electrolyte of 
+
+BaCe0.5Zr0.3Y0.2O3-d. Journal of Power Sources, 195, 3359-3364. 
+
+Hong, J., Kim, H.-J., Park, S.-Y., Lee, J.-H., Park, S.-B., Lee, J.-H., . . . Yoon, K. (2014). 
+
+Electrochemical performance and long-term durability of a 200 W-class solid oxide 
+
+regenerative fuel cell stack. International Journal of Hydrogen Energy, 39(35), 20819-
+
+20828. 
+
+Ishihara, T. (2017). Solid Oxide Reversible Cells (SORCs) Using LaCaO3-Based Oxide 
+
+Electrolyte and Oxide Fuel Electrode. Proceedings of the 2017 American Institute of 
+
+Physics Conference, 1877(1).  
+
+Ito, H., Miyazaki, N., & Nakano, A. (2016). Efficiency of unitized reversible fuel cell systems. 
+
+International Journal of Hydrogen Energy, 41(13), 5803-5815. 
+
+Joos, N., Frank, D., & Cargnelli, J. (2004). USA Patent No. 6,833,207 B2.  
+
+Jung, G.-B., Chang, C.-T., Yeh, C., Nguyen, X.-V., Chan, S.-H., Lin, C.-Y., . . . Kao, I.-C. 
+
+(2016). Study of reversible solid oxide fuel cell with different oxygen electrode materials. 
+
+International Journal of Hydrogen Energy, 41, 21802-21811. 
+
+Jung, H.-Y. (2009). Performance of gold-coated titanium bipolar plates in unitized regenerative 
+
+fuel cell operation. Journal of Power Sources, 194(2), 972-975. 
+
+Kusunoki, D., Kikuoka, Y., Yanagi, V., Kugimiya, K., Yoshino, M., Tokura, M., . . . Tokunaga, 
+
+S. (1995). Development of Mitsubishi-planar reversible cell-- Fundamental test on 
+
+hydrogen-utilized electric power storage system. International Journal of Hydrogen 
+
+Energy, 20(10), 831-834. 
+
+45 
+
+ 
+ 
+Legault, M. (2012, July 2). Pressure vessel tank types. Retrieved from Composites World: 
+
+https://www.compositesworld.com/articles/pressure-vessel-tank-types 
+
+Lele, S. (2016). Passive Unitized Regenerative Fuel Cell (PUReFC) for Energy Storage 
+
+Applications. Santa Clara, CA: Santa Clara University. 
+
+Liu, J., Guo, H., Yuan, X., & Ye, F. (2018). Experimental investigation on two-phase flow in a 
+
+unitized regenerative fuel cell during mode switching from water electrolyzer to fuel cell. 
+
+International Journal of Energy Research, 42, 2823-2824. 
+
+Marina, O., Pederson, L., Williams, M., Coffey, G., Meinhardt, K., Nguyen, C., & Thomsen, E. 
+
+(2007). Electrode Performance in Reversible Solid Oxide Fuel Cells. Journal of the 
+
+Electrochemical Society, 154(5), B452-B459. 
+
+Minh, N. (2011). Development of Reversible Solid Oxide Fuel Cells (RSOFCs) and Stacks. 
+
+Electrochemical Society Transactions, 35(1), 2897-2904. 
+
+Mitlitsky, F. (1996). Lightweight Pressure Vessels and Unitized Regenerative Fuel Cells. 
+
+Proceeds of the 1996 Fuel Cell Seminar. Kissimmee, FL. 
+
+Mitlitsky, F. (1998). Unitized Regenerative Fuel Cell Systems. Proceedings of the 1998 Fuel 
+
+Cell Seminar. Palm Springs, CA. 
+
+Mitlitsky, F., de Groot, W., Butler, L., & McElroy, J. (1996). Integrated Modular Propulsion and 
+
+Regenerative Electro-Energy Storage System (IMPRESS) for Small Satellites. Proceeds 
+
+of the 10th Annual American Institute of Aeronautices and Astronautics. Logan, UT. 
+
+Mitlitsky, F., Myers, B., & Weisberg, A. (1998). Regenerative Fuel Cell Systems R&D. 
+
+Proceedings of the Department of Energy Hydrogen Program Review. Arlington, VA. 
+
+Mittelsteadt, C., Laicer, C., Harrison, K., & McPheeters, B. (2017). USA Patent No. 9,595,727 
+
+B2.  
+
+Mobius, H.-H. (1997). On the history of solid electrolyte fuel cells. Journal of Solid State 
+
+Electrochemistry, 1, 2-16. 
+
+Nguyen, V., Fang, Q., Packbier, U., & Blum, L. (2013). Long-term tests of a Julich planar short 
+
+stack with reversible solid oxide cells in both fuel cell and electrolysis modes. 
+
+International Journal of Hydrogen Energy, 38, 4281-4290. 
+
+46 
+
+ 
+ 
+Nickol, C., Guynn, M., Kohout, L., & Ozoroski, T. (2006). High Altitude Long Endurance Air 
+
+Vehicle Analysis of Alternatives and Technology Requirements Development. Proceeds 
+
+of the 45th AIAA Aerospace Sciences Meeting and Exhibit.  
+
+Nikiforov, A., Petrushina, I., Christensen, E., Alexeev, N., Samokhin, A., & Bjerrum, N. (2012). 
+
+WC as a non-platinum hydrogen evolution electrocatalyst for high temperature PEM 
+
+water electrolyzers. International Journal of Hydrogen Energy, 37(24), 18591-18597. 
+
+Noll, T., Brown, J., Perez-Davis, M., Ishmael, S., Tiffany, G., & Gaier, M. (2004). Investigation 
+
+of the Helios Prototype Aircraft Mishap: Volume I, Mishap Report. Retrieved from 
+
+NASA: https://www.nasa.gov/pdf/64317main_helios.pdf 
+
+Okaya, S., Arastu, A., & Breit, J. (2013). Regenerative Fuel Cell (RFC) for High Power Space 
+
+System Applications. Proceeds of the 11th International Energy Conversion Engineering 
+
+Conference. San Jose, CA. 
+
+Okaya, S., Arastu, A., & Breit, J. (2013). Regenerative Fuel Cell (RFC) for High Power Space 
+
+System Applications. 11th International Energy Conversion Engineering Conference. 
+
+San Jose, CA: American Institute of Aeronautics and Astronautics. 
+
+Ranjbari, A., Millet, P., Grigoriev, S., & Fateev, V. (2010). Recent advances in the development 
+
+of unitized regenerative fuel cells based on PEM technology. Proceedings of the 18th 
+
+World Hydrogen Energy Conference. Essen, Germany. 
+
+Remick, R., & Wheeler, D. (2011). Reversible Fuel Cells Workshop: Summary Report. Retrieved 
+
+from US Department of Energy: 
+
+https://www.energy.gov/sites/prod/files/2014/03/f12/rev_fc_wkshp_report.pdf 
+
+Ruiz-Morales, J., Marrero-Lopez, D., Canales-Vasquez, J., & Irvine, J. (2011). Symmetric and 
+
+reversible solid oxide fuel cells. Royal Society of Chemistry Advances, 2011(1), 1403-
+
+1414. 
+
+Sadhasivam, T., Dhanabalan, K., Roh, S.-H., Kim, T.-H., Park, K.-W., Jung, S. K., & Jung, H.-
+
+Y. (2017). A comprehensive review on unitized regenerative fuel cells: Crucial 
+
+challenges and developments. International Journal of Hydrogen Energy, 4415-4433. 
+
+Sanatham, S., Heddrich, M., Riedel, M., & Friedrich, K. (2017). Theoretical and experimental 
+
+study of reversible solid oxide cell (r-SOC) systems for energy storage. Energy, 141, 202-
+
+214. 
+
+47 
+
+ 
+ 
+Shimaki, R., Okamoto, M., Yanagi, C., Kikuoka, Y., Ueda, S., Nakamori, N., . . . Suda, S. 
+
+(1992). Feasibility study on hydrogen-utilized electric power storage systems. 
+
+Proceedings of the 9th World Hydrogen Energy Conference. Paris, France. 
+
+Sone, Y. (2011). A 100-W class regenerative fuel cell system for lunar and planetary missions. 
+
+Journal of Power Sources, 21, 9076-9080. 
+
+Su, H., Liao, S., & Xu, L. (2009). Design, Fabrication and Preliminary Study of a Mini Power 
+
+Source with a Planar Six-cell PEM Unitised Regenerative Fuel Cell Stack. Fuel Cells: 
+
+From Fundamentals to Systems, 9(5), 522-527. 
+
+Wainright, J., Wang, J.-T., Weng, D., Savinell, R., & Litt, M. (1995). Acid-Doped 
+
+Polybenzimidazoles: A New Polymer Electrolyte. Journal of the Electrochemical 
+
+Society, 142(7), L121-L123. 
+
+Wang, Y. (2016). A review on unitized regenerative fuel cell technologies, part B: unitized 
+
+regenerative alkaline fuel cell, solid oxide fuel cell, and microfluidic fuel cell. Renewable 
+
+and Sustainable Energy Reviews, 75, 775-795. 
+
+Wang, Y. (2016). A review on unitized regenerative fuel cell technologies, Part-A: Unitized 
+
+regenerative proton exchange membrane fuel cells. Renewable and Sustainable Energy 
+
+Reviews, 961-977. 
+
+Wang, Y.-J., Fang, B., Wang, X., Ignaszak, A., Liu, Y., Li, A., . . . Zhang, J. (2018). Recent 
+
+advancements in the devleopment of bifunctional electrocatalysts for oxygen electrodes 
+
+in unitzed regenerative fuel cells (URFCs). Progress in Materials Science, 108-167. 
+
+Wendel, C., & Braun, R. (2016). Design and techno-economic analysis of high efficiency 
+
+reversible solid oxide cell systems for distributed energy storage. Applied Energy, 172, 
+
+118-131. 
+
+Xu, C., Ma, L., Li, J., Zhao, W., & Zhongxue, G. (2012). Synthesis and characterization of novel 
+
+high-performance composite electrocatalysts for the oxygen evolution in solid polymer 
+
+electrolyte (SPE) water electrolysis. International Journal of Hydrogen Energy, 37(4), 
+
+2985-2992. 
+
+Yang, H., & West, J. (2015, November 9). Predicting Baffled Propellant Tank Slosh. Retrieved 
+
+from NASA Advanced Supercomputing Division website: 
+
+https://www.nas.nasa.gov/SC15/demos/demo12.html 
+
+48 
+
+ 
+ 
+ 
+A  Piping and instrumentation diagram, 125 kW URFC 
+
+A-1 
+
+ 
+ 
+ 
+A-2 
+
+ 
+ 
+ 
+ 
+ 
+B  Bill of materials, 125 kW URFC 
+
+P&ID  DESCRIPTION 
+H2 fill check valve 
+CV1 
+CV2  O2 fill check valve 
+CV3 
+CV4 
+CV5 
+
+H2 outlet check valve 
+H2 inlet check valve 
+H2 recirculation check 
+valve 
+DPT1  Water level 
+DPT2  H2 differential pressure 
+
+transmitter 
+Direct drive exhaust fan 
+Direct drive exhaust fan 
+Coolant line flow switch 
+
+F1 
+F2 
+FS1 
+FPR1  H2 Dome loaded valve 
+HT1 
+HX1 
+
+Heating elements 
+Ambient air heat 
+exchanger 
+Coolant tank level switch 
+
+LS1 
+HV1  H2 inlet hand valve 
+
+(filling) 
+
+HV2  H2 inlet hand valve 
+(operation) 
+HV3  O2 inlet hand valve 
+
+(filling) 
+
+HV4  Water inlet (filling) 
+P1 
+P2 
+
+H2 compressor (filling) 
+H2 recirculating 
+pump/blower 
+Coolant pump 
+
+P3 
+
+PART NO. 
+H-232T1-4PP-1 
+H-232B-4PP-1 
+H-232T1-4PP-1 
+H-232T1-4PP-1 
+H-232T1-4PP-1 
+
+MANUFACTURER 
+Circle Seal Controls 
+Circle Seal Controls 
+Circle Seal Controls 
+Circle Seal Controls 
+Circle Seal Controls 
+
+MASS (LBS) 
+0.92 
+0.92 
+0.92 
+0.92 
+0.92 
+
+DETAILS 
+Viton, 0.7 Cv, 1/4'‘ fnpt 
+Viton, 0.7 Cv, 1/4'‘ fnpt 
+Viton, 0.7 Cv, 1/4'‘ fnpt 
+Viton, 0.7 Cv, 1/4'‘ fnpt 
+Viton, 0.7 Cv, 1/4'‘ fnpt 
+
+2051CP1X27A 
+2051CP1X27A 
+
+Rosemount 
+Rosemount 
+
+1915K82 
+2208K51 
+FLT93S-1A1A 
+26-1261-2121 
+BLR720L3S7A 
+F740-274 
+
+McMaster-Carr 
+McMaster-Carr 
+FCI 
+Tescom (Emerson) 
+Watlow 
+Xylem 
+
+FLT93S-1A1A 
+SS-1RS6 
+
+FCI 
+Swagelok 
+
+SS-1RS6 
+
+Swagelok 
+
+SS-1RS6 
+
+Swagelok 
+
+SS-1RS6 
+2TX2B 
+HP-8E-213T-326T  Cincinnati Fans 
+
+Swagelok 
+RIX Industries 
+
+2-HMS-3F4D5 
+
+Goulds 
+
+4.5 
+4.5 
+
+21 
+109 
+7.94 
+25 
+8 
+190 
+
+4.7 
+1.8 
+
+1.8 
+
+1.8 
+
+1.8 
+400 
+67 
+
+54 
+
+B-1 
+
+Glass-filled PTFE, -25-25 in H2O, 4-20 mA 
+Glass-filled PTFE, -25-25 in H2O, 4-20 mA 
+
+21''x21''x6'', 1725 rpm, 1/6 hp, 120VAC 
+24''x24''x19'', 1725 rpm, 1/2 hp, 230/460VAC 
+0.003-3.9 MPS, 1'' NPT, 1/2'' insertion 
+Viton, 3.3 Cv, 3/4'' fnpt, 1/4'' fnpt 
+21'' x 6.5'' diameter, 9.5kW, 240V, 2.5'' Flange plug 
+Air-cooled heat exchanger, 1/2'' tubes, 1750 RPM 
+
+0.01-3.0 fps, 1'' NPT, 0-50 mA 
+Integral Bonnet Need Valve (0.73 Cv, 3/8'') 
+
+Integral Bonnet Need Valve (0.73 Cv, 3/8'') 
+
+Integral Bonnet Need Valve (0.73 Cv, 3/8'') 
+
+Integral Bonnet Need Valve (0.73 Cv, 3/8'') 
+2-stage, 40 HP, 250-1100 RPM 
+High pressure blower, 3500 RPM, 20 HP 
+
+Multistage centrifugal pump, Viton seal, 3550 RPM 
+
+ 
+ 
+ 
+P&ID  DESCRIPTION 
+PT1 
+
+PART NO. 
+PX1004L1-015AV  Omega 
+
+MANUFACTURER 
+
+MASS (LBS) 
+0.32 
+
+DETAILS 
+ 1/4'' mnpt, 3 mV/V 
+
+V1 (H2) inlet/outlet 
+pressure transducer 
+V3 (H2) inlet/outlet 
+pressure transducer 
+V2 (O2) pressure 
+transducer 
+H2 outlet pressure 
+transducer 
+
+PT2 
+
+PT3 
+
+PT4 
+
+PX1004L1-015AV  Omega 
+
+PX1004L1-015AV  Omega 
+
+PX1004L1-015AV  Omega 
+
+RFC1  Unitized fuel cell stack 
+RV1 
+RV2 
+
+V1 (H2 tank) relief valve 
+H2 outlet safety relief 
+valve 
+
+none 
+HR6032-2MP-EC 
+HR6032-2MP-EC 
+
+TBD 
+Circle Seal Controls 
+Circle Seal Controls 
+
+0.32 
+
+0.32 
+
+0.32 
+
+551 
+0.65 
+0.65 
+
+ 1/4'' mnpt, 3 mV/V 
+
+ 1/4'' mnpt, 3 mV/V 
+
+ 1/4'' mnpt, 3 mV/V 
+
+Viton, 0.27 Cv, 1/4'' male npt 
+Viton, 0.27 Cv, 1/4'' male npt 
+
+RV3  O2 outlet safety relief 
+
+HR6032-2MP-EC 
+
+Circle Seal Controls 
+
+0.65 
+
+Viton, 0.27 Cv, 1/4'' male npt 
+
+valve 
+H2 inlet solenoid valve 
+(filling) 
+H2 recirculating solenoid 
+valve 
+H2 vent solenoid valve 
+O2 vent solenoid valve 
+
+V1 (H2) inlet/outlet 
+thermocouple 
+V2 (O2) inlet/outlet 
+thermocouple 
+Cooling stream inlet 
+thermocouple 
+Cooling stream outlet 
+thermocouple 
+Hydrogen Tank 
+Oxygen Tank 
+Hydrogen Holding Tank 
+
+SV1 
+
+SV2 
+
+SV3 
+SV4 
+
+T1 
+
+T2 
+
+T3 
+
+T4 
+
+V1 
+V2 
+V3 
+
+EH30-042-D024 
+
+Clark Cooper 
+
+EH30-042-D024 
+
+Clark Cooper 
+
+EH30-042-D024 
+EH30-042-D024-
+OX 
+TJ1-ICSS-IM30U-
+150 
+TJ1-ICSS-IM30U-
+150 
+TJ1-ICSS-IM30U-
+150 
+TJ1-ICSS-IM30U-
+150 
+Customizable 
+Customizable 
+Customizable 
+
+Clark Cooper 
+Clark Cooper 
+
+OMEGA 
+
+OMEGA 
+
+OMEGA 
+
+OMEGA 
+
+Multiple vendors 
+Multiple vendors 
+Multiple vendors 
+
+2.85 
+
+2.85 
+
+2.85 
+2.85 
+
+0.18 
+
+0.18 
+
+0.18 
+
+0.18 
+
+1875 
+2700 
+75 
+
+10000 psi, 400°F, ptfe, Cv 0.005 
+
+10000 psi, 400°F, ptfe, Cv 0.005 
+
+10000 psi, 400°F, ptfe, Cv 0.005 
+10000 psi, 400°F, ptfe, Cv 0.005, oxygen cleaned 
+
+Type J, 3.0mm diameter, 6'' length, ungrounded 
+
+Type J, 3.0mm diameter, 6'' length, ungrounded 
+
+Type J, 3.0mm diameter, 6'' length, ungrounded 
+
+Type J, 3.0mm diameter, 6'' length, ungrounded 
+
+80'' x 50'' diameter max (2500L), Type III 
+96'' x 54'' diameter max (3600L), Type III 
+30'' x 8'' diameter max (100L), Type III 
+
+B-2 
+
+ 
+ 
+ 
+P&ID  DESCRIPTION 
+Coolant Tank  
+V4 
+VFD1  AC Variable frequency 
+
+PART NO. 
+Customizable 
+GS341PO 
+
+MANUFACTURER 
+Multiple vendors 
+Automation Direct 
+
+MASS (LBS) 
+127.5 
+3.9 
+
+DETAILS 
+35'' x 10'' diameter max (170L), Type III 
+3-phase, 460V, 1 hp  
+
+drive 
+
+B-3 
+
+ 
+ 
+ 
+ 
+ 
+

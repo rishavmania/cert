@@ -1,0 +1,29 @@
+[
+    {
+        "id": "disc_001",
+        "conflicting_requirements": [
+            "req_001",
+            "req_003"
+        ],
+        "nature_of_conflict": "Temperature operating range discrepancy: Doc 1 allows up to +85\u00b0C, but Doc 2 states maximum 80\u00b0C for PEM systems. Need clarity on specific PEM fuel cell limits.",
+        "involved_docs": [
+            "doc_1",
+            "doc_2"
+        ],
+        "proposed_resolution_notes": "Proposed to follow 80C limit for all PEM systems to be conservative.",
+        "clarity_request_status": "Drafted"
+    },
+    {
+        "id": "disc_002",
+        "conflicting_requirements": [
+            "req_002"
+        ],
+        "nature_of_conflict": "Pressure relief valve activation pressure: Doc 2 specifies 550 PSI, but Doc 1 (and FAR Part 25.903b) is general. Need specific activation pressure for this valve based on system design.",
+        "involved_docs": [
+            "doc_1",
+            "doc_2"
+        ],
+        "proposed_resolution_notes": "Awaiting design specifications before finalizing pressure setting.",
+        "clarity_request_status": "Not Sent"
+    }
+]

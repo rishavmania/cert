@@ -1,0 +1,11 @@
+streamlit
+pandas
+openai
+chromadb
+pyairtable
+fitz
+Pillow
+tabula-py
+pdfminer.six
+psycopg2-binary # Will be needed for Supabase
+supabase # Will be needed for Supabase

@@ -1,0 +1,3003 @@
+DOT/FAA/TC-19/17 
+
+Federal Aviation Administration 
+William J. Hughes Technical Center 
+Aviation Research Division 
+Atlantic City International Airport 
+New Jersey 08405 
+
+Evaluation for a Lightweight  
+Fuel Cell Containment System  
+for Aircraft Safety  
+
+June 2019 
+
+Final Report 
+
+This document is available to the U.S. public 
+through the National Technical Information 
+Services (NTIS), Springfield, Virginia 22161. 
+
+This document is also available from the 
+Federal Aviation Administration William J. Hughes 
+Technical Center at actlibrary.tc.faa.gov. 
+
+U.S. Department of Transportation 
+Federal Aviation Administration 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+NOTICE 
+
+This  document  is  disseminated  under  the  sponsorship  of  the  U.S. 
+Department of Transportation in the interest of information exchange. The 
+U.S. Government assumes no liability for the contents or use thereof. The 
+U.S.  Government  does  not  endorse  products  or  manufacturers.  Trade  or 
+manufacturers’ names appear herein solely because they are considered 
+essential to the objective of this report. The findings and conclusions in this 
+report are those of the author(s) and do not necessarily represent the views 
+of  the  funding  agency.  This  document  does  not  constitute  FAA  policy. 
+Consult 
+the  Technical 
+Documentation page as to its use. 
+
+the  FAA  sponsoring  organization 
+
+listed  on 
+
+This  report  is  available  at  the  Federal  Aviation  Administration  William  J. 
+Hughes  Technical  Center’s  Full-Text  Technical  Reports  page:  
+actlibrary.tc.faa.gov in Adobe Acrobat portable document format (PDF). 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2. Government Accession No. 
+
+Technical Report Documentation Page 
+3. Recipient's Catalog No. 
+
+1. Report No. 
+
+DOT/FAA/TC-19/17 
+
+4. Title and Subtitle 
+
+EVALUATION FOR A LIGHTWEIGHT FUEL CELL CONTAINMENT SYSTEM 
+FOR AIRCRAFT SAFETY 
+
+5. Report Date 
+
+June 2019 
+
+6. Performing Organization Code 
+
+7. Author(s) 
+
+8. Performing Organization Report No. 
+
+Marianne Mata, Chellappa Balan, Jason Damazo, Joshua Mermelstein, Tina Stoia 
+9. Performing Organization Name and Address 
+
+10. Work Unit No. (TRAIS) 
+
+Boeing Defense, Space, and Security, Phantom Works 
+Huntington Beach, CA  92647-2099 
+
+12. Sponsoring Agency Name and Address 
+
+FAA Seattle Headquarters 
+2200 S 216th Street 
+Des Moines, WA 98198 
+
+15. Supplementary Notes 
+
+11. Contract or Grant No. 
+
+DFATC-16-C-00034 
+13. Type of Report and Period Covered 
+
+Final Report; Sept 2016–Jan 2019 
+
+14. Sponsoring Agency Code 
+
+    ANM-111 
+
+The FAA William J. Hughes Technical Center Aviation Research Division COR was Michael Walz. 
+16. Abstract 
+
+This project evaluated the potential impacts for a notional future solid oxide fuel cell- (SOFC) based power system to be integrated 
+into a light aircraft, as described in Title 14 Code of Federal Regulations part 23. A notional SOFC hybrid system operating on 
+liquid fuel was assessed for impacts to existing aircraft safety regulations, introduction of failure modes, and approaches for safe 
+integration into the aircraft. Modeling and analyses were performed to assess worst-case failure effects. A test unit was built, and 
+controlled failure testing of two different SOFC stacks was performed. 
+
+17. Key Words 
+
+18. Distribution Statement 
+
+Fuel cell, Solid oxide, Failure, Aircraft 
+
+This  document  is  available  to  the  U.S.  public  through  the 
+National  Technical  Information  Service  (NTIS),  Springfield, 
+Virginia 22161. This document is also available from the Federal 
+Aviation Administration William J. Hughes Technical Center at 
+actlibrary.tc.faa.gov. 
+
+22. Price 
+
+19. Security Classif. (of this report) 
+
+20. Security Classif. (of this page) 
+
+21. No. of Pages 
+
+     Unclassified  
+Form DOT F 1700.7  (8-72) 
+
+     Unclassified 
+
+     51 
+
+Reproduction of completed page authorized
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+TABLE OF CONTENTS 
+
+EXECUTIVE SUMMARY 
+
+1.
+
+2.
+
+INTRODUCTION AND OBJECTIVES
+
+BASELINE AIRCRAFT DESCRIPTION
+
+2.1 
+2.2 
+
+FUELEAP Target Vehicle Overview 
+FUELEAP SOFC-Based Power System Overview 
+
+3.
+
+HYBRIDIZED SOFC POWER SYSTEM AIRCRAFT INTEGRATION
+
+3.1 
+3.2 
+
+Requirements Assessment for SOFC-Based Power System 
+Physical Integration Assessment for SOFC-Based Power System 
+
+3.2.1   Expected Interfaces for Hybrid SOFC Power System 
+
+4.
+
+SOFC SYSTEM FAILURE ANALYSIS
+
+4.1 
+4.2 
+
+SOFC Power System Failure Assessment 
+SOFC System High Temperature Leakage Failure Assessment 
+
+4.2.1   Sustained Flame Scenario 
+4.2.2   Rapid Combustion Scenario 
+4.2.3   SOFC High Temperature Failure Analysis Summary 
+
+5.
+
+6.
+
+SOFC SYSTEM MITIGATION APPROACHES
+
+SOFC CONTROLLED STACK FAILURE TESTING
+
+6.1   Mobile Stack Failure Testing
+6.2  
+6.3  
+
+First SOFC Stack Failure TEsting
+Second SOFC Stack Failure TEsting
+
+7.
+
+CONCLUSIONS
+
+APPENDICES 
+
+A—Boeing Proprietary Supplement to the Final Report 
+
+Page 
+
+vii 
+
+1 
+
+1 
+
+1 
+4 
+
+5 
+
+5 
+12 
+
+13 
+
+15 
+
+15 
+18 
+
+19 
+25 
+31 
+
+32 
+
+36 
+
+37 
+38 
+39 
+
+41 
+
+iii 
+
+Figure 
+
+Page 
+
+LIST OF FIGURES 
+
+1  
+
+2  
+
+3  
+
+4  
+
+5  
+
+6  
+
+7  
+
+8  
+
+9  
+
+10  
+
+11  
+
+12  
+
+13  
+
+14  
+
+15  
+
+16  
+
+17  
+
+18  
+
+19  
+
+20  
+
+Tecnam P2006T Aircraft 
+
+Envelope for SOFC-Based Power System 
+
+Hybridized SOFC System Layout in Aircraft 
+
+FUELEAP Hybrid Power System Architecture 
+
+SOFC Power System Process Flow and Layout 
+
+Catalytic Steam Methane Reformer from PCI (7.5 kWth) 
+
+Example SOFC Planar Stack & Flows in a Cell by OxEon Energy 
+
+Important Parameters in Determining Heat Loads to Surrounding Structures 
+
+Calculated Fuel Mass Flow Rate Based on Leakage Data 
+
+Total Thermal Power Available in Flame for Different Conditions 
+
+Constant Volume Explosion Pressure vs. Initial Unburned Temperature (ϕ = 1.0) 
+
+Constant Volume Explosion Pressure as a Function of the Fuel-Air Ratio 
+
+Normalized CV Explosion Pressure vs. Initial Unburned Temperature 
+
+Normalized CV Explosion Pressure vs. Fuel-Air Equivalence Ratio 
+
+Sensitivity of SOFC Stack Exhaust Temperature Sensors to Leakage 
+
+Sensitivity of SOFC Cell Voltage Monitoring to Leakage 
+
+P&ID of Mobile Stack Failure Testing Unit 
+
+First SOFC Stack Controlled Failure Testing 
+Sparking Observed During 2nd SOFC Stack Controlled Failure Test 
+
+Second SOFC Stack Controlled Failure Test 
+
+2 
+
+3 
+
+3 
+
+4 
+
+5 
+
+17 
+
+18 
+
+20 
+
+23 
+
+24 
+
+28 
+
+29 
+
+30 
+
+30 
+
+35 
+
+36 
+
+38 
+
+39 
+
+40 
+
+41 
+
+iv 
+
+ 
+ 
+LIST OF TABLES 
+
+Page 
+
+Comparison of Standard Part 23 Aircraft Propulsion Systems and SOFC-based Hybrid 
+Power System Functions 
+
+Summary of Component Flight History Relevance 
+
+Standard Part 23 Aircraft Example Modifications for Including SOFC-based Hybrid 
+Systems 
+
+Power System Sizing Requirements 
+
+SOFC System Instrumentation 
+
+SOFC Demonstrator Electrical Interfaces 
+
+Sample SOFC Power System Component Failure Modes 
+
+Failure Mitigation Approaches for SOFC Stack 
+
+6 
+
+7 
+
+9 
+
+13 
+
+14 
+
+14 
+
+16 
+
+33 
+
+Table 
+
+1  
+
+2  
+
+3  
+
+4  
+
+5  
+
+6  
+
+7  
+
+8  
+
+v 
+
+ 
+ 
+LIST OF ACRONYMS 
+
+AIT 
+APU 
+ATR 
+BR&T 
+CC 
+CFR 
+CMC 
+CV 
+DDT 
+FUELEAP 
+HEX 
+ICE 
+ITAR 
+LEL 
+MSL 
+P&ID 
+PLC 
+PMG 
+RCB 
+SO 
+SOFC 
+T/C 
+
+Auto-ignition temperature 
+Auxiliary power unit 
+Auto-thermal reformation 
+Boeing Research & Technology 
+Combustion chamber 
+Code of Federal Regulations 
+Ceramic matrix composite 
+Constant volume 
+Deflagration-to-detonation transition 
+Fostering Ultra-Efficient Low Emitting Aviation Power 
+Heat Exchanger 
+Internal combustion engine 
+International Traffic in Arms Regulations 
+Lower explosive limit 
+Mean sea level 
+Piping and instrumentation diagram 
+Programmable logic controller 
+Permanent magnet generator 
+Recycle blower 
+Solid oxide 
+Solid oxide fuel cell 
+Turbo-Compressor 
+
+vi 
+
+ 
+ 
+ 
+EXECUTIVE SUMMARY 
+
+The FAA project “Evaluation of a Lightweight Fuel Cell Containment System for Aircraft Safety” 
+evaluated the potential impacts for a future solid oxide fuel cell- (SOFC) based power system to 
+be integrated into a small aircraft, as described in Title 14 Code of Federal Regulations part 23. A 
+target SOFC system using a liquid desulfurized fuel, onboard reformation, and a hybrid battery 
+was assessed for  impacts  to existing aircraft safety  regulations. Integration effects of  the  target 
+system were studied in the context of failure modes, similarity to existing systems, and potential 
+approaches for safe integration into the aircraft. Analyses of worst-case failure modes introduced 
+by the SOFC technology were performed to bound the expectations of the failure effects and to 
+help characterize the timing for failure identification. An SOFC stack test unit was built to support 
+controlled failure testing to verify the analyses. Controlled failure testing was performed on two 
+development stacks of different designs, made by different suppliers. Data from the stack tests and 
+teardowns indicated that a worst-case sudden failure inside an SOFC stack can be identified with 
+existing sensor technology. Also, testing showed that damage from an internal SOFC stack failure 
+can be limited by shutting off the fuel flow to the stack to stop the propagation of the failure from 
+the stack to surrounding components or systems.  
+
+Significant SOFC development, system optimization, and testing is necessary to support a future 
+SOFC-based power system integration into the aircraft. Early assessment of the challenges of new 
+technology to aircraft safety helps to identify potential issues prior to integration on an aircraft. 
+The analyses, modeling, trades, and testing performed under this project suggest that safe aircraft 
+integration  of  a  future  matured  SOFC  power  system  is  feasible  within  the  use  of  existing 
+technology. 
+
+vii 
+
+ 
+ 
+1.  INTRODUCTION AND OBJECTIVES 
+
+The use of electric power for aircraft propulsion is a topic of increasing interest in the aviation 
+community,  largely  due  to  the  significant  increase  in  efficiency  over  traditional  internal 
+combustion engines (ICEs). These devices are also quieter and more environmentally friendly than 
+the reciprocating combustion engines that are currently used for primary propulsion for small or 
+light aircraft.  
+
+In  recent  years,  technology  investments  in  solid  oxide  fuel  cell  (SOFC)  stack  design  and 
+fabrication approaches have reduced the weight of the stacks such that fuel cells offer a higher 
+energy density alternative to the much heavier battery technology options. The Boeing Company 
+leveraged its SOFC experience to support the NASA-led Fostering Ultra-Efficient Low Emitting 
+Aviation Power (FUELEAP) program, which is aimed at a flight demonstration of an advanced 
+fuel  cell  power  plant  that  operates  on  infrastructure-friendly  hydrocarbon  fuel.  SOFC  powered 
+aircraft have the potential to dramatically reduce fuel consumption, emissions, and noise over a 
+comparable  internal  combustion  engine.  Depending  on  the  selected  technology  of  the  various 
+system components, an SOFC electrical power system can achieve efficiencies in excess of 60% 
+on hydrocarbon fuels, approaching double that of an ICE [1] 
+
+History has shown that the introduction of new technology into an aircraft may also introduce new 
+failure modes that can impact flight safety. Early assessment and testing to assist in understanding 
+the intricacies of each new technology can help the safe integration of new technology into a flight 
+vehicle.  Boeing,  under  the  FAA  project  “Evaluation  of  a  Lightweight  Fuel  Cell  Containment 
+System for Aircraft Safety,” has performed an analysis to identify worst-case failures in a future 
+SOFC-based power system and has investigated methods of first mitigation and then control and 
+containment of such possible failures. Boeing has also identified areas in existing FAA regulations 
+that would be applicable to an SOFC-based power system, as well as recommendations for the 
+regulations  to  help  incorporate  an  SOFC  power  system  into  the  existing  safety  requirements. 
+Finally, Boeing has performed controlled failure testing to mimic the worst-case failure scenario 
+to provide data on identifying and stopping propagation of the failures. 
+
+The FAA project “Evaluation of a Lightweight Fuel Cell Containment System for Aircraft Safety” 
+is intended as a first step to provide analysis and hard data toward the technical understanding of 
+SOFC-based technology for flight to help with future aircraft integration. 
+
+2.  BASELINE AIRCRAFT DESCRIPTION 
+
+2.1  FUELEAP TARGET VEHICLE OVERVIEW 
+
+Boeing supported NASA’s Langley Research Center on the FUELEAP program. The purpose of 
+this program was to continue the development of an SOFC stack operating on heavy hydrocarbon 
+fuel as the primary power source for a commuter class airplane. The potential application for the 
+FUELEAP  SOFC  power  system  is  the  NASA  X-57  Maxwell  flight  demonstrator,  based  on  a 
+Tecnam P2006T shown in figure 1. Mod 2 of the X-57 is an all-electric version of the Tecnam, 
+which will maintain the outer mold line of the vehicle, but will include battery packs to supply the 
+necessary  power  instead  of  a  traditional  combustion  engine.  A  hybrid  SOFC  power  system  is 
+
+1 
+
+ 
+envisioned to replace the battery packs as the primary power source for a spiral demonstrator flight 
+as a step toward a commercial aircraft SOFC power system. 
+
+Figure 1. Tecnam P2006T aircraft 
+
+For the FAA program “Evaluation of a Lightweight Fuel Cell Containment System for Aircraft 
+Safety,”  Boeing  used  the  Tecnam  P2006T  aircraft  as  a  baseline  reference  for  an  SOFC-based 
+power system to assess and analyze containment and mitigation approaches. The system has to 
+mature  significantly  and  demonstrate  multiple  performance  and  safety  targets  before  it  can  be 
+considered  for  a  commercial  application.  For  this  reason,  where  possible,  requirements  and 
+analyses focused more  on the  general aspects of the system that  would be  relevant to both the 
+FUELEAP demonstrator and a future commercial aircraft system. 
+
+A hybridized SOFC-based power system based on near term technology will require more space 
+for aircraft integration than traditional ICE-based power systems. An SOFC-based power system 
+would not fit in the existing engine volume located in the wings; therefore, the integration volume 
+focus  for  the  hybridized  SOFC  power  system  was  in  the  aircraft  cabin,  behind  the  pilot  and 
+passenger.  The  envelope  available  for  the  demonstrator  aircraft  SOFC-based  power  system  is 
+depicted in figure 2. The volume shown is used to incorporate the entire hybridized power system 
+with the exception of the fuel tank, which is currently located in the wing of the existing vehicle. 
+
+2 
+
+ 
+ 
+Figure 2. Envelope for SOFC-based power system 
+
+The  layout  identified  under  the  FUELEAP  program  was  used  as  a  basis  for  the  integration 
+assessment  for  this  FAA  program.  The  SOFC-based  power  system  was  configured  [2]  in  the 
+envelope to keep the highest temperature components away from the pilot or passengers of the 
+aircraft. The SOFC-based power plant, battery system, insulation, firewall, and ventilation were 
+targeted for this area. The layout overview internal to the aircraft is shown in figure 3. 
+
+Figure 3. Hybridized SOFC system layout in aircraft 
+
+3 
+
+ 
+ 
+ 
+2.2  FUELEAP SOFC-BASED POWER SYSTEM OVERVIEW 
+
+A hybrid power system [3] comprised of an SOFC operating as the primary electrical power source 
+and  a  rechargeable  battery  for  supplemental  power  is  envisioned  for  both  the  FUELEAP 
+demonstrator and future commercial aircraft systems. For the FUELEAP demonstrator system, the 
+SOFC will be sized to provide the cruise propulsion power and power to recharge the battery. The 
+battery will provide the additional power required for take-off and climb, coasting power in the 
+event of a fuel cell system emergency shutdown, and power for sudden power demands. Figure 4 
+shows the proposed system configuration. 
+
+Figure 4. FUELEAP hybrid power system architecture 
+
+Both the SOFC and the high voltage batteries are tied to a high voltage bus, which powers the 
+inverter that drives  the  electrical  propulsion  motor. The SOFC’s  output is  regulated to provide 
+appropriate voltage to the inverter. The SOFC system uses turbomachinery, which incorporates a 
+motor  and  generator.  A  starter/regulator  unit  powers  the  motor  during  startup  conditions  and 
+regulates the power from the generator during normal operation, therefore providing extra power 
+to the high voltage bus. The aircraft’s low voltage bus is retained to power the aircraft’s heritage 
+loads and instruments. The low voltage bus is powered from the high voltage bus via a regulator 
+and has a battery backup. 
+
+The process flow and layout for the SOFC-based power system is shown in figure 5. Use of a low 
+sulfur fuel or desulfurized fuel is needed to meet weight and performance targets for a flight SOFC 
+system. This can be accomplished on the ground, using a ground cart desulfurization system to 
+remove  sulfur  prior  to  loading  the  vehicle;  however,  this  approach  would  require  additional 
+infrastructure at the airport. Steam reformation has been selected for the demonstrator application 
+
+4 
+
+ 
+ 
+because  of  the  potential  for  increased  overall  system  efficiency  compared  to  an  auto-thermal 
+reformation- (ATR) based system. Steam reformation adds complexity to the system and requires 
+further technology development for flight use. Fuel reformation for an SOFC provides hydrogen 
+and carbon monoxide along with some unusable, but benign, byproducts to the SOFC stacks. As 
+the  stacks  generate  power,  the  effluent,  which  includes  unused  fuel  and  air,  water  vapor,  and 
+carbon dioxide, is either recirculated back to the fuel cell to be used by the reformer or directed to 
+the combustion chamber. The catalytic combustion chamber, which reaches ~950°C, provides heat 
+for steam reformation,  with the  remainder used by a turbine  to  generate additional  power. The 
+SOFC power system targeted for light aircraft application does not require liquid cooling, which 
+would normally support an internal combustion engine. Depending on the system design, either 
+waste heat can be exhausted directly overboard or a ram air heat exchanger can be incorporated to 
+reject additional heat to ambient [1]. 
+
+Figure 5. SOFC power system process flow and layout 
+
+3.  HYBRIDIZED SOFC POWER SYSTEM AIRCRAFT INTEGRATION 
+
+3.1  REQUIREMENTS ASSESSMENT FOR SOFC-BASED POWER SYSTEM 
+
+Under the FAA project “Evaluation of a Lightweight Fuel Cell Containment System for Aircraft 
+Safety,” Boeing reviewed existing light aircraft Title 14 Code of Federal Regulations (CFR) Part 
+23 regulations [4] to ascertain commonality of existing aircraft requirements to an SOFC power 
+system. Table 1 shows a generalized overview of similarities/differences between existing aircraft 
+power system functions and future SOFC systems. Two main differences are the cooling of the 
+unit and the location. Light aircraft engines are usually cooled by both incoming air and liquid 
+cooling systems (oil and glycol-type coolant), whereas the targeted SOFC system is designed to 
+only be cooled by  incoming  air. The SOFC system is expected to  have a  larger  volume than a 
+standard engine and will be a single-power unit in the fuselage instead of in a wing nacelle or in 
+the nose of a light commuter aircraft. 
+
+5 
+
+ 
+     
+ 
+ 
+Table 1. Comparison of standard 14 CFR 23 aircraft propulsion systems and SOFC-based 
+hybrid power system functions 
+
+Function 
+
+Standard Engine, Turbine, 
+or APU System 
+
+Fuel 
+
+Oxidizer 
+
+Power Production 
+
+Cooling 
+
+Compression 
+
+Operating 
+temperature 
+
+Location 
+
+Avgas/Mogas  
+
+Air 
+Combustion driven rotating 
+machinery 
+
+Oil cooling, glycol/coolant 
+cooling & air cooled 
+
+Compression integrated into 
+engine 
+
+SOFC 
+Multiple available: Desulfurized liquid 
+fuel (Jet A, JP8, etc.)  
+Air 
+Solid state electrochemical reaction 
+(both battery and fuel cell) 
+Air cooled system planned, although it 
+is possible that future battery systems 
+could incorporate liquid cooling 
+Compressor separate unit in power 
+system 
+
+~1500–2000F  
+
+~1350–1600F 
+
+Nacelles under wing 
+directly coupled to 
+propellers 
+
+Inside Fuselage, providing power to 
+separate electric motors in wing. 
+
+Hybrid SOFC with Battery for 
+Backup/Peak loads 
+
+# of Engines (for 
+Tecnam) 
+
+2 ICE 
+
+  APU = Auxiliary power unit 
+
+Although an SOFC/battery hybrid system providing power to light aircraft would be unique, many 
+safety hazards for an SOFC system would be similar to those found for existing propulsion systems 
+operating at high temperatures with similar liquid fuels. Table 2 breaks down the main components 
+of the SOFC hybrid power system in comparison to components with existing flight history. Many 
+components  for  the  SOFC  hybrid  power  system  are  similar  to  flown  components,  with  design 
+requirements  already  covered  by  traditional  aircraft  engines  and  auxiliary  power  systems.  For 
+example, there is a significant amount of historical data behind flight systems using turbines and 
+compressors. The components analyzed for the FUELEAP power system used data from existing 
+hardware  that  could  be  used  for  flight.  Depending  on  changes  to  the  future  power  system 
+configuration, a turbine or compressor might need to be resized from existing available hardware; 
+therefore, the turbine and compressor are listed in both the “SOFC System Components with Flight 
+History” and “SOFC System Components Similar to Flown” columns in table 2.  
+
+6 
+
+ 
+ 
+ 
+ 
+Table 2. Summary of component flight history relevance 
+
+SOFC System Components 
+with Flight History 
+
+SOFC System Components 
+Similar to Flown 
+
+SOFC System Components 
+with Minimal Flight History 
+
+Low & mid temp fluid 
+components (Fuel pumps, 
+fluid valves, etc.) 
+Low/mid temp 
+instrumentation 
+
+RAM HEX (some) 
+
+Turbine (some) 
+
+High temperature HEX 
+
+Solid Oxide Fuel Cell Stacks 
+(planar design) 
+
+High temperature fluid 
+connections 
+Medium Temp Gas Blowers 
+(some) 
+Mid temp electrical 
+connections 
+
+Steam reformer 
+
+Medium Temp Gas Blowers 
+(some) 
+
+System control software 
+
+High temp electrical 
+connections (some) 
+
+Compressor (some) 
+
+Generator 
+
+Low/mid Temp HEX 
+Insulation 
+Electronic control equipment  Compressor (some) 
+High temp electrical 
+connections (some) 
+
+RAM HEX (some) 
+Turbine (some) 
+
+Component control software 
+
+HEX = Heat Exchanger 
+
+Many of the low temperature components and the control software available for those components 
+that would be used in a hybridized SOFC power system are readily available from existing flight 
+qualified hardware. However, once integrated into a power system, it would be critical to develop 
+and test the system responses and control of the system for safety of flight, including off-nominal 
+flight conditions. The obvious components that have little or no flight history are the SOFC stacks 
+and reformation hardware. Although limited SOFC and reformation systems have been operated 
+from  a  mobile  ground  vehicle  [5]  or  on  small  micro-tubular-based  SOFC  Unmanned  Aerial 
+Vehicle  [6]  demonstrators,  there  are no  data  that  would  be  directly  comparable  to  the  targeted 
+flight  application.  Significant  development  and  testing  of  the  SOFC  and  reformer  would  be 
+required for a flight application. 
+
+Although some components, such as an SOFC stack and reformer, are not specified in the 14 CFR 
+23  requirements,  the  hazards  associated  with  those  components  and  rules  to  ensure  safety  are 
+similar  to  existing  engine  requirements.  Most  of  the  regulations  that  would  be  required  to 
+implement a future SOFC system are already  in  place for  existing  technology, and  only  minor 
+changes to include SOFC systems are needed. For example, most of the rules associated with an 
+engine fire or high temperature failure would be directly applicable to a high temperature failure 
+in an SOFC stack.  
+
+An SOFC-based power  system, including a  battery hybridized SOFC-based power system, has 
+many  similar  failure  modes  for  which  protections  are  already  captured  through  14  CFR  23 
+requirements. By including an SOFC into some of the existing sections for engine requirements, 
+safety design requirements for an SOFC hybrid system would be covered. This is primarily due to 
+
+7 
+
+ 
+ 
+ 
+ 
+ 
+ 
+the fact that although an SOFC-based system would operate differently than an ICE, most of the 
+system interfaces are similar as they are both higher operating temperature liquid fueled, external 
+air flow supported systems. Some of the existing ICE engine interfaces, such as various cooling 
+loops,  would  not  be  necessary  with  an  SOFC-based  system;  however,  an  SOFC-based  system 
+would not have the performance and failure history of a standard engine system. Some examples 
+of existing engine requirements [4] that would be directly applicable to an SOFC-based system are 
+as follows: 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+• 
+
+Fuel line & fuel feed design requirements (e.g. “In each area where flammable fluids or 
+vapors might escape by leakage of a fluid system, there must be means to minimize the 
+probability of ignition of the fluids and vapors, and the resultant hazard if ignition does 
+occur.”) 
+Firewall compartment design requirements (e.g. “Each engine, auxiliary power unit, fuel 
+burning  heater,  and  other  combustion  equipment,  must  be  isolated  from  the  rest  of  the 
+airplane by firewalls, shrouds, or equivalent means.”) 
+Flammability  and fire sensing requirements  (e.g. “There must be means that ensure the 
+prompt detection of a fire in … Airplanes with engine(s) located where they are not readily 
+visible from the cockpit”) 
+Air duct design and  location and design (e.g. “The airplane must be designed to prevent 
+water  or  slush  on  the  runway,  taxiway,  or  other  airport  operating  surfaces  from  being 
+directed into the engine or auxiliary power unit air intake ducts in hazardous quantities. 
+The air intake ducts must be located or protected so as to minimize the hazard of ingestion 
+of foreign matter during takeoff, landing, and taxiing.”) 
+Electrical system design and protection (e.g. “Electric power sources, their transmission 
+cables,  and  their  associated  control  and  protective  devices,  must  be  able  to  furnish  the 
+required power at the proper voltage to each load circuit essential for safe operation”) 
+Battery system design and safe operation (e.g. “Safe cell temperatures and pressures must 
+be maintained during any probable charging and discharging condition. No uncontrolled 
+increase  in  cell  temperature  may  result  when  the  battery  is  recharged  [after  previous 
+complete discharge.]) 
+
+The vast majority of existing safety regulations for internal combustion, turboprop, turbine, and 
+APU power sources are applicable to a future SOFC system. Only minor language changes, such 
+as updating the terminology of “engine” to include SOFC or to use the more inclusive term of 
+“power plant” or a similar equivalent, are necessary to incorporate a liquid fueled SOFC. Areas of 
+regulations,  including  existing  power  loss,  structural  loads,  performance,  flammable  fluid,  fire 
+protection, and other requirements, are directly applicable to an SOFC power system. The majority 
+of electrical design and battery safety regulations are directly applicable to an SOFC hybrid power 
+system with only minimal changes to wording. For a hybrid SOFC/battery, definitions would need 
+to be updated to clarify the existing regulations in regard to using both SOFC and battery power 
+in parallel, rather than the battery as only a starter and backup system. Examples of modifications 
+that might be needed for 14 CFR 23 are listed in table 3. The performance limitations identified in 
+the Airplane Flight Manual and Approved Manual Material would also need to be updated based 
+on  the  SOFC/battery  system’s  detailed  testing  and  operational  history  specific  to  the  system 
+configuration. 
+
+8 
+
+ 
+Table 3. Standard 14 CFR 23 aircraft example modifications for including SOFC-based 
+hybrid systems 
+
+Section 
+
+All Sections 
+
+§23.361 Engine torque, 
+23.363 Side load on Engine 
+Mount, 23.371 Gyroscopic &  
+Aerodynamic loads 
+
+§23.903 Engines. 
+
+§23.909 Turbocharger 
+systems. 
+
+Example Changes for Incorporation of an SOFC-Based Power 
+System into 14 CFR 23 
+
+Terminology change to be inclusive of SOFC-based power 
+systems. For example, change unique engine specific call-outs 
+such as “reciprocating engine-powered airplane of more than 
+6,000 pounds maximum weight, single-engine turbine, and 
+multiengine turbine airplanes of 6,000 pounds or less 
+maximum weight” to include alternative power systems. In all 
+sections, one suggestion would be to change the word 
+“engine” to “power plant” or redefine the word “engine” to 
+include an SOFC-based system. 
+Terminology change to include systems where engine is not 
+directly physically coupled to motors. Mounting requirements 
+for propellers driven by electric motors would be distinct 
+from power system mounting requirements. 
+Terminology would need to be updated to include 
+SOFC/battery hybrid system as a “power plant” which would 
+fall under most of the same regulations where applicable as 
+“Engines” or auxiliary power units. For example, existing 
+regulations regarding firewall, component failures not 
+cascading, compressor, and installation are directly 
+applicable. Definition of “starting and stopping” for an 
+SOFC/battery hybrid system would have to be reconsidered 
+as the SOFC system may not have a traditional rotating 
+component producing power. An alternate approach would be 
+to make a separate subcategory for SOFC specific 
+requirements. This would be similar to how there are separate 
+call-outs for engine turboprop or turbocharger specific 
+requirements. 
+Although it is not necessary, a separate category similar to the 
+one called out for Turbocharger Systems could be made to 
+consolidate existing requirements that are applicable to an 
+SOFC system into one section. 
+
+9 
+
+ 
+ 
+ 
+Table 3. Standard part 23 aircraft example modifications for including SOFC-based 
+hybrid systems (continued) 
+
+Section 
+
+Example Changes for Incorporation of an SOFC-Based Power 
+System into 14 CFR 23 
+
+§23.951 General (Fuel 
+System) 
+
+§23.1043 Cooling tests. 
+
+§23.1047 Cooling test 
+procedures for reciprocating 
+engine powered airplanes. 
+
+Liquid Cooling 
+
+§23.1103 Induction system 
+ducts. 
+
+§23.1143 Engine controls. 
+
+§23.1145 Ignition switches. 
+
+§23.1163 Power plant 
+accessories. 
+
+Existing fuel system requirements are considered to be 
+directly applicable to a SOFC system with minor terminology 
+modifications (i.e., changing “engine” to a more general term 
+such as “power plant,” changing “engine starting” to “power 
+plant activation.”) 
+Terminology change to include SOFC power systems where 
+currently “engine” specifically called out or a separate section 
+for SOFC/battery system testing needed.  
+Terminology change to include SOFC power systems where 
+“engine” is called out, or a separate section for SOFC/battery 
+system testing needed.  
+The SOFC power plant itself does not need liquid cooling, 
+however it is possible that the battery portion of the hybrid 
+system may need liquid cooling depending on the specific 
+installation into the aircraft. This section could be updated to 
+call out “power plant” instead of “engine” to accommodate 
+the hybrid system into existing requirements. 
+Terminology change to include SOFC power systems where 
+“auxiliary power unit” is called out. Backfire is not a concern 
+for SOFC power systems. 
+Terminology change to include SOFC power systems where 
+“engine” is called out. Also, in an SOFC hybrid power 
+system, a single power plant may control multiple propellers, 
+which are electrically driven. Although the intent of the 
+regulations would remain intact (i.e., positive and immediate 
+response), the terminology would have to be updated to 
+include the electrically driven system approach. 
+The hybrid SOFC system will not have a standard ignition 
+circuit and would need different terminology for power plant 
+shut-off. 
+A hybrid SOFC system would not be able to utilize most 
+traditional power plant accessories. It is likely that most 
+accessories would be powered electrically via the bus. 
+
+10 
+
+ 
+ 
+ 
+Table 3. Standard part 23 aircraft example modifications for including SOFC-based 
+hybrid systems (continued) 
+
+Section 
+
+§23.1165 Engine ignition 
+systems 
+
+§23.1181 Designated fire 
+zones 
+
+§23.1189 Shutoff means 
+
+§23.1195 Fire extinguishing 
+systems 
+
+§23.1305 Power plant 
+instruments 
+
+§23.1353 Storage battery 
+design and installation 
+
+Example Changes for Incorporation of an SOFC-Based Power 
+System into 14 CFR 23 
+A hybrid SOFC system would use the SOFC itself to recharge 
+the battery system during use. Also the traditional approach of 
+ignition would not apply with an SOFC system. This section 
+would have either a large amount of terminology change or a 
+separate section added to describe similar reliability 
+requirements for activating an SOFC system. 
+The SOFC high temperature section would need to be 
+designated as a fire zone.  
+Terminology change to include SOFC power systems where 
+“engine” is specifically called out. In an SOFC hybrid power 
+system, a single power plant may control multiple propellers, 
+which are electrically driven. Additional terminology may be 
+needed to differentiate between an SOFC power plant shut-off 
+versus an electrical motor shut-off. The intent to be able to 
+safely shut-off fuel or power to a failed portion of the system 
+would still be maintained. 
+Terminology change to include SOFC power systems where 
+“engine” is specifically called out. Clarification will be 
+needed as to fire extinguishing system needed for “auxiliary 
+power unit compartment” versus an SOFC power plant 
+installed as a main power system. 
+Suggest to add section (f) to identify SOFC power system-
+specific minimum instrumentation:  fuel quantity, fire 
+warning, SOFC voltage indicators, battery voltage indicators; 
+SOFC unit power output, battery power output, battery charge 
+level, reformer exhaust temperature, stack exhaust 
+temperature, turbo compressor rpm, SOFC system pressure, 
+fuel flow, fuel filter indication, air inlet temperature, propeller 
+rpm, and heater functionality indicator. Sensors would be 
+dependent on final SOFC hybrid power system configuration. 
+Suggest clarification of “primary” electrical systems for a 
+hybridized SOFC/battery system operation where both the 
+battery and SOFC provide power for normal flight. 
+
+11 
+
+ 
+ 
+ 
+Table 3. Standard part 23 aircraft example modifications for including SOFC-based 
+hybrid systems (continued) 
+
+Section 
+
+§23.1521 Power plant 
+limitations 
+
+§23.1581 General (Airplane 
+Flight Manual and Approved 
+Manual Material) 
+
+Example Changes for Incorporation of an SOFC-Based Power 
+System into 14 CFR 23 
+
+SOFC hybrid power system will generally be limited by 
+temperatures, pressures and charge/power production rates. 
+This section will need to be updated based on the final system 
+configuration installed into the aircraft. Although the system 
+studied under this effort is for pressurized operation, other 
+potential SOFC-based systems may operate at near ambient 
+pressures depending on the system design. The terminology 
+also needs to be changed to include SOFC power systems 
+where “engine” is specifically called out. 
+Throughout this section, the terminology should be changed 
+to include SOFC power systems where “engine” is 
+specifically called out. The design and operating information 
+in the manual will need to reflect any installed SOFC hybrid 
+power system. 
+
+3.2  PHYSICAL INTEGRATION ASSESSMENT FOR SOFC-BASED POWER SYSTEM 
+
+An  integration  of  a  hybridized  SOFC-based  power  system  into  an  aircraft  is  not  a  drop  in 
+replacement and would affect multiple aspects of the target application. 
+
+The X-57 Mod 2 flight demonstrator is initially certified up to an altitude of 15,000 ft mean sea 
+level (MSL), which was the focus of the FUELEAP study. Depending on the configuration, 14 
+CFR 23 type aircraft may be able to fly as high as 25,000 ft MSL without significant modification. 
+A hybridized SOFC-based power system could be designed to support the full 25,000 ft altitude, 
+although this was outside the scope of the FUELEAP target application. Typical cruise altitudes 
+for  the  FUELEAP  application  are  between  5,000  and  10,000  ft  MSL.  Flight  performance 
+requirements, such as climb and glide, would be similar between a conventional propulsion system 
+and an SOFC-based power system driven aircraft. 
+
+The hybridized SOFC power system has the majority of its power produced electrochemically and 
+has a more extensive electrical system than a standard ICE engine. Both higher voltage and lower 
+voltage buses are incorporated with multiple power sources (i.e. SOFC, battery, generator) and 
+different  load  distribution  approaches,  as  identified  in  figure  4.  A  single  hybrid  SOFC  power 
+system  supplies  the  power  usually  generated  by  two  separate  engines. Power2  used  to  size  the 
+FUELEAP system is shown in table 4. Because there is a single hybrid power system, the system 
+must be designed with the intent of redundancy so that safe flight is achieved even if there are 
+component failures within the system. 
+
+12 
+
+ 
+ 
+ 
+Table 4. Power system sizing requirements 
+
+Mission Phase 
+
+Duration 
+
+Takeoff/Initial Climb  2 – 5 min 
+Cruise Climb 
+Cruise 
+
+10 min 
+Indefinite 
+
+Motor Shaft Power, each 
+72.1 kW 
+60.0 kW 
+50. kW 
+
+Power System Output 
+158 kW 
+131 kW 
+110 kW 
+
+The 14 CFR 23 regulations delineate between high or low voltage bus requirements. Even though 
+the hybridized  SOFC  power  system  will  operate a  higher  voltage  bus, the  design of  the higher 
+voltage  system  is  bounded  by  existing  commercial  and  military  flight  electrical  design 
+specifications. 
+
+Structural  and  load  requirements  in  14  CFR  23  regulations  for  power  systems  mounted  in  the 
+fuselage of an aircraft would be  applicable to the  hybridized SOFC power system. This  would 
+include design factor of safety, nominal loads, vibration, crash loads, and mounting. 
+
+3.2.1  Expected Interfaces for Hybrid SOFC Power System 
+
+Necessary  interfaces  for  an  SOFC-based  power  system  are  expected  to  be  similar  for  both  the 
+targeted demonstrator and future commercial aircraft systems. Interfaces between an SOFC-based 
+power system and the environment, ground cart, or vehicle include: 
+
+• 
+• 
+
+Access for installation, checkout, and maintenance 
+Fluid interfaces: 
+
+- 
+
+- 
+- 
+- 
+- 
+
+- 
+
+Air intake, primarily for SOFC reactant. Some smaller portion of air intake might 
+be necessary for cooling flow for power and control electronics. The SOFC stack 
+and fluid components are not expected to need additional cooling flow beyond what 
+is fed through the stack and system. 
+Fuel inlet, from fuel tank(s) 
+Exhaust port(s) 
+Cooling fluid, if needed  
+Ground support fluid connections for startup and shutdown (demonstrator only): 
+variable  temperature  air  inlet,  variable  temperature  gaseous  fuel  (hydrogen  and 
+helium or nitrogen mixture) inlet, air exhaust, and fuel exhaust.  
+Fire suppression system, dependent on system location, system design, and testing 
+of controllability of fire containment. 
+
+• 
+
+Mechanical  interfaces  for  mounting  and  support  (notional  layout  for  FUELEAP 
+demonstrator, as shown in figure 8). Mechanical interfaces will support the SOFC system 
+for the following: 
+
+- 
+- 
+- 
+
+Thermal isolation  
+Electrical isolation 
+Vibration/shock isolation and dampening 
+
+13 
+
+ 
+• 
+• 
+• 
+
+Instrumentation (see table 5) 
+Electrical power from ground support to start or checkout (if necessary) 
+Electrical interfaces from/to the vehicle (see table 6) 
+
+Table 5. SOFC system instrumentation 
+
+Temperature 
+
+Pressure 
+
+Compressor exit 
+
+Compressor inlet 
+
+Turbine inlet  
+
+Compressor exit 
+
+Turbine exit 
+
+Fuel pump exit 
+
+Power 
+SOFC stack current 
+/voltages* 
+Generator current 
+/voltage* 
+Battery current 
+/voltage* 
+
+Miscellaneous 
+
+Turbomachinery 
+speed* 
+
+RCB speed 
+
+Fuel pump speed 
+
+Fuel flow rate 
+
+Accelerometer 
+
+SOFC Stack* 
+
+Reformer exit 
+Catalytic combustor 
+exit 
+Bearings for RCB 
+and turbomachinery 
+Stack inlet 
+Stack exit* 
+SOFC area external 
+temps* 
+RCB = Recycle blower 
+* Expected to be needed for pilot indication in future commercial aircraft operation 
+
+Controller health & 
+system monitoring*  
+Back-up fan speed 
+
+Table 6. SOFC demonstrator electrical interfaces 
+
+Description 
+
+Type 
+
+Comments 
+
+High voltage power bus (redundant) supported by 
+SOFC stacks, battery and generator in SOFC system 
+
+Traction Power Bus A  Power 
+Traction Power Bus B  Power 
+Altitude 
+Air Temperature 
+Air Speed 
+Power Required 
+SOFC System 
+Data/Instrumentation 
+
+Input Data 
+Input Data 
+Input Data 
+Input Load 
+
+Output Data  See table 5 
+
+Ground Power 
+
+Power 
+
+Pilot Commands for 
+SOFC system controls 
+
+Command 
+
+Power used for maintenance/checkout for future 
+aircraft; used for ground start on demonstrator 
+Commands to start and shut down system and to 
+operate in emergency modes in case of component 
+failures 
+
+14 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Caution and warning indicators for a pilot of an SOFC powered aircraft will need similar indicators 
+for safety as those used for a standard ICE powered aircraft. The caution and warning indicators 
+would be in addition to the instrumentation listed in table 5, or the result of the instrumentation 
+data processed for the caution and warning display. Caution and warning lights (i.e., green, amber, 
+and red) may be necessary for a hybrid SOFC power system for the following indicators: 
+
+• 
+• 
+• 
+• 
+• 
+
+SOFC Power System Health Indicator 
+SOFC Power Generator Health Indicator 
+Fuel Pump Health Indicator 
+Compressor Health Indicator  
+SOFC System Fire Indicator 
+
+4.  SOFC SYSTEM FAILURE ANALYSIS 
+
+More detailed data on the failure analysis can be found in the Boeing Proprietary 
+Appendix A to this report. 
+
+4.1  SOFC POWER SYSTEM FAILURE ASSESSMENT 
+
+A system level failure assessment was performed on the sample SOFC Power system described in 
+section  3.0.  As  many  of  the  components  are  similar  to  ones  previously  used  in  aerospace 
+applications, many of the failure modes are well understood. Specific failure mode possibilities 
+and probabilities are highly dependent on the final configuration of the SOFC power system and 
+the design of the specific components. Examples of  possible failure modes for components are 
+listed in table 7. 
+
+15 
+
+ 
+ 
+ 
+ 
+Table 7. Sample SOFC power system component failure modes 
+
+Sample SOFC Power 
+System Components 
+
+SOFC Stacks 
+
+Steam Reformer 
+
+Fuel pumps / coolant 
+pumps 
+
+Turbo-compressor 
+
+Heat Exchangers 
+
+Sensors 
+
+Blowers 
+
+High temperature electrical 
+connectors / wiring 
+
+Fluid valves 
+
+Fluid lines 
+Insulation 
+
+Battery 
+
+Sample Component Failure Modes 
+Internal or external gas leakage causing overheating above fuel 
+auto-ignition temperature (AIT) or explosive mixture below 
+AIT, external gas leakage of hazardous gas, fouling causing loss 
+of performance or increased pressure drop, electrical overload 
+causing performance loss, electrical shorting of stack 
+Fouling causing reduced performance or increased pressure 
+drop, internal leakage of gas causing reduced performance, 
+external leakage of fuel or hazardous gas  
+Stoppage of flow, leakage of fluid externally, reduced pump 
+flow 
+Turbine-compressor (T/C) wheels seizing, T/C wheels cracking 
+or producing shrapnel, leakage of oil, leakage of gas, 
+overheating, loss of control  
+HEX fouling causing blockage, increased pressure drop or 
+reduced effectiveness, internal leakage of gas/liquid, external 
+leakage of gas/liquid 
+Erroneous reading, off-scale reading, breaking of sensor parts 
+causing debris into fluid flow 
+Blower wheels seizing, blower wheels cracking or producing 
+debris, leakage of gas, overheating, loss of control 
+Shorting/arcing, overheating, leakage of gas/liquid if penetrating 
+fluid barrier, increased resistance due to corrosion 
+Failed open, failed shut, leakage through valve, leakage external 
+from valve 
+Fouling or blockage reducing flow, leakage, burst of line 
+Loss of heat capacity due to mechanical failure, degradation 
+Battery failure resulting in thermal runaway, loss of 
+performance, battery hazardous outgassing, shorting 
+
+Safety of flight for any aircraft depends on minimizing and controlling any potential catastrophic 
+failures of an aircraft. A catastrophic failure is defined as one that could result in multiple fatalities 
+of aircraft occupants or incapacitation or fatal injury to a flight crewmember normally with the 
+loss  of  the  airplane.  Many  of  the  existing  14  CFR  23  requirements  are  put  in  place  to  restrict 
+designs that would result in a catastrophic failure and to provide design guidance toward system 
+redundancy and reliability based on flight operations. Based on the aircraft power system design, 
+some power system component failures would be benign, whereas others, if not controlled, could 
+be catastrophic. Failures with a higher criticality would be those that occur suddenly, reducing any 
+pilot or system reaction time and that have the potential to cause significant damage, or propagate 
+
+16 
+
+ 
+to the point where they can cause significant damage to the aircraft. Some examples of a critical 
+failure would be uncontrolled fire or a sudden loss of power. 
+
+Failure modes newly introduced to a lightweight aircraft by an SOFC-based power system would 
+be associated with components of the system with minimal flight history. As mentioned in table 
+2, the components in this category would be the SOFC stacks, steam reformer, and the software 
+used to control the system. A brief overview of the SOFC stack and steam reformation technology 
+are discussed below. Control software would be highly variable and is considered beyond the scope 
+of this assessment. 
+
+There  are  multiple  types  of  fuel  reformation;  steam  reformation  was  studied  for  this  example 
+system.  Steam  reformation  occurs  at  temperatures  ~600°C  and  uses  incoming  fuel  mixed  with 
+steam to break down the higher hydrocarbons in the fuel in the presence of a catalyst. The reaction 
+is  endothermic  and  requires  a  heat  source,  either  from  the  incoming  fluids  or  an  external  heat 
+source, to be stable. Steam reformers are typically passive devices with large internal surface areas 
+for the reaction. Valves and heaters control the flow going to the reformer, although heaters can 
+also be integrated into the reformer unit itself. Figure 6 shows an example of a steam reformer 
+developed by Precision Combustion, Inc. [7]. In a steam reformer, any internal leakage would be 
+between the  fuel and steam flows,  which  would  not  be a combustible mixture. The  worst-case 
+failure mode for a steam reformer would be that of fuel externally to ambient. This is considered 
+a lower probability, as most reformer units use metal components with limited sealing surfaces in 
+the design. 
+
+Figure 6. Catalytic steam methane reformer from PCI (7.5 kWth) 
+
+Planar designed SOFC stacks were assumed for this study, as they have the potential to provide 
+lower volume for higher power out than tubular SOFC technology. Figure 7 shows example planar 
+SOFC stacks made by OxEon Energy [8], as well as a close-up of flow within the stack. In planar 
+SOFC stacks, individual cells are stacked up in series with interconnect plates in-between. Fuel 
+flows across  one side of  the  cell and oxidant flows across the other side. The fuel and  oxidant 
+streams are separated by seals on each side of each cell, as well as seals separating the fuel streams 
+from surrounding environment. Planar SOFC stack designs vary greatly, but all require sealing on 
+each side of each cell. Because both air and fuel are flowing in close proximity in an SOFC stack, 
+it is a worst-case failure location for leakage than a steam reformer. 
+
+17 
+
+ 
+ 
+Figure 7. Example SOFC Planar stack & flows in a cell by OxEon Energy 
+
+SOFC technology operates at high temperatures, between 600° to 1000°C, depending on the stack 
+design. These temperatures are above the AIT of most fuels. Historically, most failures internal to 
+SOFC stacks are slow to develop and occur over tens or hundreds of hours of operation. SOFC 
+planar  stack  technology  is  considered  to  be  at  a  lower  technology  readiness  level  than  Proton 
+Exchange  Membrane  Fuel  Cell  technology,  which  has  already  been  commercialized  in 
+automobiles. 
+
+Assessment of the SOFC power system failure modes, in conjunction with the amount of similar 
+flight or non-flight data available on component failures, identified the worst-case failures to be 
+those capable of causing a fire or explosion. Of the components introduced by an SOFC power 
+system, the SOFC stack component was determined to have one of the higher probabilities of being 
+a source of a critical failure, mainly due to the lack of development data, the amount of sealing 
+surfaces, and the availability of both a fuel and oxidizer being used in the component.  
+
+4.2  SOFC SYSTEM HIGH TEMPERATURE LEAKAGE FAILURE ASSESSMENT 
+
+Analysis  of  SOFC  power  system  additional  worst-case  failure  modes  introduced  by  SOFC 
+technology, such as high temperature leakage and material degradation of the SOFC stack, was 
+performed. The purpose of the analysis was to help better understand any potential damage that 
+could be introduced by a worst-case SOFC failure scenario. As discussed previously, the worst-
+case SOFC system failure scenario is assessed as a leakage between the fuel and oxidant in the 
+SOFC stack.  
+
+Two primary  leakage scenarios  were identified for  SOFC failures,  based on the  temperature at 
+which the leakage occurred: 
+
+18 
+
+ 
+  
+ 
+1. 
+
+2. 
+
+At leakage above the fuel AITs, a worst-case leakage could result in a sustained flame of 
+burning  gas  producing  a  heat  flux  that  may  heat  surrounding  structures  to  the  point  of 
+failure. 
+At leakage below the fuel auto-ignition temperatures, a worst-case leakage could result in 
+rapid combustion producing a pressure load that may damage surrounding structures from 
+overpressure. 
+
+A liquid fueled SOFC-based power system would be using a fuel reformation process to break 
+down  the  higher  hydrocarbon  chains  into  a  mixture  usable  for  an  SOFC  cell  (e.g.,  mixture  of 
+hydrogen, methane, carbon monoxide, carbon dioxide, steam, and nitrogen). The actual percentage 
+of each species would vary greatly depending on the type of reformation used (i.e. Catalytic Partial 
+Oxidation, ATR, or Steam). For the analysis, a steam reformation case was used to represent a 
+nominal  fuel mixture that  would  be input  to  the  SOFC,  and  a  pure  hydrogen  case was  used to 
+represent an upper bound of the maximum energy that could be released in a failure. It should be 
+noted that no hydrocarbon liquid fueled SOFC would be using pure hydrogen as a fuel; therefore, 
+the pure hydrogen case is not a realistic scenario for this application. 
+
+4.2.1  Sustained Flame Scenario 
+
+SOFC  electrolyte  becomes  electrochemically  active  at  high  temperatures,  generally  between  
+600–1000°C. This operating temperature is above the 536°C AIT of hydrogen and the 200–300°C 
+AIT  of  other  liquid  hydrocarbon  based  fuels;  therefore,  at  SOFC  operating  temperatures,  any 
+quantity of fuel and oxidant mixing from leakage immediately reacts to produce heat and water. 
+The  lower  explosion  limit  and  higher  explosion  limit  of  a  fuel/oxidant  mixture  does  not  apply 
+above the AIT since any fuel and oxidant immediately reacts. In this manner, at SOFC operating 
+temperatures  no  buildup  of  fuel  and  oxidant  is  possible,  removing  the  hazard  of  an  explosive 
+mixture forming. Instead, the worst-case failure scenario of a leakage would result in a sustained 
+heat source at the leak site from the resultant continuous combustion reaction between the leaking 
+fuel and oxidant. The analysis for this scenario is discussed further as a sustained flame failure 
+case. 
+
+4.2.1.1  Sustained Flame Analysis Approach 
+
+A sustained flame failure case is when a pressurized reservoir of fuel gas mixture, as specified by 
+molecular  molar  ratios  x1  at  pressure  p1  and  temperature  T1,  is  leaking  into  a  surrounding 
+atmosphere with molecular molar ratios x2 at pressure p2 and temperature T2 through an orifice of 
+diameter d. This scenario is shown in figure 8. In this scenario, the system is operating above the 
+AIT, and combustion will instantaneously occur when the fuel and oxidizer are mixed together. 
+This will result in the creation of a diffusion flame centered at the region of fuel leakage. Therefore, 
+in this scenario, there will be no build-up of fuel or potential for large pressure effects. Instead, 
+there will be a constant or sustained thermal impact as the fuel combusts and releases energy. This 
+thermal energy will be divided among 1) heating the baseplate through which the fuel is leaking, 
+). The following analysis is 
+(
+primarily concerned with estimating the magnitude of these heat flux terms. 
+𝑞𝑞̇𝑏𝑏𝑏𝑏𝑏𝑏𝑏𝑏
+
+, and 3) heating of the surroundings (
+
+), 2) radiation (
+
+𝑞𝑞̇𝑜𝑜𝑜𝑜ℎ𝑏𝑏𝑟𝑟
+
+𝑞𝑞̇𝑟𝑟𝑏𝑏𝑟𝑟)
+
+19 
+
+ 
+Figure 8. Important parameters in determining heat loads to surrounding structures 
+
+The conditions considered in estimating the heat flux are: 
+
+Fuel, x1. Two extremes were considered for the fuel that could be leaking:  
+
+1.  Reformed fuel gas flow: A mixture of 28.5% hydrogen, 21.0% carbon monoxide, 27.6% 
+
+water, 22.8% carbon dioxide, and 0.1% methane by volume. 
+
+2.  Pure (100%) hydrogen representing the absolute worst potential mixture from a 
+
+combustion safety point-of-view.  
+
+Oxidizer, x2. The surrounding atmosphere is air; for this analysis, air was taken to be exactly 21% 
+oxygen, 79% nitrogen. 
+
+Reservoir Pressure, p1. Two cases were considered for the reservoir pressure: 
+
+1.  45 psia (310.3 kPa), the higher pressure case. 
+2.  20 psia (137.9 kPa), the lower pressure case.  
+
+Note that the greater reservoir pressures result in greater fuel flow rates and consequently greater 
+heating, and, therefore, the maximum pressure case is the limiting case.  
+
+Surrounding Pressure, p2. The surrounding atmosphere was considered to be at 1 atm (14.7 psia 
+or 101.3 kPa).  
+
+Temperature, T. Both the initial unburned temperature and the temperature of the surroundings 
+ C for both the reservoir and surroundings. Note that this temperature is above 
+is 
+the AIT for hydrogen, and, therefore, spontaneous combustion is expected upon mixing of the fuel 
+and oxidizer.  
+
+𝑇𝑇1 = 𝑇𝑇2 = 800
+
+4.2.1.2  Sustained Flame Analysis Method 
+
+The analysis to determine the heat flux loads was broken into three steps: 
+
+20 
+
+ 
+ 
+ 
+ 
+1. 
+
+2. 
+
+3. 
+
+Calculate  the  properties  of  the  flame’s  burned  gas.  These  calculations  were  performed 
+using the computational chemical kinetic software Cantera and the GRI-Mech 3.01 high 
+temperature mechanism to provide realistic estimates of the thermodynamic properties of 
+the flame. 
+Determine the mass flow rate of fuel as a function of orifice size and reservoir pressure 
+using  choked  or  isentropic  flow  equations  as  appropriate  for  the  ratio  of  the  reservoir 
+pressure to the surrounding pressure. It should be noted that viscosity was not incorporated 
+in this analysis and, therefore, the overall fuel leakage is overestimated. This produces a 
+conservative estimate on the total heating that could occur. 
+Estimate the regions where the available thermal energy will be deposited. The available 
+locations are: 
+
+- 
+- 
+- 
+
+Base plate through which gas is leaking 
+Radiation 
+Other nearby structures and/or heating of the gas 
+
+4.2.1.3  Sustained Flame Calculation of Flame Properties 
+
+The general chemical formula for complete combustion of the reformed gas flow is: 
+
+H
+
+H
+
+COCO
+
+OH
+
+O
+
+H
+
+CO
+
+CO
+
+CH
+
+CH
+
+O
+
+O
+
+N
+
+H
+
+O
+
+CO
+
+2
+
+2
+
+2
+
+2
+
++ 𝑥𝑥
+
++ 𝑥𝑥
+
+2 + 𝑥𝑥
+
+2 + 𝑥𝑥
+
+4
+𝑥𝑥
+The coefficients are those appropriate for either the estimated composition of the reformed fuel 
+gas  (
+)  or  for  the  limit 
+). The adiabatic flame properties 
+case of pure hydrogen (
+were  calculated  using  the  chemical  kinetic  software  Cantera  and  the  GRI  Mech  3.0  high 
+temperature chemical mechanism; these calculations provide the enthalpy of combustion for both 
+the reformed fuel gas mixture, 
+
+𝑥𝑥H2 = 0.285,  𝑥𝑥CO = 0.210,  𝑥𝑥H2O = 0.276, 𝑥𝑥CO2 = 0.228, 𝑥𝑥CH4 = 0.001
+
+𝑥𝑥H2 = 1,  𝑥𝑥CO = 𝑥𝑥H2O = 𝑥𝑥CO2 = 𝑥𝑥CH4 = 0
+
+, and for pure hydrogen, 
+
+2 + 3.76
+
+2) → 𝐴𝐴 
+
+4 + 𝑥𝑥
+
++ 𝐵𝐵
+
+2(
+
+: 
+
+2
+
+2
+
+∆ℎcomb, 𝐻𝐻2
+
+∆ℎcomb,rfgm
+
+comb,rfgm
+
+∆ℎ
+
+= 5.8 
+
+comb,
+
+MJ
+kg-fuel
+
+MJ
+kg-fuel
+
+𝐻𝐻2 = 123 
+Note that the reformed fuel gas mixture contains species that are denser and less energetic than 
+hydrogen. This results in the reformed fuel gas mixture having an enthalpy of combustion that is 
+only 5% that of pure hydrogen. 
+
+∆ℎ
+
+4.2.1.4  Sustained Flame Calculation of Mass Flow Rate 
+
+The mass flow rate of fuel was calculated as a function of the pressure drop, 
+diameter, 
+
+, and the orifice 
+  through  the  orifice  for  Mach  number  M)  or 
+
+,  assuming  either  choked  flow  (
+
+∆𝑝𝑝
+
+𝑑𝑑
+
+𝑀𝑀 = 1
+
+1  GRI-Mech  3.0  is  an  optimized  mechanism  designed  to  model  natural  gas  combustion  based  on  computational  and  experimental  research 
+
+sponsored by the Gas Research Institute, http://combustion.berkeley.edu/gri-mech/index.html 
+
+21 
+
+ 
+ 
+ 
+ 
+                                                 
+isentropic flow as appropriate given the pressure ratio. Specifically, if the pressure ratio across the 
+orifice is less than the critical amount: 
+
+where 
+number, 
+𝛾𝛾
+
+ is the ratio of specific heats, then the flow is choked and 
+, may be calculated assuming isentropic expansion: 
+
+𝛾𝛾
+𝛾𝛾−1
+
+𝑝𝑝2
+𝑝𝑝1 < �
+
+2
+�
+𝛾𝛾 + 1
+
+. Otherwise, the Mach 
+
+𝑀𝑀 = 1
+
+𝑀𝑀
+
+𝑀𝑀 = ���
+
+(𝛾𝛾−1)/𝛾𝛾
+
+𝑝𝑝1
+𝑝𝑝2�
+
+− 1�
+
+2
+𝛾𝛾 − 1
+
+Once the Mach number is calculated for a given pressure drop, the mass flow rate per unit orifice 
+area of diameter d may be calculated: 
+
+𝑚𝑚̇
+0.25𝜋𝜋𝑑𝑑
+
+2 = 𝑝𝑝1�
+
+𝛾𝛾
+𝑅𝑅𝑇𝑇0 𝑀𝑀 �1 +
+
+(𝛾𝛾 − 1)𝑀𝑀
+2
+
+−(𝛾𝛾+1)/(2(𝛾𝛾−1)) 
+
+2
+
+�
+
+) and 
+The results from this calculation using calculated parameters for the ratio of specific heats (
+gas constant (
+) as given by Cantera are shown in figure 9. In this figure, the fuel mass flow rate 
+is calculated using the thermodynamic parameters for both reformate gas and a worst-case pure 
+hydrogen system at two different pressures. Observe that reformate gas has a substantially larger 
+mass flow rate than pure hydrogen. This is largely caused by increased density of reformate gas 
+(
+
+) relative to pure hydrogen (
+
+kg/m
+
+kg/m
+
+). 
+
+𝑅𝑅
+
+𝛾𝛾
+
+ref
+
+H
+
+𝜌𝜌1,
+
+= 0.68 
+
+3
+
+𝜌𝜌1,
+
+2 = 0.06 
+
+3
+
+22 
+
+ 
+ 
+ 
+ 
+Figure 9. Calculated fuel mass flow rate based on leakage data 
+
+4.2.1.5  Sustained Flame Estimation of Heat Flux 
+
+Assuming sufficient oxygen exists to fully combust the fuel (such as would occur for a small leak), 
+, 
+the total thermal power available for heating, 
+and the enthalpy of combustion, ∆hcomb: 
+
+, is only limited by the mass flow rate of fuel, 
+
+𝑒𝑒̇
+
+𝑚𝑚̇
+
+This was calculated using the above-determined enthalpies of combustion and mass flow rates as 
+𝑒𝑒̇ = 𝑚𝑚̇ ∆ℎ
+a function of orifice diameter and reservoir pressure, with the calculated thermal powers shown in 
+figure 10. These calculations show that the reformed gas releases approximately 85% less total 
+thermal power than a pure hydrogen mixture stored at the same initial pressure. This reduction is 
+primarily caused by the reduced enthalpy of combustion of the reformed gas relative to hydrogen.  
+
+23 
+
+ 
+ 
+ 
+Figure 10. Total thermal power available in flame for different conditions 
+
+The total thermal power as calculated in figure 10 is transferred by the following methods: 
+
+• 
+• 
+• 
+• 
+
+Heating the material, or baseplate, through which the fuel is leaking 
+Radiating energy evenly in all directions 
+Heating the surrounding gas 
+Heating any other structures in the immediate vicinity of the flame 
+
+The distribution of heat among these destinations may not be calculated without knowing the full 
+geometry and resulting flow field; however; rough estimates may be made based on general SOFC 
+design assumptions: 
+
+• 
+
+• 
+
+Baseplate: Examining the spreading angle of a turbulent flame and assuming that the region 
+of interest for heating the baseplate is 1 orifice radius of fuel/air results in an estimation of 
+25% of the total thermal power going into heating the baseplate.  
+Radiation:  The  radiation  per  unit  length  of  flame  may  be  estimated  for  different  fuel 
+mixtures and will largely be driven by soot generation. Limits of radiation for a sooty flame 
+are generally estimated as approximately 25% of the total available power of the flame. 
+Note  that  this  is  an  approximate  upper  bound  on  the  radiating  power  and  is  highly 
+dependent on the flame properties (i.e., pure hydrogen flames will have less radiation as 
+no soot is created2).  
+
+2 Note the present discussion is an order-of-magnitude investigation applicable to generic conditions; multiple models exist capable of providing 
+
+a more quantitative threat assessment relevant to specific conditions. 
+
+24 
+
+ 
+ 
+                                                 
+• 
+
+The remaining 50% (approximately) of the total thermal power is then available for locally 
+heating the gas and surrounding structures. 
+
+4.2.1.6  Sustained Flame Scenario Summary 
+
+An  analysis  has  been  performed  examining  the  range  of  thermal  loadings  that  could  exist  if  a 
+leakage of fuel into a hot air atmosphere occurred. Such a leakage of fuel would produce immediate 
+spontaneous ignition of the fuel and the creation of a diffusion flame centered at the location of 
+fuel leakage. The principle threat posed by a flame is the thermal load produced that may damage 
+nearby structures and components. The total heat flux expected from such a flame was calculated 
+for different fuel reservoir pressures (45 psia and 20 psia), fuel types (either reformate gas or pure 
+hydrogen), and as a function of orifice diameter. It is noted that: 
+
+• 
+
+• 
+
+• 
+
+• 
+
+Viscosity was not included in the above analysis. Incorporating viscosity will result in less 
+fuel leaking out of a given sized orifice and consequently a decrease in actual thermal load. 
+The effect of viscosity will increase as the orifice size is decreased.  
+Pure hydrogen yields nearly 7 times the thermal load relative to the reformate gas under 
+otherwise identical conditions. This is caused by the considerably higher heat of hydrogen 
+combustion  relative  to  the  hydrogen-carbon  monoxide-carbon  dioxide-water-methane 
+mixture that composes the reformate gas. 
+Although the actual damage incurred by the flame would ultimately be dependent on the 
+location of the flame and surrounding geometry, it is noted that the approximately 360 W 
+released by the reformate gas leaking through a 0.5 mm-diameter orifice is a small thermal 
+load relative to typical hazardous combustion processes.  
+The actual geometry in which the leak occurs will strongly affect how the heat is dissipated 
+into the surroundings. The thermal power of the flame will be most efficiently transferred 
+to a structure if the flame directly impinges on the structure. Therefore, it is noteworthy 
+that the flame length is only a function of orifice diameter, and not a function of the pressure 
+drop across the orifice. 
+
+4.2.2  Rapid Combustion Scenario 
+
+4.2.2.1  Rapid Combustion Scenario Summary 
+
+Rapid  combustion  occurs  when  a  pressurized  reservoir  of  fuel  of  gas  mixture,  as  specified  by 
+molecular molar ratio xfuel, leaks into a surrounding atmosphere composed of air and ignition does 
+not immediately occur, resulting in a pre-mixed combustible mixture defined by the pressure p0, 
+temperature T0 and fuel-air equivalence ratio ϕ. After the creation of such a mixture, an ignition 
+source  would  produce  a  propagating  combustion  wave  that  consumes  the  mixed  fuel-air.  The 
+combusting  gas  will  create  elevated  temperatures  that  may  damage  exposed  structures  and  an 
+overpressure that may damage containment. Unlike the sustained flame scenario considered above 
+in  which  it  was  assumed  that  an  unlimited  amount  of  fuel  may  exist,  in  the  case  of  rapid 
+combustion,  it  is  typical  that  the  finite  amount  of  flammable  mixture  results  in  the  impulsive 
+pressure  load  being  a  greater  threat  than  the  elevated  temperature.  This  section  examines  the 
+factors that affect the overpressure and calculate the upper bounds of such an overpressure. 
+
+25 
+
+ 
+ 
+The conditions considered in estimating the pressure load are: 
+
+Gas mixture, x. In practice, a localized leak of fuel into a volume of air would produce a range of 
+fuel-air  equivalence  ratios  with  the  gas  near  the  leak  having  a  higher  fuel  concentration  than 
+regions far from the leak. To examine the safety and range of such a leak’s effects, the mixed case 
+was examined wherein the entire volume is at a constant worst-case equivalence ratio. 
+
+Two fuels were considered and the range of overpressures as a function of equivalence ratio were 
+examined for both:  
+
+1.  Reformed fuel gas flow: A mixture of 28.5% hydrogen, 21.0% carbon monoxide, 27.6% 
+water, 22.8% carbon dioxide, and 0.1% methane by volume. The chemical equation is: 
+
+H
+
+H
+
+COCO
+
+OH
+
+O
+
+H
+
+CO
+
+CO
+
+CH
+
+CH
+
+O
+
+O
+
+N
+
+H
+
+O
+
+CO
+
+Stoichiometric combustion occurs when:  
+
+2
+
+2
+
++ 𝑥𝑥
+
+2
+
++ 𝑥𝑥
+
+2 + 𝑥𝑥
+
+2
+
+𝑥𝑥
+
+2 + 𝑥𝑥
+
+4
+
+4 + 𝑥𝑥
+
+2(
+
+2 + 3.76
+
+2) → 𝐴𝐴 
+
+2
+
++ 𝐵𝐵
+
+2
+
+CO
+
+And, therefore, the general initial chemical composition of equivalence ratio ϕ may be written as: 
+
+𝑥𝑥O2 = 0.5𝑥𝑥H2 + 𝑥𝑥
+
++ 2𝑥𝑥CH4
+
+H
+
+CO
+
+H
+
+O
+
+CO
+
+CH
+
+O
+
+N
+
+𝜙𝜙0.285
+
+2)
+2.  Pure (100%) hydrogen representing the absolute worst-potential mixture from a combustion 
+safety point-of-view. The general initial chemical composition of equivalence ratio ϕ is: 
+
+4 + 0.3545(
+
+2 + 𝜙𝜙0.210
+
+2 + 𝜙𝜙0.001
+
+2 + 3.76
+
++ 𝜙𝜙0.276
+
++ 𝜙𝜙0.228
+
+2
+
+H
+
+O
+
+N
+
+Initial Pressure, p0. Two cases were considered for the initial pressure: 
+
+2 + 0.5(
+
+2 + 3.76
+
+2)
+
+𝜙𝜙
+
+1. 
+2. 
+
+45 psia (310.3 kPa), the maximum pressure case. 
+14.7 psia (101.3 kPa), the atmospheric pressure case.  
+
+Note that increasing the initial pressure results in increased explosion overpressures and, therefore, 
+the maximum pressure is the limiting case.  
+
+Initial  Temperature,  T0.  The  unburned  temperature  of  the  gaseous  mixture  is  an  important 
+parameter in determining the final overpressure that could be achieved in the event of an explosion. 
+Given a fixed initial pressure, as the temperature increases, the density decreases and the stored 
+energy  decreases,  resulting  in  a  decrease  in  combustion  pressure  and,  therefore,  the  minimum 
+temperature is the limiting case. For the present analysis, the temperature was varied over the range 
+C with the intent to completely cover the range of temperatures that could occur. 
+
+C
+
+°
+  ≤ 𝑇𝑇0 ≤   536
+
+Note that 536°C is the AIT of hydrogen and is the upper bound of a premixed mixture. 
+°
+0
+4.2.2.2  Calculation of Constant Volume Explosion Pressure 
+
+If ignition occurs in a chamber containing mixed fuel and oxidizer, a flame would grow from the 
+point of ignition and propagate to consume the entirety of the fuel/oxidizer mixture. As the flame 
+
+26 
+
+ 
+ 
+ 
+ 
+ 
+expands and consumes the reactants, the release of energy will result in an increase of pressure in 
+the chamber. Multiple factors of the system design will affect the resulting pressure, including:  
+
+1. 
+
+2. 
+
+3. 
+
+The degree of venting: A propagating combustion wave will produce a pressure that varies 
+with  time.  If  the  chamber  is  not  fluid-tight,  the  pressure  in  the  chamber  will  vent  as 
+combustion occurs and the resulting explosion pressure will be decreased. 
+The  degree  of  cooling:  As  the  flame  propagates,  thermal  energy  will  be  lost  to  the 
+surroundings. Per the ideal gas law, the cooling gas will decrease the pressure. Cooling is 
+an important factor in small volumes or other volumes with a high surface area-to-volume 
+ratio. 
+Flame acceleration: As the combustion wave propagates, it induces a flow field in the gas. 
+If this flow field becomes turbulent, the time scale governing the mixing of the unburned 
+reactants with the hot products decreases, therefore, producing an acceleration of the flame. 
+Sufficient  acceleration  may produce  a detonation through  the deflagration-to-detonation 
+transition  (DDT)  process;  supersonic  detonations  are  characterized  by  higher  peak 
+explosion pressures than subsonic flames. Even if DDT does not occur, flame acceleration 
+will  result  in  an  increase  in  the  combustion  pressure  because  the  mitigating  factors  of 
+venting and cooling will be attenuated. Note that a smaller volume allows for less space in 
+which the combustion wave may accelerate and, therefore, decreases the amount of flame 
+acceleration that may occur. 
+
+To  understand  the  range  of  overpressures  that  could  exist  and  how  the  overpressure  would  be 
+affected by the fuel type (reformate gas or hydrogen) and initial temperature, the constant volume 
+(CV) explosion pressure was calculated. This theoretical pressure assumes complete combustion 
+without  cooling.  It  is  the  peak  pressure  that  occurs  behind  a  detonation  wave  and  is  the  upper 
+bound  for  deflagration  waves.  Although  specialized  circumstances  such  as  DDT  or  reflected 
+detonation may produce short-lived pressures in excess of the CV pressure, for most cases, it is a 
+conservative estimate of the pressures that may be produced by a mixed combination of fuel and 
+oxidizer.  
+
+The analysis method to determine the pressure loads was to calculate the CV explosion properties 
+for the conditions specified for the rapid combustion scenario to determine the peak pressure that 
+could  be  expected  in  an  arbitrary  volume.  These  calculations  were  performed  using  the 
+computational  chemical  kinetic  software  Cantera  and  the  GRI  Mech  3.0  high  temperature 
+mechanism. The results of these calculations are shown in figures 11 and 12.  
+
+Figure  11 shows  the  CV  explosion  as a function  of  temperature  for  the different  conditions  of 
+interest,  calculated  at  a fuel-air equivalence  ratio  of  1.  It  is  observed  that  pure  hydrogen  has  a 
+higher CV pressure than reformate gas owing to the increased energy density of hydrogen. In both 
+reformate and hydrogen fuel cases, the CV pressure decreases as temperature increases based on 
+the  decreasing  number  of  moles  of  flammable  gas;  therefore,  at  increased  temperature  and 
+decreased  density,  the  total  explosion  pressure  and  energy  released  from  the  explosion  also 
+decreases.  
+
+27 
+
+ 
+Figure 11. Constant volume explosion pressure vs. initial unburned temperature (ϕ = 1.0) 
+
+Figure 12 shows the CV pressure as a function of fuel-air equivalence ratio. It is observed that the 
+CV  pressure  for  all  cases  peaks  at  an  equivalence  ratio  greater  than  1.  Although  the  peak  CV 
+pressure for the reformate gas is not substantially reduced relative to pure hydrogen (the peak CV 
+pressure for reformate gas is 81.9% the peak CV pressure for hydrogen), the reformate gas has a 
+peak explosion pressure at equivalence ratio ϕ = 1.44, whereas pure hydrogen has a peak pressure 
+at  ϕ  =  1.11.  This  difference  in  peak  explosion  equivalence  ratio  indicates  that  more  moles  of 
+reformate gas must be released to achieve the peak pressure as compared to the hydrogen case. 
+The total explosion pressure for the reformate gas is moderately decreased relative to hydrogen, 
+but the biggest reduction in explosion pressure results from decreasing the starting pressure “p0”. 
+
+28 
+
+ 
+ 
+Figure 12. Constant volume explosion pressure as a function of the fuel-air ratio 
+
+In figures 11 and 12, the starting pressure substantially increases the resulting peak CV pressure. 
+This is further examined in figures 13 and 14 in which the CV pressure is normalized by the starting 
+pressure. Figure 13 is calculated using a fuel-air equivalence ratio of 1, whereas figure 14 has a 
+variable fuel-air equivalence ratio. These figures show that the CV pressure is essentially linear 
+with  starting  pressure  for  all  cases  considered  for  a  given  fuel-air  mixture.  Both  figures  show 
+results normalized by the initial unburned pressure. 
+
+29 
+
+ 
+ 
+ 
+ 
+Figure 13. Normalized CV explosion pressure vs. initial unburned temperature 
+
+Figure 14. Normalized CV explosion pressure vs. fuel-air equivalence ratio 
+
+30 
+
+ 
+ 
+ 
+4.2.2.3  Rapid Combustion Summary  
+
+The actual combustion pressure will be time-dependent and substantially affected by the size of 
+the volume  in  which  ignition  occurs, the  degree  of flame acceleration,  the presence  of venting 
+during the combustion process, and the magnitude of cooling during the combustion process. In 
+this section, the worst-case pressure for a generic geometry was estimated by calculating the CV 
+explosion pressure. This provides a quantitative estimate for the worst-case explosion pressure for 
+a  generic  geometry  and  allows  for  the  examination  of  the  quantitative  effect  of  different 
+parameters. The following was observed from the analyses:  
+
+• 
+
+• 
+
+• 
+
+• 
+
+The reformate gas has a peak explosion pressure at an equivalence ratio of ϕ = 1.44. The 
+reformate explosion pressure is still 81.9% the peak pressure of pure hydrogen but requires 
+more  moles  of  fuel  for  this  pressure  to  be  achieved.  (Hydrogen  has  a  peak  explosion 
+pressure at an equivalence ratio ϕ = 1.11.) 
+At constant initial pressure, the CV explosion pressure decreases as temperature increases. 
+This is caused by the reduction in the total number of moles of flammable gas. Note that 
+this affect is complicated by flame speed increasing with temperature. Therefore, a hotter 
+mixture in test will produce a faster flame, and the peak pressure will be closer to the CV 
+explosion pressure (i.e., although the CV pressure decreases with increasing temperature, 
+multiple factors will influence the actual pressure that is measured in testing).  
+At constant initial temperature, the CV explosion pressure increases as pressure increases 
+and the increase in CV pressure is linear with the initial pressure. Note that DDT more 
+readily occurs at high pressures and, therefore, other factors than the predicted CV pressure 
+may complicate the actual pressures observed in testing. However, unlike the temperature 
+effect, the effect of pressure is consistent. Increasing the initial pressure makes the mixture 
+strictly more hazardous. 
+Although  geometric  effects  were  not  considered  in  the  present  analysis,  note  that 
+decreasing the volume of mixed flammable gas will reduce the overpressure threat in two 
+ways:  Decreasing  the  size  of  the  chamber  increases  the  effect  of  cooling,  therefore, 
+reducing the achieved pressure and decreasing the volume of flammable gas reduces the 
+energy of the explosion. 
+
+4.2.3  SOFC High Temperature Failure Analysis Summary 
+
+Analysis of the failure modes specific to SOFC technology provides a conservative estimate of 
+what potential impacts may be of a failure in an airborne system. This was used to develop the test 
+plan for later testing. The worst-case failure identified for an SOFC stack would be to have leakage 
+between the fuel and oxidant.  
+
+In a higher temperature environment above the fuel AIT, which is the normal range that SOFC 
+technology operates, any leakage between fuel and oxidizer will have a sustained flame or constant 
+thermal release signature instead of an explosion hazard. The fuel used in this scenario has the 
+largest  impact  in  respect  to  the  amount  of  thermal  energy  released  for  a  given  leak  path.  For 
+example, a leak of a pure hydrogen fuel would release approximately six times more energy than 
+a leak of a steam reformed fuel. Any increase in pressure differential driving the leak increases the 
+energy released until the flow becomes choked. The thermal energy released at the sustained flame 
+site could impact the surrounding material and potentially increase the leakage area. However, the 
+
+31 
+
+ 
+method, probability, and rate of a leakage growing is extremely dependent on the leakage location 
+and  the  individual  stack  design.  Analysis  of  a  sustained  flame  failure,  using  conservative  
+worst-case assumptions, shows that, at a minimum, half of the heat from the flame would go into 
+heating the surrounding gas, with 25% of the heat going into radiation of surrounding materials 
+and 25% going into the base material surrounding the leakage. This means that, at a minimum, 
+half of the heat in a failure case, and, likely, much more than half the heat in a less conservative 
+analysis, would most likely be convected away from the original failure location via gas (existing 
+fuel and oxidant) flow in an SOFC stack. This would help minimize the growth of the original 
+leakage source and points to the benefit of ensuring all portions of the stack have adequate gas 
+flow. This information also provides insight into the ability of temperature sensors to identify a 
+failure  using  design  case  specific  parameters  such  as  geometry,  flowrates,  gas  species,  and 
+pressures.  
+
+In a medium or lower temperature environment below the AIT, there would be the possibility of a 
+hazardous fuel/oxidizer mixture to build up to create an explosion hazard. It should be noted that 
+since most SOFC stacks to date operate above the fuel AIT, this would only be caused by some 
+error in the system design or an additional failure in the system, such as a system heat transfer 
+device failure. This is considered the less likely failure scenario of an SOFC stack. In an explosive 
+mixture buildup, the pressure of the initial mixture would have the largest effect on the energy 
+released in the explosion. The fuel type in the initial mixture would have the least impact. The 
+temperature of the initial mixture does have an impact on the energy that can be released from an 
+explosive  mixture,  mainly  by  the  temperature  effects  on  the  density  of  the  fuel;  therefore,  as 
+temperature of the gases of the explosive mixture increases, the energy that would be released from 
+that explosive mixture decreases for the same volume. 
+
+In all SOFC leakage scenarios, the use of a reformed liquid fuel results in less energy released 
+during a failure than when using hydrogen as a fuel; therefore, any small leakage point in the SOFC 
+stack will have a slower growth rate in a liquid fueled SOFC system, resulting in more time in 
+operation before a failure affects the system. 
+
+5.  SOFC SYSTEM MITIGATION APPROACHES 
+
+More detailed data on the failure mitigation approaches can be found in the Boeing 
+Proprietary Appendix A to this report. 
+
+An aircraft power system that is guaranteed not to fail does not exist, and the design of one is an 
+impossible goal. Instead, the development focus of any aircraft power system is to minimize the 
+probability  of  failure  and  mitigate  the  impacts  of  a  possible  failure  by  design.  Some  design 
+approaches  for  minimization  of  system  failure  occurrences  include  use  of  robust  components, 
+design  factors  of  safety,  minimizing  system  complexity,  component  or  function  redundancy 
+(design for reliability), comprehensive testing, and designing for worst-case environments. Some 
+design approaches for minimizing or mitigating a system failure that has already occurred include 
+component  or  function  redundancy,  sensors  to  identify  a  failure  early,  active  and  passive 
+components to stop the propagation of a failure, and operational changes to minimize the effect of 
+a failure. 
+
+32 
+
+ 
+ 
+Analysis described in previous sections identified on leakage of reactant and oxidant in an SOFC 
+stack as being a worst-case failure mode, which would be introduced into an aircraft by an SOFC-
+based  power  system.  Protection  against  such  a  failure  can  utilize  existing  aircraft  safety 
+components and approaches that have been identified for other high temperature, liquid fuel driven 
+components,  such  as  the  standard  light  aircraft  engine.  These  approaches  of  flammable  leak 
+detection external to the power system include: 
+
+• 
+• 
+• 
+
+Hydrocarbon detection sensor 
+Carbon monoxide detection sensor  
+Fire detection 
+
+- 
+- 
+- 
+
+Pneumatic single point detector 
+Thermocouples 
+Thermal switches 
+
+Many  of  existing  design  protections  in  use  for  light  aircraft  engines  are  also  applicable  for  an 
+SOFC-based power system. Some of these design protections would be required by existing CFR 
+regulations, assuming an SOFC-based power system meets the same requirements as a standard 
+aircraft internal combustion engine. Sample failure mitigation approaches are listed in table 8. 
+
+Table 8. Failure mitigation approaches for SOFC stack 
+
+Passive Components for SOFC Stack Failure 
+Mitigation 
+
+Active Components for SOFC Stack Failure 
+Mitigation 
+
+High temperature insulation around SOFC 
+stack and supporting hot components / lines 
+Firewall design around SOFC power system 
+using existing CFR rules (i.e. self-
+extinguishing, flame resistant, fire shielded, 
+and fire proof material options) 
+Ventilation penetrations to dilute and remove 
+hazardous gas 
+Filters and flow restrictions to prevent failure 
+propagation upstream 
+Minimization of components using both fuel 
+and oxidizer flows to limit possible critical 
+failure locations 
+Materials, grounding, and coatings to protect 
+against active or static electrical energy 
+igniting flammable mixtures 
+
+External sensors for hazardous gas in 
+ventilation flow or surrounding area 
+
+Internal sensors for failure detection (i.e. 
+temperatures, voltages, pressures) 
+
+Automatic fuel shut-off valves 
+
+Manual power system and fuel shut-off 
+valves 
+
+Forced ventilation components (i.e. blowers) 
+
+Overpressure protection devices (i.e. relief 
+valves and burst disks)  
+
+Fire suppression components for installations 
+outside of the pilot’s view or in the fuselage 
+
+Timely identification of an incipient failure is essential to active mitigation of failure propagation. 
+As discussed in section 4, one of the worst-case failures in an SOFC stack would be leakage of 
+
+33 
+
+ 
+ 
+fuel  and  air  resulting  in  a  localized  combustion,  which  could  then  grow.  An  analysis  was 
+undertaken  to  determine  the  most  sensitive  way  of  identifying  a  leakage  failure  scenario  is  an 
+SOFC  stack.  Pressure,  external  temperatures,  internal  temperatures,  individual  or  group  cell 
+voltage, and stack voltage instrumentation were considered in the analysis. Sensors for pressure 
+and external identification of stack temperature were immediately discounted as being sensitive to 
+small developing failures. External temperature sensors are hindered from anomaly detection by 
+thermal  insulation  surrounding  hot  SOFC  components  such  that  significant  energy  buildup  is 
+necessary  before  a  localized  SOFC  thermal  event  could  be  detected.  Most  SOFC  stacks  are 
+designed to operate nominally at similar pressures on the fuel and oxidant side. Because normal 
+operation of an SOFC stack is above the AIT, leakage at the stack would result in thermal energy 
+release instead of a pressure change, making pressure identification of a small emerging failure 
+difficult. Analysis subsequently focused on internal temperature measurement and stack voltages 
+for early failure identification. 
+
+Analysis was then performed on a generic stack model to ascertain relationships between a leakage 
+failure occurring and the identification of the failure by internal stack temperature measurements 
+and  voltage  measurements.  It  should  be  understood  that  this  analysis  was  performed  for  an 
+assumed  stack  size  and  operating  conditions  to  provide  a  sensitivity  comparison;  these  results 
+would change based on different stack designs. 
+
+Previous analysis for sustained flame failure scenarios distinguished that in a leakage between fuel 
+and air above the AIT, the majority of the heat from the reaction is absorbed by the surrounding 
+gas flow. The analysis used conservative assumptions; it is likely that in actual failure conditions, 
+higher amounts of energy than were calculated would be absorbed by the surrounding gas flow. 
+This illustrates the importance of adequate gas flow in SOFC stack design and also makes it more 
+likely that a failure will increase the temperature of the SOFC exhaust gas. There are substantial 
+complications involved in embedding thermocouples or other temperature measurement devices 
+in a high temperature, sealed, planar stack on a cell-by-cell level. A more realistic approach is to 
+locate a thermocouple into fuel and air exhaust stream immediately at the exit of a stack. Measuring 
+the gas temperatures at the inlet and outlet of a stack would identify the temperature rise of the 
+mixed exhaust of all the cells, rather than at a more localized point in the stack. Modeling of the 
+temperature rise on the fuel or air side of the stack based on a percentage of flow leakage is shown 
+in figure 15. In the case modeled, leakage into the fuel side of the stack flow is more sensitive than 
+the  air  side  because  in  most  SOFC  stacks,  additional  air  flow  above  what  is  needed  for  the 
+electrochemical reaction is used to transport waste heat away from the cells. The model assumed 
+average flowrates and that the leakage suddenly occurred at the percentage leak identified (i.e. no 
+slow buildup). Results show that there is a time factor on the order of multiple minutes prior to a 
+stable leak showing up in the exhaust temperature, and that a significant leakage would raise the 
+temperature of the outgoing stack air exhaust from 40° at a 10% leakage rate to 90°C at a 20% 
+leakage  rate.  Given  that  SOFC  stack  technology  operates  at  high  temperature,  a  20%  leakage 
+across a cell would result in a 9% to 15% overall temperature change. 
+
+34 
+
+ 
+Figure 15. Sensitivity of SOFC stack exhaust temperature sensors to leakage 
+
+Modeling of voltage measurement sensitivity of a leakage in an SOFC stack was also assessed. 
+Voltages  of  electrochemical  cells are affected  by  the  partial  pressure  of  the  chemical  reactants 
+based on the Nernst equation, where voltage is linearly proportional to the natural log of the ratio 
+of the pressure of products over the pressure of reactants. If a reactant leaks to one side of the solid 
+oxide (SO) electrochemical cell, it instantly reacts as SOFC operates above the AIT. The product 
+of  that  localized  instantaneous  combustion  removes  the  reactants  previously  available  for 
+electrochemical reactions from that side of the cell, diluting or lessening the available reactants. 
+This dilution of available reactants at the local cell level reduces the Nernst potential and voltage 
+of the cell in real time. In such a way, individual SO cell voltage measurements act as individual 
+reactant leak detectors in a stack. Modeling results of expected cell voltage degradation based on 
+percentage of leakage is shown in figure 16. The results illustrate that the magnitude of cell voltage 
+change based on percent leakage on the fuel side is more sensitive than leakage into the air side. It 
+also shows that a 10% leakage of oxidant into the air side results in a 20% cell voltage change, 
+with  larger  leakages  causing  a  much  sharper  voltage  drop.  It  should  be  noted  that  voltage 
+monitoring for leak/failure detection would only identify leakage that is upstream or internal to the 
+cell  area.  Leakage  downstream  of  the  active  cell  area  would  not  be  identified  by  this  method. 
+Dependent on SOFC stack design, physical integration of individual cell voltage monitoring can 
+add  a  level  of  complexity  and  additional  potential  failure  points  for  shorting.  In  cases  where 
+voltages  are  not  realistically  able  to  be  monitored  at  the  cell  level,  monitoring  groups  of  cell 
+voltages or the total stack voltage could be performed. Sensitivity of the voltages in identifying a 
+localized failure is therefore reduced, based on analysis, depending on the voltage drop seen at the 
+cell level compared to the number of cells being monitored. Analysis identified that stack level 
+monitoring, in comparison to cell level monitoring, would lessen visibility of a developing failure. 
+However, the testing described in section 6 showed that the stack voltage was more sensitive to 
+cell failure than was expected by analysis. 
+
+35 
+
+ 
+ 
+Figure 16. Sensitivity of SOFC cell voltage monitoring to leakage 
+
+Modeling of both voltage and temperature sensors in reaction to an SOFC stack internal leakage 
+failure mode determined that voltage monitoring has the ability to identify a leakage growth at a 
+near real-time since it can be sensed nearer to the potential leakage location. Temperature sensing 
+in the SOFC stack exhaust a time lag associated with fluid flow and mixing rate from the leakage 
+location to the sensor. A failure due to leakage can drive a greater magnitude of response change 
+in the voltage sensing of a cell or group of cells than the magnitude response change in the exhaust 
+temperature for the same leakage size. Modeling concludes that for most stack designs, voltage 
+monitoring  of  SOFC  stacks  is  more  sensitive  to  identification  of  stack  internal  leakage  than 
+temperature sensors. However, because voltage monitoring would only identify leakage upstream 
+of the electrochemically active area, thermal sensing of the stack exhaust is still required to identify 
+any leakage in the exhaust manifolds of the SOFC stack. Thermal sensing of stack exhaust is also 
+useful as a redundant sensor for failure identification. 
+
+6.  SOFC CONTROLLED STACK FAILURE TESTING 
+
+More detailed data on the failure testing of both SOFC stacks, including additional test 
+data, can be found in the Boeing Proprietary Appendix A to this report. 
+
+Failure  testing  was  performed  on  two  planar  SOFC  stacks  to  provide  examples  of  worst-case 
+SOFC power system failures to bound effects on failure propagation. The stacks were supplied by 
+two  separate  suppliers  and  were  both  development-level  stacks  at  different  stages  of  design 
+maturity. Stack 1 tested to failure was designed for 250 W with < 12 cells. Stack 2 was designed 
+for 1 kW containing > 30 cells. Both stacks tested had known leakage with intact cells at the start 
+of the test. Each stack was tested within a pressure vessel.  
+
+36 
+
+ 
+ 
+ 
+Both stack tests were conducted using a mixture of 50% hydrogen and 50% nitrogen as fuel for 
+testing, and  air was used  as the oxidant. As mentioned in  previous sections, SOFC  technology 
+becomes  electrochemically  active  at  high  temperatures,  generally  between  600–1000°C.  This 
+operating temperature is above the 536°C AIT of hydrogen and the 200–300°C AIT of other liquid 
+hydrocarbon  based  fuels.  The  mixing  of  fuel  and  oxidant  from  leakage  immediately  reacts  to 
+produce heat and water; no buildup of fuel and oxidant is possible above the AIT temperature, 
+which removes any explosive hazard at high temperatures.  
+
+The objective of the controlled SOFC stack failure testing was to verify sensitivity of voltage and 
+temperature as a means of detecting cell/stack failure, in comparison to the physical damage to the 
+stack when subjected to an SOFC stack’s worst-case sudden failure. This creates the beginning of 
+comparable data between stack failure sensor readings and physical effects of a potential failure 
+propagation  in  an  SOFC-based  power  system.  An  understanding  of  how  instrumentation 
+identification  of  a  critical  failure  relates  to  actual  system  effects  is  necessary  for  the  future 
+development  of  a  safe  SOFC-based  power  system.  The  tests  were  conducted  above  ambient 
+pressures within a pressure vessel using a 50/50 mix of H2/N2 at the anode and dry compressed 
+air at the cathode.  
+
+Based  on  historical  test  data  at  Boeing  and  across  the  fuel  cell  industry,  the  vast  majority  of  
+air-based SOFC stack failures are slow propagation failures that show up in stack voltage or gas 
+temperatures tens or hundreds of hours prior to critical stack failure. The intent of this test series 
+was to try to simulate a more unlikely worst-case sudden failure scenario, rather than the more 
+usual stack performance degradation failures typically seen in testing; therefore, two methods were 
+used in an attempt to induce a sudden SOFC stack failure: 
+
+1. 
+2. 
+
+Electrochemical overloading of the stack while on load 
+Application of elevated differential pressure across the stack 
+
+6.1  MOBILE STACK FAILURE TESTING 
+
+A mobile testing unit was built to support SOFC stack testing. The unit was built to provide heated 
+fuel and reactant gasses to the SOFC stack, while being able to control the pressure the stack was 
+tested at and the incoming gas temperatures. A cooling loop was used to cool the exhaust streams. 
+The fuel side exhaust could  be  connected to lines in the test cell to route the exhaust  to  a safe 
+hydrogen exhaust location for the building. Remote operated solenoid and flow regulation valves 
+were used to control the reactant and safety gas flow and gave the ability to shut off the fuel flow 
+without depressurizing one side or other of the fuel cell. The mobile testing unit was assembled, 
+leak  tested,  pressure  checked,  and  control  software  checked  in  a  laboratory  before  the  second 
+SOFC stack was installed and the unit was moved to the ventilated hydrogen test area at the Boeing 
+Huntington  Beach  California  facility.  Figure  17  shows  the  piping and  instrumentation  diagram 
+(P&ID) of the mobile stack failure testing unit. 
+
+37 
+
+ 
+ 
+Figure 17. P&ID of mobile stack failure testing unit 
+
+6.2  FIRST SOFC STACK FAILURE TESTING 
+
+The first stack failure testing was performed on a smaller SOFC stack of <12 cells. The first SOFC 
+test stack used was in the development stage of the design process.  
+
+The first stack tested  was exposed to  a  maximum pressure  differential  of less than 3psid when 
+indications  of  a  cell  failure  occurred,  as  shown  in  figure  18  with  the  “Normalized  Worst  Cell 
+Voltage” line. Only one cell in the stack showed early indication of a cell failure. The total stack 
+voltage showed an approximate 20-second delay between the individual cell voltage drop and the 
+total stack voltage drop. The stack voltage showed a total voltage drop greater than what would be 
+expected from the loss of the failed cell voltage drop only. This indicates that once significant cell 
+failure occurs in an SOFC, reactant dilution and thermal impacts from the failed cell can influence 
+the performance of other cells, making the failure more visible at the total stack voltage level. In 
+this test, the stack exhaust temperature did not rise until the test shutdown protocol was performed, 
+which caused additional flow perturbations more than one minute after cell failure. It is believed 
+that if the flows to the test stand were not modified during the test shutdown procedure, the heat 
+increase  from  the  SOFC  cell  failure  would  have  shown  up  even  later  and  more  slowly.  The 
+expected gas exhaust temperature increase during a cell failure is caused by combustion of H2 and 
+air from cracked cell or seal leak. The thermal increase was only seen after one minute due to flow 
+perturbations caused from the test shutdown. Figure 18 shows that the > 50% magnitude of the 
+cell failure effects on the stack voltage was much greater than the ~10% magnitude of temperature 
+change seen in the stack exhaust streams. 
+
+38 
+
+ 
+ 
+Figure 18. First SOFC stack controlled failure testing 
+
+Teardown of the first stack test verified that the cell showing the worst-case cell voltage during 
+testing failed  from  a  crack  in  the  cell. There  were  indications  of  some  overheating  in  the  area 
+around the cell failure; however, there was no significant thermal damage outside of the cell stack 
+active area. Specifically, there were no overheating effects seen internally in the stack manifolds 
+or gas flow paths to and from the stack. This verified that the shutoff of fuel flow successfully 
+limited  failure  propagation  by  reducing  the  total  energy  available  for  combustion  of  reactants, 
+keeping the total energy  released from the stack failure  within levels  that  would  not cause any 
+significant damage or material breakdown in components outside of the stack. 
+
+6.3  SECOND SOFC STACK FAILURE TESTING 
+
+The second stack failure testing was performed on a larger SOFC stack of >30 cells. Although this 
+second SOFC test stack was also in the design development stage, it was a more mature design 
+tested than the first stack. Because of the more mature design of the stack, it was able to withstand 
+additional adverse conditions in operation prior to the stack failing. 
+
+The  second  stack  was  tested  with  similar  reactant  mixtures  as  used  in  the  first  stack  testing 
+(50%H2/50%N2  fuel,  air).  This  stack  was  installed  and  tested  in  the  mobile  stack  failure  unit 
+described in section 5.1, and testing was conducted in an external test bay designed for hydrogen 
+use.  The  second  stack  was  exposed  to  a  pressure  differential  while  stack voltages  and  exhaust 
+temperatures were monitored. The second stack was subjected to electrical loading of cells to drive 
+the stack voltage below normal operation limits and various pressure differential levels on both 
+the anode and cathode sides of the stack. Individual cell voltages were not available for this stack 
+testing, but the total stack voltage was monitored along with exhaust temperatures. 
+
+39 
+
+ 
+ 
+In the second stack test, differential pressure was initially applied more slowly than the first stack 
+test. The second stack was able to withstand while operating a differential pressure of 15psid across 
+the  stack  with  either  the  fuel  side  or  air  side  high.  During  the  phase  of  testing  where  the 
+fuel/hydrogen side of the stack was pressurized, a failure due to sparking was observed in a wire 
+connection  that  was  routed  from  the  test  pressure  vessel  to  the ambient  atmosphere.  This  high 
+temperature, sheathed, wire was used as instrumentation during previous development testing, but 
+was unused/disconnected during the second stack failure testing. Sparks and a small flame were 
+observed coming  from the end of the  metal  sheathed  wire (figure 19). On identification of the 
+failure, the main hydrogen fuel flow  was shut off and a nitrogen-based safety gas continued to 
+flow to maintain the stack pressure. The removal of the hydrogen flow extinguished the flame at 
+the end of the unused wire. The stack was unaffected by the wiring failure. Post-test inspection 
+identified that there were multiple factors that contributed to the wire failure probable cause. The 
+wire  dead-end  termination  likely  caused  a  reduced  insulation  gap  that  reacted  with  a  small 
+hydrogen leak due to the unrealistic operating regime of the unit. The test unit was subjected to 
+operating  conditions  outside  of  those  that  would  be  allowed  in  an  actual  flight  system  for  the 
+purpose of inducing a sudden failure in the SOFC stack.  
+
+Figure 19. Sparking observed during second SOFC stack controlled failure test 
+
+Testing resumed after the wire failure, but increased pressurization was thereafter limited to the 
+air side of the stack so as not to repeat the suspected cause of the wire failure of hydrogen leakage 
+to  ambient.  The  second  stack  tested  was  able  to  withstand  pressure  differentials  ramped  up  to 
+15psid across the stack. The stack had known internal leakage at the start of the test. Although the 
+increase of differential pressure had to result in additional heat generated internal to the stack from 
+the leakage, changes in the exhaust temperature over the relatively short testing time were minimal. 
+To mimic a sudden failure, which would be the worst-case scenario seen in a flight application, 
+the second stack tested was then subjected to sudden pressure changes on one side of the stack. A 
+sudden pressure change of >15psid was applied to one side of the stack and a failure was induced. 
+The failure was evident on both the stack voltage and the stack exhaust temperatures at the same 
+time (figure 20). The magnitude of the change in stack voltage, an approximate 90% change in 
+voltage, was  much greater  than the exhaust  temperature change,  an approximate 6%  change in 
+temperature, the stack voltage was clearly a more sensitive indicator of stack failure than the stack 
+exhaust  temperatures.  On  identification  of  the  failure,  the  electrical  loading  of  the  stack  was 
+stopped,  the  main  hydrogen fuel flow  was  again  shut  off,  and  a  nitrogen-based safety  gas  was 
+flowed on the fuel side. These actions resulted in an immediate stack voltage recovery and a soon 
+after decrease in exhaust temperature, showing that the stack failure was contained.  
+
+40 
+
+ 
+ 
+Figure 20. Second SOFC stack controlled failure test 
+
+After cool down of the second SOFC stack testing unit, the system was disassembled, and the stack 
+was removed from the pressure vessel and inspected. The second SOFC stack tested also showed 
+no significant thermal damage outside of the cell stack active area. In both the wiring failure and 
+sudden stack failures seen during the controlled testing, the shutoff of the fuel flow to the stack 
+quickly  stopped  the  overheating  events  and  prevented  any  propagation  of  the  failure  to  other 
+components.  
+
+7.  CONCLUSIONS 
+
+The FAA project “Evaluation of a Lightweight Fuel Cell Containment System for Aircraft Safety” 
+evaluated the potential impacts for an example future solid oxide fuel cell- (SOFC) based power 
+system to be integrated into a small aircraft, as described in Title 14 Code of Federal Regulations 
+(CFR) part 23. A target SOFC system using a liquid desulfurized fuel, onboard reformation, and a 
+hybrid battery was assessed for impacts to existing aircraft safety regulations, new failure modes, 
+similarity  to  existing  systems,  and  potential  approaches  for  safe  integration  of  the  aircraft. 
+Analyses  of  worst-case  failure  modes  for  SOFC  technology  were  performed  to  bound  the 
+expectations of the failure effects and also the timing for failure identification. A mobile SOFC 
+stack testing unit was built and controlled failure testing was performed on two development stacks 
+made by different suppliers.  
+
+Assessment of the liquid fueled SOFC  power system in comparison  to traditional  light aircraft 
+internal combustion  engine  propulsion systems  shows  that many  of  the components  used in an 
+SOFC-based system are similar to those flown on other aircraft. The components unique to the 
+SOFC power system are related to potential reformation and the electrochemical stack functions, 
+
+41 
+
+ 
+ 
+but the protections for potential failures of these solid, non-moving components are comparable to 
+other high temperature components already certified for flight. The majority of existing 14 CFR 
+23  regulations  could  be  directly  applicable  to  the  integration  of  an  SOFC  system  with  minor 
+language modification to make existing requirements more inclusive to SOFC technology.  
+
+Failure analysis focused on failures occurring in the planar SOFC stack, a component that would 
+be new to aircraft flight testing and use. The worst-case failure for an SOFC stack was determined 
+to  be  fuel  and  air  mixing  through  leakage  in  an  SOFC  stack  causing  a  sudden  stack  failure. 
+Analyses of both high temperature leakage and low temperature leakage effects were performed. 
+The high temperature leakage failure is considered more probable, as SOFC nominally operates 
+above  the  auto-ignition  temperature  of  fuels.  Combustion  calculations  of  the  failure  scenarios 
+highlighted that the release of energy from an SOFC stack leakage would be less when operating 
+on a reformed liquid fuel than a pure hydrogen fuel. Combustion analysis also identified that the 
+majority of the energy that would be released in a high temperature leakage would be transferred 
+into the surrounding gas stream. 
+
+Mitigation of any failures for a future SOFC-based power system must be approached using two 
+methods:  1)  integration  of  redundancy  and  safety  of  flight  concerns  must  be  part  of  the  initial 
+system configuration and design, and 2) existing active and passive safety components, such as 
+firewalls,  instrumentation,  and  fuel  shut-off  valves,  can  be  used  to  identify  and  limit  the 
+propagation  of  any  failure  that  does  occur.  Analysis  of  failure  detection  showed  that  the  most 
+sensitive method of detecting a failure would be via monitoring the SOFC stack voltage. Because 
+of the need for fuel to continuously be provided to an SOFC stack, a failure in the SOFC stack can 
+be contained by stopping the fuel supply to the stack.  
+
+Controlled failure testing  was  performed  on  two different planar  SOFC stacks  as a  part  of this 
+project. Failure was induced by applying a pressure differential between the fuel and oxidant sides 
+of  the  SOFC  stacks.  The  tests  were  able  to  validate  the  sensitivity  of  stack  voltage  versus 
+temperature monitoring when a sudden failure was induced. In both tests, the fuel flow was shut-
+off  once  the  stack  voltages  became  severely  diminished,  and  this  action  stopped  the  thermal 
+propagation  of  the  induced  failure.  Teardown  of  both  test  articles  verified  that  no  damage 
+propagated to outside of the stack in either test, and that no damage from the failure was seen in 
+the surrounding components. This demonstrated that shutting off the fuel flow to the SOFC stack 
+based  on  stack  voltage  monitoring  was  effective  in  limiting  any  thermal  damage  to  within  the 
+SOFC stack component itself. Testing also showed that the integration of any sensors or wiring 
+into the SOFC system needs to protect against the introduction of potential hazardous gas leakage 
+sites.  
+
+The analysis and testing of two different stack SOFC corroborates that for a sudden SOFC stack 
+failure in an SOFC power system, shutting off of the fuel flow to the stack using existing sensor 
+technology would prevent a sudden stack failure from propagating into a critical system failure.  
+
+This project provided both analysis and test data to show that safely integrating a liquid fuel SOFC-
+based  power  system  into  a  light  aircraft  is  feasible.  Although  additional  failure  modes  are 
+introduced with new SOFC technology, containment and mitigation of the new failure modes are 
+similar to existing aircraft safety approaches. SOFC-based power system technology still requires 
+significant  development,  system  design  for  reliability,  and  comprehensive  testing  of  systems 
+
+42 
+
+ 
+designed for flight to be considered for integration in a 14 CFR 23 aircraft. Assuming that SOFC 
+power system technology advances to a more mature stage, this project concludes that the safe 
+integration  of  that  SOFC  technology  into  a  light  aircraft,  or  other  future  aircraft,  would  be 
+achievable using safety components and methods comparable to those presently used. 
+
+8.  REFERENCES 
+
+1. 
+
+2. 
+
+3. 
+
+4. 
+
+5. 
+
+6. 
+
+7. 
+
+8. 
+
+Stoia, T., Balan, C., Atreya, S., O’Neil, P. (2018). Solid Oxide Fuel Cell – Steam 
+Reformation Power System Configuration Options for an All-Electric Commuter 
+Airplane Flight Demonstrator (AIAA 2018-3358). Presented at the 2018 Aviation 
+Technology, Integration, and Operations Conference, Atlanta, GA. Retrieved from 
+https://doi.org/10.2514/6.2018-3358 
+
+Borer, N.K., Geuther, S.C., Litherland, B.L., Kohlman, L.W. (2018). Design and 
+Performance of a Hybrid-Electric Fuel Cell Flight Demonstration Concept. (AIAA 
+2018-3357). Presented at the 2018 Aviation Technology, Integration, and Operations 
+Conference, Atlanta, GA. Retrieved from https://doi.org/10.2514/6.2018-3357 
+
+Papathakis, K.V., Schnarr, O.C., Lavelle, T.M., Borer, N.K., Stoia, T., Atreya, S. (2018). 
+Integration Concept for a Hybrid-Electric Solid-Oxide Fuel Cell Power System into the 
+X-57 ‘Maxwell’, (AIAA 2018-3359). Presented at the 2018 Aviation Technology, 
+Integration, and Operations Conference, Atlanta, GA. Retrieved from 
+https://doi.org/10.2514/6.2018-3359 
+
+Airworthiness Standards: Normal Category Airplanes, 14 CFR 23 (2016) 
+
+Rechberger, J., Kaupert, A., Hagerskans, J., Blum, L. (2016). Demonstration of the First 
+European SOFC APU on a Heavy Duty Truck. Transport Research Procedia, 14, 3676–
+3685. 
+
+Meadowcroft, A.D., Howroyd, S., Kendall, K., Kendall, M. (2013). Testing Micro-
+Tubular SOFCs in Unmanned Air Vehicles (UAVs). ECS Transactions, 57(1), 451–457. 
+
+Precision Combustion, Inc. (n.d.), Microlith® Fuel Reformer. Retrieved from 
+https://www.precision-combustion.com/products/fuel-processors/fuel-reformers. 
+Accessed December 2018. 
+
+OxEon Energy, LLC. (n.d.). Digital image of  “Ruggedized hermetic stack that enables 
+energy storage solutions and high purity gas production” and solid oxide fuel cell 
+overview, Retrieved from https://oxeonenergy.com/. Accessed December 2018. 
+
+43 
+
+ 
+

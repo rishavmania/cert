@@ -1,0 +1,31 @@
+[
+    {
+        "question": "what are the flammability requirements?",
+        "answer": "Materials in hydrogen environments must meet fire resistance standards like ASTM E1354. Hydrogen concentrations exceeding 4% are considered hazardous for ignition. All wiring insulation also requires special attention.",
+        "sources": [
+            "doc_3"
+        ]
+    },
+    {
+        "question": "what is the required temperature for fuel cells?",
+        "answer": "Documents indicate a general operating range of -40\u00b0C to +85\u00b0C. For PEM fuel cell systems, the maximum operating temperature should not exceed 80\u00b0C.",
+        "sources": [
+            "doc_1",
+            "doc_2"
+        ]
+    },
+    {
+        "question": "tell me about fuel tank flammability.",
+        "answer": "The fuel tank flammability assessment method is detailed in tc21-3 (Doc 4). It outlines procedures to evaluate the fire safety aspects of fuel tanks.",
+        "sources": [
+            "doc_4"
+        ]
+    },
+    {
+        "question": "what is abusive testing?",
+        "answer": "Abusive testing for Proton Exchange Membrane (PEM) Hydrogen Fuel Cells is covered in document tc16-24 (Doc 8). This testing evaluates their behavior under extreme conditions.",
+        "sources": [
+            "doc_8"
+        ]
+    }
+]

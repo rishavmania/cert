@@ -1,0 +1,1427 @@
+DOT/FAA/TC-17/23 
+
+Federal Aviation Administration 
+William J. Hughes Technical Center 
+Aviation Research Division 
+Atlantic City International Airport 
+New Jersey 08405 
+
+Flammability of Materials in a  
+Low-Concentration Hydrogen 
+Environment  
+
+September 2017 
+
+Final Report 
+
+This document is available to the U.S. public 
+through the National Technical Information 
+Service (NTIS), Springfield, Virginia 22161. 
+
+This document is also available from the 
+Federal Aviation Administration William J. Hughes 
+Technical Center at actlibrary.tc.faa.gov. 
+
+U.S. Department of Transportation 
+Federal Aviation Administration 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+NOTICE 
+
+This  document  is  disseminated  under  the  sponsorship  of  the  U.S. 
+Department of Transportation in the interest of information exchange. The 
+U.S. Government assumes no liability for the contents or use thereof. The 
+U.S.  Government  does  not  endorse  products  or  manufacturers.  Trade  or 
+manufacturers’ names appear herein solely because they are considered 
+essential to the objective of this report. The findings and conclusions in this 
+report are those of the author(s) and do not necessarily represent the views 
+of  the  funding  agency.  This  document  does  not  constitute  FAA  policy. 
+Consult 
+the  Technical 
+Documentation page as to its use. 
+
+the  FAA  sponsoring  organization 
+
+listed  on 
+
+This  report  is  available  at  the  Federal  Aviation  Administration  William  J. 
+Hughes  Technical  Center’s  Full-Text  Technical  Reports  page: 
+actlibrary.tc.faa.gov in Adobe Acrobat portable document format (PDF). 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1. Report No. 
+
+2. Government Accession No. 
+
+3. Recipient's Catalog No. 
+
+Technical Report Documentation Page 
+
+DOT/FAA/TC-17/23 
+ 4. Title and Subtitle 
+
+FLAMMABILITY OF MATERIALS IN A LOW-CONCENTRATION 
+HYDROGEN ENVIRONMENT 
+
+7. Author(s) 
+
+Steven Rehn 
+9. Performing Organization Name and Address 
+
+U.S. Department of Transportation 
+FAA Northwest Mountain Regional Office 
+1601 Lind Ave SW 
+Renton, WA 98057 
+
+12. Sponsoring Agency Name and Address 
+
+U.S. Department of Transportation 
+Federal Aviation Administration 
+Air Traffic Organization NextGen & Operations Planning 
+Office of Research and Technology Development 
+Washington, DC 20591 
+
+15. Supplementary Notes 
+
+16. Abstract 
+
+5. Report Date 
+
+September 2017 
+
+6. Performing Organization Code 
+
+8. Performing Organization Report No. 
+
+10. Work Unit No. (TRAIS) 
+
+11. Contract or Grant No. 
+
+13. Type of Report and Period Covered 
+
+14. Sponsoring Agency Code 
+
+ANM-115  
+
+A series of tests was conducted to determine the effect that concentrations of hydrogen below its lower flammability limit can have 
+on  the  burning  of other  materials.  The vertical  Bunsen  burner  test  cabinet  was  set  up  to  run  tests  with  hydrogen  concentrations 
+varying between 0% and 4% by volume. Three different materials were tested: a 1/16″ thick woven carbon fiber, a fabric aircraft 
+seat cover, and an 8-ply unidirectional carbon fiber. All three materials showed significantly increased after-flame times and burn 
+lengths as the concentration of hydrogen increased. The burn rate of both carbon-fiber materials also significantly increased with 
+increased hydrogen concentrations, whereas the burn rate of the seat-cover fabric remained relatively constant for all concentrations. 
+
+7. Key Words 
+
+18. Distribution Statement 
+
+Vertical  Bunsen  burner,  Hydrogen,  Material 
+concentration 
+
+testing,  Low 
+
+This document is available to the U.S. public through the National 
+Technical  Information  Service  (NTIS),  Springfield,  Virginia 
+22161. This document is also available from the Federal Aviation 
+Administration  William  J.  Hughes  Technical  Center  at 
+actlibrary.tc.faa.gov. 
+
+19. Security Classif. (of this report) 
+
+20. Security Classif. (of this page) 
+
+21. No. of Pages 
+
+22. Price 
+
+ Unclassified  
+
+ Unclassified 
+
+23 
+
+Form DOT F 1700.7 (8-72) 
+
+Reproduction of completed page authorized 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+TABLE OF CONTENTS 
+
+EXECUTIVE SUMMARY 
+
+1.
+
+INTRODUCTION
+
+1.1 
+1.2 
+
+Background 
+Objective 
+
+2.
+
+EXPERIMENTAL SETUP
+
+2.1 
+2.2 
+
+Test Method 
+Test Procedure 
+
+3.
+
+TEST RESULTS
+
+3.1 
+3.2 
+3.3 
+
+1/16 Inch Woven Carbon Fiber 
+Fabric Seat Cover 
+8-Ply TC250 Unidirectional Carbon Fiber
+
+4.
+
+5.
+
+CONCLUSION
+
+REFERENCES
+
+Page 
+
+vii 
+
+1 
+
+1 
+1 
+
+1 
+
+1 
+3 
+
+4 
+
+4 
+8 
+11 
+
+14 
+
+15 
+
+iii 
+
+LIST OF FIGURES 
+
+Figure 
+
+1  
+
+2  
+
+3  
+
+4  
+
+5  
+
+6  
+
+7  
+
+8  
+
+9  
+
+10  
+
+11  
+
+Automated vertical Bunsen burner cabinet that can be filled with varying  
+amounts of hydrogen. 
+
+Bunsen burner test cabinet interior showing most of the added parts to  
+conduct this experiment remotely 
+
+Flame time and burn length of each 1/16-inch woven carbon-fiber sample tested 
+
+Post-test woven carbon fiber from left to right: 0% H2, 1% H2, and 4% H2 
+
+Burn rate of all 1/16-inch woven carbon-fiber samples 
+
+Flame time and burn length of each fabric seat cover sample tested 
+
+Post-test fabric seat cover from left to right: 0% H2, 2% H2, and 4% H2 
+
+Burn rate of all fabric seat cover samples 
+
+Flame time and burn length of each unidirectional carbon-fiber sample tested 
+
+Post-test unidirectional carbon fiber from left to right: 0% H2, 2% H2, and 4% H2 
+
+Burn rate of all unidirectional carbon-fiber samples 
+
+Page 
+
+2 
+
+3 
+
+5 
+
+6 
+
+7 
+
+9 
+
+10 
+
+11 
+
+12 
+
+13 
+
+14 
+
+iv 
+
+ 
+ 
+ 
+ 
+LIST OF TABLES 
+
+Page 
+
+Test data averaged for each hydrogen concentration for 1/16 inch woven carbon fiber 
+
+8 
+
+Test data averaged for each hydrogen concentration for seat-cover fabric 
+
+Test data averaged for each hydrogen concentration for unidirectional  carbon fiber 
+
+11 
+
+14 
+
+Table 
+
+1  
+
+2  
+
+3  
+
+v 
+
+ 
+ 
+ 
+ 
+LIST OF ACRONYMS 
+
+LFL 
+H2 
+
+Lower flammability limit 
+Hydrogen 
+
+vi 
+
+ 
+ 
+ 
+ 
+ 
+EXECUTIVE SUMMARY 
+
+Industry  is  currently  researching  the  use  of  hydrogen  fuel  cells  for  electrical  power  onboard 
+aircraft. It is known that hydrogen is very explosive in concentrations above its lower flammability 
+limit (LFL) (approximately 4.7% by volume in air), but what has not been researched is whether 
+concentrations below this limit can increase the burning rate of   aircraft materials.  In order to 
+determine this, testing was conducted using the FAA vertical Bunsen burner test method with the 
+test cabinet filled with varying concentrations of hydrogen below its LFL. 
+
+The vertical Bunsen burner test cabinet was set up in the Components Fire Test Lab at the FAA 
+William  J.  Hughes  Technical  Center,  and  operated remotely  for  safety reasons.    The  hydrogen 
+concentration inside the test cabinet varied from 0% to 4% by volume in increments of 1%, while 
+conducting the standard 12-second vertical Bunsen burner test. 
+
+Three different materials were tested: a 1/16-inch thick woven carbon fiber, an aircraft fabric seat-
+cover material, and an 8-ply unidirectional carbon fiber.  For all three materials, the after-flame 
+time  and  burn  length  significantly  increased  as  the  hydrogen  concentration  increased.  Even 
+concentrations as low as 1% hydrogen had a large effect on the test results.  The burn rate was also 
+calculated from the burn length divided by the after-flame time plus the 12-second Bunsen burner 
+time.  The burn rate significantly increased with increased hydrogen concentrations for both types 
+of carbon fiber and stayed relatively constant for the fabric seat cover. 
+
+vii 
+
+ 
+ 
+1.  INTRODUCTION 
+
+1.1  BACKGROUND 
+
+Industry  is  currently  researching  the  use  of  hydrogen  fuel  cells  for  electrical  power  onboard 
+aircraft.  The FAA has formed an Aviation Rulemaking Advisory Committee (ARAC) to identify 
+potential hazards, mitigation means, and regulatory gaps with the use of hydrogen onboard aircraft.  
+One item identified by this committee was the potential impact on material flammability in the 
+event  a  small  hydrogen  leak  occurs  that  results  in  a  low-concentration  hydrogen  environment.   
+Hydrogen leaks can occur due to holes, breaks, or defects in material surfaces, but can also occur 
+through diffusion or permeation, through the surface of the confinement vessel [1].  A previous 
+FAA study showed the lower flammability limit (LFL) of hydrogen in air to be 4.7% by volume 
+[2]. Similar studies by other organizations produced similar results.  However, very little is known 
+about the effect hydrogen can have on burning materials when its concentration is below the LFL. 
+
+1.2  OBJECTIVE 
+
+The goal of this experiment was to determine the effect low concentrations of hydrogen in air can 
+have on the burning of aircraft  materials. 
+
+2.  EXPERIMENTAL SETUP 
+
+2.1  TEST METHOD 
+
+All of the testing in this experiment was based on the Vertical Bunsen Burner test for Cabin and 
+Cargo  Compartment  Materials  detailed in  the FAA  Aircraft  Materials Fire  Test  Handbook  [3].  
+The exact test procedure was followed while varying the amount of hydrogen in the test cabinet 
+from 0% to 4%.  All testing was completed in the Components Fire Test Laboratory located at the 
+FAA William J. Hughes Technical Center. 
+
+The handbook states that a Bunsen burner with a 3/8-inch inside diameter barrel with methane at 
+2.5 psig should be used as the fuel source, and there should be no premixing of the fuel with air. 
+This produces a pure diffusion flame.  The only adjustment that can be made to the burner is the 
+flow rate of the methane gas with a needle valve.  The flow rate of the fuel needs to be adjusted so 
+the height of the flame is 1.5 inches.  The flame height was set with no hydrogen in the surrounding 
+air, and the methane fuel flow rate to the burner was kept constant for all tests.  The burner flame 
+appeared  to  be  slightly  taller  (¼  inch  or  less)  when  the  chamber  contained  hydrogen,  so  any 
+increased intensity of the flame during the 12-second ignition period can be directly attributed to 
+the presence of hydrogen in the surrounding air. 
+
+For the 12-second vertical Bunsen burner test, the burner is lit prior to testing and then moved into 
+position ¾ of an inch below the material sample for 12 seconds before being removed. The data 
+that are to be collected from this test are the flame time, drip flame time, and burn length.  The 
+flame time is the amount of time the test sample continues to burn after the burner is removed from 
+beneath the specimen.  The drip flame time is the time that any flaming material continues to burn 
+after falling from the specimen to the floor of the chamber.  The burn length is the distance from 
+the original edge of the sample to the furthest point of flame damage on the specimen.  The material 
+sample to be tested must be at least 3- by 12-inches. 
+
+1 
+
+ 
+Three samples of each material must be tested.  The test is considered a failure if the average flame 
+time for all the specimens exceeds 15 seconds, the average drip flame time exceeds 5 seconds, or 
+the average burn length exceeds 8inches. 
+
+For this experiment, the Bunsen burner cabinet was operated remotely from a control room as a 
+safety precaution against a possible hydrogen explosion. The cabinet is 25 ft3 in volume and was 
+equipped  with  two  pressure-relief  blow-out  panels  that  would  relieve  pressure  in  the  event  the 
+hydrogen in the chamber was ignited above its LFL (figure 1).  Figure 1 also shows the electric 
+actuator, which moves the burner in and out of position under the test sample, and the hydrogen 
+analyzer, which reads the hydrogen concentration inside the test cabinet. 
+
+Figure 1. Automated vertical Bunsen burner cabinet that can be filled with varying 
+amounts of hydrogen 
+
+The  inside  of  the  chamber  was  equipped  with  the  moveable  Bunsen  burner,  the  electric  spark 
+igniters,  the  test  sample  and  holder,  two  30  ft3/min  (CFM)  mixing  fans  to  keep  the  hydrogen 
+
+2 
+
+ 
+ 
+mixture  homogeneous  throughout  the  chamber,  and  intake  and  exhaust  lines  for  the  hydrogen 
+analyzer (figure 2).  The hydrogen analyzer used in the testing was model H2Scan HY-Optima 
+2799, with an accuracy of ±0.15% absolute for hydrogen concentrations of 0.1% to 10%.  The 
+hydrogen added into the chamber and the methane fuel for the burner were each controlled by an 
+electronic solenoid valve. 
+
+Figure 2. Bunsen burner test cabinet interior showing most of the added parts to conduct 
+this experiment remotely 
+
+2.2  TEST PROCEDURE 
+
+For this experiment, tests were conducted on three different materials: a 1/16-inch thick woven 
+carbon fiber, a fabric aircraft seat-cover material, and an 8-ply unidirectional carbon fiber.  The 
+hydrogen concentration in the chamber was varied from 0% to 4% in increments of 1%.  Three 
+samples  of  the  woven  carbon  fiber  and  seat  cover  material  were  tested  at  each  concentration, 
+yielding 15 tests each.  There was less of the unidirectional carbon-fiber material available, so only 
+two were tested at 0% and 4% and one at every other concentration. 
+
+All the tests were operated remotely from a control room, even when no hydrogen was added. To 
+begin a test, the burner was positioned underneath the spark igniter.  For the tests with no hydrogen, 
+the methane fuel solenoid was opened and the spark igniter was turned on simultaneously.  When 
+the flame was lit, the igniter was turned off and the actuator was used to move the burner into 
+position underneath the sample.  The burner was left under the sample for 12 seconds and the fuel 
+was then shut off.  A stopwatch was used to determine the after-flame time, and the exhaust fan 
+was turned on to remove the smoke from the cabinet before the burn length was measured. 
+
+3 
+
+ 
+ 
+For tests with hydrogen, the mixing fans were  turned on  and  the hydrogen solenoid valve was 
+opened until the desired concentration was reached, as indicated by the hydrogen analyzer. The 
+flow of hydrogen and the mixing fans were turned off before igniting the burner and moving it 
+into  position  under  the  sample  for  a  test.    The  hydrogen  analyzer  was  running  throughout  the 
+duration of the test.  The test cabinet was not airtight, and some hydrogen was consumed by the 
+flames  from  the  burner  and  burning  samples  during  testing,  so  the  hydrogen  concentration 
+decreased from its initial setting as each individual test progressed. 
+
+3.  TEST RESULTS 
+
+3.1  1/16 INCH WOVEN CARBON FIBER 
+
+The  first  material  tested  was  the  1/16-inch  -thick  woven  carbon  fiber.    When  tested  without 
+hydrogen in the surrounding environment, three samples produced an average after-flame time of 
+40 seconds and an average burn length of 0.63 inches.  This is considered a failure in the 12-second 
+vertical Bunsen burner test, but the sample self-extinguished with a very short burn length so it 
+could still provide a good basis for comparison. 
+
+Adding  hydrogen  to  the  surrounding  environment  increased  the  flame  time  and  burn  length 
+dramatically.  Even a low average hydrogen concentration of 1.08% for the next three samples 
+tested increased the average flame time to 168 seconds and the average burn length to 5.87 inches.  
+The flame times and burn lengths continued to increase as the hydrogen concentration increased 
+until the entire length of the sample was burned at 3% hydrogen concentration.  The flame time 
+then  decreased  at  4%  hydrogen  concentration,  while  still  burning  the  full  length  of  the  sample 
+because the flame consumed the material faster.  Figure 3 shows the flame time and burn length 
+for each sample tested. 
+
+4 
+
+ 
+)
+s
+(
+e
+m
+T
+e
+m
+a
+
+i
+
+l
+F
+
+240
+
+200
+
+160
+
+120
+
+80
+
+40
+
+0
+0.0%
+
+1/16" Woven Carbon Fiber
+
+12
+
+10
+
+8
+
+6
+
+4
+
+2
+
+)
+n
+i
+(
+h
+t
+g
+n
+e
+L
+n
+r
+u
+B
+
+0.5%
+
+1.0%
+
+1.5%
+
+2.0%
+
+2.5%
+
+3.0%
+
+3.5%
+
+4.0%
+
+Initial Hydrogen Concentration (vol. %)
+
+0
+4.5%
+
+Flame Time
+
+FT Fail
+
+Burn Length
+
+BL Fail
+
+Figure 3. Flame time and burn length of each tested 1/16″ woven carbon-fiber sample  
+
+Three examples of the woven carbon-fiber, after being tested, are shown in figure 4. Moving from 
+left to right, these samples were tested at hydrogen concentrations of 0%, 1%, and 4%. The 0% 
+sample had a 0.6″ burn length; 1% had a 5.5″ burn length; and 4% had an 11.7″ burn length. The 
+sample holder likely caused the flame to extinguish before reaching the full 12″ in the case of 4% 
+hydrogen. 
+
+5 
+
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 4. Post-test woven carbon fiber from left to right: 0% H2, 1% H2, and 4% H2 
+
+The rate at which each sample burned is not a normal calculation that is done in the vertical Bunsen 
+burner test, but it proved to be useful in this experiment.  It was calculated by dividing the burn 
+length by the 12-second time the burner was under the sample, plus the after-flame time. The burn 
+rate of each sample is shown in figure 5.  As the hydrogen concentration increased, the rate at 
+which the flame consumed the sample also increased. 
+
+6 
+
+ 
+ 
+1/16" Woven Carbon-Fiber Burn Rate
+
+i
+
+)
+n
+m
+/
+n
+i
+(
+e
+t
+a
+R
+n
+r
+u
+B
+
+4.5
+
+4.0
+
+3.5
+
+3.0
+
+2.5
+
+2.0
+
+1.5
+
+1.0
+
+0.5
+
+0.0
+
+0.0%
+
+0.5%
+
+1.0%
+
+1.5%
+
+2.0%
+
+2.5%
+
+3.0%
+
+3.5%
+
+4.0%
+
+4.5%
+
+Initial Hydrogen Concentration (vol. %)
+
+Figure 5. Burn rate of all 1/16″ woven carbon-fiber samples 
+
+All  the  data  averaged  for  each  hydrogen  concentration  are  shown  in  table  1.    Because  the  test 
+chamber  was  not  airtight,  and  some  hydrogen  was  consumed  by  the  flame  during  testing,  the 
+hydrogen concentration decreased as each test progressed.  The initial hydrogen concentration is 
+the  concentration  at  the  point  the  burner  was  placed  under  the  sample,  and  the  final  hydrogen 
+concentration occurred when the test sample self-extinguished.  Also shown are the average flame 
+time, burn length, and burn rate. 
+
+7 
+
+ 
+ 
+ 
+ 
+ 
+ 
+Table 1. Test data averaged for each hydrogen concentration for 1/16 inch woven carbon 
+fiber 
+
+1/16 inch Woven Carbon-Fiber Average Data 
+
+Initial H2 % 
+
+Final H2 % 
+
+Flame Time 
+(s) 
+
+Burn Length 
+(in) 
+
+Burn Rate 
+(in/min) 
+
+0.00% 
+
+1.08% 
+
+2.07% 
+
+3.24% 
+
+3.98% 
+
+0.00% 
+
+0.95% 
+
+1.62% 
+
+2.20% 
+
+2.73% 
+
+40.00 
+
+168.00 
+
+192.33 
+
+202.67 
+
+174.00 
+
+0.63 
+
+5.87 
+
+10.13 
+
+11.77 
+
+11.57 
+
+0.73 
+
+1.96 
+
+2.98 
+
+3.29 
+
+3.73 
+
+3.2  FABRIC SEAT COVER 
+
+The next material tested was an aircraft fabric seat cover.  This material was less consistent than 
+the carbon fiber, but still showed the same basic trends of increasing flame time and burn length 
+as the hydrogen concentration increased.  Each sample was cut from the same piece of fabric, so 
+it was unlikely that the inconsistency was caused by the material itself.  It was most likely because 
+it  was  difficult  for  the  sample  holder  to  hold  each  sample  perfectly  straight  across  the  2-inch 
+opening.  Any wrinkles or bends in the fabric could have affected the way the flame traveled up 
+the sample. 
+
+All three of the samples tested without hydrogen had a short 0.5-second flame time and less than 
+3 inches of burn length.  This was well under the criteria for a material to pass this test.  When 
+hydrogen was added, the flame times and burn lengths again increased dramatically.  At 1% and 
+2% hydrogen concentrations, two of the three tested samples burned the full 12 inches in length. 
+At3%, one of three burned the full length, and at 4%, all three samples burned the full length.  Of 
+the samples that did not get fully consumed, there was still an increase in the flame times and burn 
+lengths as the hydrogen concentration increased.  Figure 6 shows the results of all 15 tests. 
+
+8 
+
+ 
+)
+s
+(
+e
+m
+T
+e
+m
+a
+
+i
+
+l
+F
+
+70
+
+60
+
+50
+
+40
+
+30
+
+20
+
+10
+
+0
+0.0%
+
+Fabric Seat Cover Material
+
+14
+
+12
+
+10
+
+8
+
+6
+
+4
+
+2
+
+)
+n
+i
+(
+h
+t
+g
+n
+e
+L
+n
+r
+u
+B
+
+0.5%
+
+1.0%
+
+1.5%
+
+2.0%
+
+2.5%
+
+3.0%
+
+3.5%
+
+4.0%
+
+Initial Hydrogen Concentration (vol. %)
+
+0
+4.5%
+
+Flame Time
+
+FT Fail
+
+Burn Length
+
+BL Fail
+
+Figure 6. Flame time and burn length of each fabric seat cover sample tested 
+
+Three examples of the seat-cover fabric post-test are shown in figure 7.  From left to right in the 
+picture, they were tested at hydrogen concentrations of 0%, 2%, and 4%.  Their burn lengths were 
+2.8″, 4.0″, and 12″, respectively. 
+
+9 
+
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 7. Post-test fabric seat cover from left to right: 0% H2, 2% H2, and 4% H2 
+
+The  burn  rate  of  the  seat-cover  fabric  stayed  relatively  constant  as  the  hydrogen  concentration 
+increased,  which  was  different  than  the  carbon-fiber  material  tested.    The  hydrogen  seemed  to 
+affect only the amount of material consumed in the fire, but not how fast it burned. The burn rates 
+for all 15 samples are shown in figure 8.  Table 2 shows the average hydrogen concentrations at 
+the beginning and end of each test and the average test results. 
+
+10 
+
+ 
+ 
+18
+
+16
+
+14
+
+12
+
+10
+
+8
+
+6
+
+4
+
+2
+
+i
+
+)
+n
+m
+/
+n
+i
+(
+e
+t
+a
+R
+n
+r
+u
+B
+
+0
+0.0%
+
+Fabric Seat Cover Burn Rate
+
+0.5%
+
+1.0%
+
+1.5%
+
+2.0%
+
+2.5%
+
+3.0%
+
+3.5%
+
+4.0%
+
+4.5%
+
+Initial Hydrogen Concentration (vol.%)
+
+Figure 8. Burn rate of all fabric seat-cover samples 
+
+Table 2. Test data averaged for each hydrogen concentration for seat-cover fabric 
+
+Fabric Seat-Cover Average Data 
+
+Initial H2 % 
+
+Final H2 % 
+
+Flame Time 
+(s) 
+
+Burn Length 
+(in) 
+
+Burn Rate 
+(in/min) 
+
+0.00% 
+
+1.05% 
+
+2.03% 
+
+3.03% 
+
+4.02% 
+
+0.00% 
+
+1.02% 
+
+1.94% 
+
+2.96% 
+
+3.68% 
+
+0.50 
+
+32.83 
+
+34.33 
+
+23.00 
+
+53.00 
+
+2.53 
+
+9.10 
+
+9.33 
+
+7.50 
+
+12.00 
+
+12.16 
+
+13.20 
+
+12.38 
+
+12.96 
+
+11.20 
+
+3.3  8-PLY TC250 UNIDIRECTIONAL CARBON FIBER 
+
+The final material tested was an 8-ply TC250 unidirectional carbon fiber.  There was little of this 
+available,  so  only  seven  samples  were  tested.    The  test  results  still  showed  the  same  trend  of 
+
+11 
+
+ 
+ 
+ 
+ 
+increased flame times and burn lengths with increased hydrogen concentrations.  There was a large 
+increase  from  testing  with  no  hydrogen  compared  to  1%,  and  then  a  smaller  increase  in  burn 
+lengths at higher concentrations.  The results from each test are shown in figure 9. 
+
+8 Ply TC250 Unidirectional Carbon Fiber
+
+)
+s
+(
+e
+m
+T
+e
+m
+a
+
+i
+
+l
+F
+
+160
+
+140
+
+120
+
+100
+
+80
+
+60
+
+40
+
+20
+
+0
+0.0%
+
+0.5%
+
+1.0%
+
+1.5%
+
+2.0%
+
+2.5%
+
+3.0%
+
+3.5%
+
+4.0%
+
+Initial Hydrogen Concentration (vol. %)
+
+Flame Time
+
+FT Fail
+
+Burn Length
+
+BL Fail
+
+8
+
+7
+
+6
+
+5
+
+4
+
+3
+
+2
+
+1
+
+)
+n
+i
+(
+h
+t
+g
+n
+e
+L
+n
+r
+u
+B
+
+0
+4.5%
+
+Figure 9. Flame time and burn length of each unidirectional carbon-fiber sample tested 
+
+Three of the samples tested are shown in figure 10.  From left to right, the figure shows that they 
+were tested at hydrogen concentrations of 0%, 2%, and 4%.  Their burn lengths were 0.3″, 3.7″, 
+and 4.7″, respectively.  The flame damage on the upper sections of all three of these samples was 
+from an unrelated test and had no effect on these test results. 
+
+12 
+
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 10. Post-test unidirectional carbon fiber, from left to right: 0% H2, 2% H2,  
+and 4% H2 
+
+The burn rate of this material showed a very similar trend to the woven carbon fiber.  The burn 
+rate increased as the hydrogen concentration increased, with the biggest jump coming between 0% 
+and 1% hydrogen.  The results are shown in figure 11.  The average initial and final hydrogen 
+concentrations, along with the average test results, are shown in table 3. 
+
+13 
+
+ 
+ 
+8-Ply TC250 Unidirectional Carbon-Fiber Burn 
+Rate
+
+i
+
+)
+n
+m
+/
+n
+i
+(
+e
+t
+a
+R
+n
+r
+u
+B
+
+2.5
+
+2.0
+
+1.5
+
+1.0
+
+0.5
+
+0.0
+
+0.0%
+
+0.5%
+
+1.0%
+
+1.5%
+
+2.0%
+
+2.5%
+
+3.0%
+
+3.5%
+
+4.0%
+
+4.5%
+
+Initial Hydrogen Concentration (vol. %)
+
+Figure 11. Burn rate of all unidirectional carbon-fiber samples 
+
+Table 3. Test data averaged for each hydrogen concentration for unidirectional  
+carbon fiber 
+
+8-Ply TC250 Unidirectional Carbon-Fiber Average Data 
+
+Initial H2 % 
+
+Final H2 % 
+
+Flame Time 
+(s) 
+
+Burn Length 
+(in) 
+
+Burn Rate 
+(in/min) 
+
+0.00% 
+
+1.08% 
+
+2.09% 
+
+3.08% 
+
+4.02% 
+
+0.00% 
+
+1.02% 
+
+1.90% 
+
+2.70% 
+
+3.36% 
+
+10.25 
+
+148.00 
+
+123.00 
+
+133.00 
+
+130.50 
+
+0.20 
+
+3.80 
+
+3.70 
+
+4.20 
+
+4.70 
+
+0.52 
+
+1.43 
+
+1.64 
+
+1.74 
+
+1.98 
+
+4.  CONCLUSION 
+
+Several tests were conducted to determine whether concentrations of hydrogen below the lower 
+flammability limit could affect the burning of materials.  The 12-second vertical Bunsen burner 
+
+14 
+
+ 
+ 
+ 
+ 
+procedure was used with a hydrogen concentration in the test cabinet that varied between 0% and 
+4%. Three different materials were tested: a 1/16-inch-thick woven carbon fiber, an aircraft seat-
+cover fabric, and an 8-ply unidirectional carbon fiber.  All of the test materials showed increased 
+after-flame times and burn lengths with increased hydrogen concentrations.  The burn rate for both 
+carbon-fiber materials also increased as the hydrogen concentration increased.  The burn rate for 
+the seat-cover fabric stayed relatively constant. 
+
+5.  REFERENCES 
+
+1.  
+
+2.  
+
+Schefer,  R.,  Houf,  W.,  San  Marchi,  C.,  Chernicoff  W.,  and  Englom  L.  (2006). 
+Characterization  of  leaks  from  compressed  hydrogen  dispensing  systems  and  related 
+components, International Journal of Hydrogen Energy, 31, 1247–1260.  
+
+FAA  Report.  (2014).  Flammability  of  Hydrogen  at  Sub-Atmospheric  Pressures  and 
+Reduced Oxygen Concentrations. (DOT/FAA/TC-TT14/36).  
+
+3.  
+
+FAA Report. (2000). Aircraft Materials Fire Test Handbook. (DOT/FAA/AR-00/12). 
+
+15 
+
+ 
+ 
+ 
+
