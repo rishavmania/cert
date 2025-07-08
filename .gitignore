@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+*.env
+.env
+
+# Streamlit
+.streamlit/local/
+
+# Processed Data & Vector DB (IMPORTANT!)
+pdfs/processed_data/
+*.txt # If your .txt files are generated and not source
+*.pdf # If your original PDFs are too large or not meant for repo
+
+# API Keys (IMPORTANT!)
+*.env
+.streamlit/secrets.toml # We'll use this for Streamlit Cloud secrets

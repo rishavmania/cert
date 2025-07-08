@@ -6,77 +6,47 @@ from PIL import Image # Pillow for image processing
 import io # Import io for image saving
 import pandas as pd # Import pandas for tabula-py DataFrames
 from pdfminer.high_level import extract_text as pdfminer_extract_text # Import pdfminer for PDF to TXT
-import streamlit as st
 
+import chromadb
 from openai import OpenAI # For embedding generation
-import psycopg2 # For PostgreSQL connection
-from pgvector.psycopg2 import register_vector # For pgvector support
 
 # --- OpenAI API Configuration for Embeddings ---
 # IMPORTANT: Replace with your actual OpenAI API Key for embeddings
-OPENAI_API_KEY_EMBEDDINGS = st.secrets["OPENAI_API_KEY_LLM"]
+# This key is used by process_pdfs.py to create embeddings
+OPENAI_API_KEY_EMBEDDINGS = "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"
 openai_client_embeddings = OpenAI(api_key=OPENAI_API_KEY_EMBEDDINGS)
 
-# --- Supabase Configuration ---
-# IMPORTANT: Replace with your Supabase connection details
-SUPABASE_DB_HOST = st.secrets["SUPABASE_DB_HOST"]
-SUPABASE_DB_PORT = st.secrets["SUPABASE_DB_PORT"]
-SUPABASE_DB_NAME = st.secrets["SUPABASE_DB_NAME"]
-SUPABASE_DB_USER = st.secrets["SUPABASE_DB_USER"]
-SUPABASE_DB_PASSWORD = st.secrets["SUPABASE_DB_PASSWORD"]
-SUPABASE_TABLE_NAME = st.secrets["SUPABASE_TABLE_NAME"]
-
-# --- Configuration for processed data ---
+# --- Configuration ---
+# Base directory where your original PDF files are located
 BASE_PDF_DIR = r"C:\Users\drris\Downloads\SLapp\pdfs"
+# Directory where processed JSON data and extracted images will be saved
 OUTPUT_DIR = os.path.join(BASE_PDF_DIR, "processed_data")
+# Directory for extracted images (will be created inside OUTPUT_DIR)
 IMAGES_OUTPUT_DIR = os.path.join(OUTPUT_DIR, "extracted_images")
+# Directory for ChromaDB persistent storage
+CHROMA_DB_DIR = os.path.join(OUTPUT_DIR, "chroma_db")
+# ChromaDB Collection Name
+CHROMA_COLLECTION_NAME = "aircraft_certification_docs"
 
 # --- Ensure output directories exist ---
 print(f"Ensuring output directory exists: {OUTPUT_DIR}")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 print(f"Ensuring images output directory exists: {IMAGES_OUTPUT_DIR}")
 os.makedirs(IMAGES_OUTPUT_DIR, exist_ok=True)
+print(f"Ensuring ChromaDB directory exists: {CHROMA_DB_DIR}")
+os.makedirs(CHROMA_DB_DIR, exist_ok=True)
 print("Directories checked/created successfully.")
 
-# --- Supabase Database Connection and Table Setup ---
-def get_db_connection():
-    try:
-        conn = psycopg2.connect(
-            host=SUPABASE_DB_HOST,
-            port=SUPABASE_DB_PORT,
-            database=SUPABASE_DB_NAME,
-            user=SUPABASE_DB_USER,
-            password=SUPABASE_DB_PASSWORD
-        )
-        register_vector(conn) # Enable pgvector support for this connection
-        print("Successfully connected to Supabase PostgreSQL.")
-        return conn
-    except Exception as e:
-        print(f"Error connecting to Supabase PostgreSQL: {e}")
-        print("Please check your Supabase connection details and ensure pgvector extension is enabled.")
-        exit()
-
-def setup_db_table(conn):
-    cur = conn.cursor()
-    try:
-        cur.execute("""
-            CREATE TABLE IF NOT EXISTS documents (
-                id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-                doc_id TEXT,
-                doc_title TEXT,
-                chunk_index INT,
-                content TEXT,
-                embedding VECTOR(1536)
-            );
-        """)
-        conn.commit()
-        print("Table 'documents' ensured to exist in Supabase.")
-    except Exception as e:
-        print(f"Error setting up 'documents' table: {e}")
-        conn.rollback()
-        exit()
-    finally:
-        cur.close()
+# --- Initialize ChromaDB Client ---
+chroma_client = chromadb.PersistentClient(path=CHROMA_DB_DIR)
+# Get or create the collection
+try:
+    collection = chroma_client.get_or_create_collection(name=CHROMA_COLLECTION_NAME)
+    print(f"ChromaDB collection '{CHROMA_COLLECTION_NAME}' initialized.")
+except Exception as e:
+    print(f"Error initializing ChromaDB collection: {e}")
+    print("Please ensure chromadb is installed correctly and the directory is accessible.")
+    exit() # Exit if ChromaDB can't be initialized
 
 # --- Helper Functions ---
 
@@ -86,6 +56,7 @@ def get_embedding(text):
         print("WARNING: OpenAI API key not set for embeddings. Skipping embedding generation.")
         return None
     try:
+        # Use the text-embedding-ada-002 model
         response = openai_client_embeddings.embeddings.create(
             input=text,
             model="text-embedding-ada-002"
@@ -105,12 +76,13 @@ def extract_tables_from_pdf(pdf_file_path):
         print(f"  - WARNING: Original PDF not found for table extraction at '{pdf_file_path}'. Skipping table extraction.")
         return tables_data
     try:
+        # Pass the JVM option to suppress warnings
         java_opts = ["--enable-native-access=ALL-UNNAMED"]
         dfs = tabula.read_pdf(pdf_file_path, pages='all', multiple_tables=True, lattice=True, stream=False, encoding='utf-8', java_options=java_opts)
         for i, df in enumerate(dfs):
             tables_data.append({
                 "table_id": f"table_{i+1}",
-                "data": df.where(pd.notnull(df), None).to_dict(orient='records')
+                "data": df.where(pd.notnull(df), None).to_dict(orient='records') # Replace NaN with None for JSON
             })
         print(f"  - Extracted {len(tables_data)} tables from {os.path.basename(pdf_file_path)}")
     except Exception as e:
@@ -155,7 +127,7 @@ def extract_images_from_pdf(pdf_file_path, output_dir, doc_id):
     return extracted_image_paths
 
 
-def chunk_text(text, chunk_size=500, overlap=50):
+def chunk_text(text, chunk_size=1000, overlap=100):
     """
     Breaks down text into smaller chunks with optional overlap.
     """
@@ -174,12 +146,9 @@ def chunk_text(text, chunk_size=500, overlap=50):
 
 # --- Main Processing Logic ---
 
-# Connect to Supabase and set up table
-conn = get_db_connection()
-setup_db_table(conn)
-
 all_processed_documents_metadata = []
 
+# Define your document metadata - paths are now constructed dynamically
 documents_config = [
     {"id": "doc_1", "title": "1. tc19-16 - Energy Supply Device ARC Recommendation Report.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\1. tc19-16 - Energy Supply Device ARC Recommendation Report.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\1. tc19-16 - Energy Supply Device ARC Recommendation Report.pdf", "key_topics": ["Hydrogen Fuel Cell", "Safety", "Temperature Range"], "num_requirements": 2, "num_discrepancies": 1},
     {"id": "doc_2", "title": "2. tc18-49 - Failure Mode and Effects Analysis on PEM Fuel Cell Systems for Aircraft Power Applications.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\2. tc18-49 - Failure Mode and Effects Analysis on PEM Fuel Cell Systems for Aircraft Power Applications.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\2. tc18-49 - Failure Mode and Effects Analysis on PEM Fuel Cell Systems for Aircraft Power Applications.pdf", "key_topics": ["PEM Fuel Cell", "FMEA", "Leakage"], "num_requirements": 3, "num_discrepancies": 1},
@@ -190,14 +159,18 @@ documents_config = [
     {"id": "doc_7", "title": "tc19-17 - Evaluation for a Lightweight Fuel Cell Containment System for Aircraft Safety.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc19-17 - Evaluation for a Lightweight Fuel Cell Containment System for Aircraft Safety.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc19-17 - Evaluation for a Lightweight Fuel Cell Containment System for Aircraft Safety.pdf", "key_topics": ["Fuel Cell Containment", "Lightweight Systems", "Aircraft Safety"], "num_requirements": 1, "num_discrepancies": 0},
     {"id": "doc_8", "title": "tc16-24 - Abusive Testing of Proton Exchange Membrane Hydrogen Fuel Cells.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc16-24 - Abusive Testing of Proton Exchange Membrane Hydrogen Fuel Cells.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc16-24 - Abusive Testing of Proton Exchange Membrane Hydrogen Fuel Cells.pdf", "key_topics": ["PEM Fuel Cell", "Abusive Testing", "Safety"], "num_requirements": 1, "num_discrepancies": 0},
     {"id": "doc_9", "title": "tc21-30 - Study of Unitized Regenerative Fuel Cell Systems for Aircraft Applications.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc21-30 - Study of Unitized Regenerative Fuel Cell Systems for Aircraft Applications.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc21-30 - Study of Unitized Regenerative Fuel Cell Systems for Aircraft Applications.pdf", "key_topics": ["Regenerative Fuel Cell", "Aircraft Applications"], "num_requirements": 1, "num_discrepancies": 0}#,
+    # {"id": "doc_10", "title": "tc16-24.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc16-24.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc16-24.pdf", "key_topics": ["General Testing", "Safety"], "num_requirements": 1, "num_discrepancies": 0},
+    # {"id": "doc_11", "title": "tc19-16.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc19-16.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc19-16.pdf", "key_topics": ["General Aircraft", "Maintenance"], "num_requirements": 0, "num_discrepancies": 0},
+    # {"id": "doc_12", "title": "tc18-49.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc18-49.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc18-49.pdf", "key_topics": ["General Fuel Cell", "Performance"], "num_requirements": 0, "num_discrepancies": 0}
 ]
 
 for doc_info in documents_config:
     doc_id = doc_info["id"]
     doc_title = doc_info["title"]
     
-    pdf_basename = doc_title
-    txt_basename = os.path.splitext(doc_title)[0] + ".txt"
+    # Construct paths using os.path.join for robustness
+    pdf_basename = doc_title # PDF title is the base name for the PDF file
+    txt_basename = os.path.splitext(doc_title)[0] + ".txt" # TXT name derived from PDF title
     
     doc_pdf_file_path = os.path.join(BASE_PDF_DIR, pdf_basename)
     doc_txt_file_path = os.path.join(BASE_PDF_DIR, txt_basename)
@@ -205,28 +178,34 @@ for doc_info in documents_config:
     print(f"\n--- Processing document: {doc_title} ---")
     print(f"  - Looking for PDF at: '{doc_pdf_file_path}'")
 
-    text_content = ""
+    text_content = "" # Initialize text_content
+    # 1. Convert PDF to TXT using pdfminer.six and then read the content
     if os.path.exists(doc_pdf_file_path):
         try:
+            # Extract text directly from PDF, replacing problematic characters
+            # Removed 'encoding' and 'errors' as they cause issues with older pdfminer.six versions
             text_content = pdfminer_extract_text(doc_pdf_file_path)
+            # Save the extracted text to the .txt file path
             with open(doc_txt_file_path, 'w', encoding='utf-8', errors='replace') as f:
                 f.write(text_content)
             print(f"  - Successfully extracted text from PDF and saved to '{os.path.basename(doc_txt_file_path)}'")
         except Exception as e:
             print(f"  - ERROR extracting text from PDF '{os.path.basename(doc_pdf_file_path)}' using pdfminer.six: {e}. Text content for this document will be empty.")
-            text_content = ""
+            text_content = "" # Set to empty string if extraction fails
     else:
         print(f"  - ERROR: Original PDF not found at '{doc_pdf_file_path}'. Cannot extract text. Text content for this document will be empty.")
         text_content = ""
 
-    if not text_content:
+
+    if not text_content: # Check if text_content is empty after extraction attempt
         print(f"Skipping further processing (tables, images, chunks) for {doc_title} due to empty/unreadable text content.")
+        # We still append metadata even if text is empty, so it shows up in the dashboard
         all_processed_documents_metadata.append({
             "id": doc_id,
             "title": doc_title,
             "original_txt_file_path": doc_txt_file_path,
             "original_pdf_file_path": doc_pdf_file_path,
-            "full_text_content": "",
+            "full_text_content": "", # Explicitly empty
             "chunks": [],
             "extracted_tables": [],
             "extracted_image_paths": [],
@@ -234,63 +213,86 @@ for doc_info in documents_config:
             "num_requirements": doc_info["num_requirements"],
             "num_discrepancies": doc_info["num_discrepancies"]
         })
-        continue
+        continue # Skip to next document
 
+    # 2. Extract Tables (from original .pdf file)
     extracted_tables = extract_tables_from_pdf(doc_pdf_file_path)
+
+    # 3. Extract Images (from original .pdf file)
     extracted_image_paths = extract_images_from_pdf(doc_pdf_file_path, IMAGES_OUTPUT_DIR, doc_id)
+
+    # 4. Chunk Text
     chunks = chunk_text(text_content, chunk_size=500, overlap=50)
     
-    # --- Insert chunks into Supabase ---
-    print(f"  - Generating embeddings and adding {len(chunks)} chunks to Supabase for '{doc_title}'. This might take a moment...")
-    cur = conn.cursor()
-    try:
-        for i, chunk in enumerate(chunks):
-            chunk_id = f"{doc_id}_chunk_{i+1}"
-            embedding = get_embedding(chunk)
+    # --- Add chunks to ChromaDB ---
+    documents_to_add_to_chroma = []
+    metadatas_for_chroma = []
+    ids_for_chroma = []
 
-            if embedding is not None:
-                # Insert into Supabase 'documents' table
-                cur.execute(
-                    """
-                    INSERT INTO documents (doc_id, doc_title, chunk_index, content, embedding)
-                    VALUES (%s, %s, %s, %s, %s);
-                    """,
-                    (doc_id, doc_title, i, chunk, embedding)
-                )
-            else:
-                print(f"  - WARNING: Skipping chunk {chunk_id} due to embedding generation failure.")
-        conn.commit()
-        print(f"  - Added {len(chunks)} chunks to Supabase for '{doc_title}'.")
-    except Exception as e:
-        print(f"  - ERROR adding chunks to Supabase for '{doc_title}': {e}")
-        conn.rollback() # Rollback in case of error
-    finally:
-        cur.close()
+    print(f"  - Generating embeddings and adding {len(chunks)} chunks to ChromaDB for '{doc_title}'. This might take a moment...") # Added print statement
+    for i, chunk in enumerate(chunks):
+        chunk_id = f"{doc_id}_chunk_{i+1}"
+        embedding = get_embedding(chunk) # Generate embedding for the chunk
+
+        if embedding is not None:
+            documents_to_add_to_chroma.append(chunk)
+            metadatas_for_chroma.append({
+                "doc_id": doc_id,
+                "doc_title": doc_title,
+                "chunk_id": chunk_id,
+                "chunk_index": i,
+                "original_pdf_path": doc_pdf_file_path,
+                "type": "text_chunk"
+            })
+            ids_for_chroma.append(chunk_id)
+        else:
+            print(f"  - WARNING: Skipping chunk {chunk_id} due to embedding generation failure.")
+
+    if documents_to_add_to_chroma:
+        try:
+            print(f"  - Adding {len(documents_to_add_to_chroma)} chunks to ChromaDB for '{doc_title}'. This might take a moment...") # Added print statement
+            # Add chunks and embeddings to ChromaDB
+            collection.add(
+                documents=documents_to_add_to_chroma,
+                metadatas=metadatas_for_chroma,
+                ids=ids_for_chroma
+            )
+            print(f"  - Added {len(documents_to_add_to_chroma)} chunks to ChromaDB for '{doc_title}'.")
+        except Exception as e:
+            print(f"  - ERROR adding chunks to ChromaDB for '{doc_title}': {e}")
+    else:
+        print(f"  - No chunks to add to ChromaDB for '{doc_title}'.")
 
 
+    # Add all extracted data to metadata (for JSON file, excluding chunks as they are in Chroma)
     all_processed_documents_metadata.append({
         "id": doc_id,
         "title": doc_title,
-        "original_txt_file_path": doc_txt_file_path,
-        "original_pdf_file_path": doc_pdf_file_path,
-        "full_text_content": text_content,
+        "original_txt_file_path": doc_txt_file_path, # Path to the .txt version
+        "original_pdf_file_path": doc_pdf_file_path, # Path to the original .pdf
+        "full_text_content": text_content, # Still store full text for display/comparison
         "extracted_tables": extracted_tables,
-        "extracted_image_paths": extracted_image_paths,
+        "extracted_image_paths": extracted_image_paths, # Store paths to saved images
         "key_topics": doc_info["key_topics"],
         "num_requirements": doc_info["num_requirements"],
         "num_discrepancies": doc_info["num_discrepancies"]
     })
 
-conn.close()
-print("\nSupabase connection closed.")
-
 # --- Save Processed Data to JSON Files ---
+# These will be loaded by your app.py
+
+# Save the comprehensive document metadata
 print(f"\nSaving processed document metadata to {os.path.join(OUTPUT_DIR, 'processed_documents_metadata.json')}")
 with open(os.path.join(OUTPUT_DIR, "processed_documents_metadata.json"), 'w', encoding='utf-8') as f:
     json.dump(all_processed_documents_metadata, f, indent=4)
 print("Saved processed_documents_metadata.json successfully.")
 
-# Save other simulated data (entities, checklist, discrepancies, QA) - same as before
+# Save the other simulated data (entities, checklist, discrepancies, QA)
+# These are still hardcoded in this script for now, as their generation
+# would involve actual AI models processing the extracted text/tables/images.
+# In a real system, these would be generated dynamically.
+
+# Placeholder for dynamically extracted entities (currently empty from this script)
 dummy_extracted_entities = {
     "doc_1": [{"text": "hydrogen fuel cells", "type": "AIRCRAFT_SYSTEM"}, {"text": "-40C", "type": "TEMPERATURE"}],
     "doc_2": [{"text": "PEM fuel cell systems", "type": "AIRCRAFT_SYSTEM"}, {"text": "80C", "type": "TEMPERATURE"}],
@@ -300,16 +302,53 @@ dummy_extracted_entities = {
     "doc_6": [{"text": "aircraft fuel cell system", "type": "AIRCRAFT_SYSTEM"}],
     "doc_7": [{"text": "Fuel Cell Containment", "type":"SAFETY_ASPECT"}],
     "doc_8": [{"text": "Abusive Testing", "type": "SAFETY_ASPECT"}],
-    "doc_9": [{"text":"Regenerative Fuel Cell", "type": "AIRCRACT_APPLICATIONS"}]
+    "doc_9": [{"text":"Regenerative Fuel Cell", "type": "AIRCRACT_APPLICATIONS"}]#,
+    # {"id": "doc_10", "title": "tc16-24.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc16-24.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc16-24.pdf", "key_topics": ["General Testing", "Safety"], "num_requirements": 1, "num_discrepancies": 0},
+    # {"id": "doc_11", "title": "tc19-16.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc19-16.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc19-16.pdf", "key_topics": ["General Aircraft", "Maintenance"], "num_requirements": 0, "num_discrepancies": 0},
+    # {"id": "doc_12", "title": "tc18-49.pdf", "file_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc18-49.txt", "original_pdf_path": r"C:\Users\drris\Downloads\SLapp\pdfs\tc18-49.pdf", "key_topics": ["General Fuel Cell", "Performance"], "num_requirements": 0, "num_discrepancies": 0}
+}
+
+
+
+# --- Save Processed Data to JSON Files ---
+# These will be loaded by your app.py
+
+# Save the comprehensive document metadata
+print(f"\nSaving processed document metadata to {os.path.join(OUTPUT_DIR, 'processed_documents_metadata.json')}")
+with open(os.path.join(OUTPUT_DIR, "processed_documents_metadata.json"), 'w', encoding='utf-8') as f:
+    json.dump(all_processed_documents_metadata, f, indent=4)
+print("Saved processed_documents_metadata.json successfully.")
+
+# Save the other simulated data (entities, checklist, discrepancies, QA)
+# These are still hardcoded in this script for now, as their generation
+# would involve actual AI models processing the extracted text/tables/images.
+# In a real system, these would be generated dynamically.
+
+# Placeholder for dynamically extracted entities (currently empty from this script)
+dummy_extracted_entities = {
+    "doc_1": [{"text": "hydrogen fuel cells", "type": "AIRCRAFT_SYSTEM"}, {"text": "-40C", "type": "TEMPERATURE"}],
+    "doc_2": [{"text": "PEM fuel cell systems", "type": "AIRCRAFT_SYSTEM"}, {"text": "80C", "type": "TEMPERATURE"}],
+    "doc_3": [{"text": "ASTM E1354", "type": "CERTIFICATION_STANDARD"}],
+    "doc_4": [{"text": "fuel tank flammability", "type": "SAFETY_ASPECT"}],
+    "doc_5": [{"text": "safety management system", "type": "SYSTEM"}],
+    "doc_6": [{"text": "aircraft fuel cell system", "type": "AIRCRAFT_SYSTEM"}],
+    "doc_7": [{"text": "lightweight fuel cell containment", "type": "COMPONENT"}],
+    "doc_8": [{"text": "abusive testing", "type": "TEST_PROCEDURE"}],
+    "doc_9": [{"text": "regenerative fuel cell", "type": "FUEL_CELL_TYPE"}]#,
+    #"doc_10": [{"text": "tc16-24", "type": "DOCUMENT_ID"}],
+    #"doc_11": [{"text": "general aircraft", "type": "AIRCRAFT_TYPE"}],
+    #"doc_12": [{"text": "general fuel cell", "type": "FUEL_CELL_TYPE"}]
 }
 print(f"Saving extracted entities (simulated) to {os.path.join(OUTPUT_DIR, 'extracted_entities.json')}")
 with open(os.path.join(OUTPUT_DIR, "extracted_entities.json"), 'w', encoding='utf-8') as f:
     json.dump(dummy_extracted_entities, f, indent=4)
 print("Saved extracted_entities.json successfully.")
 
+# Hardcoded fake checklist data (replace with AI-generated in real app)
+print(f"Saving checklist items (simulated) to {os.path.join(OUTPUT_DIR, 'checklist_items.json')}")
 fake_checklist_data = [
     {"id": "req_001", "description": "Fuel cells must operate safely between -40°C and +85°C.", "related_docs": ["doc_1"], "relevant_section": "Doc 1, Sec 3.1.2", "related_entities": ["Hydrogen Fuel Cell", "Temperature Range"], "status": "Pending", "notes": "", "dependencies": [], "associated_discrepancy": True},
-    {"id": "req_002", "description": "Pressure relief valve per FAR Part 25.903(b).", "related_docs": ["doc_1", "doc_2"], "relevant_section": "Doc 1, Sec 3.1.2; Doc 2, Para 2", "related_entities": ["Pressure Relief Valve", "FAR Part 25.903(b)"], "status": "In Progress", "notes": "Eng review needed.", "dependencies": ["req_001"], "associated_discrepancy": True},
+    {"id": "req_002", "description": "Pressure relief valve per FAR Part 25.903(b).", "related_docs": ["doc_1", "doc_2"], "relevant_section": "Doc 1, Sec 3.1.2; Doc 2, Para 2", "related_entities": ["Pressure Relief Valve", "FAR Part 25.903(b)"], "status": "In Progress", "notes": "Eng review needed.", "dependencies": [], "associated_discrepancy": True},
     {"id": "req_003", "description": "PEM fuel cell max temp 80°C.", "related_docs": ["doc_2"], "relevant_section": "Doc 2, Para 1", "related_entities": ["PEM Fuel Cell System", "Temperature Limit"], "status": "Pending", "notes": "", "dependencies": [], "associated_discrepancy": False},
     {"id": "req_004", "description": "Materials must meet fire resistance (ASTM E1354).", "related_docs": ["doc_3"], "relevant_section": "Doc 3, Para 1", "related_entities": ["Materials", "ASTM E1354"], "status": "Completed", "notes": "Report filed.", "dependencies": [], "associated_discrepancy": False},
     {"id": "req_005", "description": "Fuel tank flammability assessment must be performed.", "related_docs": ["doc_4"], "relevant_section": "Doc 4, Sec 2.1", "related_entities": ["Fuel Tank", "Flammability"], "status": "Pending", "notes": "", "dependencies": [], "associated_discrepancy": False},
@@ -320,6 +359,8 @@ with open(os.path.join(OUTPUT_DIR, "checklist_items.json"), 'w', encoding='utf-8
     json.dump(fake_checklist_data, f, indent=4)
 print("Saved checklist_items.json successfully.")
 
+# Hardcoded fake discrepancy data (replace with AI-generated in real app)
+print(f"Saving discrepancies (simulated) to {os.path.join(OUTPUT_DIR, 'discrepancies.json')}")
 fake_discrepancy_data = [
     {"id": "disc_001", "conflicting_requirements": ["req_001", "req_003"], "nature_of_conflict": "Temperature operating range discrepancy: Doc 1 allows up to +85°C, but Doc 2 states maximum 80°C for PEM systems. Need clarity on specific PEM fuel cell limits.", "involved_docs": ["doc_1", "doc_2"], "proposed_resolution_notes": "Proposed to follow 80C limit for all PEM systems to be conservative.", "clarity_request_status": "Drafted"},
     {"id": "disc_002", "conflicting_requirements": ["req_002"], "nature_of_conflict": "Pressure relief valve activation pressure: Doc 2 specifies 550 PSI, but Doc 1 (and FAR Part 25.903b) is general. Need specific activation pressure for this valve based on system design.", "involved_docs": ["doc_1", "doc_2"], "proposed_resolution_notes": "Awaiting design specifications before finalizing pressure setting.", "clarity_request_status": "Not Sent"}
@@ -328,6 +369,8 @@ with open(os.path.join(OUTPUT_DIR, "discrepancies.json"), 'w', encoding='utf-8')
     json.dump(fake_discrepancy_data, f, indent=4)
 print("Saved discrepancies.json successfully.")
 
+# Hardcoded fake QA responses (replace with AI-generated in real app)
+print(f"Saving QA responses (simulated) to {os.path.join(OUTPUT_DIR, 'qa_responses.json')}")
 fake_qa_responses = [
     {"question": "what are the flammability requirements?", "answer": "Materials in hydrogen environments must meet fire resistance standards like ASTM E1354. Hydrogen concentrations exceeding 4% are considered hazardous for ignition. All wiring insulation also requires special attention.", "sources": ["doc_3"]},
     {"question": "what is the required temperature for fuel cells?", "answer": "Documents indicate a general operating range of -40°C to +85°C. For PEM fuel cell systems, the maximum operating temperature should not exceed 80°C.", "sources": ["doc_1", "doc_2"]},
@@ -338,4 +381,4 @@ with open(os.path.join(OUTPUT_DIR, "qa_responses.json"), 'w', encoding='utf-8') 
     json.dump(fake_qa_responses, f, indent=4)
 print("Saved qa_responses.json successfully.")
 
-print("\nProcessing complete. Now, you can run app.v2.py to see the dashboard with richer data.")
+print("\nProcessing complete. Now, you can run app.py to see the dashboard with richer data.")

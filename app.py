@@ -2,128 +2,28 @@ import streamlit as st
 import pandas as pd
 import os
 import json
-import openai
-from openai import OpenAI
-import io
-import psycopg2 # For PostgreSQL connection
-from pgvector.psycopg2 import register_vector # For pgvector support
-from pyairtable import Table # For Airtable
+import openai # Import OpenAI library
+from openai import OpenAI # Import the new OpenAI client
+import io # For displaying images from bytes
 
-# --- Configuration Constants ---
-# Directory where processed JSON data is stored (still needed for metadata JSONs)
+# --- OpenAI API Configuration ---
+# IMPORTANT: Replace "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" with your actual OpenAI API Key
+# Initialize the OpenAI client
+client = OpenAI(api_key="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")
+
+# --- Configuration for processed data ---
 PROCESSED_DATA_DIR = r"C:\Users\drris\Downloads\SLapp\pdfs\processed_data"
+PDF_DIR = r"C:\Users\drris\Downloads\SLapp\pdfs" # Used for constructing image paths
 
-# OpenAI API Key for LLM calls (gpt-3.5-turbo) and Query Embeddings
-OPENAI_API_KEY_LLM = st.secrets["OPENAI_API_KEY_LLM"]
-openai_client_llm = OpenAI(api_key=OPENAI_API_KEY_LLM)
-
-# Supabase Configuration
-SUPABASE_DB_HOST = st.secrets["SUPABASE_DB_HOST"]
-SUPABASE_DB_PORT = st.secrets["SUPABASE_DB_PORT"]
-SUPABASE_DB_NAME = st.secrets["SUPABASE_DB_NAME"]
-SUPABASE_DB_USER = st.secrets["SUPABASE_DB_USER"]
-SUPABASE_DB_PASSWORD = st.secrets["SUPABASE_DB_PASSWORD"]
-SUPABASE_TABLE_NAME = st.secrets["SUPABASE_TABLE_NAME"]
-
-# Airtable Configuration
-AIRTABLE_API_KEY = st.secrets["AIRTABLE_API_KEY"]
-AIRTABLE_BASE_ID = st.secrets["AIRTABLE_BASE_ID"]
-AIRTABLE_REQUIREMENTS_TABLE_NAME = st.secrets["AIRTABLE_REQUIREMENTS_TABLE_NAME"]
-AIRTABLE_REQUIREMENT_TEXT_COLUMN = st.secrets["AIRTABLE_REQUIREMENT_TEXT_COLUMN"]
-AIRTABLE_KEYWORDS_COLUMN = st.secrets["AIRTABLE_KEYWORDS_COLUMN"]
-AIRTABLE_RELATED_DOCS_COLUMN = st.secrets["AIRTABLE_RELATED_DOCS_COLUMN"]
-
-
-# RAG Configuration
-TOP_K_CHUNKS = 10 # Number of top relevant chunks to retrieve from Supabase
-MAX_CHAT_HISTORY_MESSAGES = 5 # Max number of previous user/assistant turns to send to LLM
-
-
-# --- Supabase Database Connection ---
-@st.cache_resource # Cache the Supabase connection
-def get_db_connection():
-    try:
-        conn = psycopg2.connect(
-            host=SUPABASE_DB_HOST,
-            port=SUPABASE_DB_PORT,
-            database=SUPABASE_DB_NAME,
-            user=SUPABASE_DB_USER,
-            password=SUPABASE_DB_PASSWORD
-        )
-        register_vector(conn) # Enable pgvector support
-        print("Successfully connected to Supabase PostgreSQL for app.")
-        return conn
-    except Exception as e:
-        st.error(f"Error connecting to Supabase PostgreSQL: {e}. Please check your Supabase connection details and ensure pgvector extension is enabled.")
-        st.stop()
-
-supabase_conn = get_db_connection()
-
-
-# --- Initialize Airtable Client and Fetch Data ---
-@st.cache_data(ttl=3600) # Cache Airtable data for 1 hour to reduce API calls
-def get_airtable_requirements_data(api_key, base_id, table_name, req_text_col, keywords_col, related_docs_col):
-    if not api_key or api_key == "YOUR_AIRTABLE_API_KEY_HERE":
-        st.warning("Airtable API key is not set. Airtable integration will be skipped.")
-        return None, {}
-
-    try:
-        table = Table(api_key, base_id, table_name)
-        all_records = table.all()
-        print(f"Airtable table '{table_name}' fetched successfully. Found {len(all_records)} records.")
-
-        description_to_info_map = {}
-        for record in all_records:
-            fields = record.get('fields', {})
-            
-            req_text = fields.get(req_text_col, "")
-            keywords = fields.get(keywords_col, "")
-            related_docs = fields.get(related_docs_col, "")
-
-            if isinstance(req_text, list):
-                req_text = ", ".join(map(str, req_text))
-            req_text = str(req_text).strip()
-
-            if isinstance(keywords, list):
-                keywords = ", ".join(map(str, keywords))
-            keywords = str(keywords).strip()
-
-            if isinstance(related_docs, list):
-                if related_docs and isinstance(related_docs[0], dict):
-                    related_docs = ", ".join([d.get('name', d.get('id', '')) for d in related_docs])
-                else:
-                    related_docs = ", ".join(map(str, related_docs))
-            related_docs = str(related_docs).strip()
-            
-            if req_text:
-                description_to_info_map[req_text] = {
-                    "keywords": keywords,
-                    "related_docs": related_docs
-                }
-        return all_records, description_to_info_map
-    except Exception as e:
-        st.error(f"Error initializing or fetching Airtable data from '{table_name}': {e}. Please check your Airtable API Key, Base ID, Table Name, and column names.")
-        return None, {}
-
-airtable_all_records, airtable_description_to_info_map = get_airtable_requirements_data(
-    AIRTABLE_API_KEY,
-    AIRTABLE_BASE_ID,
-    AIRTABLE_REQUIREMENTS_TABLE_NAME,
-    AIRTABLE_REQUIREMENT_TEXT_COLUMN,
-    AIRTABLE_KEYWORDS_COLUMN,
-    AIRTABLE_RELATED_DOCS_COLUMN
-)
-
-
-# --- Helper function to load data from JSON files (for metadata, not chunks) ---
+# --- Helper function to load data from JSON files ---
 def load_data_from_json(filename):
     file_path = os.path.join(PROCESSED_DATA_DIR, filename)
     try:
         with open(file_path, 'r', encoding='utf-8') as f:
             return json.load(f)
     except FileNotFoundError:
-        st.error(f"Error: Processed data file not found: {file_path}. Please run process_vectorize_pdfs.py first.")
-        st.stop()
+        st.error(f"Error: Processed data file not found: {file_path}. Please run process_pdfs.py first.")
+        st.stop() # Stop execution if critical files are missing
     except json.JSONDecodeError:
         st.error(f"Error: Could not decode JSON from {file_path}. File might be corrupted or empty.")
         st.stop()
@@ -131,182 +31,95 @@ def load_data_from_json(filename):
         st.error(f"An unexpected error occurred loading {file_path}: {e}")
         st.stop()
 
-# --- Load all processed metadata (excluding chunks, which are in Supabase) ---
-documents_metadata = load_data_from_json("processed_documents_metadata.json")
+# --- Load all processed data ---
+documents_data = load_data_from_json("processed_documents_metadata.json")
 checklist_data = load_data_from_json("checklist_items.json")
 discrepancy_data = load_data_from_json("discrepancies.json")
-extracted_entities_data = load_data_from_json("extracted_entities.json")
+extracted_entities_data = load_data_from_json("extracted_entities.json") # Load extracted entities
 
 
-# Helper to map doc IDs to titles from loaded metadata
+# Helper to map doc IDs to titles from loaded data
 def get_doc_title(doc_id):
-    for doc in documents_metadata:
+    for doc in documents_data:
         if doc['id'] == doc_id:
             return doc['title']
     return "Unknown Document"
 
-# Helper to get full content from loaded metadata (for display, not RAG)
+# Helper to get full content from loaded data
 def get_full_doc_content(doc_id):
-    for doc in documents_metadata:
+    for doc in documents_data:
         if doc['id'] == doc_id:
             return doc.get('full_text_content', 'Content not available.')
     return "Document content not found."
 
 # Helper to get original PDF file path for local links
 def get_original_pdf_file_path(doc_id):
-    for doc in documents_metadata:
+    for doc in documents_data:
         if doc['id'] == doc_id:
             return doc.get('original_pdf_file_path', '')
     return ""
 
 # Helper to get extracted tables for a document
 def get_extracted_tables(doc_id):
-    for doc in documents_metadata:
+    for doc in documents_data:
         if doc['id'] == doc_id:
             return doc.get('extracted_tables', [])
     return []
 
 # Helper to get extracted image paths for a document
 def get_extracted_image_paths(doc_id):
-    for doc in documents_metadata:
+    for doc in documents_data:
         if doc['id'] == doc_id:
             return doc.get('extracted_image_paths', [])
     return []
 
-# --- OpenAI Embedding Function for Query ---
-def get_query_embedding(text):
-    """Generates an embedding for the given query text using OpenAI's API."""
-    if not OPENAI_API_KEY_LLM or OPENAI_API_KEY_LLM == "YOUR_RANDOM_OPENAI_API_KEY_HERE":
-        st.error("OpenAI API key not set for query embeddings.")
-        return None
-    try:
-        response = openai_client_llm.embeddings.create(
-            input=text,
-            model="text-embedding-ada-002"
-        )
-        return response.data[0].embedding
-    except Exception as e:
-        st.error(f"Error generating query embedding: {e}")
-        return None
-
-# --- RAG Q&A Function ---
-def ask_rag_with_supabase(query, chat_history):
+# --- OpenAI Q&A Function (RAG Concept) ---
+def ask_openai_rag(query, documents_context_ids, chat_history):
     """
-    Performs RAG: retrieves relevant chunks from Supabase and Airtable,
-    and uses them as context for OpenAI LLM.
+    Asks OpenAI a question, providing document content as context and chat history.
+    Uses OpenAI API v1.0.0+ syntax.
     """
-    if not openai_client_llm.api_key or openai_client_llm.api_key == "YOUR_RANDOM_OPENAI_API_KEY_HERE":
+    # Check if API key is set
+    if not client.api_key or client.api_key == "YOUR_RANDOM_OPENAI_API_KEY_HERE":
         return "Please set your OpenAI API key in the app.py file to use this feature.", []
 
-    context_parts = []
-    source_info = set() # To keep track of unique sources (Doc IDs, Airtable records)
+    # Concatenate all document content into a single context string
+    context_text = "\n\n--- Document Context ---\n\n"
+    for doc_id in documents_context_ids:
+        content = get_full_doc_content(doc_id)
+        title = get_doc_title(doc_id)
+        context_text += f"Document: {title}\nContent:\n{content}\n\n"
 
-    # 1. Retrieve relevant chunks from Supabase (PDFs)
-    retrieved_chunks_data = []
-    try:
-        query_embedding = get_query_embedding(query)
-        if query_embedding is None:
-            context_parts.append("\n\n--- Failed to generate embedding for PDF retrieval. ---\n\n")
-        else:
-            cur = supabase_conn.cursor()
-            # Use the <-> operator for L2 distance (Euclidean distance)
-            # ORDER BY embedding <-> %s LIMIT %s finds the closest vectors
-            cur.execute(
-                f"SELECT doc_id, doc_title, chunk_index, content FROM {SUPABASE_TABLE_NAME} ORDER BY embedding <-> %s LIMIT %s;",
-                (query_embedding, TOP_K_CHUNKS)
-            )
-            retrieved_chunks_data = cur.fetchall()
-            cur.close()
-
-            if retrieved_chunks_data:
-                context_parts.append("\n\n--- Retrieved Document Context (from PDFs) ---\n\n")
-                for doc_id, doc_title, chunk_index, content in retrieved_chunks_data:
-                    source_info.add(f"PDF: {doc_title}")
-                    context_parts.append(f"Document: {doc_title} (Chunk {chunk_index})\nContent:\n{content}\n")
-            else:
-                context_parts.append("\n\n--- No relevant PDF documents found in the knowledge base. ---\n\n")
-
-    except Exception as e:
-        print(f"Error during Supabase retrieval: {e}")
-        context_parts.append(f"\n\n--- Error retrieving from PDF knowledge base (Supabase): {e} ---\n\n")
-
-    # 2. Retrieve relevant records from Airtable (if configured)
-    relevant_airtable_records = [] # Initialize here for consistent printing in debug
-    if airtable_all_records: # Check if Airtable data was successfully loaded
-        try:
-            query_lower = query.lower()
-            for record in airtable_all_records:
-                fields = record.get('fields', {})
-                req_text = str(fields.get(AIRTABLE_REQUIREMENT_TEXT_COLUMN, "")).lower()
-                keywords = str(fields.get(AIRTABLE_KEYWORDS_COLUMN, "")).lower()
-                
-                # Simple keyword matching for demonstration
-                if query_lower in req_text or any(word.strip() in query_lower for word in keywords.split(',')):
-                    relevant_airtable_records.append(record)
-
-            if relevant_airtable_records:
-                context_parts.append("\n\n--- Retrieved Structured Context (from Airtable) ---\n\n")
-                for record in relevant_airtable_records:
-                    fields = record.get('fields', {})
-                    req_text = str(fields.get(AIRTABLE_REQUIREMENT_TEXT_COLUMN, "N/A")).strip()
-                    record_id = record.get('id', 'N/A')
-                    related_docs_from_airtable = str(fields.get(AIRTABLE_RELATED_DOCS_COLUMN, "N/A")).strip()
-                    
-                    source_info.add(f"Airtable Requirement ID: {record_id} (Related Doc: {related_docs_from_airtable})")
-
-                    context_parts.append(f"Airtable Requirement (ID: {record_id}): {req_text}\n")
-            else:
-                context_parts.append("\n\n--- No relevant Airtable requirements found. ---\n\n")
-        except Exception as e:
-            print(f"Error during Airtable retrieval: {e}")
-            context_parts.append(f"\n\n--- Error retrieving from Airtable: {e} ---\n\n")
-    else:
-        context_parts.append("\n\n--- Airtable integration not configured or failed to initialize. ---\n\n")
-
-
-    final_context = "".join(context_parts)
-
-    # 3. Prepare messages for OpenAI LLM
-    messages = [
-        {"role": "system", "content": "You are an expert assistant for hydrogen aircraft certification. Your goal is to provide comprehensive and synthesized answers based on the provided document context and structured data. Combine information from all relevant sources to answer the user's question. If the information is not explicitly available in the provided context, state that you don't have enough information from the given sources. Do not make up information."}
-    ]
+    # Prepare messages for OpenAI, including chat history
+    # The system message sets the persona and rules
+    messages = [{"role": "system", "content": "You are an expert assistant for hydrogen aircraft certification. Answer questions based ONLY on the provided document context. If the answer is not in the context, state that you don't have enough information."}]
     
-    for msg in chat_history[-MAX_CHAT_HISTORY_MESSAGES:]:
+    # Add previous chat messages to maintain conversation context
+    for msg in chat_history:
+        # Ensure that only 'user' and 'assistant' roles are passed to the API
         if msg["role"] in ["user", "assistant"]:
             messages.append({"role": msg["role"], "content": msg["content"]})
     
-    messages.append({"role": "user", "content": f"Based on the following information, answer this question: {query}\n\n{final_context}"})
+    # Add the current user query with context
+    messages.append({"role": "user", "content": f"Based on the following documents, answer this question: {query}\n\n{context_text}"})
 
-    # --- Debugging prints ---
-    print(f"--- OpenAI API Call Debug (RAG) ---")
-    print(f"Query: {query}")
-    print(f"Number of retrieved PDF chunks: {len(retrieved_chunks_data)}")
-    print(f"Number of retrieved Airtable records: {len(relevant_airtable_records)}")
-    print(f"Length of combined context text: {len(final_context)} characters")
-    print(f"Total messages sent to LLM: {len(messages)}")
-    print(f"------------------------------------")
-
-    # 4. Call OpenAI LLM
     try:
-        response = openai_client_llm.chat.completions.create(
-            model="gpt-3.5-turbo",
+        response = client.chat.completions.create( # Updated API call
+            model="gpt-3.5-turbo", # You can change to "gpt-4" or other models if available
             messages=messages,
-            max_tokens=1500,
+            max_tokens=500,
             temperature=0.7
         )
+        # Accessing content from the new response object
         answer = response.choices[0].message.content 
-        return answer, list(source_info)
-    except openai.APIStatusError as e:
-        print(f"OpenAI APIStatusError: Status {e.status_code}, Response: {e.response}")
-        return f"OpenAI API Error (Status {e.status_code}): {e.response.json().get('error', {}).get('message', 'Unknown error details')}", []
-    except openai.AuthenticationError:
-        print("OpenAI AuthenticationError: Invalid OpenAI API key.")
+        return answer, documents_context_ids # Return the documents that were provided as context
+    except openai.APIStatusError as e: # New error handling for API status errors
+        return f"OpenAI API Error (Status {e.status_code}): {e.response}", []
+    except openai.AuthenticationError: # New error handling for authentication
         return "Authentication Error: Invalid OpenAI API key. Please check your key in app.py.", []
-    except openai.RateLimitError:
-        print("OpenAI RateLimitError: Rate limit exceeded.")
+    except openai.RateLimitError: # New error handling for rate limits
         return "Rate Limit Exceeded: You've sent too many requests. Please wait and try again.", []
     except Exception as e:
-        print(f"An unexpected error occurred with the OpenAI API: {e}")
         return f"An unexpected error occurred with the OpenAI API: {e}", []
 
 
@@ -327,32 +140,50 @@ st.sidebar.selectbox("Severity", ["All", "Critical", "Major", "Minor"])
 
 # --- Main Content Area ---
 if page == "Ask a Question":
-    st.header("Ask a Question (RAG Chatbot)")
+    st.header("Ask a Question (Chatbot)")
 
+    # Initialize chat history in session state if not already present
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
+    # Display chat messages from history
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    st.info("The AI will automatically retrieve relevant information from your documents (via Supabase) and Airtable to answer your questions.")
+    # Allow user to select which documents to use as context for the query
+    st.subheader("Select Documents for Context:")
+    all_doc_titles = {doc['title']: doc['id'] for doc in documents_data}
+    
+    # Use a unique key for multiselect to avoid issues with page changes
+    selected_doc_titles = st.multiselect(
+        "Choose documents to provide as context to the AI:",
+        options=list(all_doc_titles.keys()),
+        default=[list(all_doc_titles.keys())[0]] if all_doc_titles else [],
+        key="doc_context_multiselect"
+    )
+    selected_doc_ids = [all_doc_titles[title] for title in selected_doc_titles]
 
-    if prompt := st.chat_input("Ask a question about the documents and requirements..."):
+    # Chat input
+    if prompt := st.chat_input("Ask a question about the selected documents..."):
+        # Add user message to chat history
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user"):
             st.markdown(prompt)
 
-        with st.spinner("Retrieving information and asking AI..."):
-            answer, sources_used = ask_rag_with_supabase(prompt, st.session_state.messages) # Changed function call
+        # Get AI response
+        with st.spinner("Asking AI..."):
+            answer, sources_used = ask_openai_rag(prompt, selected_doc_ids, st.session_state.messages) # Pass chat history
             
+            # Add AI response to chat history
             st.session_state.messages.append({"role": "assistant", "content": answer})
             with st.chat_message("assistant"):
                 st.markdown(answer)
                 if sources_used:
-                    st.caption(f"Answer based on: {', '.join(sources_used)}")
+                    source_titles = [get_doc_title(d_id) for d_id in sources_used]
+                    st.caption(f"Sources Provided as Context: {', '.join(source_titles)}")
                 else:
-                    st.caption("No specific sources found relevant to this query.")
+                    st.caption("No specific sources provided or available.")
 
 
 elif page == "Checklist Overview":
@@ -369,18 +200,10 @@ elif page == "Checklist Overview":
     if status_filter != "All":
         filtered_df = filtered_df[filtered_df['status'] == status_filter]
 
-    # Add Keywords column by mapping from Airtable data
-    filtered_df['Keywords'] = filtered_df['description'].apply(
-        lambda desc: airtable_description_to_info_map.get(desc.strip(), {}).get(AIRTABLE_KEYWORDS_COLUMN, "N/A")
-    )
-    # Also get related docs from Airtable for better accuracy if available
-    filtered_df['Related Documents (from Airtable)'] = filtered_df['description'].apply(
-        lambda desc: airtable_description_to_info_map.get(desc.strip(), {}).get(AIRTABLE_RELATED_DOCS_COLUMN, "N/A")
-    )
-
+    filtered_df['Related Documents'] = filtered_df['related_docs'].apply(lambda doc_ids: ", ".join([get_doc_title(d_id) for d_id in doc_ids]))
     filtered_df['Related Entities'] = filtered_df['related_entities'].apply(lambda x: ", ".join(x))
 
-    display_cols = ['id', 'description', 'Keywords', 'Related Documents (from Airtable)', 'relevant_section', 'Related Entities', 'status', 'associated_discrepancy', 'notes']
+    display_cols = ['id', 'description', 'Related Documents', 'relevant_section', 'Related Entities', 'status', 'associated_discrepancy', 'notes']
     st.dataframe(filtered_df[display_cols], height=400, use_container_width=True)
 
     st.subheader("Update Checklist Item (Example)")
@@ -421,7 +244,7 @@ elif page == "Discrepancy Tracker":
 
 elif page == "Document Explorer":
     st.header("Document Library & Extracted Insights")
-    df_docs = pd.DataFrame(documents_metadata)
+    df_docs = pd.DataFrame(documents_data)
 
     st.subheader("Search Documents:")
     doc_search = st.text_input("Search document titles or topics:")
@@ -444,7 +267,7 @@ elif page == "Document Explorer":
         st.write(f"**Discrepancies Detected:** {row['num_discrepancies']}")
         
         content_preview = row.get('full_text_content', 'Content not available.')
-        st.write(f"**Sample Text Content:** *{content_preview[:300]}...*")
+        st.write(f"**Sample Text Content:** *{content_preview[:300]}...*") # Show first 300 chars
 
         tables = get_extracted_tables(row['id'])
         if tables:
@@ -466,12 +289,12 @@ elif page == "Document Explorer":
                 else:
                     st.write(f"Image not found: {os.path.basename(img_path)}")
         
-        st.markdown("---")
+        st.markdown("---") # Separator
 
 elif page == "Document Comparator":
     st.header("Compare Two Documents")
     
-    doc_options = {doc['title']: doc['id'] for doc in documents_metadata}
+    doc_options = {doc['title']: doc['id'] for doc in documents_data}
     
     if len(doc_options) < 2:
         st.warning("Please process at least two documents to use the Document Comparator.")
@@ -491,7 +314,7 @@ elif page == "Document Comparator":
         with col1:
             st.subheader(f"Document 1: {selected_title_1}")
             st.text_area("Full Text Content:", get_full_doc_content(doc_id_1), height=300)
-            st.markdown(f"**Key Topics:** {', '.join([d['key_topics'] for d in documents_metadata if d['id'] == doc_id_1][0])}")
+            st.markdown(f"**Key Topics:** {', '.join([d['key_topics'] for d in documents_data if d['id'] == doc_id_1][0])}")
             st.markdown(f"**Extracted Entities (Simulated):**")
             for entity in extracted_entities_data.get(doc_id_1, []):
                 st.markdown(f"- {entity['text']} (`{entity['type']}`)")
@@ -521,7 +344,7 @@ elif page == "Document Comparator":
         with col2:
             st.subheader(f"Document 2: {selected_title_2}")
             st.text_area("Full Text Content:", get_full_doc_content(doc_id_2), height=300)
-            st.markdown(f"**Key Topics:** {', '.join([d['key_topics'] for d in documents_metadata if d['id'] == doc_id_2][0])}")
+            st.markdown(f"**Key Topics:** {', '.join([d['key_topics'] for d in documents_data if d['id'] == doc_id_2][0])}")
             st.markdown(f"**Extracted Entities (Simulated):**")
             for entity in extracted_entities_data.get(doc_id_2, []):
                 st.markdown(f"- {entity['text']} (`{entity['type']}`)")
@@ -550,7 +373,7 @@ elif page == "Document Comparator":
         st.markdown("---")
         st.subheader("Comparison Result (Simulated Discrepancy Detection)")
 
-        # Updated comparison logic to use the exact titles loaded from documents_metadata
+        # Updated comparison logic to use the exact titles loaded from documents_data
         if ("1. tc19-16 - Energy Supply Device ARC Recommendation Report.pdf" in selected_title_1 and "2. tc18-49 - Failure Mode and Effects Analysis on PEM Fuel Cell Systems for Aircraft Power Applications.pdf" in selected_title_2) or \
            ("2. tc18-49 - Failure Mode and Effects Analysis on PEM Fuel Cell Systems for Aircraft Power Applications.pdf" in selected_title_1 and "1. tc19-16 - Energy Supply Device ARC Recommendation Report.pdf" in selected_title_2):
             st.warning("🚨 **Potential Discrepancy Detected!**")

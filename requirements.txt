@@ -7,5 +7,6 @@ fitz
 Pillow
 tabula-py
 pdfminer.six
-psycopg2-binary # Will be needed for Supabase
-supabase # Will be needed for Supabase
+psycopg2-binary
+pgvector
+supabase
