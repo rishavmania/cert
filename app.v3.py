@@ -5,24 +5,21 @@ import json
 import openai
 from openai import OpenAI
 import io
-import psycopg2 # For PostgreSQL connection
-from pgvector.psycopg2 import register_vector # For pgvector support
+import requests
 from pyairtable import Table # For Airtable
+from supabase import create_client, Client
 
 # --- Configuration Constants ---
 # Directory where processed JSON data is stored (still needed for metadata JSONs)
-PROCESSED_DATA_DIR = r"C:\Users\drris\Downloads\SLapp\pdfs\processed_data"
+GITHUB_RAW_BASE = "https://raw.githubusercontent.com/rishavmania/cert/main/processed_data"
 
 # OpenAI API Key for LLM calls (gpt-3.5-turbo) and Query Embeddings
 OPENAI_API_KEY_LLM = st.secrets["OPENAI_API_KEY_LLM"]
 openai_client_llm = OpenAI(api_key=OPENAI_API_KEY_LLM)
 
 # Supabase Configuration
-SUPABASE_DB_HOST = st.secrets["SUPABASE_DB_HOST"]
-SUPABASE_DB_PORT = st.secrets["SUPABASE_DB_PORT"]
-SUPABASE_DB_NAME = st.secrets["SUPABASE_DB_NAME"]
-SUPABASE_DB_USER = st.secrets["SUPABASE_DB_USER"]
-SUPABASE_DB_PASSWORD = st.secrets["SUPABASE_DB_PASSWORD"]
+SUPABASE_URL = st.secrets["SUPABASE_URL"]
+SUPABASE_KEY= st.secrets["SUPABASE_KEY"]
 SUPABASE_TABLE_NAME = st.secrets["SUPABASE_TABLE_NAME"]
 
 # Airtable Configuration
@@ -37,27 +34,13 @@ AIRTABLE_RELATED_DOCS_COLUMN = st.secrets["AIRTABLE_RELATED_DOCS_COLUMN"]
 # RAG Configuration
 TOP_K_CHUNKS = 10 # Number of top relevant chunks to retrieve from Supabase
 MAX_CHAT_HISTORY_MESSAGES = 5 # Max number of previous user/assistant turns to send to LLM
-
+EMBEDDING_MODEL             = "text-embedding-3-small"
+CHAT_MODEL                  = "gpt-3.5-turbo"
 
 # --- Supabase Database Connection ---
-@st.cache_resource # Cache the Supabase connection
-def get_db_connection():
-    try:
-        conn = psycopg2.connect(
-            host=SUPABASE_DB_HOST,
-            port=SUPABASE_DB_PORT,
-            database=SUPABASE_DB_NAME,
-            user=SUPABASE_DB_USER,
-            password=SUPABASE_DB_PASSWORD
-        )
-        register_vector(conn) # Enable pgvector support
-        print("Successfully connected to Supabase PostgreSQL for app.")
-        return conn
-    except Exception as e:
-        st.error(f"Error connecting to Supabase PostgreSQL: {e}. Please check your Supabase connection details and ensure pgvector extension is enabled.")
-        st.stop()
 
-supabase_conn = get_db_connection()
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+data = supabase.table("documents").select("*").execute()
 
 
 # --- Initialize Airtable Client and Fetch Data ---
@@ -116,26 +99,23 @@ airtable_all_records, airtable_description_to_info_map = get_airtable_requiremen
 
 
 # --- Helper function to load data from JSON files (for metadata, not chunks) ---
-def load_data_from_json(filename):
-    file_path = os.path.join(PROCESSED_DATA_DIR, filename)
+def load_json_from_github(filename):
+    """
+    Fetches a JSON file from the GitHub raw URL and returns its contents.
+    """
+    url = f"{GITHUB_RAW_BASE}/{filename}"
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        st.error(f"Error: Processed data file not found: {file_path}. Please run process_vectorize_pdfs.py first.")
+        resp = requests.get(url, timeout=10)
+        resp.raise_for_status()
+        return resp.json()
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error loading {filename} from GitHub: {e}")
         st.stop()
-    except json.JSONDecodeError:
-        st.error(f"Error: Could not decode JSON from {file_path}. File might be corrupted or empty.")
-        st.stop()
-    except Exception as e:
-        st.error(f"An unexpected error occurred loading {file_path}: {e}")
-        st.stop()
-
 # --- Load all processed metadata (excluding chunks, which are in Supabase) ---
-documents_metadata = load_data_from_json("processed_documents_metadata.json")
-checklist_data = load_data_from_json("checklist_items.json")
-discrepancy_data = load_data_from_json("discrepancies.json")
-extracted_entities_data = load_data_from_json("extracted_entities.json")
+documents_metadata   = load_json_from_github("processed_documents_metadata.json")
+checklist_data       = load_json_from_github("checklist_items.json")
+discrepancy_data     = load_json_from_github("discrepancies.json")
+extracted_entities_data   = load_json_from_github("extracted_entities.json")
 
 
 # Helper to map doc IDs to titles from loaded metadata
@@ -173,7 +153,18 @@ def get_extracted_image_paths(doc_id):
             return doc.get('extracted_image_paths', [])
     return []
 
-# --- OpenAI Embedding Function for Query ---
+# --------------------------------------------------------------------------
+# 5. VECTOR SEARCH via Supabase RPC
+# --------------------------------------------------------------------------
+
+def pg_vector_search(query_embedding, k=TOP_K_CHUNKS):
+    """Calls the match_documents(query_embedding, k) RPC."""
+    response = supabase.rpc(
+        "match_documents",
+        {"query_embedding": query_embedding, "match_count": k}
+    ).execute()
+    return response.data or []
+
 def get_query_embedding(text):
     """Generates an embedding for the given query text using OpenAI's API."""
     if not OPENAI_API_KEY_LLM or OPENAI_API_KEY_LLM == "YOUR_RANDOM_OPENAI_API_KEY_HERE":
@@ -204,27 +195,26 @@ def ask_rag_with_supabase(query, chat_history):
     # 1. Retrieve relevant chunks from Supabase (PDFs)
     retrieved_chunks_data = []
     try:
-        query_embedding = get_query_embedding(query)
-        if query_embedding is None:
+        embed = get_query_embedding(query)
+        if embed is None:
             context_parts.append("\n\n--- Failed to generate embedding for PDF retrieval. ---\n\n")
         else:
-            cur = supabase_conn.cursor()
-            # Use the <-> operator for L2 distance (Euclidean distance)
-            # ORDER BY embedding <-> %s LIMIT %s finds the closest vectors
-            cur.execute(
-                f"SELECT doc_id, doc_title, chunk_index, content FROM {SUPABASE_TABLE_NAME} ORDER BY embedding <-> %s LIMIT %s;",
-                (query_embedding, TOP_K_CHUNKS)
-            )
-            retrieved_chunks_data = cur.fetchall()
-            cur.close()
-
-            if retrieved_chunks_data:
-                context_parts.append("\n\n--- Retrieved Document Context (from PDFs) ---\n\n")
-                for doc_id, doc_title, chunk_index, content in retrieved_chunks_data:
-                    source_info.add(f"PDF: {doc_title}")
-                    context_parts.append(f"Document: {doc_title} (Chunk {chunk_index})\nContent:\n{content}\n")
+            rows  = pg_vector_search(embed, TOP_K_CHUNKS)
+            context_parts, source_info = [], set()
+            if rows:
+                context_parts.append("\n\n--- Retrieved PDF chunks ---\n")
+                for r in rows:
+                    # doc_id = row['doc_id']
+                    # doc_title = row['doc_title']
+                    # chunk_index = row['chunk_index']
+                    # content = row['content']
+                    # source_info.add(f"PDF: {doc_title}")
+                    context_parts.append(
+                        f"[{r['doc_title']} – chunk {r['chunk_index']}]\n{r['content']}\n"
+                    )
+                    source_info.add(f"PDF: {r['doc_title']}")
             else:
-                context_parts.append("\n\n--- No relevant PDF documents found in the knowledge base. ---\n\n")
+                context_parts.append("\nNo relevant PDF chunks found.\n")
 
     except Exception as e:
         print(f"Error during Supabase retrieval: {e}")
@@ -262,8 +252,6 @@ def ask_rag_with_supabase(query, chat_history):
             context_parts.append(f"\n\n--- Error retrieving from Airtable: {e} ---\n\n")
     else:
         context_parts.append("\n\n--- Airtable integration not configured or failed to initialize. ---\n\n")
-
-
     final_context = "".join(context_parts)
 
     # 3. Prepare messages for OpenAI LLM
@@ -274,7 +262,6 @@ def ask_rag_with_supabase(query, chat_history):
     for msg in chat_history[-MAX_CHAT_HISTORY_MESSAGES:]:
         if msg["role"] in ["user", "assistant"]:
             messages.append({"role": msg["role"], "content": msg["content"]})
-    
     messages.append({"role": "user", "content": f"Based on the following information, answer this question: {query}\n\n{final_context}"})
 
     # --- Debugging prints ---
@@ -553,7 +540,7 @@ elif page == "Document Comparator":
         # Updated comparison logic to use the exact titles loaded from documents_metadata
         if ("1. tc19-16 - Energy Supply Device ARC Recommendation Report.pdf" in selected_title_1 and "2. tc18-49 - Failure Mode and Effects Analysis on PEM Fuel Cell Systems for Aircraft Power Applications.pdf" in selected_title_2) or \
            ("2. tc18-49 - Failure Mode and Effects Analysis on PEM Fuel Cell Systems for Aircraft Power Applications.pdf" in selected_title_1 and "1. tc19-16 - Energy Supply Device ARC Recommendation Report.pdf" in selected_title_2):
-            st.warning("🚨 **Potential Discrepancy Detected!**")
+            st.warning("**Potential Discrepancy Detected!**")
             st.markdown("**Nature of Conflict:**")
             st.write("These documents likely present a temperature operating range discrepancy. One may allow up to +85°C for hydrogen fuel cells, while the other specifies a maximum of 80°C for PEM fuel cell systems. This requires clarity for PEM-specific limits.")
             st.write("This aligns with **Discrepancy ID: `disc_001`** in the Discrepancy Tracker.")
