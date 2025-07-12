@@ -11806,21 +11806,6 @@ CV1  1.  fail close
 
 check valve CV1 
 
-41.  Fuel cell stack anode 
-
-FC1-H2 
-
-42.  Fuel cell stack 
-
-cathode FC1-O2 
-
-43.  Fuel cell stack 
-coolant FC1-C 
-
-D
--
-8
-
 2.  fail partially open 
 
 1.  none on standby 
@@ -11832,6 +11817,17 @@ D
 1  1.  internal failure 
 
 1  1.  internal failure 
+
+41.  Fuel cell stack anode 
+
+FC1-H2 
+
+42.  Fuel cell stack 
+
+cathode FC1-O2 
+
+43.  Fuel cell stack 
+coolant FC1-C 
 
 1.  external gas leak 
 
@@ -11854,6 +11850,10 @@ FC1-C 1.  cross leak coolant to
 anode 
 
 catalyst 
+
+D
+-
+8
 
 2.  flooding anode 
 
