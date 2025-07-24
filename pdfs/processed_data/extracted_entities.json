@@ -1,0 +1,64 @@
+{
+    "doc_1": [
+        {
+            "text": "hydrogen fuel cells",
+            "type": "AIRCRAFT_SYSTEM"
+        },
+        {
+            "text": "-40C",
+            "type": "TEMPERATURE"
+        }
+    ],
+    "doc_2": [
+        {
+            "text": "PEM fuel cell systems",
+            "type": "AIRCRAFT_SYSTEM"
+        },
+        {
+            "text": "80C",
+            "type": "TEMPERATURE"
+        }
+    ],
+    "doc_3": [
+        {
+            "text": "ASTM E1354",
+            "type": "CERTIFICATION_STANDARD"
+        }
+    ],
+    "doc_4": [
+        {
+            "text": "fuel tank flammability",
+            "type": "SAFETY_ASPECT"
+        }
+    ],
+    "doc_5": [
+        {
+            "text": "safety management system",
+            "type": "SYSTEM"
+        }
+    ],
+    "doc_6": [
+        {
+            "text": "aircraft fuel cell system",
+            "type": "AIRCRAFT_SYSTEM"
+        }
+    ],
+    "doc_7": [
+        {
+            "text": "Fuel Cell Containment",
+            "type": "SAFETY_ASPECT"
+        }
+    ],
+    "doc_8": [
+        {
+            "text": "Abusive Testing",
+            "type": "SAFETY_ASPECT"
+        }
+    ],
+    "doc_9": [
+        {
+            "text": "Regenerative Fuel Cell",
+            "type": "AIRCRACT_APPLICATIONS"
+        }
+    ]
+}
